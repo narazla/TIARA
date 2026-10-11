@@ -290,3 +290,8 @@ Additional project documentation is in [`docs/`](docs/):
 </td>
 </tr>
 </table>
+
+---
+
+Built for **IBM SkillsBuild University Education National Hackathon 2026**  
+**Hacktiv8 x IBM x Komdigi**

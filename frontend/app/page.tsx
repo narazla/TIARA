@@ -3,8 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ConnectWallet } from "@/components/shared/ConnectWallet";
-import { LiveOnChainStatus } from "@/components/shared/LiveOnChainStatus";
 import {
   Shield,
   Heart,
@@ -69,7 +67,6 @@ export default function LandingPage() {
           </div>
 
           <div className="flex items-center gap-4">
-            <ConnectWallet />
             <Link
               href="/login"
               className="text-sm font-semibold text-white/80 hover:text-white transition-colors"
@@ -105,12 +102,12 @@ export default function LandingPage() {
               variants={fadeIn}
               className="text-5xl lg:text-[56px] font-bold font-serif-editorial leading-[1.12] mb-6 text-foreground tracking-tight"
             >
-              Immutable cognitive insights, <span className="font-serif italic block lg:inline text-foreground/95">secured on-chain.</span>
+              Compassionate cognitive care, <span className="font-serif italic block lg:inline text-foreground/95">guided by AI.</span>
             </motion.h1>
 
             <motion.p variants={fadeIn} className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">
-              TIARA — BOT Chain Care DApp helps families notice early cognitive changes through
-              AI-guided check-ins, longitudinal analysis, and secure care checkpoints anchored on BOT Chain.
+              TIARA helps families notice early cognitive changes through
+              AI-guided check-ins, longitudinal analysis, and personalized dementia guidance for caregivers.
             </motion.p>
 
             {/* Main Action Button */}
@@ -123,9 +120,6 @@ export default function LandingPage() {
               </Link>
             </motion.div>
 
-            <motion.div variants={fadeIn} className="mt-8 max-w-lg">
-              <LiveOnChainStatus />
-            </motion.div>
           </motion.div>
         </div>
 
@@ -188,13 +182,13 @@ export default function LandingPage() {
                 step: "03",
                 icon: Activity,
                 title: "Trend Monitoring",
-                desc: "Cognitive indicators are tracked over time and cryptographically recorded to surface meaningful changes with tamper-proof historical logs.",
+                desc: "Cognitive indicators are tracked over time to surface meaningful changes and emerging patterns.",
               },
               {
                 step: "04",
                 icon: Users,
                 title: "Caregiver Support",
-                desc: "Caregivers receive insights, alerts, and care recommendations on a protected dashboard accessed securely through Web3 wallet authentication.",
+                desc: "Caregivers receive insights, alerts, and care recommendations on a secure PIN-protected dashboard.",
               },
             ].map(({ step, icon: Icon, title, desc }) => (
               <motion.div
@@ -330,10 +324,6 @@ export default function LandingPage() {
                   {
                     title: "PIN-protected caregiver access",
                     desc: "Clinical indicators are only visible to caregivers through a secure PIN.",
-                  },
-                  {
-                    title: "Web3-secured patient privacy",
-                    desc: "Sensitive cognitive logs stay off-chain while cryptographic hashes and authorized wallet access protect the longitudinal care record.",
                   },
                   {
                     title: "Always encourages clinical consultation",

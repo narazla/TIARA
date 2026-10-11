@@ -1,5 +1,15 @@
 # TIARA — AI Cognitive Care Platform
 
+<br>
+<div align="left">
+  <img
+    src="https://drive.google.com/uc?export=view&id=1dUp6ivua4Vf6c_AFTg3gRGn2PuY_I98f"
+    alt="TIARA"
+    style="width:100%; max-width:1400px;"
+  />
+</div>
+<br>
+
 > **Medical disclaimer:** TIARA is not a medical diagnosis tool. It provides informational cognitive trend monitoring and caregiver support only, and does not replace professional clinical assessment. Always consult a qualified healthcare professional for medical advice.
 
 ---

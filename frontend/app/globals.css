@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #FAF6EF;
+  --color-foreground: #2F3432;
+  
+  --color-card: #FFFDF8;
+  --color-card-foreground: #2F3432;
+  
+  --color-popover: #FFFDF8;
+  --color-popover-foreground: #2F3432;
+  
+  --color-primary: #7A9E7E;
+  --color-primary-foreground: #FFFDF8;
+  
+  --color-primary-dark: #5F8764;
+  
+  --color-secondary: #F4EDE3;
+  --color-secondary-foreground: #2F3432;
+  
+  --color-muted: #F4EDE3;
+  --color-muted-foreground: #6F7772;
+  
+  --color-accent: #3F7C78;
+  --color-accent-foreground: #FFFDF8;
+  
+  --color-destructive: #D96C6C;
+  --color-destructive-foreground: #FFFDF8;
+  
+  --color-border: #E8DED2;
+  --color-input: #DED3C4;
+  --color-ring: #7A9E7E;
+
+  --color-warning: #E8B95E;
+  --color-terracotta: #D98C6A;
+  
+  --color-tiara-primary: #7A9E7E;
+  --color-tiara-primary-dark: #5F8764;
+  --color-tiara-accent: #3F7C78;
+  --color-tiara-warm: #E8B95E;
+  --color-tiara-soft: #F4EDE3;
+  --color-tiara-low: #7A9E7E;
+  --color-tiara-medium: #E8B95E;
+  --color-tiara-high: #D96C6C;
+}
+
+@layer base {
+  :root {
+    --background: 36 30% 96%; /* #FAF6EF */
+    --foreground: 156 4% 19%;  /* #2F3432 */
+    --card: 45 60% 99%;       /* #FFFDF8 */
+    --card-foreground: 156 4% 19%;
+    --popover: 45 60% 99%;
+    --popover-foreground: 156 4% 19%;
+    --primary: 127 18% 55%;   /* #7A9E7E */
+    --primary-foreground: 45 60% 99%;
+    --secondary: 35 23% 92%;  /* #F4EDE3 */
+    --secondary-foreground: 156 4% 19%;
+    --muted: 35 23% 92%;
+    --muted-foreground: 156 3% 45%; /* #6F7772 */
+    --accent: 177 33% 37%;    /* #3F7C78 */
+    --accent-foreground: 45 60% 99%;
+    --destructive: 0 54% 64%; /* #D96C6C */
+    --destructive-foreground: 45 60% 99%;
+    --border: 33 22% 87%;     /* #E8DED2 */
+    --input: 33 20% 82%;      /* #DED3C4 */
+    --ring: 127 18% 55%;
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Editorial headers */
+  .font-serif-editorial {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  /* Warm cards */
+  .warm-card {
+    @apply bg-card border border-border rounded-[24px] shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  /* Warm input controls */
+  .warm-input {
+    @apply w-full bg-card border border-input rounded-xl px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+  }
+
+  /* Warm badges */
+  .risk-badge-low {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold
+           bg-primary/10 text-primary-dark border border-primary/20;
+  }
+
+  .risk-badge-medium {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold
+           bg-warning/15 text-amber-700 border border-warning/30;
+  }
+
+  .risk-badge-high {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold
+           bg-destructive/15 text-destructive border border-destructive/30;
+  }
+
+  /* Glass card effect (warm tone) */
+  .glass-card {
+    @apply bg-card/90 backdrop-blur-md border border-border shadow-md;
+  }
+
+  /* Elderly-friendly large button */
+  .btn-elderly {
+    @apply flex items-center justify-center gap-4 rounded-[20px] px-8 py-5 text-xl font-bold
+           transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg
+           hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm;
+  }
+
+  /* Caregiver sidebar item */
+  .sidebar-item {
+    @apply flex items-center gap-3 rounded-xl px-4 py-3 text-base font-semibold
+           transition-all cursor-pointer;
+  }
+
+  .sidebar-item-active {
+    @apply bg-primary/15 text-primary-dark border-l-4 border-primary;
+  }
+
+  .sidebar-item-inactive {
+    @apply text-muted-foreground hover:bg-secondary hover:text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-gradient-warm {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #7A9E7E 0%, #3F7C78 100%);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .pulse-ring {
+    animation: pulseRing 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+
+  @keyframes pulseRing {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(122, 158, 126, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(122, 158, 126, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(122, 158, 126, 0); }
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}

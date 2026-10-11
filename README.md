@@ -1,122 +1,151 @@
-# TIARA — BOT Chain Care DApp
+# TIARA — AI Cognitive Care Platform
 
-Live app: https://www.tiaracare.my.id, 
-X: https://x.com/tiaracareai
+> **Medical disclaimer:** TIARA is not a medical diagnosis tool. It provides informational cognitive trend monitoring and caregiver support only, and does not replace professional clinical assessment. Always consult a qualified healthcare professional for medical advice.
 
-<br>
-<div align="left">
-  <img
-    src="https://drive.google.com/uc?export=view&id=1rhJCGPOvsYHlw2Tl5m5wh-WzsWgavw_K"
-    alt="TIARA DApp"
-    style="width:100%; max-width:1400px;"
-  />
-</div>
-<br>
+---
 
-> **Medical disclaimer:** TIARA is not a medical diagnosis tool. It provides informational cognitive trend monitoring and caregiver support only, and does not replace professional clinical assessment.
+## Ringkasan (Indonesian)
+
+TIARA (Thinking, Interaction, And Recall Assistant) adalah platform perawatan kognitif berbasis AI yang membantu keluarga mendeteksi perubahan kognitif dini pada lansia melalui sesi check-in harian berbasis video dan audio. Platform ini menyediakan dashboard terlindungi PIN untuk caregiver berisi tren risiko, peringatan, dan rekomendasi perawatan. TIARA juga dilengkapi Dementia Guidance AI — chatbot yang menjawab pertanyaan caregiver berdasarkan dokumen PNPK Tata Laksana Demensia dan panduan caregiver Kemenkes, kini diintegrasikan dengan IBM Bob melalui Langflow MCP. TIARA bukan alat diagnosis medis; seluruh hasil bersifat indikatif dan informatif.
+
+---
 
 ## Overview
 
-TIARA (Thinking, Interaction, And Recall Assistant) is an AI-powered cognitive care platform that supports families and caregivers.
+TIARA addresses a gap in early cognitive care for older adults and their families. Informal caregivers often lack timely, evidence-based guidance; clinical teams lack longitudinal data between appointments; and the older adult themselves needs a gentle, non-clinical daily interaction rather than a medical test.
 
-TIARA helps families notice early cognitive changes through daily AI-guided check-ins (voice, video and language signals) and gives caregivers a PIN-protected dashboard with trends, alerts and recommendations. For this hackathon we added a Dementia Guidance chatbot grounded in Indonesian medical documents (RAG) and a smart contract on BOT Chain Mainnet where any answer can be minted as a permanent, publicly verifiable wisdom log.
+TIARA brings three experiences together in one platform:
+
+- **Older adults** complete a gentle daily check-in through their device camera and microphone, guided by AI questions.
+- **Caregivers** access a PIN-protected dashboard that aggregates cognitive risk trends, smart alerts, AI care recommendations, and a dementia guidance chat.
+- **Healthcare workers** monitor patients, review longitudinal session data, and access monthly reports.
+
+---
 
 ## Core User Flows
 
 ```text
 Older adult:
-Login -> Home -> Daily check-in -> Video/audio capture -> Supportive result
+  Login → Home → Daily check-in → Video/audio capture → Supportive result page
 
 Caregiver:
-Login -> Caregiver PIN -> Dashboard -> Alerts -> Recommendations -> Guidance AI -> Reports
+  Login → Caregiver PIN → Dashboard → Alerts → Recommendations → Dementia Guidance AI → Reports
 
 Healthcare worker:
-Login -> Patient monitoring -> Session history -> Longitudinal trends
+  Login → Patient monitoring → Session history → Longitudinal trends → Monthly reports
 ```
+
+---
 
 ## Features
 
-- **Daily video/audio check-in:** AI-guided questions with consent-based media capture.
-- **AI analysis pipeline:** Transcription, voice feature extraction, language analysis, and risk scoring.
-- **Caregiver dashboard:** Cognitive trend charts, patient summaries, alerts, and recommendations.
-- **Dementia Guidance AI:** Answers are retrieved from validated documents (PNPK Dementia, Kemenkes caregiver guide) using RAG (multilingual-e5-large + FAISS), generated with Gemini, and returned in the language of the question.
-- **Role-based access:** Separate elderly, caregiver, and healthcare worker flows.
-- **Caregiver PIN protection:** An additional access step for sensitive caregiver insights.
-- **On-chain Wisdom Log:** After the Dementia Guidance AI answers, the caregiver clicks the mint button in the chat. MetaMask asks them to sign a transaction that stores the question, the answer and a timestamp in the TiaraWisdomLog contract on BOT Chain Mainnet. Entries are public and verifiable on the block explorer. Only Q&A pairs that a user chooses to mint go on-chain; check-in data, reports and patient records stay in the app database.
+- **Daily video/audio check-in** — AI-guided spoken questions with consent-based camera and microphone capture.
+- **AI analysis pipeline** — Transcription (faster-whisper), voice feature extraction (librosa), language analysis, basic facial analysis (OpenCV), and composite cognitive risk scoring.
+- **Caregiver dashboard** — Cognitive risk trend charts (30-day), patient summary, smart alerts feed, AI care recommendations grouped by category, and monthly reports.
+- **Dementia Guidance AI** — Answers caregiver questions by retrieving relevant passages from validated Indonesian medical documents (PNPK Tata Laksana Demensia, Kemenkes caregiver guide) using a FAISS vector index and multilingual-e5-large embeddings, then synthesizing a response with Gemini. Responds in the language of the question.
+- **Role-based access** — Separate flows and protected routes for older adults, caregivers, and healthcare workers.
+- **Caregiver PIN protection** — A secondary access step required to enter the caregiver dashboard, independent of the main login session.
 
-## Deployment & Smart Contract
+---
 
-The smart contract source code is located in [`contracts/WisdomLog.sol`](contracts/WisdomLog.sol). TIARA's deployed contract is available on both networks:
+## IBM Bob + Langflow Integration
 
-| Network | Chain ID | Contract Name | Address / Explorer Link |
-|---|---|---|---|
-| **BOT Chain Testnet** | `968` | TiaraWisdomLog | `0x9E71519cD8C72379caD79c6A6Fc5bf5FF261b149` ([View on Explorer](https://scan.bohr.life/address/0x9E71519cD8C72379caD79c6A6Fc5bf5FF261b149)) |
-| **BOT Chain Mainnet** | `677` | TiaraWisdomLog | `0x9E71519cD8C72379caD79c6A6Fc5bf5FF261b149` ([View on Explorer](https://scan.botchain.ai/address/0x9E71519cD8C72379caD79c6A6Fc5bf5FF261b149)) |
+TIARA's Dementia Guidance capability is also exposed as an MCP (Model Context Protocol) tool through Langflow, making it callable directly from IBM Bob.
 
-The address is the same on both networks (same deployer wallet and nonce).
+### How it works
 
-### BOT Chain network configuration
+1. **Langflow agent** — A flow named `TIARA` is configured in Langflow Desktop with a single tool: `answer_from_dementia_guidelines`. The agent is loaded with the PNPK Tata Laksana Demensia and the Kemenkes caregiver guide as document context.
+2. **MCP server** — Langflow exposes the project as an MCP server at:
+   ```
+   http://localhost:7860/api/v1/mcp/project/<project-id>/streamable
+   ```
+3. **Bob as MCP client** — IBM Bob connects to this MCP server via `mcp-proxy` (configured in `~/.bob/settings/mcp.json`). The tool `answer_from_dementia_guidelines` then appears in Bob's tool list and can be invoked in any Bob conversation.
 
-- **Network:** BOT Chain Mainnet
-- **Chain ID:** `677` (`0x2A5`)
-- **RPC URL:** `https://rpc.botchain.ai`
-- **Block explorer:** `https://scan.botchain.ai`
-- **Native currency:** BOT
+### Guardrails
 
-- **Network:** BOT Chain Testnet
-- **Chain ID:** `968`
-- **RPC URL:** `https://rpc.bohr.life`
-- **Block explorer:** `https://scan.bohr.life`
-- **Native currency:** BOT
+- The agent answers only from the loaded document context. If a question falls outside the documents, it acknowledges the gap rather than guessing.
+- It does not provide medical diagnoses or specific medication dosages.
+- It always directs the caregiver to a healthcare professional when the question requires clinical judgment.
 
-## How to Use the Live Application
+### Bob MCP config (`~/.bob/settings/mcp.json`)
 
-1. Open https://www.tiaracare.my.id
-2. Log in with the caregiver demo account, then enter PIN `123456`.
-3. Open the Dementia Guidance tab and ask a question or click a suggested one.
-4. Click the **Save to wisdom log** button under the answer and approve in MetaMask. BOT Chain Mainnet is added or switched automatically. Minting costs about 0.01 BOT in gas.
-5. Click the **view transaction** link to see the entry on scan.botchain.ai.
+```json
+{
+  "mcpServers": {
+    "lf-tiara": {
+      "command": "uvx",
+      "args": [
+        "mcp-proxy",
+        "--transport",
+        "streamablehttp",
+        "http://localhost:7860/api/v1/mcp/project/<your-project-id>/streamable"
+      ],
+      "timeout": 300000
+    }
+  }
+}
+```
 
-## Demo Accounts
+> Replace `<your-project-id>` with the UUID shown in Langflow → your project → MCP Server tab.
 
-The seeded development environment includes these demo accounts:
+---
 
-| Role | Email | Password |
-|---|---|---|
-| Older adult | `elderly@tiara.app` | `password123` |
-| Caregiver | `caregiver@tiara.app` | `password123` |
-| Healthcare worker | `doctor@tiara.app` | `password123` |
+## Responsible AI
 
-**Caregiver dashboard PIN:** `123456`
+| Principle | Implementation |
+|---|---|
+| Informed consent | Camera and microphone access requires explicit per-session consent |
+| Caregiver privacy | Dashboard requires a separate PIN; JWT tokens expire |
+| Role separation | Elderly, caregiver, and healthcare worker flows are fully separated |
+| Medical disclaimer | Shown at every result and in-app guidance screen |
+| Evidence-based guidance | RAG retrieves from official Indonesian clinical documents only |
+| Human oversight | All AI results are indicators; clinical decisions remain with healthcare professionals |
+| No hallucination guardrail | Guidance AI acknowledges when a question is not covered by the source documents |
+
+---
 
 ## Technology Stack
 
 | Layer | Technology |
 |---|---|
-| Frontend | Next.js, TypeScript, Tailwind CSS, Framer Motion, Recharts |
-| Backend | FastAPI, Python, SQLAlchemy, PostgreSQL, Alembic |
-| Authentication | JWT, bcrypt, caregiver PIN protection |
-| AI and media | Google GenAI SDK, faster-whisper, librosa, OpenCV |
-| Wallet integration | Browser EIP-1193 provider, MetaMask-compatible wallets |
-| Blockchain target | BOT Chain Mainnet |
+| Frontend | Next.js 16, TypeScript, Tailwind CSS v4, Framer Motion, Recharts, Radix UI |
+| Backend | FastAPI, Python 3.11, SQLAlchemy 2 (async), PostgreSQL 15, Alembic |
+| Authentication | JWT (python-jose), bcrypt, caregiver PIN protection |
+| AI — media analysis | faster-whisper (transcription), librosa (voice features), OpenCV (video) |
+| AI — guidance RAG | FAISS, sentence-transformers (multilingual-e5-large), Google Gemini |
+| AI — Bob integration | Langflow MCP server, mcp-proxy, IBM Bob |
+
+---
 
 ## Repository Structure
 
 ```text
-TIARA_2/
-├── frontend/              # Next.js application
-│   ├── app/               # App Router pages and user flows
-│   ├── components/        # Shared UI components, including ConnectWallet
-│   └── lib/               # API client, authentication, and types
-├── backend/               # FastAPI application
-│   ├── app/               # Routes, models, services, and configuration
-│   └── alembic/           # Database migrations
-├── contracts/             # Solidity smart contracts
-│   └── WisdomLog.sol      # On-chain care checkpoint registry
-├── docs/                  # Product, architecture, API, AI, and security docs
-├── docker-compose.yml     # PostgreSQL, backend, and frontend services
+TIARA-IBM/
+├── frontend/                  # Next.js application
+│   ├── app/                   # App Router pages
+│   │   ├── elderly/           # Check-in, companion, and home flows
+│   │   ├── caregiver/         # PIN page and caregiver dashboard
+│   │   ├── login/             # Authentication pages
+│   │   └── register/
+│   ├── components/shared/     # Footer, ProtectedRoute
+│   └── lib/                   # API client, auth context, types
+├── backend/                   # FastAPI application
+│   ├── app/
+│   │   ├── routes/            # auth, elderly, caregiver route handlers
+│   │   ├── models/            # SQLAlchemy ORM models
+│   │   ├── services/          # RAG guidance service, auth service
+│   │   │   └── rag_data/      # Pre-built FAISS index and document chunks
+│   │   ├── schemas/           # Pydantic request/response schemas
+│   │   ├── core/              # Config, security, dependencies
+│   │   └── scripts/           # Database seed script
+│   └── alembic/               # Database migrations
+├── docs/                      # Product, architecture, API, AI, and security docs
+├── docker-compose.yml         # PostgreSQL + backend + frontend services
+├── .env.example               # Environment variable template
 └── README.md
 ```
+
+---
 
 ## Local Setup
 
@@ -131,12 +160,12 @@ TIARA_2/
 
 ```bash
 cd backend
+
 python -m venv venv
 
 # Windows PowerShell
 venv\Scripts\Activate.ps1
-
-# macOS/Linux
+# macOS / Linux
 # source venv/bin/activate
 
 pip install -r requirements.txt
@@ -145,38 +174,23 @@ python -m app.scripts.seed
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-For Render, set the service root directory to `backend` and use this start command:
+The API runs at `http://localhost:8000`. Interactive docs are at `http://localhost:8000/docs`.
 
-```bash
-uvicorn app.main:app --host 0.0.0.0 --port $PORT
-```
+### Environment variables (backend)
 
-Set these environment variables in Render:
+Copy `.env.example` to `backend/.env` and set:
 
 ```text
-FRONTEND_URL=https://tiaracare.my.id,https://www.tiaracare.my.id
-DATABASE_URL=<your-render-postgres-connection-string>
-JWT_SECRET_KEY=<a-long-random-production-secret>
+DATABASE_URL=postgresql+asyncpg://tiara:tiara_password@localhost:5432/tiara_db
+JWT_SECRET_KEY=<a-long-random-secret>
+GEMINI_API_KEY=<your-gemini-api-key>        # required for AI-generated guidance answers
+ENABLE_LOCAL_RAG=true                        # set to true to use the FAISS index locally
+FRONTEND_URL=http://localhost:3000
 ```
 
-`FRONTEND_URL` accepts comma-separated origins so local development and Vercel preview URLs can be added when needed. The API CORS policy uses this value instead of allowing every origin.
-
-### Railway alternative
-
-Create a Railway project with a **PostgreSQL** service and a backend service connected to this repository. Configure the backend service with:
-
-- **Root Directory:** `/backend`
-- **Builder:** `Dockerfile`
-- **Build Command:** leave empty; the Dockerfile installs dependencies
-- **Start Command:** leave empty; the Dockerfile runs migrations and Uvicorn
-
-Add the same `FRONTEND_URL` and `JWT_SECRET_KEY` variables listed above. Copy Railway PostgreSQL&apos;s `DATABASE_URL` into the backend service variables. The backend automatically converts Railway&apos;s standard PostgreSQL URL to the async SQLAlchemy driver required by the application.
-
-For the Railway Free plan, leave `ENABLE_LOCAL_RAG` unset or set it to `false`; the large local embedding model is disabled by default so caregiver guidance stays responsive. Set `GEMINI_API_KEY` to enable AI-generated answers. Set `ENABLE_LOCAL_RAG=true` only on a host with enough memory for the embedding model.
+`ENABLE_LOCAL_RAG=false` disables the local embedding model (suitable for low-memory hosts); the guidance service falls back to Gemini-only responses for documented questions.
 
 ### Frontend
-
-Open a second terminal:
 
 ```bash
 cd frontend
@@ -184,44 +198,41 @@ npm install
 npm run dev
 ```
 
-The frontend reads `NEXT_PUBLIC_BACKEND_URL` first, then `NEXT_PUBLIC_API_URL`. Configure either variable in Vercel with the backend service URL, for example `https://tiara-backend.onrender.com`.
-
-The frontend runs at `http://localhost:3000` and the backend API runs at `http://localhost:8000`. The API documentation is available at `http://localhost:8000/docs` when the backend is running.
+The frontend runs at `http://localhost:3000`. Set `NEXT_PUBLIC_BACKEND_URL=http://localhost:8000` if the backend is not on the default port.
 
 ### Docker Compose
-
-From the repository root:
 
 ```bash
 docker compose up --build
 ```
 
-Configure database credentials, JWT settings, and the backend URL through the environment variables documented in the project configuration before using Docker in production.
+Set `JWT_SECRET_KEY` and any optional AI keys as environment variables or in a `.env` file at the repository root before running in production.
 
-## AI Pipeline
+### Deployment
+
+- **Backend:** Render or Railway. Set root directory to `backend`. The `Dockerfile` installs dependencies, runs migrations, and starts Uvicorn.
+- **Frontend:** Vercel. Set `NEXT_PUBLIC_BACKEND_URL` to your backend service URL.
+
+---
+
+## AI Pipeline (Check-in Analysis)
 
 After a check-in is submitted, TIARA processes the session through these stages:
 
-1. Transcription from recorded audio.
-2. Voice feature extraction, including speech rate and hesitation signals.
-3. Language analysis for orientation, memory recall, coherence, and vocabulary.
-4. Basic facial and video analysis when media is available.
-5. Composite cognitive trend scoring.
-6. Caregiver alerts and recommendations based on observed patterns.
+1. **Transcription** — recorded audio is transcribed with faster-whisper.
+2. **Voice feature extraction** — speech rate, pause patterns, and hesitation signals via librosa.
+3. **Language analysis** — orientation, memory recall, coherence, and vocabulary indicators.
+4. **Video analysis** — basic facial signal extraction with OpenCV when media is available.
+5. **Composite risk scoring** — a cognitive risk index is computed and stored.
+6. **Alerts and recommendations** — patterns trigger caregiver alerts and grouped care recommendations.
 
-All results are informational indicators. They are not diagnoses.
+All results are informational indicators only, not diagnoses.
 
-## Security and Privacy
-
-- Authentication uses JWT access tokens.
-- Caregiver dashboard access requires a separate PIN.
-- Camera and microphone flows require user consent.
-- The system should be deployed with strong secrets and protected database credentials.
-- Do not commit `.env` files, API keys, private keys, or wallet seed phrases.
+---
 
 ## Documentation
 
-Additional project documentation is available in [`docs/`](docs/), including:
+Additional project documentation is in [`docs/`](docs/):
 
 - [Product requirements](docs/01-product-requirements.md)
 - [MVP scope](docs/02-mvp-scope.md)
@@ -233,15 +244,12 @@ Additional project documentation is available in [`docs/`](docs/), including:
 - [Development roadmap](docs/08-development-roadmap.md)
 - [Demo script](docs/09-demo-script.md)
 
+---
+
 ## Known Limitations
 
-- On-chain wisdom logs are public, so personal patient information must not be minted.
-- Minting needs a small amount of BOT for gas.
-- RAG is used only in Dementia Guidance chat, while check-in analysis uses transcription, voice and language analysis without RAG.
-- Some dashboard summary cards show sample values.
-- AI model quality depends on available models, media quality, and runtime configuration.
+- Several summary cards on the caregiver dashboard (Memory Consistency, Response Delay, Speech Hesitation) show static sample values rather than live computed data.
+- AI analysis quality depends on media quality (microphone, camera, ambient noise) and whether the AI services are configured and reachable.
+- The local FAISS index (`ENABLE_LOCAL_RAG=true`) requires significant memory; it is disabled by default on hosted plans with limited RAM.
+- Dementia Guidance AI responses are only as current as the loaded documents; they do not reflect clinical developments published after the document versions in the index.
 - TIARA must not be used as a substitute for professional medical evaluation.
-
-## Team
-
-Built by Nazla Azzahra Hermana as a hackathon project on BOT Chain. The base TIARA platform (check-ins and dashboards) was built earlier as a team project.

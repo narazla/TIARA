@@ -253,3 +253,30 @@ Additional project documentation is in [`docs/`](docs/):
 - The local FAISS index (`ENABLE_LOCAL_RAG=true`) requires significant memory; it is disabled by default on hosted plans with limited RAM.
 - Dementia Guidance AI responses are only as current as the loaded documents; they do not reflect clinical developments published after the document versions in the index.
 - TIARA must not be used as a substitute for professional medical evaluation.
+
+---
+
+## Meet the Team
+
+<table>
+<tr>
+<td align="center" width="50%">
+<img src="https://drive.google.com/uc?export=view&id=17JzgCaF45gCTXnlIglXVKpq05sTQq5Vx" width="144" height="180"/>
+<br/>
+<a href="https://github.com/Arieslana01">
+<b>Muhammad Aris Maulana</b>
+</a>
+<br/>
+<i>Universitas Diponegoro</i>
+</td>
+<td align="center" width="50%">
+<img src="https://drive.google.com/uc?export=view&id=1rPzNkUuXtFebZFcrLa7c-ZtZlSnxa0jX" width="144" height="180"/>
+<br/>
+<a href="https://github.com/narazla">
+<b>Nazla Azzahra Hermana</b>
+</a>
+<br/>
+<i>Universitas Diponegoro</i>
+</td>
+</tr>
+</table>

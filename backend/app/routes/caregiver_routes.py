@@ -305,7 +305,7 @@ async def ask_guidance_ai(
         )
 
     try:
-        answer = get_rag_answer(data.question)
+        result = get_rag_answer(data.question)
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
@@ -314,5 +314,6 @@ async def ask_guidance_ai(
 
     return {
         "question": data.question,
-        "answer": answer,
+        "answer": result["answer"],
+        "sources": result["sources"],
     }

@@ -74,3 +74,15 @@ export const checkinApi = {
     return response.data;
   },
 };
+
+// --- HEALTHCARE API ---
+export const healthcareApi = {
+  getPatients: async () => {
+    const response = await apiClient.get("/api/v1/healthcare/patients");
+    return response.data;
+  },
+  getPatientSummary: async (patientUserId: string) => {
+    const response = await apiClient.get(`/api/v1/healthcare/patients/${patientUserId}/summary`);
+    return response.data;
+  },
+};

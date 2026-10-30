@@ -358,6 +358,265 @@ async def seed_demo_history(db: AsyncSession, patient_user_id: uuid.UUID, reset:
     )
 
 
+# ── Pasien simulasi tambahan untuk dashboard tenaga kesehatan ──
+# Setiap profil menghasilkan pola berbeda. Semua data ditandai provider "simulasi-demo".
+EXTRA_PATIENTS = [
+    {
+        "email": "pasien.hendra@tiara.app",
+        "full_name": "Bapak Hendra",
+        "gender": "M",
+        "tahun_lahir": 1951,
+        "seed": 101,
+        "dasar": 2.3,
+        "tanjakan": 0.2,
+        "lonjakan": 0.0,
+        "hari_lonjakan": 10,
+        "hari_terlewat": {30, 17},
+        "peringatan": [],
+    },
+    {
+        "email": "pasien.siti@tiara.app",
+        "full_name": "Ibu Siti Aminah",
+        "gender": "F",
+        "tahun_lahir": 1946,
+        "seed": 202,
+        "dasar": 3.0,
+        "tanjakan": 2.4,
+        "lonjakan": 0.0,
+        "hari_lonjakan": 10,
+        "hari_terlewat": {41, 33, 22, 12},
+        "peringatan": [
+            (
+                "WARNING",
+                "Skor risiko naik bertahap dalam sebulan terakhir",
+                "Skor Risiko Kognitif naik perlahan dan kini berada di rentang sedang. "
+                "Ini indikator informatif, bukan diagnosis.",
+                "Tinjau pada kontrol berikutnya dan bandingkan dengan catatan keluarga.",
+                3,
+            ),
+        ],
+    },
+    {
+        "email": "pasien.wayan@tiara.app",
+        "full_name": "Bapak Wayan",
+        "gender": "M",
+        "tahun_lahir": 1944,
+        "seed": 303,
+        "dasar": 2.6,
+        "tanjakan": 0.4,
+        "lonjakan": 4.5,
+        "hari_lonjakan": 10,
+        "hari_terlewat": {35, 14},
+        "peringatan": [
+            (
+                "CRITICAL",
+                "Skor risiko naik cepat dalam 10 hari terakhir",
+                "Skor Risiko Kognitif naik dari kisaran rendah ke rentang tinggi dalam sepuluh hari. "
+                "Ini indikator informatif, bukan diagnosis.",
+                "Pertimbangkan menjadwalkan kontrol lebih awal dan minta keluarga mencatat "
+                "perubahan perilaku, tidur, dan obat.",
+                1,
+            ),
+        ],
+    },
+    {
+        "email": "pasien.rahayu@tiara.app",
+        "full_name": "Ibu Rahayu",
+        "gender": "F",
+        "tahun_lahir": 1948,
+        "seed": 404,
+        "dasar": 2.8,
+        "tanjakan": 0.6,
+        "lonjakan": 0.0,
+        "hari_lonjakan": 10,
+        "hari_terlewat": {0, 1, 2, 3, 4, 5, 7, 9, 12, 13, 16, 19, 20, 24, 27, 28, 33, 36, 41, 42, 47, 50, 54, 57},
+        "peringatan": [
+            (
+                "INFO",
+                "Tidak ada check-in dalam 6 hari terakhir",
+                "Check-in terakhir tercatat 6 hari lalu.",
+                "Hubungi caregiver untuk memastikan lansia dapat melakukan check-in harian.",
+                1,
+            ),
+        ],
+    },
+]
+
+
+async def seed_extra_patients(db: AsyncSession, hcw: User, reset: bool = False) -> None:
+    """Buat pasien simulasi tambahan yang terhubung ke akun dokter demo (idempoten)."""
+    if not settings.DEMO_MODE:
+        logger.info("DEMO_MODE=false: pasien simulasi tambahan dilewati")
+        return
+
+    sekarang = datetime.now(timezone.utc)
+
+    for profil in EXTRA_PATIENTS:
+        pasien_user, _ = await get_or_create_user(
+            db,
+            email=profil["email"],
+            hashed_password=hash_password(uuid.uuid4().hex),
+            full_name=profil["full_name"],
+            role=Role.ELDERLY,
+        )
+
+        hasil = await db.execute(select(Patient).where(Patient.user_id == pasien_user.id))
+        data_pasien = hasil.scalar_one_or_none()
+        if not data_pasien:
+            data_pasien = Patient(
+                user_id=pasien_user.id,
+                gender=profil["gender"],
+                date_of_birth=datetime(profil["tahun_lahir"], 1, 1).date(),
+            )
+            db.add(data_pasien)
+        data_pasien.baseline_established = True
+
+        hasil = await db.execute(
+            select(HealthcarePatientLink).where(
+                HealthcarePatientLink.hcw_user_id == hcw.id,
+                HealthcarePatientLink.patient_user_id == pasien_user.id,
+            )
+        )
+        if not hasil.scalar_one_or_none():
+            db.add(HealthcarePatientLink(
+                hcw_user_id=hcw.id,
+                patient_user_id=pasien_user.id,
+                specialty="Geriatrics",
+            ))
+
+        hasil = await db.execute(
+            select(FacialAnalysisResult.session_id)
+            .join(CheckinSession, CheckinSession.id == FacialAnalysisResult.session_id)
+            .where(
+                CheckinSession.patient_user_id == pasien_user.id,
+                FacialAnalysisResult.provider == DEMO_PROVIDER,
+            )
+        )
+        sesi_lama = [baris[0] for baris in hasil.all()]
+        if sesi_lama and not reset:
+            logger.info("Riwayat simulasi %s sudah ada, dilewati", profil["full_name"])
+            continue
+        if reset:
+            await _hapus_data_demo(db, pasien_user.id, sesi_lama)
+
+        rng = random.Random(profil["seed"])
+        jumlah_sesi = 0
+
+        for hari_lalu in range(JUMLAH_HARI - 1, -1, -1):
+            if hari_lalu in profil["hari_terlewat"]:
+                continue
+
+            selesai = sekarang.replace(hour=2, minute=0, second=0, microsecond=0) - timedelta(days=hari_lalu)
+            if selesai > sekarang:
+                selesai = sekarang - timedelta(minutes=5)
+
+            durasi = rng.uniform(150, 240)
+            mulai = selesai - timedelta(seconds=durasi + 30)
+
+            drift = max(0.0, (profil["hari_lonjakan"] - hari_lalu) / profil["hari_lonjakan"])
+            lambat = (JUMLAH_HARI - 1 - hari_lalu) / (JUMLAH_HARI - 1)
+            skor = _batas(
+                profil["dasar"] + profil["tanjakan"] * lambat + profil["lonjakan"] * drift
+                + rng.uniform(-0.25, 0.25),
+                0.0,
+                10.0,
+            )
+            level = _level_risiko(skor)
+
+            # Indikator turunan: makin tinggi skor dibanding kisaran dasar, makin berubah
+            geser = max(0.0, (skor - 2.4) / 2.4)
+            memori = _batas(0.88 - 0.12 * geser + rng.uniform(-0.02, 0.02))
+            jeda = max(0.5, 2.0 + 1.4 * geser + rng.uniform(-0.15, 0.15))
+            laju_ragu = max(0.2, 1.4 + 1.8 * geser + rng.uniform(-0.15, 0.15))
+            wpm = 112 - 15 * geser + rng.uniform(-3, 3)
+            jumlah_ragu = max(0, round(laju_ragu * durasi / 60))
+
+            sesi_id = uuid.uuid4()
+            db.add(CheckinSession(
+                id=sesi_id,
+                patient_user_id=pasien_user.id,
+                status=SessionStatus.COMPLETED,
+                processing_status=ProcessingStatus.COMPLETED,
+                started_at=mulai,
+                completed_at=selesai,
+                question_count=4,
+                answer_count=4,
+                total_duration_seconds=round(durasi + 30, 1),
+                consent_given=True,
+                consent_at=mulai,
+                created_at=selesai,
+            ))
+            db.add(VoiceAnalysisResult(
+                session_id=sesi_id,
+                duration_seconds=round(durasi, 1),
+                speech_rate_wpm=round(wpm, 1),
+                hesitation_count=jumlah_ragu,
+                repetition_count=rng.randint(0, 1 + round(2 * geser)),
+                pause_count=rng.randint(6, 10) + round(4 * geser),
+                avg_pause_duration=round(0.8 + 0.5 * geser + rng.uniform(-0.05, 0.05), 2),
+                voice_risk_score=round(_batas(skor + rng.uniform(-0.5, 0.5), 0, 10), 1),
+                created_at=selesai,
+            ))
+            db.add(LanguageAnalysisResult(
+                session_id=sesi_id,
+                orientation_score=round(_batas(0.92 - 0.06 * geser + rng.uniform(-0.02, 0.02)), 2),
+                memory_recall_score=round(memori, 2),
+                coherence_score=round(_batas(0.88 - 0.05 * geser + rng.uniform(-0.02, 0.02)), 2),
+                vocabulary_score=round(_batas(0.85 - 0.02 * geser + rng.uniform(-0.02, 0.02)), 2),
+                emotional_tone=rng.choice(["positif", "netral", "netral"]),
+                language_risk_score=round(_batas(skor + rng.uniform(-0.5, 0.5), 0, 10), 1),
+                created_at=selesai,
+            ))
+            db.add(FacialAnalysisResult(
+                session_id=sesi_id,
+                video_duration_seconds=round(durasi, 1),
+                face_detected=True,
+                face_detection_confidence=round(rng.uniform(0.9, 0.98), 2),
+                avg_response_delay_seconds=round(jeda, 2),
+                facial_risk_score=round(_batas(skor + rng.uniform(-0.5, 0.5), 0, 10), 1),
+                provider=DEMO_PROVIDER,
+                created_at=selesai,
+            ))
+            db.add(RiskScore(
+                session_id=sesi_id,
+                patient_user_id=pasien_user.id,
+                risk_score=round(skor, 1),
+                risk_level=level,
+                voice_component=round(_batas(skor + rng.uniform(-0.5, 0.5), 0, 10), 1),
+                language_component=round(_batas(skor + rng.uniform(-0.5, 0.5), 0, 10), 1),
+                facial_component=round(_batas(skor + rng.uniform(-0.5, 0.5), 0, 10), 1),
+                memory_component=round(_batas((1 - memori) * 10 + 1.5, 0, 10), 1),
+                summary=(
+                    "Sesi simulasi: indikator berada dalam kisaran biasa."
+                    if level == "low"
+                    else "Sesi simulasi: beberapa indikator sedikit berubah dibanding sebelumnya."
+                ),
+                main_indicators=[] if level == "low" else [
+                    "Jeda respons lebih panjang dari sebelumnya",
+                    "Skor daya ingat sedikit lebih rendah dari biasanya",
+                ],
+                created_at=selesai,
+            ))
+            jumlah_sesi += 1
+
+        for nama_tingkat, judul, deskripsi, tindakan, hari_lalu in profil["peringatan"]:
+            db.add(Alert(
+                patient_user_id=pasien_user.id,
+                severity=getattr(AlertSeverity, nama_tingkat, AlertSeverity.WARNING),
+                title=judul,
+                description=deskripsi,
+                suggested_action=tindakan,
+                is_read=False,
+                created_at=sekarang - timedelta(days=hari_lalu),
+            ))
+
+        await db.flush()
+        logger.info(
+            "Riwayat simulasi %s dibuat: %d sesi, %d peringatan",
+            profil["full_name"], jumlah_sesi, len(profil["peringatan"]),
+        )
+
+
 async def get_or_create_user(db: AsyncSession, email: str, **kwargs) -> tuple[User, bool]:
     """Return an existing user by email, or create a new one."""
     result = await db.execute(select(User).where(User.email == email))
@@ -467,6 +726,7 @@ async def seed(db: AsyncSession, reset_demo: bool = False) -> None:
 
     # ── Riwayat simulasi untuk dashboard demo ──────────────────
     await seed_demo_history(db, elderly.id, reset=reset_demo)
+    await seed_extra_patients(db, hcw, reset=reset_demo)
 
     await db.commit()
     logger.info("Seed selesai.")

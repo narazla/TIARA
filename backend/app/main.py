@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
 import app.database.base  # noqa: F401 — registers all ORM models at startup
-from app.routes import auth_routes, elderly_routes, caregiver_routes
+from app.routes import auth_routes, elderly_routes, caregiver_routes, healthcare_routes
 
 logger = logging.getLogger(__name__)
 
@@ -70,6 +70,7 @@ API_PREFIX = "/api/v1"
 app.include_router(auth_routes.router, prefix=API_PREFIX)
 app.include_router(elderly_routes.router, prefix=API_PREFIX)
 app.include_router(caregiver_routes.router, prefix=API_PREFIX)
+app.include_router(healthcare_routes.router, prefix=API_PREFIX)
 
 
 # ── Health check ───────────────────────────────────────────────

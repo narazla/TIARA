@@ -1,0 +1,35 @@
+﻿no,dokumen,acuan,halaman_terambil,selisih_terdekat,persis_label_lama,persis_label_plus1,dalam_rentang_h1_h2,toleransi_1_dari_plus1,top1_plus1_toleransi_1,dokumen_benar_terambil
+1,PNPK Demensia,17,12 15 16 17 204,0,True,True,True,True,True,True
+2,PNPK Demensia,14,12 13 14 151,0,True,True,True,True,True,True
+3,PNPK Demensia,15,14 43 70 80 204,1,False,True,True,True,True,True
+4,PNPK Demensia,15,12 14 15 151 204,0,True,True,True,True,True,True
+5,PNPK Demensia,18,17 18 20 32 98,0,True,True,True,True,True,True
+6,PNPK Demensia,18,17 19 20 22 25 35,1,False,True,True,True,True,True
+7,PNPK Demensia,26,17 25 26 28 124 126,0,True,True,True,True,True,True
+8,PNPK Demensia,26,24 25 35 196,1,False,True,True,True,True,True
+9,PNPK Demensia,121,111 120 121 122 127 201,0,True,True,True,True,False,True
+10,PNPK Demensia,121,120 121 127 156 157,0,True,True,True,True,True,True
+11,PNPK Demensia,131,130 131 134 135 140 177,0,True,True,True,True,False,True
+12,PNPK Demensia,141,15 129 137 139 141 179,0,True,False,True,True,True,True
+13,PNPK Demensia,141,13 22 97 120 139 141,0,True,False,True,True,True,True
+14,PNPK Demensia,151,151 152 153 157 180,0,True,False,False,True,True,True
+15,PNPK Demensia,181,157 158 160 166 180,1,False,True,True,True,True,True
+16,PNPK Demensia,171,160 164 165 170 171,0,True,True,True,True,True,True
+17,PNPK Demensia,181,155 158 179 180 181 182,0,True,True,True,True,True,True
+18,PNPK Demensia,191,189 190 191 192 194,0,True,True,True,True,True,True
+19,PNPK Demensia,10,9 10 11 17 199,0,True,True,True,True,True,True
+20,Panduan Caregiver Kemenkes,14,5 11 14 129,0,True,True,True,True,False,True
+21,Panduan Caregiver Kemenkes,13,8 13 14 105 136 138,0,True,True,True,True,True,True
+22,Panduan Caregiver Kemenkes,24,18 24 25 30 81,0,True,True,True,True,True,True
+23,Panduan Caregiver Kemenkes,26,18 25 28 30 59 87,1,False,False,True,True,False,True
+24,Panduan Caregiver Kemenkes,26,20 25 26 27 30 88,0,True,True,True,True,True,True
+25,Panduan Caregiver Kemenkes,31,30 31 48 58 59 104,0,True,True,True,True,False,True
+26,Panduan Caregiver Kemenkes,62,61 66 67 70 76 107,1,False,False,True,True,True,True
+27,Panduan Caregiver Kemenkes,50,49 50 51 52,0,True,True,True,True,True,True
+28,Panduan Caregiver Kemenkes,50,11 49 50 51,0,True,True,True,True,True,True
+29,Panduan Caregiver Kemenkes,104,81 99 102 103 104,0,True,True,True,True,True,True
+30,Panduan Caregiver Kemenkes,98,9 59 95 96 97 102,1,False,False,True,True,False,True
+31,Panduan Caregiver Kemenkes,98,9 11 15 93 96 97,1,False,False,True,True,True,True
+32,Panduan Caregiver Kemenkes,98,9 96 97 98 99 102,0,True,True,True,True,False,True
+33,Panduan Caregiver Kemenkes,96,11 50 95 96,0,True,True,True,True,True,True
+34,Panduan Caregiver Kemenkes,31,17 19 28 30 31,0,True,True,True,True,True,True

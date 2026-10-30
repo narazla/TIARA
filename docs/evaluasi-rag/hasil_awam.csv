@@ -1,0 +1,11 @@
+﻿no,dokumen,acuan,halaman_terambil,selisih_terdekat,persis_label_lama,persis_label_plus1,dalam_rentang_h1_h2,toleransi_1_dari_plus1,top1_plus1_toleransi_1,dokumen_benar_terambil
+1,Panduan Caregiver Kemenkes,93,91 93 95,0,True,True,True,True,False,True
+2,PNPK Demensia,156,151 154 155 158 166 180,1,False,True,True,True,True,True
+3,Panduan Caregiver Kemenkes,104,102 103 104 121,0,True,True,True,True,True,True
+4,PNPK Demensia,152,12 14 44 150 151 199,1,False,True,True,True,True,True
+5,Panduan Caregiver Kemenkes,18,18 19 20 30 33 87,0,True,True,True,True,True,True
+6,PNPK Demensia,159,9 128 155 158 190,1,False,True,True,True,False,True
+7,Panduan Caregiver Kemenkes,97,9 11 95 96 97 107,0,True,True,True,True,False,True
+8,Panduan Caregiver Kemenkes,50,50 93 107,0,True,True,True,True,False,True
+9,Panduan Caregiver Kemenkes,96,106 107,-10,False,False,False,False,False,True
+10,PNPK Demensia,126,26 124 125 126,0,True,True,True,True,True,True

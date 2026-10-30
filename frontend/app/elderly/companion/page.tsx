@@ -66,7 +66,7 @@ function CompanionContent() {
             Kembali ke Beranda
           </Link>
           <div className="flex items-center gap-2.5">
-            <img src="/Logo.png" alt="Logo TIARA" className="h-[48px] object-contain" />
+            <img src="/Logo.png" alt="Logo TIARA" className="h-[32px] object-contain" />
             <span className="text-xl font-bold tracking-tight text-foreground">Companion</span>
           </div>
           <div className="w-20" />

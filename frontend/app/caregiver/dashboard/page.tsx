@@ -274,7 +274,7 @@ function CaregiverDashboardContent() {
         <div>
           {/* Logo */}
           <div className="h-20 border-b border-border flex items-center px-6">
-            <img src="/Logo.png" alt="TIARA Logo" className="h-[48px] object-contain" />
+            <img src="/Logo.png" alt="TIARA Logo" className="h-[32px] object-contain" />
           </div>
 
           {/* Navigation */}

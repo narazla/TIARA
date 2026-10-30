@@ -85,7 +85,7 @@ export default function RegisterPage() {
         {/* Logo */}
         <div className="text-center mb-2">
           <Link href="/" className="inline-flex items-center justify-center group">
-            <img src="/Logo.png" alt="Logo TIARA" className="h-[120px] object-contain transition-transform group-hover:scale-105" />
+            <img src="/Logo.png" alt="Logo TIARA" className="h-[52px] object-contain transition-transform group-hover:scale-105" />
           </Link>
         </div>
 

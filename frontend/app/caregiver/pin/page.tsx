@@ -83,7 +83,7 @@ function CaregiverPinContent() {
         {/* Logo */}
         <div className="text-center mb-2">
           <Link href="/" className="inline-flex items-center justify-center group">
-            <img src="/Logo.png" alt="Logo TIARA" className="h-[120px] object-contain mx-auto transition-transform group-hover:scale-105" />
+            <img src="/Logo.png" alt="Logo TIARA" className="h-[66px] object-contain mx-auto transition-transform group-hover:scale-105" />
           </Link>
         </div>
 

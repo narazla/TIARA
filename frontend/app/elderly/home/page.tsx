@@ -63,7 +63,7 @@ function ElderlyHomeContent() {
       <header className="bg-card/90 backdrop-blur-md border-b border-border sticky top-0 z-40">
         <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/Logo.png" alt="Logo TIARA" className="h-[48px] object-contain" />
+            <img src="/Logo.png" alt="Logo TIARA" className="h-[32px] object-contain" />
           </div>
 
           {/* Profile dropdown */}

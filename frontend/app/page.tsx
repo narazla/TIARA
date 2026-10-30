@@ -57,7 +57,7 @@ export default function LandingPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#2F3432]/90 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-[60px] flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/Logo.png" alt="Logo TIARA" className="h-[72px] object-contain brightness-0 invert" />
+            <img src="/Logo.png" alt="Logo TIARA" className="h-[36px] object-contain brightness-0 invert" />
           </div>
 
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-white/80">
@@ -234,7 +234,7 @@ export default function LandingPage() {
                 bg: "bg-secondary/40 border border-border/80",
                 features: [
                   "Check-in harian yang hangat dan sederhana",
-                  "Pertanyaan AI berbasis suara",
+                  "Pertanyaan check-in yang dibacakan dengan suara",
                   "Aktivitas TIARA Companion",
                   "Permainan memori dan pemantauan suasana hati",
                   "Hasil yang mendukung, bukan klinis",

@@ -36,11 +36,11 @@ export const getErrorMessage = (error: unknown): string => {
       error.response?.data?.detail ||
       error.response?.data?.message ||
       error.message ||
-      "An unexpected error occurred"
+      "Terjadi kesalahan yang tidak terduga"
     );
   }
   if (error instanceof Error) {
     return error.message;
   }
-  return "An unexpected error occurred";
+  return "Terjadi kesalahan yang tidak terduga";
 };

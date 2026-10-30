@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const quickLinks = [
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "For Caregivers", href: "/#for-caregivers" },
-  { label: "Trust & Safety", href: "/#trust" },
+  { label: "Cara Kerja", href: "/#how-it-works" },
+  { label: "Untuk Caregiver", href: "/#for-caregivers" },
+  { label: "Kepercayaan & Keamanan", href: "/#trust" },
 ];
 
 export default function Footer() {
@@ -25,16 +25,16 @@ export default function Footer() {
               TIARA
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-6 text-white/65">
-              AI Cognitive Care Platform &amp; Dementia Guidance for Caregivers.
+              Platform Perawatan Kognitif AI &amp; Panduan Demensia untuk Caregiver.
             </p>
             <p className="mt-4 text-xs leading-5 text-white/45">
-              Not a medical diagnosis tool. For informational and caregiver support purposes only.
+              Bukan alat diagnosis medis. Hanya untuk dukungan informatif dan perawatan.
             </p>
           </div>
 
           <nav aria-label="Footer navigation" className="md:justify-self-center">
             <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#B8D5B8]">
-              Explore
+              Jelajahi
             </h2>
             <ul className="mt-4 space-y-3 text-sm text-white/65">
               {quickLinks.map((link) => (
@@ -49,8 +49,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; 2026 TIARA Platform. All rights reserved.</p>
-          <p>Built for thoughtful, connected care.</p>
+          <p>&copy; 2026 TIARA Platform. Hak cipta dilindungi.</p>
+          <p>Dibangun untuk perawatan yang penuh perhatian dan terhubung.</p>
         </div>
       </div>
     </footer>

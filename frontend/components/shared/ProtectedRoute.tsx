@@ -33,7 +33,7 @@ export function ProtectedRoute({ children, allowedRoles }: ProtectedRouteProps) 
             <Brain className="w-8 h-8 text-primary" />
           </div>
           <Loader2 className="w-6 h-6 animate-spin mx-auto mb-3 text-primary" />
-          <p className="text-muted-foreground text-sm">Loading TIARA...</p>
+          <p className="text-muted-foreground text-sm">Memuat TIARA...</p>
         </div>
       </div>
     );

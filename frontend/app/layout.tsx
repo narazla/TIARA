@@ -7,15 +7,15 @@ import Footer from "@/components/shared/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "TIARA — AI-Powered Cognitive Care Platform",
+  title: "TIARA — Platform Perawatan Kognitif Berbasis AI",
   description:
-    "TIARA helps families notice early cognitive changes through AI-guided daily check-ins, voice and language analysis, and caregiver support. Not a medical diagnosis tool.",
+    "TIARA membantu keluarga mendeteksi perubahan kognitif dini melalui check-in harian berbasis AI, analisis suara dan bahasa, serta dukungan untuk caregiver. Bukan alat diagnosis medis.",
   keywords: [
-    "cognitive screening",
-    "caregiver support",
-    "dementia awareness",
-    "elderly care",
-    "memory monitoring",
+    "skrining kognitif",
+    "dukungan caregiver",
+    "kesadaran demensia",
+    "perawatan lansia",
+    "pemantauan memori",
   ],
 };
 
@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="id" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
       </head>

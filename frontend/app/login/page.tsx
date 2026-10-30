@@ -13,8 +13,8 @@ import { useAuth, getRoleHomePath } from "@/lib/auth/AuthContext";
 import { getErrorMessage } from "@/lib/api/client";
 
 const loginSchema = z.object({
-  email: z.string().email("Please enter a valid email"),
-  password: z.string().min(1, "Password is required"),
+  email: z.string().email("Masukkan alamat email yang valid"),
+  password: z.string().min(1, "Password wajib diisi"),
 });
 
 type LoginFormData = z.infer<typeof loginSchema>;
@@ -59,14 +59,14 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="text-center mb-2">
           <Link href="/" className="inline-flex items-center justify-center group">
-            <img src="/Logo.png" alt="TIARA Logo" className="h-[120px] object-contain transition-transform group-hover:scale-105" />
+            <img src="/Logo.png" alt="Logo TIARA" className="h-[120px] object-contain transition-transform group-hover:scale-105" />
           </Link>
         </div>
 
         {/* Card */}
         <div className="bg-card rounded-[24px] border border-border/80 shadow-md p-6">
-          <h1 className="text-xl font-bold text-foreground font-serif-editorial mb-1">Welcome back</h1>
-          <p className="text-muted-foreground text-xs mb-4">Sign in to continue your care journey with TIARA.</p>
+          <h1 className="text-xl font-bold text-foreground font-serif-editorial mb-1">Selamat datang kembali</h1>
+          <p className="text-muted-foreground text-xs mb-4">Masuk untuk melanjutkan perjalanan perawatan Anda bersama TIARA.</p>
 
           {/* Demo credentials hint */}
           <div className="bg-secondary rounded-2xl p-3.5 mb-4 border border-border/60">
@@ -82,7 +82,7 @@ export default function LoginPage() {
             {/* Email */}
             <div>
               <label htmlFor="email" className="block text-xs font-semibold text-foreground mb-1">
-                Email address
+                Alamat email
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
@@ -107,7 +107,7 @@ export default function LoginPage() {
             {/* Password */}
             <div>
               <label htmlFor="password" className="block text-xs font-semibold text-foreground mb-1">
-                Password
+                Kata sandi
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
@@ -153,25 +153,25 @@ export default function LoginPage() {
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  Signing in...
+                  Sedang masuk...
                 </>
               ) : (
-                "Sign in"
+                "Masuk"
               )}
             </button>
           </form>
 
           <p className="text-center text-xs text-muted-foreground mt-4 font-medium">
-            Don&apos;t have an account?{" "}
+            Belum punya akun?{" "}
             <Link href="/register" className="text-primary hover:text-primary-dark font-bold underline underline-offset-4">
-              Create one
+              Daftar sekarang
             </Link>
           </p>
         </div>
 
         {/* Disclaimer */}
         <p className="text-center text-[10px] text-muted-foreground/60 mt-4 px-4 leading-relaxed">
-          ⚕️ TIARA is not a medical diagnosis tool. Informational support only.
+          ⚕️ TIARA bukan alat diagnosis medis. Hanya untuk dukungan informatif.
         </p>
       </motion.div>
     </div>

@@ -57,13 +57,13 @@ export default function LandingPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#2F3432]/90 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-[60px] flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/Logo.png" alt="TIARA Logo" className="h-[72px] object-contain brightness-0 invert" />
+            <img src="/Logo.png" alt="Logo TIARA" className="h-[72px] object-contain brightness-0 invert" />
           </div>
 
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-white/80">
-            <a href="#how-it-works" className="hover:text-white transition-colors">How it works</a>
-            <a href="#for-caregivers" className="hover:text-white transition-colors">For caregivers</a>
-            <a href="#trust" className="hover:text-white transition-colors">Trust & safety</a>
+            <a href="#how-it-works" className="hover:text-white transition-colors">Cara kerja</a>
+            <a href="#for-caregivers" className="hover:text-white transition-colors">Untuk caregiver</a>
+            <a href="#trust" className="hover:text-white transition-colors">Kepercayaan &amp; keamanan</a>
           </div>
 
           <div className="flex items-center gap-4">
@@ -71,13 +71,13 @@ export default function LandingPage() {
               href="/login"
               className="text-sm font-semibold text-white/80 hover:text-white transition-colors"
             >
-              Sign in
+              Masuk
             </Link>
             <Link
               href="/register"
               className="bg-primary hover:bg-primary-dark text-white text-sm font-bold px-4 py-2 rounded-xl transition-colors shadow-sm cursor-pointer"
             >
-              Get started
+              Mulai sekarang
             </Link>
           </div>
         </div>
@@ -102,12 +102,12 @@ export default function LandingPage() {
               variants={fadeIn}
               className="text-5xl lg:text-[56px] font-bold font-serif-editorial leading-[1.12] mb-6 text-foreground tracking-tight"
             >
-              Compassionate cognitive care, <span className="font-serif italic block lg:inline text-foreground/95">guided by AI.</span>
+              Perawatan kognitif penuh kasih, <span className="font-serif italic block lg:inline text-foreground/95">dipandu oleh AI.</span>
             </motion.h1>
 
             <motion.p variants={fadeIn} className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">
-              TIARA helps families notice early cognitive changes through
-              AI-guided check-ins, longitudinal analysis, and personalized dementia guidance for caregivers.
+              TIARA membantu keluarga mendeteksi perubahan kognitif dini melalui
+              check-in harian berbasis AI, analisis longitudinal, dan panduan demensia personal untuk caregiver.
             </motion.p>
 
             {/* Main Action Button */}
@@ -116,7 +116,7 @@ export default function LandingPage() {
                 href="/login"
                 className="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white font-bold text-base px-12 py-3 rounded-xl transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                Get started
+                Mulai sekarang
               </Link>
             </motion.div>
 
@@ -134,7 +134,7 @@ export default function LandingPage() {
                 <motion.img
                   key={activeIdx}
                   src={CAROUSEL_IMAGES[activeIdx]}
-                  alt={`TIARA Companion Visual ${activeIdx + 1}`}
+                  alt={`Visual TIARA Companion ${activeIdx + 1}`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -157,10 +157,10 @@ export default function LandingPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold font-serif-editorial text-foreground mb-4">
-              How TIARA works
+              Cara kerja TIARA
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A gentle daily check-in creates a longitudinal record of cognitive health — surfacing patterns that matter, when they matter.
+              Check-in harian yang lembut membuat catatan longitudinal kesehatan kognitif, menampilkan pola yang bermakna pada saat yang tepat.
             </p>
           </motion.div>
 
@@ -169,26 +169,26 @@ export default function LandingPage() {
               {
                 step: "01",
                 icon: Video,
-                title: "Daily Check-In",
-                desc: "TIARA asks gentle spoken questions while observing voice and facial responses through the device camera.",
+                title: "Check-In Harian",
+                desc: "TIARA mengajukan pertanyaan lisan yang lembut sambil mengamati respons suara dan wajah melalui kamera perangkat.",
               },
               {
                 step: "02",
                 icon: Sparkles,
-                title: "AI Analysis",
-                desc: "Voice patterns, language coherence, and memory recall are analyzed by our AI pipeline.",
+                title: "Analisis AI",
+                desc: "Pola suara, koherensi bahasa, dan daya ingat dianalisis oleh pipeline AI kami.",
               },
               {
                 step: "03",
                 icon: Activity,
-                title: "Trend Monitoring",
-                desc: "Cognitive indicators are tracked over time to surface meaningful changes and emerging patterns.",
+                title: "Pemantauan Tren",
+                desc: "Indikator kognitif dipantau dari waktu ke waktu untuk menampilkan perubahan bermakna dan pola yang muncul.",
               },
               {
                 step: "04",
                 icon: Users,
-                title: "Caregiver Support",
-                desc: "Caregivers receive insights, alerts, and care recommendations on a secure PIN-protected dashboard.",
+                title: "Dukungan Caregiver",
+                desc: "Caregiver menerima wawasan, peringatan, dan rekomendasi perawatan di dashboard yang dilindungi PIN.",
               },
             ].map(({ step, icon: Icon, title, desc }) => (
               <motion.div
@@ -220,10 +220,10 @@ export default function LandingPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold font-serif-editorial text-foreground mb-4">
-              Two experiences, one connected care system.
+              Dua pengalaman, satu sistem perawatan terhubung.
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Designed for the person receiving care, their family, and their clinical team.
+              Dirancang untuk lansia penerima perawatan, keluarga mereka, dan tim klinis.
             </p>
           </motion.div>
 
@@ -231,38 +231,38 @@ export default function LandingPage() {
             {[
               {
                 icon: Heart,
-                audience: "For Older Adults",
+                audience: "Untuk Lansia",
                 bg: "bg-secondary/40 border border-border/80",
                 features: [
-                  "Warm, simple daily check-in",
-                  "Spoken AI questions",
-                  "TIARA Companion activities",
-                  "Memory games & mood check",
-                  "Encouraging, non-clinical results",
+                  "Check-in harian yang hangat dan sederhana",
+                  "Pertanyaan AI berbasis suara",
+                  "Aktivitas TIARA Companion",
+                  "Permainan memori dan pemantauan suasana hati",
+                  "Hasil yang mendukung, bukan klinis",
                 ],
               },
               {
                 icon: Users,
-                audience: "For Caregivers",
+                audience: "Untuk Caregiver",
                 bg: "bg-card border border-border/80 shadow-sm",
                 features: [
-                  "PIN-protected dashboard",
-                  "Cognitive risk trend charts",
-                  "Smart alerts & notifications",
-                  "AI care recommendations",
-                  "Dementia Guidance AI chat",
+                  "Dashboard dilindungi PIN",
+                  "Grafik tren risiko kognitif",
+                  "Peringatan dan notifikasi cerdas",
+                  "Rekomendasi perawatan berbasis AI",
+                  "Chat Panduan Demensia AI",
                 ],
               },
               {
                 icon: Stethoscope,
-                audience: "For Healthcare Workers",
+                audience: "Untuk Tenaga Kesehatan",
                 bg: "bg-primary/5 border border-primary/20",
                 features: [
-                  "Patient monitoring dashboard",
-                  "Longitudinal session trends",
-                  "Risk-level patient filters",
-                  "Clinical notes",
-                  "Monthly report access",
+                  "Dashboard pemantauan pasien",
+                  "Tren sesi longitudinal",
+                  "Filter pasien berdasarkan tingkat risiko",
+                  "Catatan klinis",
+                  "Akses laporan bulanan",
                 ],
               },
             ].map(({ icon: Icon, audience, bg, features }) => (
@@ -302,32 +302,32 @@ export default function LandingPage() {
             >
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-primary mb-6">
                 <Shield className="w-4 h-4" />
-                Trust & Safety
+                Kepercayaan &amp; Keamanan
               </div>
               <h2 className="text-4xl font-bold font-serif-editorial text-foreground mb-6">
-                Designed with safety at its core.
+                Dirancang dengan keamanan sebagai pondasi.
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                TIARA is not a medical diagnosis tool. We use clear, honest language about what our system can and cannot tell you — and we always encourage timely clinical assessment.
+                TIARA bukan alat diagnosis medis. Kami menggunakan bahasa yang jelas dan jujur tentang apa yang dapat dan tidak dapat disampaikan sistem kami, dan selalu mendorong penilaian klinis tepat waktu.
               </p>
 
               <div className="space-y-4">
                 {[
                   {
-                    title: "Consent-based recordings",
-                    desc: "Camera and microphone access requires explicit consent at every session.",
+                    title: "Perekaman berbasis persetujuan",
+                    desc: "Akses kamera dan mikrofon memerlukan persetujuan eksplisit di setiap sesi.",
                   },
                   {
-                    title: "Cognitive trend indicator only",
-                    desc: "TIARA surfaces patterns over time — it does not diagnose conditions.",
+                    title: "Hanya indikator tren kognitif",
+                    desc: "TIARA menampilkan pola dari waktu ke waktu. Sistem ini tidak mendiagnosis kondisi medis.",
                   },
                   {
-                    title: "PIN-protected caregiver access",
-                    desc: "Clinical indicators are only visible to caregivers through a secure PIN.",
+                    title: "Akses caregiver dilindungi PIN",
+                    desc: "Indikator klinis hanya terlihat oleh caregiver melalui PIN yang aman.",
                   },
                   {
-                    title: "Always encourages clinical consultation",
-                    desc: "Every report and alert points toward professional assessment when warranted.",
+                    title: "Selalu mendorong konsultasi klinis",
+                    desc: "Setiap laporan dan peringatan mengarahkan ke penilaian profesional bila diperlukan.",
                   },
                 ].map(({ title, desc }) => (
                   <div key={title} className="flex gap-4">
@@ -349,10 +349,10 @@ export default function LandingPage() {
             >
               <div className="flex items-start gap-3.5 mb-6">
                 <Shield className="w-6 h-6 text-amber-600 mt-1 flex-shrink-0" />
-                <h3 className="font-bold font-serif-editorial text-amber-800 text-lg">Medical Disclaimer</h3>
+                <h3 className="font-bold font-serif-editorial text-amber-800 text-lg">Pernyataan Medis</h3>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                TIARA&apos;s analysis is <strong className="text-foreground">not a medical diagnosis</strong>. Cognitive risk indicators are informational only and are not intended to replace professional clinical assessment. If you have concerns about a loved one&apos;s cognitive health, please consult a qualified healthcare professional.
+                Analisis TIARA <strong className="text-foreground">bukan diagnosis medis</strong>. Indikator risiko kognitif bersifat informatif dan tidak dimaksudkan untuk menggantikan penilaian klinis profesional. Jika Anda khawatir tentang kesehatan kognitif anggota keluarga, silakan berkonsultasi dengan tenaga kesehatan yang berkualifikasi.
               </p>
             </motion.div>
           </div>
@@ -369,24 +369,24 @@ export default function LandingPage() {
           className="max-w-2xl mx-auto px-6 relative z-10"
         >
           <h2 className="text-4xl font-bold font-serif-editorial mb-4">
-            Start supporting your loved one today.
+            Mulai mendampingi orang terkasih Anda hari ini.
           </h2>
           <p className="text-primary-foreground/80 mb-10 text-lg">
-            Join families who are taking a proactive approach to cognitive wellness.
+            Bergabunglah dengan keluarga yang mengambil pendekatan proaktif terhadap kesehatan kognitif.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/register"
               className="flex items-center gap-2 bg-white text-primary-dark hover:bg-secondary font-bold px-8 py-4 rounded-xl transition-all shadow-md cursor-pointer"
             >
-              Get started free
+              Daftar gratis
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               href="/login"
               className="flex items-center gap-2 bg-primary-dark/30 border border-white/20 text-white hover:bg-primary-dark/50 font-bold px-8 py-4 rounded-xl transition-all cursor-pointer"
             >
-              Sign in
+              Masuk
             </Link>
           </div>
         </motion.div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
@@ -684,7 +684,7 @@ function CaregiverDashboardContent() {
                     {reports.length === 0 ? (
                       <p className="text-muted-foreground text-sm font-medium">Belum ada laporan yang dibuat. Laporan dikompilasi setiap bulan.</p>
                     ) : (
-                      reports.map((r) => (
+                      reports.map((r, idx) => (
                         <div key={r.id} className="bg-card border border-border/70 rounded-2xl p-6 shadow-sm flex items-center justify-between">
                           <div className="flex items-center gap-4">
                             <div className="p-3 bg-primary/10 rounded-xl text-primary-dark">
@@ -697,12 +697,7 @@ function CaregiverDashboardContent() {
                               </p>
                             </div>
                           </div>
-                          <button
-                            onClick={() => alert("Fitur unduh PDF belum tersedia pada versi demo.")}
-                            className="bg-card border border-border hover:bg-secondary text-foreground font-bold px-4 py-2 rounded-xl text-sm transition-colors cursor-pointer"
-                          >
-                            Unduh PDF
-                          </button>
+                          {idx === 0 && (<a href="/laporan-demo.pdf" download="Laporan-TIARA-Oktober-2026.pdf" className="bg-card border border-border hover:bg-secondary text-foreground font-bold px-4 py-2 rounded-xl text-sm transition-colors cursor-pointer inline-block">Unduh PDF</a>)}
                         </div>
                       ))
                     )}

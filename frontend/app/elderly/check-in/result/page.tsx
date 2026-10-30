@@ -19,7 +19,7 @@ function CheckInResultContent() {
       {/* Header */}
       <header className="max-w-xl mx-auto w-full flex justify-between items-center py-4 z-10">
         <div className="flex items-center">
-          <img src="/Logo.png" alt="Logo TIARA" className="h-[32px] object-contain" />
+          <img src="/Logo.png" alt="Logo TIARA" className="h-[40px] object-contain" />
         </div>
       </header>
 

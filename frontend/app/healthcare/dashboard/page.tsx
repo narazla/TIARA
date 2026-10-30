@@ -188,7 +188,7 @@ function HealthcareDashboardContent() {
       {/* Header */}
       <header className="h-20 min-h-20 bg-card border-b border-border flex items-center justify-between px-8">
         <div className="flex items-center gap-4">
-          <img src="/Logo.png" alt="TIARA Logo" className="h-[32px] object-contain" />
+          <img src="/Logo.png" alt="TIARA Logo" className="h-[40px] object-contain" />
           <div className="border-l border-border pl-4">
             <h1 className="font-bold text-base text-foreground font-serif-editorial">
               Portal Tenaga Kesehatan

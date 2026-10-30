@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const quickLinks = [
   { label: "Cara Kerja", href: "/#how-it-works" },
@@ -19,10 +19,7 @@ export default function Footer() {
               href="/"
               className="inline-flex items-center gap-3 text-xl font-bold tracking-[0.18em] text-white transition-colors hover:text-[#B8D5B8]"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#7A9E7E] text-sm tracking-normal text-white">
-                T
-              </span>
-              TIARA
+              <img src="/Logo.png" alt="TIARA" className="h-[36px] w-auto object-contain brightness-0 invert" />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-6 text-white/65">
               Platform Perawatan Kognitif AI &amp; Panduan Demensia untuk Caregiver.

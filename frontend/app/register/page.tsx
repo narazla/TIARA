@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -15,7 +15,12 @@ import { getErrorMessage } from "@/lib/api/client";
 const registerSchema = z.object({
   full_name: z.string().min(2, "Nama minimal 2 karakter"),
   email: z.string().email("Masukkan alamat email yang valid"),
-  password: z.string().min(8, "Kata sandi minimal 8 karakter"),
+  password: z
+    .string()
+    .min(8, "Kata sandi minimal 8 karakter")
+    .regex(/[A-Z]/, "Kata sandi harus mengandung huruf besar")
+    .regex(/[a-z]/, "Kata sandi harus mengandung huruf kecil")
+    .regex(/[0-9]/, "Kata sandi harus mengandung angka"),
   role: z.enum(["elderly", "caregiver", "healthcare"]),
 });
 
@@ -166,6 +171,7 @@ export default function RegisterPage() {
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
+              <p className="mt-1 text-[11px] text-muted-foreground">Minimal 8 karakter, kombinasi huruf besar, huruf kecil, dan angka.</p>
               {errors.password && (
                 <p className="mt-1 text-xs text-destructive flex items-center gap-1 font-semibold">
                   <AlertCircle className="w-3 h-3" /> {errors.password.message}

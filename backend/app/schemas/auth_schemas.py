@@ -1,4 +1,4 @@
-from datetime import datetime
+﻿from datetime import datetime
 from typing import Optional
 from uuid import UUID
 
@@ -18,6 +18,8 @@ class RegisterRequest(BaseModel):
     def password_min_length(cls, v: str) -> str:
         if len(v) < 8:
             raise ValueError("Password must be at least 8 characters")
+        if not (any(ch.isupper() for ch in v) and any(ch.islower() for ch in v) and any(ch.isdigit() for ch in v)):
+            raise ValueError("Password must contain uppercase, lowercase and numbers")
         return v
 
     @field_validator("role")

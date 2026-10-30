@@ -8,7 +8,7 @@ import { ProtectedRoute } from "@/components/shared/ProtectedRoute";
 
 function CheckInResultContent() {
   const { user } = useAuth();
-  const displayName = user?.full_name || "Bapak/Ibu";
+  const displayName = user?.full_name || "teman";
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col justify-between p-6">
@@ -41,14 +41,14 @@ function CheckInResultContent() {
             Hebat sekali,
           </h1>
           <p className="text-xl font-semibold text-primary-dark font-serif-editorial mb-6">
-            Bapak/Ibu {displayName}
+            {displayName}
           </p>
 
           <div className="bg-secondary/40 border border-border/55 rounded-2xl p-5 mb-8 text-left space-y-4">
             <div className="flex gap-3">
               <Heart className="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5" />
               <div>
-                <p className="font-bold text-sm text-foreground">Bapak/Ibu sudah melakukan dengan baik hari ini.</p>
+                <p className="font-bold text-sm text-foreground">Anda sudah melakukan dengan baik hari ini.</p>
                 <p className="text-xs text-muted-foreground mt-0.5">Terima kasih sudah berbagi cerita dan kenangan bersama kami hari ini.</p>
               </div>
             </div>

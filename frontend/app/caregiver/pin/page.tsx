@@ -49,7 +49,7 @@ function CaregiverPinContent() {
     } catch (err) {
       const message = getErrorMessage(err);
       setError(
-        message.includes("PIN salah") || message.includes("Incorrect") || message.includes("Invalid")
+        message.includes("PIN salah")
           ? "PIN salah. Silakan coba lagi."
           : message
       );

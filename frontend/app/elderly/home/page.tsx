@@ -42,7 +42,7 @@ function ElderlyHomeContent() {
         setHomeData(data);
       } catch {
         setHomeData({
-          user: { full_name: user?.full_name || "Friend", greeting },
+          user: { full_name: user?.full_name || "teman", greeting },
           todays_checkin: { completed: false, session_id: null, completed_at: null },
           streak_days: 0,
         });
@@ -53,7 +53,7 @@ function ElderlyHomeContent() {
     fetchHome();
   }, [user, greeting]);
 
-  const displayName = homeData?.user.full_name || user?.full_name || "Friend";
+  const displayName = homeData?.user.full_name || user?.full_name || "teman";
   const checkinCompleted = homeData?.todays_checkin.completed || false;
   const streakDays = homeData?.streak_days || 0;
 
@@ -122,10 +122,10 @@ function ElderlyHomeContent() {
           className="text-center max-w-2xl mx-auto space-y-6"
         >
           <h1 className="text-4xl md:text-5xl font-bold font-serif-editorial text-foreground leading-tight">
-            Selamat datang, Bapak/Ibu {displayName}
+            Selamat datang, {displayName}
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Bagaimana kabar Bapak/Ibu hari ini? Mari lakukan check-in ringan atau luangkan waktu bersama TIARA.
+            Bagaimana kabar hari ini? Mari lakukan check-in ringan atau luangkan waktu bersama TIARA.
           </p>
 
           {/* Simple side-by-side buttons */}

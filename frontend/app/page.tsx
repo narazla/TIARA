@@ -106,8 +106,8 @@ export default function LandingPage() {
             </motion.h1>
 
             <motion.p variants={fadeIn} className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">
-              TIARA membantu keluarga mendeteksi perubahan kognitif dini melalui
-              check-in harian berbasis AI, analisis longitudinal, dan panduan demensia personal untuk caregiver.
+              TIARA dirancang untuk membantu keluarga memantau perubahan kognitif melalui
+              check-in harian, catatan longitudinal, dan panduan demensia untuk caregiver.
             </motion.p>
 
             {/* Main Action Button */}
@@ -160,7 +160,7 @@ export default function LandingPage() {
               Cara kerja TIARA
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Check-in harian yang lembut membuat catatan longitudinal kesehatan kognitif, menampilkan pola yang bermakna pada saat yang tepat.
+              Check-in harian membuat catatan berkala tentang kesehatan kognitif, yang dirancang untuk menampilkan pola bermakna dari waktu ke waktu.
             </p>
           </motion.div>
 
@@ -170,19 +170,19 @@ export default function LandingPage() {
                 step: "01",
                 icon: Video,
                 title: "Check-In Harian",
-                desc: "TIARA mengajukan pertanyaan lisan yang lembut sambil mengamati respons suara dan wajah melalui kamera perangkat.",
+                desc: "TIARA mengajukan pertanyaan lisan yang ramah dan merekam jawaban lansia lewat kamera dan mikrofon perangkat.",
               },
               {
                 step: "02",
                 icon: Sparkles,
                 title: "Analisis AI",
-                desc: "Pola suara, koherensi bahasa, dan daya ingat dianalisis oleh pipeline AI kami.",
+                desc: "Pola suara, koherensi bahasa, dan daya ingat dirancang untuk dianalisis oleh pipeline AI TIARA (dalam pengembangan).",
               },
               {
                 step: "03",
                 icon: Activity,
                 title: "Pemantauan Tren",
-                desc: "Indikator kognitif dipantau dari waktu ke waktu untuk menampilkan perubahan bermakna dan pola yang muncul.",
+                desc: "Indikator kognitif dirancang untuk dipantau dari waktu ke waktu agar perubahan yang berarti dapat terlihat.",
               },
               {
                 step: "04",

@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "TIARA — Platform Perawatan Kognitif Berbasis AI",
   description:
-    "TIARA membantu keluarga mendeteksi perubahan kognitif dini melalui check-in harian berbasis AI, analisis suara dan bahasa, serta dukungan untuk caregiver. Bukan alat diagnosis medis.",
+    "TIARA dirancang untuk membantu keluarga memantau perubahan kognitif melalui check-in harian, catatan longitudinal, dan panduan demensia untuk caregiver. Bukan alat diagnosis medis.",
   keywords: [
     "skrining kognitif",
     "dukungan caregiver",

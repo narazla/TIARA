@@ -55,7 +55,7 @@ $env:JWT_SECRET_KEY="<kunci-rahasia-anda>"; docker compose up --build
 1. Lakukan check-in baru.
 2. Saat sesi merekam, diam saja atau ucapkan kurang dari 5 kata total.
 3. Klik "Selesai Check-in".
-4. **Hasil yang diharapkan:** API mengembalikan `status: "tidak_ada_suara"`. Halaman hasil tetap menampilkan pesan dorongan (tidak ada pesan error teknis ke lansia).
+4. **Hasil yang diharapkan:** API mengembalikan `status: "tidak_ada_suara"`. Halaman check-in kembali ke awal dan menampilkan pesan "Suara belum terdengar jelas. Silakan ulangi check-in di ruangan yang lebih tenang." Pengguna tidak diarahkan ke halaman hasil.
 5. Buka dashboard caregiver sesudahnya - periksa ada alert INFO "Check-in hari ini tidak terekam".
 
 ### 1.4 Uji Negatif - Akses Halaman Caregiver
@@ -77,7 +77,7 @@ $env:JWT_SECRET_KEY="<kunci-rahasia-anda>"; docker compose up --build
 ### 2.2 Dashboard
 
 1. Periksa kartu profil pasien (Nenek Ladya).
-2. Periksa grafik tren Skor Risiko Kognitif (Recharts). Grafik memuat data 60 hari simulasi.
+2. Periksa grafik tren Skor Risiko Kognitif (Recharts). Grafik menampilkan tren 30 hari terakhir, bersumber dari riwayat simulasi 60 hari yang dibuat seed.
 3. Periksa kartu check-in terakhir dengan level risiko.
 4. **Catatan:** kartu Memory Consistency, Response Delay, Speech Hesitation mungkin menampilkan nilai simulasi atau statis tergantung sesi yang tersedia.
 
@@ -86,7 +86,7 @@ $env:JWT_SECRET_KEY="<kunci-rahasia-anda>"; docker compose up --build
 1. Klik "Peringatan" di sidebar.
 2. **Hasil yang diharapkan:** daftar alert muncul. Alert dari data simulasi termasuk "Jeda respons meningkat dalam 10 hari terakhir" dan "Check-in terlewat 2 hari berturut-turut".
 3. Jika sudah menyelesaikan check-in suara dari uji Lansia, alert baru mungkin muncul (WARNING jika skor Tinggi, atau INFO jika tidak ada suara).
-4. Klik satu alert, tandai sebagai dibaca. Periksa badge notifikasi berkurang.
+4. Catatan: belum ada endpoint untuk menandai alert sebagai dibaca, jadi jumlah alert belum dibaca tidak berkurang.
 
 ### 2.4 Rekomendasi
 
@@ -102,7 +102,7 @@ $env:JWT_SECRET_KEY="<kunci-rahasia-anda>"; docker compose up --build
 
 ### 2.6 Laporan
 
-1. Klik "Laporan" di sidebar.
+1. Klik "Laporan Bulanan" di sidebar.
 2. **Hasil yang diharapkan:** dua laporan bulanan dari data simulasi tersedia.
 3. Klik satu laporan untuk melihat isinya.
 
@@ -220,7 +220,7 @@ Catatan: skrip ini hanya menguji apakah halaman sumber berhasil diambil (retriev
 
 Pastikan Langflow Desktop berjalan di `http://localhost:7860` dan proyek TIARA sudah diimpor. Pastikan juga IBM Bob sudah dikonfigurasi dengan `mcp.json` yang mengarah ke proyek Langflow yang benar.
 
-**Penting: jeda minimal satu menit antar pertanyaan** karena jalur ini memasukkan seluruh teks kedua dokumen ke prompt Gemini, sehingga memakan sekitar 250 ribu token input per pertanyaan. Pada kuota gratis Gemini, batas 250 ribu token per menit berarti sekitar satu pertanyaan per menit.
+**Penting: jeda minimal satu menit antar pertanyaan** karena jalur ini memasukkan seluruh teks kedua dokumen ke prompt Gemini, sehingga memakan sekitar 146 ribu token input per pertanyaan. Pada kuota gratis Gemini, batas 250 ribu token per menit berarti sekitar satu pertanyaan per menit.
 
 ### Pertanyaan 1: Soal DICE dari PNPK
 

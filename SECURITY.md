@@ -9,11 +9,11 @@ Dokumen ini menjelaskan langkah-langkah keamanan yang benar-benar diterapkan dal
 ### Kata Sandi
 
 - Semua kata sandi di-hash menggunakan **bcrypt** sebelum disimpan ke tabel `users`.
-- Kata sandi plaintext tidak pernah disimpan, di-log, atau dikirim setelah permintaan awal.
+- Kata sandi plaintext tidak disimpan di database.
 
 ### JWT Access Token
 
-- Token akses ditandatangani dengan HS256 menggunakan `JWT_SECRET_KEY` (minimum 32 karakter acak).
+- Token akses ditandatangani dengan HS256 menggunakan `JWT_SECRET_KEY` (disarankan minimal 32 karakter acak; nilai bawaan di `config.py` hanya placeholder dan wajib diganti).
 - Payload token berisi: `sub` (user ID), `type: "access"`.
 - Token akses berlaku **60 menit** (dikonfigurasi via `ACCESS_TOKEN_EXPIRE_MINUTES`).
 - Token dikirim di header `Authorization: Bearer <token>`.
@@ -116,7 +116,7 @@ python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().d
 | Data yang dikumpulkan | Audio rekaman suara per pertanyaan check-in; transkrip teks; fitur pola bicara; skor risiko; jurnal suasana hati; pesan chat panduan |
 | Tempat penyimpanan | Database PostgreSQL (metadata dan analisis); filesystem lokal `MEDIA_STORAGE_PATH` (berkas audio .webm.enc) |
 | Siapa yang bisa melihat analisis | Caregiver (via dashboard + PIN); tenaga kesehatan (via dashboard peran) |
-| Siapa yang tidak bisa melihat skor risiko | Lansia (hanya menerima respons dorongan hangat tanpa angka klinis) |
+| Yang tidak ditampilkan ke lansia | Skor risiko dan data klinis tidak ditampilkan di antarmuka lansia, hanya pesan dorongan hangat |
 | Retensi data otomatis | Belum ada kebijakan retensi otomatis di kode. Tidak ada penghapusan terjadwal. |
 | Penghapusan akun | Soft delete (flag `is_deleted`) pada tabel `users`; berkas media tidak dihapus otomatis |
 | Data simulasi | Sesi berlabel `provider="simulasi-demo"` adalah data buatan dari skrip seed, bukan rekaman nyata |

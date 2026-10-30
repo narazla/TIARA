@@ -6,6 +6,7 @@ Saat finish, audio ditranskripsi dengan faster-whisper, fitur pola bicara dihitu
 lalu hasilnya disimpan ke transcripts, voice_analysis_results, dan risk_scores.
 Komponen wajah dan bahasa tidak diisi karena belum ada pipeline-nya.
 """
+import io
 import logging
 import uuid
 from datetime import datetime, timezone
@@ -25,6 +26,7 @@ from app.models.analysis import RiskScore, Transcript, VoiceAnalysisResult
 from app.models.checkin import CheckinAnswer, CheckinQuestion, CheckinSession
 from app.models.media import MediaFile
 from app.models.user import User
+from app.services import media_crypto
 from app.services import voice_analysis_service as suara
 
 logger = logging.getLogger(__name__)
@@ -133,8 +135,13 @@ async def kirim_jawaban(
 
     folder = Path(settings.MEDIA_STORAGE_PATH) / str(sesi.id)
     folder.mkdir(parents=True, exist_ok=True)
-    jalur = folder / f"jawaban_{question_order}.webm"
-    jalur.write_bytes(isi)
+    try:
+        terenkripsi = media_crypto.enkripsi(isi)
+    except media_crypto.KunciTidakAda:
+        logger.error("MEDIA_ENCRYPTION_KEY belum diatur, rekaman tidak disimpan")
+        raise HTTPException(status_code=503, detail="Penyimpanan rekaman belum dikonfigurasi")
+    jalur = folder / f"jawaban_{question_order}.webm.enc"
+    jalur.write_bytes(terenkripsi)
 
     jawaban = CheckinAnswer(
         session_id=sesi.id,
@@ -232,7 +239,8 @@ async def selesai(
             berkas = media.get(jawaban.id)
             if not berkas:
                 continue
-            potongan.append((jawaban, await run_in_threadpool(suara.transkripsi, berkas.file_path)))
+            sumber = io.BytesIO(media_crypto.baca_rekaman(berkas.file_path))
+            potongan.append((jawaban, await run_in_threadpool(suara.transkripsi, sumber)))
 
         fitur_per_jawaban = [suara.fitur_jawaban(t["words"]) for _, t in potongan]
         durasi_total = sum(t["duration"] for _, t in potongan)

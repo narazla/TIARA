@@ -69,7 +69,7 @@ function CheckInResultContent() {
               <ShieldCheck className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold text-sm text-foreground">Aman dan terjaga privasinya</p>
-                <p className="text-xs text-muted-foreground mt-0.5">Jawaban Bapak/Ibu telah disimpan dengan aman dan dibagikan kepada caregiver.</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Hasil check-in hari ini tersimpan dan dapat dilihat caregiver.</p>
               </div>
             </div>
           </div>

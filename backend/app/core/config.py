@@ -14,6 +14,8 @@ class Settings(BaseSettings):
 
     # Media storage
     MEDIA_STORAGE_PATH: str = "./media_storage"
+    # Kunci Fernet untuk mengenkripsi rekaman. Buat dengan: Fernet.generate_key()
+    MEDIA_ENCRYPTION_KEY: Optional[str] = None
 
     # AI / STT
     WHISPER_MODEL_SIZE: str = "base"

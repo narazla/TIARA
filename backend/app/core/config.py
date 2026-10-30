@@ -33,6 +33,11 @@ class Settings(BaseSettings):
     APP_VERSION: str = "1.0.0"
     DEBUG: bool = False
 
+    # Demo / simulation mode
+    # True  → dashboard returns is_simulated=True; data comes from seed
+    # False → production mode, only real analysis data shown
+    DEMO_MODE: bool = True
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

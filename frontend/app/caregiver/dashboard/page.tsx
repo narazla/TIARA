@@ -43,12 +43,34 @@ interface TrendPoint {
 
 interface AlertData {
   id: string;
-  severity: "low" | "medium" | "high";
+  // Nilai dari model: "info" | "warning" | "critical"
+  severity: "info" | "warning" | "critical" | "low" | "medium" | "high";
   title: string;
   description: string;
   suggested_action: string;
   created_at: string;
   is_read: boolean;
+}
+
+interface LatestSession {
+  session_id: string;
+  completed_at: string;
+  risk_score: number;
+  risk_level: string;
+}
+
+interface DashboardData {
+  patient: { id: string; full_name: string; age: number | null };
+  latest_session: LatestSession | null;
+  trend_data: TrendPoint[];
+  memory_consistency: number | null;
+  memory_consistency_delta: number | null;
+  avg_response_delay: number | null;
+  avg_response_delay_delta: number | null;
+  speech_hesitation_rate: number | null;
+  speech_hesitation_rate_delta: number | null;
+  unread_alerts: number;
+  is_simulated: boolean;
 }
 
 interface RecommendationData {
@@ -89,10 +111,20 @@ const GUIDANCE_PROMPTS = [
 ];
 
 const SEVERITY_LABEL: Record<string, string> = {
+  critical: "Kritis",
+  warning: "Peringatan",
+  info: "Info",
   high: "Tinggi",
   medium: "Sedang",
   low: "Rendah",
 };
+
+const severityStyle = (s: string): string =>
+  s === "critical" || s === "high"
+    ? "bg-destructive/15 text-destructive"
+    : s === "warning" || s === "medium"
+    ? "bg-warning/15 text-amber-700"
+    : "bg-primary/15 text-primary-dark";
 
 function CaregiverDashboardContent() {
   const router = useRouter();
@@ -103,7 +135,14 @@ function CaregiverDashboardContent() {
   // Data States
   const [patient, setPatient] = useState<{ id: string; full_name: string; age: number | null } | null>(null);
   const [trendData, setTrendData] = useState<TrendPoint[]>([]);
-  const [latestSession, setLatestSession] = useState<any>(null);
+  const [latestSession, setLatestSession] = useState<LatestSession | null>(null);
+  const [isSimulated, setIsSimulated] = useState(false);
+  const [memoryConsistency, setMemoryConsistency] = useState<number | null>(null);
+  const [memoryDelta, setMemoryDelta] = useState<number | null>(null);
+  const [avgResponseDelay, setAvgResponseDelay] = useState<number | null>(null);
+  const [delayDelta, setDelayDelta] = useState<number | null>(null);
+  const [speechHesitationRate, setSpeechHesitationRate] = useState<number | null>(null);
+  const [hesitationDelta, setHesitationDelta] = useState<number | null>(null);
   const [alerts, setAlerts] = useState<AlertData[]>([]);
   const [recommendations, setRecommendations] = useState<RecommendationsGroup>({
     today_plan: [],
@@ -142,10 +181,17 @@ function CaregiverDashboardContent() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const dash = await caregiverApi.getDashboard();
+        const dash: DashboardData = await caregiverApi.getDashboard();
         setPatient(dash.patient);
         setLatestSession(dash.latest_session);
         setTrendData(dash.trend_data || []);
+        setIsSimulated(dash.is_simulated ?? false);
+        setMemoryConsistency(dash.memory_consistency);
+        setMemoryDelta(dash.memory_consistency_delta);
+        setAvgResponseDelay(dash.avg_response_delay);
+        setDelayDelta(dash.avg_response_delay_delta);
+        setSpeechHesitationRate(dash.speech_hesitation_rate);
+        setHesitationDelta(dash.speech_hesitation_rate_delta);
 
         const alertRes = await caregiverApi.getAlerts();
         setAlerts(alertRes.alerts || []);
@@ -212,7 +258,14 @@ function CaregiverDashboardContent() {
     router.push("/login");
   };
 
-  const currentRiskLevel = latestSession?.risk_level || "low";
+  const currentRiskLevel = latestSession?.risk_level ?? null;
+
+  // Helper: format a delta value for display
+  const formatDelta = (delta: number | null, unit: string): string => {
+    if (delta === null) return "";
+    const sign = delta > 0 ? "+" : "";
+    return `${sign}${delta.toLocaleString("id-ID")}${unit} dari pekan lalu`;
+  };
 
   return (
     <div className="h-screen bg-background text-foreground flex overflow-hidden">
@@ -228,10 +281,10 @@ function CaregiverDashboardContent() {
           <nav className="p-4 space-y-1">
             {[
               { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-               { id: "alerts", label: "Daftar Peringatan", icon: AlertTriangle, count: alerts.filter(a => !a.is_read).length },
-               { id: "recommendations", label: "Rekomendasi", icon: CheckSquare },
-               { id: "guidance", label: "Panduan Demensia", icon: Bot },
-               { id: "reports", label: "Laporan Bulanan", icon: FileText },
+              { id: "alerts", label: "Peringatan", icon: AlertTriangle, count: alerts.filter(a => !a.is_read).length },
+              { id: "recommendations", label: "Rekomendasi", icon: CheckSquare },
+              { id: "guidance", label: "Panduan Demensia", icon: Bot },
+              { id: "reports", label: "Laporan Bulanan", icon: FileText },
             ].map(({ id, label, icon: Icon, count }) => (
               <button
                 key={id}
@@ -290,18 +343,23 @@ function CaregiverDashboardContent() {
           </div>
 
           <div className="flex items-center gap-3">
-            {currentRiskLevel === "high" ? (
+            {currentRiskLevel === null ? (
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-muted/50 text-muted-foreground border border-border">
+                ● Belum ada data
+              </span>
+            ) : currentRiskLevel === "high" ? (
               <span className="risk-badge-high">● Status Risiko Tinggi</span>
             ) : currentRiskLevel === "medium" ? (
               <span className="risk-badge-medium">● Status Risiko Sedang</span>
             ) : (
-              <span className="risk-badge-low">● Status Stabil</span>
+              <span className="risk-badge-low">● Status Risiko Rendah</span>
             )}
           </div>
         </header>
 
         {/* Workspace Content */}
         <div className="p-8 flex-1 max-w-5xl w-full mx-auto">
+
           {loading ? (
             <div className="flex items-center justify-center h-64">
               <Loader2 className="w-8 h-8 text-primary animate-spin" />
@@ -321,18 +379,30 @@ function CaregiverDashboardContent() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     <div className="bg-card border border-border/70 rounded-2xl p-5 shadow-sm">
                       <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Konsistensi Memori</p>
-                      <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">82%</p>
-                      <p className="text-xs text-primary-dark font-semibold mt-1">Dalam batas variasi normal</p>
+                      <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">
+                        {memoryConsistency !== null ? `${memoryConsistency.toLocaleString("id-ID")}%` : "Belum ada data"}
+                      </p>
+                      <p className="text-xs text-muted-foreground font-semibold mt-1">
+                        {formatDelta(memoryDelta, "%")}
+                      </p>
                     </div>
                     <div className="bg-card border border-border/70 rounded-2xl p-5 shadow-sm">
                       <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Jeda Respons</p>
-                      <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">+1,2 dtk</p>
-                      <p className="text-xs text-amber-700 font-semibold mt-1">Sedikit keraguan terdeteksi</p>
+                      <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">
+                        {avgResponseDelay !== null ? `${avgResponseDelay.toLocaleString("id-ID")} dtk` : "Belum ada data"}
+                      </p>
+                      <p className="text-xs text-muted-foreground font-semibold mt-1">
+                        {formatDelta(delayDelta, " dtk")}
+                      </p>
                     </div>
                     <div className="bg-card border border-border/70 rounded-2xl p-5 shadow-sm">
                       <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Keraguan Bicara</p>
-                      <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">4,5%</p>
-                      <p className="text-xs text-primary-dark font-semibold mt-1">Kecepatan bicara normal</p>
+                      <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">
+                        {speechHesitationRate !== null ? `${speechHesitationRate.toLocaleString("id-ID")} kali/menit` : "Belum ada data"}
+                      </p>
+                      <p className="text-xs text-muted-foreground font-semibold mt-1">
+                        {formatDelta(hesitationDelta, " kali/menit")}
+                      </p>
                     </div>
                   </div>
 
@@ -340,7 +410,8 @@ function CaregiverDashboardContent() {
                   <div className="grid lg:grid-cols-3 gap-8">
                     {/* Line Chart */}
                     <div className="lg:col-span-2 bg-card border border-border/70 rounded-[24px] p-6 shadow-sm">
-                      <h2 className="text-lg font-bold font-serif-editorial text-foreground mb-6">Skor Risiko Kognitif (30 Hari)</h2>
+                      <h2 className="text-lg font-bold font-serif-editorial text-foreground mb-1">Skor Risiko Kognitif (30 Hari)</h2>
+                      <p className="text-xs text-muted-foreground mb-5">Indikator informatif, bukan diagnosis.</p>
                       <div className="h-64">
                         {mounted && trendData.length > 0 ? (
                           <ResponsiveContainer width="100%" height="100%">
@@ -380,13 +451,7 @@ function CaregiverDashboardContent() {
                           alerts.slice(0, 3).map((a) => (
                             <div key={a.id} className="border border-border/60 rounded-xl p-3 bg-secondary/30">
                               <div className="flex justify-between items-start mb-1">
-                                <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
-                                  a.severity === "high"
-                                    ? "bg-destructive/15 text-destructive"
-                                    : a.severity === "medium"
-                                    ? "bg-warning/15 text-amber-700"
-                                    : "bg-primary/15 text-primary-dark"
-                                }`}>
+                                <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${severityStyle(a.severity)}`}>
                                   {SEVERITY_LABEL[a.severity] ?? a.severity}
                                 </span>
                                 <span className="text-[10px] text-muted-foreground font-medium">
@@ -451,13 +516,7 @@ function CaregiverDashboardContent() {
                     ) : (
                       alerts.map((a) => (
                         <div key={a.id} className="bg-card border border-border/70 rounded-2xl p-6 shadow-sm flex gap-4.5 items-start">
-                          <div className={`p-3 rounded-xl flex-shrink-0 ${
-                            a.severity === "high"
-                              ? "bg-destructive/15 text-destructive"
-                              : a.severity === "medium"
-                              ? "bg-warning/15 text-amber-700"
-                              : "bg-primary/15 text-primary-dark"
-                          }`}>
+                          <div className={`p-3 rounded-xl flex-shrink-0 ${severityStyle(a.severity)}`}>
                             <AlertTriangle className="w-6 h-6" />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -491,7 +550,7 @@ function CaregiverDashboardContent() {
                   exit={{ opacity: 0, y: -12 }}
                   className="space-y-8"
                 >
-                  <h2 className="text-2xl font-bold font-serif-editorial text-foreground">Rekomendasi Perawatan AI</h2>
+                  <h2 className="text-2xl font-bold font-serif-editorial text-foreground">Rekomendasi Perawatan</h2>
 
                   {/* Sectioned recommendations */}
                   {[
@@ -639,7 +698,7 @@ function CaregiverDashboardContent() {
                             </div>
                           </div>
                           <button
-                            onClick={() => alert("Unduhan laporan (simulasi PDF)")}
+                            onClick={() => alert("Fitur unduh PDF belum tersedia pada versi demo.")}
                             className="bg-card border border-border hover:bg-secondary text-foreground font-bold px-4 py-2 rounded-xl text-sm transition-colors cursor-pointer"
                           >
                             Unduh PDF

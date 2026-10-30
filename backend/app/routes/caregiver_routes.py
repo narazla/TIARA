@@ -69,7 +69,7 @@ async def verify_caregiver_pin(
             detail="PIN salah. Silakan coba lagi.",
         )
 
-    # Success — reset failed attempts and issue dashboard token
+    # Success: reset failed attempts and issue dashboard token
     pin_record.failed_attempts = 0
     pin_record.locked_until = None
     await db.commit()
@@ -89,11 +89,20 @@ async def get_caregiver_dashboard(
 ):
     """
     Return caregiver dashboard analytics for the linked patient.
-    Returns seed/empty data if no sessions exist yet.
+    Metrics are computed from the last 7 days vs the preceding 7 days.
+    Returns null for metrics when no analysis data exists.
     """
+    from statistics import mean
     from sqlalchemy import and_, desc
-    from app.models.analysis import RiskScore
+    from app.core.config import settings as app_settings
+    from app.models.analysis import (
+        FacialAnalysisResult,
+        LanguageAnalysisResult,
+        RiskScore,
+        VoiceAnalysisResult,
+    )
     from app.models.alert import Alert
+    from app.models.checkin import CheckinSession
 
     # Find linked patient
     result = await db.execute(
@@ -102,19 +111,26 @@ async def get_caregiver_dashboard(
         ).limit(1)
     )
     link = result.scalar_one_or_none()
-
     patient_id = link.patient_user_id if link else current_user.id
 
     # Get patient user
     result = await db.execute(select(User).where(User.id == patient_id))
     patient = result.scalar_one_or_none()
+    if not patient:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Data pasien tidak ditemukan",
+        )
 
-    # Get recent risk scores for trend chart
+    # ── Risk score trend (last 30 days) ────────────────────────
+    now_utc = datetime.now(timezone.utc)
     result = await db.execute(
         select(RiskScore)
-        .where(RiskScore.patient_user_id == patient_id)
+        .where(
+            RiskScore.patient_user_id == patient_id,
+            RiskScore.created_at >= now_utc - timedelta(days=30),
+        )
         .order_by(desc(RiskScore.created_at))
-        .limit(30)
     )
     risk_scores = result.scalars().all()
 
@@ -137,7 +153,95 @@ async def get_caregiver_dashboard(
             "risk_level": latest.risk_level,
         }
 
-    # Count unread alerts
+    # ── Time windows for 7-day metrics ─────────────────────────
+    week_ago = now_utc - timedelta(days=7)
+    two_weeks_ago = now_utc - timedelta(days=14)
+
+    # Helper: get completed session IDs for a time window
+    async def _session_ids_in_window(start: datetime, end: datetime) -> list:
+        r = await db.execute(
+            select(CheckinSession.id).where(
+                and_(
+                    CheckinSession.patient_user_id == patient_id,
+                    CheckinSession.completed_at >= start,
+                    CheckinSession.completed_at < end,
+                )
+            )
+        )
+        return [row[0] for row in r.all()]
+
+    cur_ids = await _session_ids_in_window(week_ago, now_utc)
+    prev_ids = await _session_ids_in_window(two_weeks_ago, week_ago)
+
+    # ── memory_consistency: mean(memory_recall_score) × 100 ────
+    # Source: LanguageAnalysisResult.memory_recall_score (0-1 float)
+    async def _memory_consistency(session_ids: list) -> float | None:
+        if not session_ids:
+            return None
+        r = await db.execute(
+            select(LanguageAnalysisResult.memory_recall_score).where(
+                and_(
+                    LanguageAnalysisResult.session_id.in_(session_ids),
+                    LanguageAnalysisResult.memory_recall_score.is_not(None),
+                )
+            )
+        )
+        vals = [row[0] for row in r.all() if row[0] is not None]
+        return round(mean(vals) * 100, 1) if vals else None
+
+    # ── avg_response_delay: mean(avg_response_delay_seconds) ───
+    # Source: FacialAnalysisResult.avg_response_delay_seconds (float, seconds)
+    async def _avg_response_delay(session_ids: list) -> float | None:
+        if not session_ids:
+            return None
+        r = await db.execute(
+            select(FacialAnalysisResult.avg_response_delay_seconds).where(
+                and_(
+                    FacialAnalysisResult.session_id.in_(session_ids),
+                    FacialAnalysisResult.avg_response_delay_seconds.is_not(None),
+                )
+            )
+        )
+        vals = [row[0] for row in r.all() if row[0] is not None]
+        return round(mean(vals), 2) if vals else None
+
+    # ── speech_hesitation_rate: mean(hesitation_count / duration × 60) ──
+    # Source: VoiceAnalysisResult.hesitation_count, .duration_seconds
+    async def _speech_hesitation_rate(session_ids: list) -> float | None:
+        if not session_ids:
+            return None
+        r = await db.execute(
+            select(
+                VoiceAnalysisResult.hesitation_count,
+                VoiceAnalysisResult.duration_seconds,
+            ).where(
+                and_(
+                    VoiceAnalysisResult.session_id.in_(session_ids),
+                    VoiceAnalysisResult.duration_seconds.is_not(None),
+                    VoiceAnalysisResult.duration_seconds > 0,
+                )
+            )
+        )
+        rates = [
+            (row[0] / row[1]) * 60
+            for row in r.all()
+            if row[0] is not None and row[1] and row[1] > 0
+        ]
+        return round(mean(rates), 2) if rates else None
+
+    mem_cur = await _memory_consistency(cur_ids)
+    mem_prev = await _memory_consistency(prev_ids)
+    delay_cur = await _avg_response_delay(cur_ids)
+    delay_prev = await _avg_response_delay(prev_ids)
+    hes_cur = await _speech_hesitation_rate(cur_ids)
+    hes_prev = await _speech_hesitation_rate(prev_ids)
+
+    def _delta(cur: float | None, prev: float | None) -> float | None:
+        if cur is None or prev is None:
+            return None
+        return round(cur - prev, 2)
+
+    # ── Unread alerts ───────────────────────────────────────────
     result = await db.execute(
         select(Alert).where(
             and_(Alert.patient_user_id == patient_id, Alert.is_read == False)
@@ -153,10 +257,14 @@ async def get_caregiver_dashboard(
         },
         "latest_session": latest_session_data,
         "trend_data": trend_data,
-        "memory_consistency": None,
-        "avg_response_delay": None,
-        "speech_hesitation_rate": None,
+        "memory_consistency": mem_cur,
+        "memory_consistency_delta": _delta(mem_cur, mem_prev),
+        "avg_response_delay": delay_cur,
+        "avg_response_delay_delta": _delta(delay_cur, delay_prev),
+        "speech_hesitation_rate": hes_cur,
+        "speech_hesitation_rate_delta": _delta(hes_cur, hes_prev),
         "unread_alerts": unread_alerts,
+        "is_simulated": app_settings.DEMO_MODE,
     }
 
 
@@ -280,6 +388,7 @@ async def get_caregiver_reports(
             for r in reports
         ]
     }
+
 
 class GuidanceAskRequest(BaseModel):
     question: str

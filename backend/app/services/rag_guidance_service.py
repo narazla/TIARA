@@ -8,12 +8,13 @@ berdasarkan dua dokumen resmi Kementerian Kesehatan:
 
 Pipeline:
 1. Terima pertanyaan dari caregiver.
-2. Encode pertanyaan dengan multilingual-e5-large (prefix "query:").
-3. Cari 3 chunk teratas dari FAISS index (ukuran 256 token, hit rate 97.1%).
-4. Susun konteks dengan label dokumen dan halaman.
-5. Kirim ke Gemini dengan instruksi hanya menjawab dari konteks dan menyertakan
+2. Perluas pertanyaan dengan istilah yang dipakai dokumen resmi.
+3. Encode pertanyaan dengan multilingual-e5-large (prefix "query:").
+4. Cari TOP_K chunk teratas dari FAISS index (ukuran 256 token).
+5. Susun konteks dengan label dokumen dan halaman.
+6. Kirim ke Gemini dengan instruksi hanya menjawab dari konteks dan menyertakan
    rujukan halaman di akhir jawaban.
-6. Kembalikan jawaban beserta daftar sumber yang digunakan.
+7. Kembalikan jawaban beserta daftar sumber yang digunakan.
 """
 
 import pickle
@@ -40,7 +41,7 @@ _chunks: list[dict] | None = None
 _client: genai.Client | None = None
 
 LLM_MODEL = "gemini-3.5-flash-lite"
-TOP_K = 3
+TOP_K = 6
 
 
 def _load_resources() -> None:
@@ -60,12 +61,25 @@ def _load_resources() -> None:
         _client = genai.Client(api_key=settings.LLM_API_KEY)
 
 
+def _perluas_pertanyaan(pertanyaan: str) -> str:
+    """Tambahkan istilah dokumen resmi agar retrieval mengarah ke penanganan caregiver."""
+    p = pertanyaan.lower()
+    tambahan = []
+    if any(k in p for k in ("gelisah", "marah", "mengamuk", "rewel", "emosi", "agitasi", "agresif")):
+        tambahan.append("penanganan non farmakologi gejala perilaku BPSD strategi pengasuh DICE")
+    if any(k in p for k in ("malam", "tidur", "begadang")):
+        tambahan.append("gangguan tidur lansia jadwal tidur teratur tidur siang kopi susu hangat lampu kecil relaksasi")
+    if any(k in p for k in ("halusinasi", "melihat sesuatu", "curiga")):
+        tambahan.append("mengalihkan perhatian halusinasi non farmakologi")
+    return pertanyaan + (" " + " ".join(tambahan) if tambahan else "")
+
+
 def _retrieve(pertanyaan: str) -> tuple[str, list[str]]:
     """Cari TOP_K chunk paling relevan untuk pertanyaan."""
     _load_resources()
     assert _model is not None and _index is not None and _chunks is not None
 
-    query = "query: " + pertanyaan
+    query = "query: " + _perluas_pertanyaan(pertanyaan)
     angka_query = _model.encode([query], normalize_embeddings=True)
     _, indeks = _index.search(np.array(angka_query, dtype=np.float32), k=TOP_K)
 
@@ -88,9 +102,12 @@ Jika jawabannya tidak ada di dalam konteks, katakan dengan jujur bahwa informasi
 Aturan tambahan:
 - Jawab dalam bahasa yang sama dengan pertanyaan pengguna.
 - Jangan memberikan diagnosis medis.
-- Jangan menyebut dosis obat spesifik; arahkan caregiver ke tenaga kesehatan untuk hal itu.
+- Jangan menyebut dosis atau nama obat spesifik. Jika ditanya soal dosis atau obat, jawab bahwa TIARA tidak memberikan informasi dosis dan keputusan obat hanya boleh diambil oleh dokter atau apoteker.
+- Utamakan penanganan non-obat yang bisa dilakukan caregiver di rumah, dan berikan langkah praktis yang konkret (misalnya rutinitas tidur, pengaturan lingkungan, cara menenangkan).
+- Jangan menyebut nama obat atau golongan obat. Cukup katakan bahwa keputusan soal obat hanya boleh diambil oleh dokter.
 - Di akhir jawaban, cantumkan rujukan dokumen dan halaman yang kamu gunakan dalam format:
   Sumber: [Nama Dokumen hal X]; [Nama Dokumen hal Y]
+- Jika kamu menolak menjawab atau informasinya tidak tersedia di dokumen, JANGAN tulis baris "Sumber". Tulis baris "Sumber" hanya jika jawabanmu benar-benar memakai isi dokumen.
 
 Konteks dokumen:
 {konteks}

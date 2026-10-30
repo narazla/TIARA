@@ -1,8 +1,8 @@
-# 02 — MVP Scope
+# 02 - MVP Scope
 
 ## MVP Philosophy
 
-The MVP must be **real and functional** — not a static mockup. It must demonstrate a working end-to-end flow: from elderly check-in to caregiver dashboard analytics. Every major component must have real logic, even if simplified.
+The MVP must be **real and functional** - not a static mockup. It must demonstrate a working end-to-end flow: from elderly check-in to caregiver dashboard analytics. Every major component must have real logic, even if simplified.
 
 ---
 
@@ -27,10 +27,10 @@ The MVP must be **real and functional** — not a static mockup. It must demonst
 - Quick access to Daily Check-In and TIARA Companion
 - Profile dropdown with Dashboard and Logout
 
-### 4. Video + Audio Daily Check-In
+### 4. Audio Daily Check-In (Voice per Question)
 - Browser `getUserMedia` for camera + microphone access
-- Live video preview during check-in
-- `MediaRecorder` for audio/video capture per question
+- Live video preview during check-in (local preview only; video not recorded or sent to backend)
+- `MediaRecorder` for audio recording per question
 - Consent-based: permissions requested before recording starts
 
 ### 5. Spoken AI Questions (Text-to-Speech)
@@ -46,7 +46,7 @@ The MVP must be **real and functional** — not a static mockup. It must demonst
 
 ### 7. Speech-to-Text Transcription Pipeline
 - **Primary**: `faster-whisper` or `whisper` Python library
-- **Fallback**: Clean provider interface with manual placeholder — not static fake data
+- **Fallback**: Clean provider interface with manual placeholder - not static fake data
 - Transcripts stored in `transcripts` table
 - Pipeline runs asynchronously after upload
 
@@ -58,11 +58,10 @@ The MVP must be **real and functional** — not a static mockup. It must demonst
 - Pause indicators
 - Voice risk score composite
 
-### 9. Facial / Video Signal Analysis
-- Save video file metadata (duration, format)
-- Basic face detection attempt using OpenCV or MediaPipe if available
-- Service interface structured for real implementation
-- Graceful fallback with clear TODO markers if library unavailable
+### 9. Facial / Video Signal Analysis (Simulation Data Only)
+- No real video analysis in production pipeline; video is not recorded or sent to backend
+- `facial_analysis_results` table populated with simulated data by seed script only
+- `facial_component` in `risk_scores` is null for all real check-in sessions
 
 ### 10. Daily Check-In Result for Elderly
 - Simple, warm result page

@@ -1,529 +1,197 @@
-# 06 — AI Pipeline
+# 06 - AI Pipeline
 
 ## Overview
 
-TIARA's AI pipeline converts raw audio/video check-in recordings into structured cognitive trend indicators. The pipeline is designed with **provider abstraction** at every step, enabling real AI components when available and graceful, non-fake fallbacks when not.
+TIARA's AI analysis pipeline processes audio recordings from check-in sessions into structured speech pattern indicators. This document describes what is actually implemented and running in production code.
 
-> **Critical Design Rule**: No AI logic lives in frontend components. All AI processing runs in backend services. No step returns hardcoded static analysis results.
-
----
-
-## Pipeline Flow
-
-```
-[Check-In Session Completed]
-          │
-          ▼
-[Media Files Uploaded to Storage]
-          │
-          ▼
-[TranscriptionService]
-  └── Audio → Text Transcript
-          │
-          ▼
-[VoiceAnalysisService]
-  └── Audio + Transcript → Voice Features
-          │
-          ▼
-[LanguageAnalysisService]
-  └── Transcript + Answers → Language Features
-          │
-          ▼
-[FacialAnalysisService]
-  └── Video File → Facial/Video Features
-          │
-          ▼
-[RiskScoringService]
-  └── All Features → Risk Score + Level + Summary
-          │
-          ▼
-[AlertService]
-  └── Risk Score + History → Caregiver Alerts
-          │
-          ▼
-[RecommendationService]
-  └── Risk Score + Indicators → Care Recommendations
-          │
-          ▼
-[Results stored in database]
-[Caregiver dashboard reflects new data]
-```
+> **Critical note**: This document describes the real pipeline. Language analysis (orientation, memory, coherence), facial analysis (OpenCV, MediaPipe), and librosa audio processing are NOT part of the real pipeline. Those components exist only in the simulation seed data. The real pipeline uses only faster-whisper for transcription and rule-based voice feature extraction.
 
 ---
 
-## Service 1: TranscriptionService
+## Real Pipeline Flow
 
-**Purpose**: Convert recorded audio files to text transcripts.
-
-**Location**: `backend/app/services/transcription_service.py`
-
-### Provider Interface
-
-```python
-from abc import ABC, abstractmethod
-from dataclasses import dataclass
-
-@dataclass
-class TranscriptionResult:
-    text: str
-    word_count: int
-    language: str
-    confidence: float
-    provider: str
-    segments: list[dict]  # Optional word-level timing
-
-class BaseTranscriptionProvider(ABC):
-    @abstractmethod
-    def transcribe(self, audio_path: str) -> TranscriptionResult:
-        ...
-    
-    @abstractmethod
-    def is_available(self) -> bool:
-        ...
 ```
-
-### WhisperProvider (Primary)
-
-```python
-class WhisperProvider(BaseTranscriptionProvider):
-    """Uses faster-whisper for local speech-to-text."""
-    
-    def __init__(self, model_size: str = "base"):
-        from faster_whisper import WhisperModel
-        self.model = WhisperModel(model_size, device="cpu", compute_type="int8")
-    
-    def transcribe(self, audio_path: str) -> TranscriptionResult:
-        segments, info = self.model.transcribe(audio_path, beam_size=5)
-        full_text = " ".join([s.text for s in segments])
-        return TranscriptionResult(
-            text=full_text.strip(),
-            word_count=len(full_text.split()),
-            language=info.language,
-            confidence=info.language_probability,
-            provider="faster-whisper",
-            segments=[{"start": s.start, "end": s.end, "text": s.text} for s in segments]
-        )
-```
-
-### FallbackProvider (When Whisper unavailable)
-
-```python
-class FallbackTranscriptionProvider(BaseTranscriptionProvider):
-    """
-    Fallback when Whisper is not installed.
-    Returns an honest empty result — NOT fake text.
-    System continues with reduced analysis quality.
-    """
-    
-    def transcribe(self, audio_path: str) -> TranscriptionResult:
-        return TranscriptionResult(
-            text="",
-            word_count=0,
-            language="unknown",
-            confidence=0.0,
-            provider="fallback-no-stt",
-            segments=[]
-        )
-    
-    def is_available(self) -> bool:
-        return False
-```
-
-### TranscriptionService
-
-```python
-class TranscriptionService:
-    def __init__(self):
-        self.provider = self._load_provider()
-    
-    def _load_provider(self) -> BaseTranscriptionProvider:
-        try:
-            return WhisperProvider(model_size=settings.WHISPER_MODEL_SIZE)
-        except ImportError:
-            logger.warning("faster-whisper not available. Using fallback provider.")
-            return FallbackTranscriptionProvider()
-    
-    async def transcribe_session(self, session_id: str, audio_paths: list[str]) -> list[TranscriptionResult]:
-        results = []
-        for path in audio_paths:
-            result = self.provider.transcribe(path)
-            results.append(result)
-        return results
+[Check-in session: POST /elderly/checkin/{id}/finish]
+    |
+    v
+[Decrypt .webm.enc files in memory - Fernet]
+    |
+    v
+[faster-whisper transcription per answer]
+    - model: base
+    - language: id (Indonesian)
+    - device: cpu, compute_type: int8
+    - word_timestamps: True
+    - vad_filter: True
+    - beam_size: 1
+    |
+    v
+[Voice feature extraction per answer - fitur_jawaban()]
+    - words per minute (from word timestamps, speaking time >= 3s)
+    - inter-word pauses >= 0.5 s (AMBANG_JEDA_DETIK)
+    - hesitation words: eh, ehm, em, emm, hmm, hm, mm, mmm, ee, eee, anu, uh, um
+    - "apa ya" (bigram counted as hesitation)
+    - consecutive identical word repetitions
+    - response delay (timestamp of first word)
+    |
+    v
+[Feature aggregation - gabung_fitur()]
+    - total word count, aggregated pauses, hesitation rate/min
+    - mean response delay across answers
+    |
+    v
+[Baseline selection - tentukan_dasar()]
+    - if >= 3 prior real sessions: median of last 14 sessions (personal baseline)
+    - else: general reference values (ACUAN_UMUM)
+      (100 wpm, 0.8s pause, 2.0 hesitations/min, 2.0s response delay)
+    |
+    v
+[Risk scoring - hitung_skor()]
+    - deviation per component, clamp(0, 1)
+    - weighted sum: wpm=0.3, pause=0.3, response_delay=0.3, hesitation=0.1
+    - score = clamp(1.5 + 7.5 * weighted_deviation, 0, 10)
+    - Rendah < 4, Sedang 4-6.9, Tinggi >= 7
+    |
+    v
+[Session failure check]
+    - if total word count < 5 (MIN_KATA_SESI): mark session failed, create INFO alert
+    |
+    v
+[Save results to database]
+    - Transcript (text, word_count, confidence, language="id", provider="faster-whisper-base")
+    - VoiceAnalysisResult (speech_rate_wpm, hesitation_count, pause_count, avg_pause_duration,
+      voice_risk_score, raw_features JSON with sumber/model/pembanding/komponen)
+    - RiskScore (risk_score, risk_level, voice_component=score, language_component=null,
+      facial_component=null, memory_component=null, summary, main_indicators)
+    |
+    v
+[Alert generation]
+    - score level "high": WARNING alert "Pola bicara hari ini menyimpang dari biasanya"
+    - session failed: INFO alert "Check-in hari ini tidak terekam"
+    - deduplication: same title not created twice within 12 hours
+    |
+    v
+[Return {status, session_id, perlu_perhatian}]
 ```
 
 ---
 
-## Service 2: VoiceAnalysisService
+## Null Components in Real Sessions
 
-**Purpose**: Extract acoustic and linguistic features from audio.
+For every real check-in session, the following `risk_scores` fields are always `null`:
 
-**Location**: `backend/app/services/voice_analysis_service.py`
+- `language_component` - no language analysis runs in real sessions
+- `facial_component` - no facial/video analysis; video is not recorded or sent to backend
+- `memory_component` - no memory analysis
 
-### Features Extracted
+These fields are populated only in simulated demo data (provider `"simulasi-demo"`) created by the seed script.
 
-| Feature | Method | Notes |
-|---|---|---|
-| `duration_seconds` | librosa/pydub duration | File-level |
-| `speech_rate_wpm` | word_count / duration_minutes | Requires transcript |
-| `hesitation_count` | Count of "um", "uh", "err", "hmm" in transcript | |
-| `repetition_count` | Detect repeated 3+ word phrases | |
-| `pause_count` | Silence detection in audio | librosa silences |
-| `avg_pause_duration` | Mean silent segment length | |
-| `voice_risk_score` | Composite formula | See below |
+---
 
-### Voice Risk Score Formula (MVP Rule-Based)
+## Hesitation Detection
+
+Words matched against the hesitation set (KATA_RAGU):
 
 ```python
-def calculate_voice_risk(features: VoiceFeatures) -> float:
-    score = 50.0  # Baseline
-    
-    # Speech rate penalty (too slow or too fast indicates issue)
-    if features.speech_rate_wpm < 80:
-        score += 15  # Very slow speech
-    elif features.speech_rate_wpm < 100:
-        score += 8   # Slightly slow
-    elif features.speech_rate_wpm > 180:
-        score += 5   # Unusually rapid
-    
-    # Hesitation penalty
-    score += min(features.hesitation_count * 3, 20)
-    
-    # Repetition penalty
-    score += min(features.repetition_count * 5, 15)
-    
-    # Pause penalty
-    if features.avg_pause_duration > 3.0:
-        score += 10
-    
-    # Duration completeness
-    if features.duration_seconds < 10:
-        score += 10  # Very short responses are a signal
-    
-    return min(max(score, 0), 100)
+{"eh", "ehm", "em", "emm", "hmm", "hm", "mm", "mmm", "ee", "eee", "anu", "uh", "um"}
 ```
 
-### Provider-Abstracted Audio Loading
+The bigram `"apa ya"` is also counted as one hesitation instance.
 
-```python
-class AudioLoader:
-    def load(self, audio_path: str) -> AudioData:
-        try:
-            import librosa
-            y, sr = librosa.load(audio_path, sr=16000)
-            return AudioData(signal=y, sample_rate=sr, duration=len(y)/sr)
-        except ImportError:
-            # Fallback: get duration from file metadata only
-            return self._load_metadata_only(audio_path)
+**Known limitation**: faster-whisper frequently removes or normalizes hesitation words during transcription, especially for Indonesian. Hesitation counts tend to be significantly underestimated compared to manual counting. This is a limitation of the transcription model, not a bug in the feature extraction code.
+
+---
+
+## Score Formula
+
+```
+deviation_wpm    = max(0, (baseline_wpm - session_wpm) / baseline_wpm)
+component_wpm    = min(1, deviation_wpm / 0.4)
+
+deviation_pause  = max(0, session_avg_pause - baseline_avg_pause)
+component_pause  = min(1, deviation_pause / max(baseline_avg_pause, 0.3))
+
+deviation_ragu   = max(0, session_ragu_per_min - baseline_ragu_per_min)
+component_ragu   = min(1, deviation_ragu / 3.0)
+
+deviation_resp   = max(0, session_response_delay - baseline_response_delay)
+component_resp   = min(1, deviation_resp / 3.0)
+
+weights = {wpm: 0.3, pause: 0.3, response_delay: 0.3, hesitation: 0.1}
+total_weight = sum of weights for components where data is available
+penyimpangan = weighted_sum / total_weight
+
+score = clamp(1.5 + 7.5 * penyimpangan, 0, 10)
 ```
 
 ---
 
-## Service 3: LanguageAnalysisService
+## RAG Guidance Pipeline
 
-**Purpose**: Analyze the content and coherence of spoken answers.
+Separate from the check-in pipeline. Used for Dementia Guidance AI chat.
 
-**Location**: `backend/app/services/language_analysis_service.py`
-
-### Analysis Dimensions
-
-#### Orientation Score (0-100)
-Measures ability to answer time/place/person questions correctly.
-- Correct day/date: +25
-- Correct location: +25
-- Correct context (who they're talking to): +25
-- Fluent response: +25
-
-#### Memory Recall Score (0-100)
-Measures ability to recall recent events.
-- Recalls breakfast: +25
-- Recalls recent visitor: +25
-- Responds with detail: +25
-- No contradictions: +25
-
-#### Coherence Score (0-100)
-Measures whether responses are logically structured.
-- Response is on-topic: +30
-- No sudden topic drift: +30
-- Sentence structure intact: +40
-
-#### Vocabulary Score (0-100)
-Measures linguistic richness.
-- Unique word ratio (type-token ratio)
-- Average word length
-- Absence of word-finding pauses in text
-
-#### Language Risk Score Formula
-
-```python
-def calculate_language_risk(scores: LanguageScores) -> float:
-    # Weighted composite (inverted — lower score = higher risk)
-    weighted_avg = (
-        scores.orientation * 0.30 +
-        scores.memory_recall * 0.30 +
-        scores.coherence * 0.25 +
-        scores.vocabulary * 0.15
-    )
-    # Convert competency score to risk score
-    language_risk = 100 - weighted_avg
-    return round(min(max(language_risk, 0), 100), 2)
+```
+Caregiver question
+    |
+    v
+[Query expansion - _perluas_pertanyaan()]
+    - adds BPSD/DICE keywords for behavioral questions
+    - adds sleep-related terms for sleep questions
+    - adds hallucination/redirection terms for hallucination questions
+    |
+    v
+[Encode with multilingual-e5-large]
+    - prefix: "query: "
+    - normalize_embeddings=True
+    |
+    v
+[FAISS index search]
+    - index: index_256token.faiss (558 chunks)
+    - TOP_K = 6
+    - 396 chunks from PNPK Demensia (pages stored 0-indexed; label = index + 1)
+    - 162 chunks from Panduan Caregiver Kemenkes (pages stored 1-indexed; used as-is)
+    |
+    v
+[Build prompt - _build_prompt()]
+    - context: retrieved chunks with document and page labels
+    - instructions: answer only from context, no diagnosis, no medication doses,
+      cite sources at end, acknowledge if question is out of scope
+    |
+    v
+[Gemini API - gemini-3.5-flash-lite]
+    - up to 3 retries on failure
+    - 2s delay between retries
+    |
+    v
+[Return {answer, sources}]
 ```
 
-### LLM-Ready Interface
-
-The LanguageAnalysisService is structured so an LLM provider can replace the rule-based analysis:
-
-```python
-class BaseLanguageAnalyzer(ABC):
-    @abstractmethod
-    def analyze(self, answers: list[AnswerData]) -> LanguageAnalysisResult:
-        ...
-
-class RuleBasedAnalyzer(BaseLanguageAnalyzer):
-    """MVP: pattern matching and heuristic scoring."""
-    ...
-
-class LLMAnalyzer(BaseLanguageAnalyzer):
-    """Post-MVP: GPT/Claude/Gemini-powered analysis."""
-    ...
-```
+**Model warm-up**: the embedding model and FAISS index are loaded once at application startup in a background thread (`_warmup_rag` in `main.py`). The first `/finish` call after a cold start may be slower if the model is still loading.
 
 ---
 
-## Service 4: FacialAnalysisService
+## Simulated Data (Seed Script Only)
 
-**Purpose**: Extract behavioral signals from video recordings.
+The seed script (`backend/app/scripts/seed.py`) generates simulated data for dashboard demonstration. This data populates all four analysis tables:
 
-**Location**: `backend/app/services/facial_analysis_service.py`
+- `voice_analysis_results` - speech_rate_wpm, hesitation_count, etc.
+- `language_analysis_results` - orientation_score, memory_recall_score, coherence_score, vocabulary_score
+- `facial_analysis_results` - avg_response_delay, facial_risk_score (provider = "simulasi-demo")
+- `risk_scores` - all four components populated
 
-### MVP Implementation
-
-```python
-class FacialAnalysisService:
-    def __init__(self):
-        self.provider = self._load_provider()
-    
-    def _load_provider(self) -> BaseFacialProvider:
-        try:
-            import cv2
-            return OpenCVFacialProvider()
-        except ImportError:
-            try:
-                import mediapipe
-                return MediaPipeFacialProvider()
-            except ImportError:
-                logger.warning("No facial analysis library available. Using metadata fallback.")
-                return MetadataOnlyFacialProvider()
-```
-
-### OpenCVFacialProvider
-
-```python
-class OpenCVFacialProvider(BaseFacialProvider):
-    def analyze(self, video_path: str) -> FacialAnalysisResult:
-        import cv2
-        cap = cv2.VideoCapture(video_path)
-        face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-        
-        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-        fps = cap.get(cv2.CAP_PROP_FPS)
-        duration = total_frames / fps if fps > 0 else 0
-        
-        face_detected_frames = 0
-        sampled_frames = 0
-        
-        # Sample every 30th frame for performance
-        for i in range(0, total_frames, 30):
-            cap.set(cv2.CAP_PROP_POS_FRAMES, i)
-            ret, frame = cap.read()
-            if ret:
-                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-                faces = face_cascade.detectMultiScale(gray, 1.1, 4)
-                if len(faces) > 0:
-                    face_detected_frames += 1
-                sampled_frames += 1
-        
-        cap.release()
-        
-        face_ratio = face_detected_frames / sampled_frames if sampled_frames > 0 else 0
-        
-        return FacialAnalysisResult(
-            video_duration_seconds=duration,
-            face_detected=face_ratio > 0.5,
-            face_detection_confidence=face_ratio,
-            facial_risk_score=self._calculate_risk(face_ratio),
-            provider="opencv"
-        )
-```
-
-### MetadataOnlyFacialProvider (Fallback)
-
-```python
-class MetadataOnlyFacialProvider(BaseFacialProvider):
-    """
-    When no video analysis library is available.
-    Returns metadata-only result — not fake analysis scores.
-    """
-    def analyze(self, video_path: str) -> FacialAnalysisResult:
-        # Get file size and duration estimate from file metadata
-        file_size = os.path.getsize(video_path) if os.path.exists(video_path) else 0
-        return FacialAnalysisResult(
-            video_duration_seconds=None,
-            face_detected=None,
-            face_detection_confidence=None,
-            facial_risk_score=None,  # Explicitly None, not 0
-            provider="metadata-only",
-            notes="Facial analysis library not available. Install opencv-python for full analysis."
-        )
-```
+This data is NOT produced by any real AI analysis. It is generated by mathematical formulas with random variation to create plausible-looking trends.
 
 ---
 
-## Service 5: RiskScoringService
+## What Is Not in the Pipeline
 
-**Purpose**: Combine all analysis dimensions into a single risk score.
+The following were described in earlier documentation but do NOT exist in the current codebase:
 
-**Location**: `backend/app/services/risk_scoring_service.py`
+- librosa for audio feature extraction
+- OpenCV or MediaPipe for facial/video analysis
+- Language analysis (orientation score, memory recall score, coherence score) from real transcripts
+- Provider abstraction pattern with BaseTranscriptionProvider/WhisperProvider/FallbackProvider classes
+- AIPipelineService orchestration class
+- AlertService and RecommendationService as separate service files (alerts and recommendations are generated inline in `checkin_routes.py` and seeded in `seed.py`)
 
-### Input
-
-```python
-@dataclass
-class RiskScoringInput:
-    voice_risk_score: float | None
-    language_risk_score: float | None
-    facial_risk_score: float | None
-    memory_recall_score: float | None
-    avg_response_delay: float | None
-    session_history: list[RiskScore]  # Previous sessions
-```
-
-### Composite Risk Formula
-
-```python
-def calculate_composite_risk(input: RiskScoringInput) -> float:
-    components = []
-    weights = []
-    
-    if input.voice_risk_score is not None:
-        components.append(input.voice_risk_score)
-        weights.append(0.25)
-    
-    if input.language_risk_score is not None:
-        components.append(input.language_risk_score)
-        weights.append(0.35)
-    
-    if input.facial_risk_score is not None:
-        components.append(input.facial_risk_score)
-        weights.append(0.20)
-    
-    if input.memory_recall_score is not None:
-        memory_risk = 100 - input.memory_recall_score
-        components.append(memory_risk)
-        weights.append(0.20)
-    
-    if not components:
-        return 50.0  # Indeterminate — not a fabricated result
-    
-    # Normalize weights to sum to 1
-    total_weight = sum(weights)
-    normalized = [w / total_weight for w in weights]
-    
-    composite = sum(c * w for c, w in zip(components, normalized))
-    return round(min(max(composite, 0), 100), 2)
-```
-
-### Risk Level Classification
-
-```
-0 – 35:   LOW    (sage green)
-36 – 65:  MEDIUM (warm gold)
-66 – 100: HIGH   (muted red)
-```
-
-### Output Format
-
-```json
-{
-  "risk_score": 42,
-  "risk_level": "medium",
-  "voice_component": 38,
-  "language_component": 45,
-  "facial_component": null,
-  "memory_component": 44,
-  "summary": "This session shows mild changes in memory recall and response timing compared to the baseline.",
-  "main_indicators": [
-    "Memory recall score slightly below baseline",
-    "Response delay slightly increased",
-    "Speech hesitation within normal range"
-  ]
-}
-```
-
----
-
-## Service 6: RecommendationService
-
-**Purpose**: Generate actionable care recommendations based on session results.
-
-**Location**: `backend/app/services/recommendation_service.py`
-
-### Recommendation Rules
-
-| Condition | Recommendation |
-|---|---|
-| risk_level = low | Maintain routine, light social activity |
-| risk_level = medium | Add cognitive activities, monitor trend |
-| risk_level = high | Consider clinical assessment soon |
-| memory_recall < 50 | Simple daily recall exercises |
-| hesitation_count high | Relaxed conversation, no pressure |
-| consecutive medium sessions | Caregiver consultation recommended |
-
----
-
-## Service 7: AlertService
-
-**Purpose**: Generate caregiver alerts based on session results and historical trends.
-
-**Location**: `backend/app/services/alert_service.py`
-
-### Alert Triggers
-
-| Trigger | Severity | Title |
-|---|---|---|
-| Check-in missed (no session today) | info | "Daily check-in not completed" |
-| risk_level = high | warning | "Elevated cognitive risk indicators" |
-| risk_score increased > 15 points vs last session | warning | "Significant change detected in today's session" |
-| 3+ consecutive medium/high sessions | warning | "Persistent trend requires attention" |
-| memory_recall_score < 40 | warning | "Memory recall score low today" |
-| facial analysis failed entirely | info | "Video check-in data incomplete" |
-
----
-
-## Pipeline Execution Strategy
-
-For the MVP, the pipeline runs **synchronously** after `POST /checkins/{session_id}/finish` in a background task to avoid blocking the HTTP response:
-
-```python
-@router.post("/{session_id}/finish")
-async def finish_checkin(session_id: str, background_tasks: BackgroundTasks, ...):
-    session = await checkin_service.complete_session(session_id)
-    background_tasks.add_task(
-        ai_pipeline_service.process_session,
-        session_id=session_id
-    )
-    return {"status": "completed", "processing_status": "pending"}
-```
-
-Post-MVP: Replace with a proper async task queue (Celery + Redis, or ARQ).
-
----
-
-## Integration Points for Custom Models
-
-Each service uses a strategy pattern. To inject a custom trained model:
-
-1. Implement the `BaseXxxProvider` abstract class
-2. Set the provider class name in environment config
-3. The service `_load_provider()` method instantiates the correct provider
-
-No code changes needed in routes, repositories, or other services.
+If the codebase evolves to include these, this document should be updated accordingly.

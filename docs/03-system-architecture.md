@@ -1,13 +1,14 @@
-# 03 — System Architecture
+# 03 - System Architecture
 
 ## Architecture Overview
 
-TIARA follows a **layered monorepo architecture** with a clear separation between the frontend, backend API, and AI service layer. The system is designed to be Docker-ready and environment-variable-driven.
+TIARA follows a layered monorepo architecture with clear separation between the frontend, backend API, and AI service layer. The system is Docker-ready and environment-variable-driven.
 
 ```
-tiara/
-├── frontend/          # Next.js 14 + TypeScript + Tailwind CSS
+TIARA-IBM/
+├── frontend/          # Next.js (App Router) + TypeScript + Tailwind CSS
 ├── backend/           # FastAPI + Python + PostgreSQL
+├── langflow/          # Exported Langflow flow (IBM Bob MCP tool)
 ├── docs/              # Documentation
 ├── docker-compose.yml
 ├── .env.example
@@ -20,154 +21,169 @@ tiara/
 
 | Layer | Technology | Purpose |
 |---|---|---|
-| **Frontend** | Next.js 14 (App Router) + TypeScript | Routing, SSR, UI framework |
-| **Styling** | Tailwind CSS + shadcn/ui | Design system and components |
+| **Frontend** | Next.js (App Router) + TypeScript | Routing, SSR, UI framework |
+| **Styling** | Tailwind CSS v4 + Radix UI | Design system and components |
 | **State/Forms** | React Hook Form + Zod | Form handling and validation |
 | **Charts** | Recharts | Dashboard visualizations |
 | **Animation** | Framer Motion | Smooth transitions |
-| **Icons** | Lucide React | Icon library |
-| **Backend API** | FastAPI + Python | REST API layer |
-| **ORM** | SQLAlchemy + SQLModel | Database access layer |
-| **Database** | PostgreSQL | Primary data store |
+| **Backend API** | FastAPI + Python 3.11 | REST API layer |
+| **ORM** | SQLAlchemy 2 (async) | Database access layer |
+| **Database** | PostgreSQL 15 | Primary data store |
 | **Migrations** | Alembic | Database schema versioning |
-| **Auth** | JWT + Passlib (bcrypt) | Token-based authentication |
+| **Auth** | JWT (python-jose) + bcrypt | Token-based authentication |
 | **Media Upload** | python-multipart | File upload handling |
 | **ASGI Server** | Uvicorn | Production ASGI server |
-| **STT** | faster-whisper / Whisper | Speech-to-text transcription |
-| **Audio Analysis** | librosa / pydub | Voice feature extraction |
-| **Video Analysis** | OpenCV / MediaPipe | Facial/video processing |
-| **LLM** | Pluggable (OpenAI, Anthropic, Gemini, local) | Dementia Guidance AI |
-| **Browser Media** | getUserMedia + MediaRecorder | Camera/microphone capture |
+| **STT** | faster-whisper | Speech-to-text transcription |
+| **Media Security** | cryptography (Fernet) | Audio file encryption at rest |
+| **RAG** | FAISS + multilingual-e5-large + Gemini | In-app guidance AI |
+| **Bob MCP** | Langflow + mcp-proxy | IBM Bob integration |
+| **Browser Media** | getUserMedia + MediaRecorder | Microphone capture |
 | **TTS** | SpeechSynthesisUtterance (Web Speech API) | Spoken AI questions |
+
+---
+
+## Two AI Paths
+
+TIARA has two separate AI paths that must not be confused:
+
+### Path 1: In-App RAG (Caregiver Guidance Chat)
+
+Used when a caregiver types a question in the guidance chat inside the web application.
+
+```
+User question
+    -> Query expansion (_perluas_pertanyaan)
+    -> multilingual-e5-large embedding ("query: " prefix)
+    -> FAISS index search (TOP_K=6, index_256token.faiss, 558 chunks)
+    -> Gemini generates answer from retrieved context
+    -> Answer + source page labels returned
+```
+
+Index composition: 396 chunks from PNPK Demensia + 162 chunks from Panduan Caregiver Kemenkes.
+
+Page label logic: PNPK stores pages starting at 0; displayed label = stored index + 1. Caregiver Guide stores pages starting at 1; used as-is.
+
+### Path 2: Langflow MCP (IBM Bob)
+
+Used when a user asks IBM Bob via the `answer_from_dementia_guideline` tool.
+
+```
+Bob question -> MCP tool call -> Langflow agent
+    -> Full text of both documents inserted into Gemini prompt (no vector search)
+    -> Gemini generates answer
+    -> Answer returned to Bob
+```
+
+Consequence: each call uses the full document text in the prompt (~250k tokens). On Gemini free tier this limits throughput to approximately one question per minute.
+
+Page number difference: in the Langflow path, PNPK page references are corrected via agent instructions; Caregiver Guide references use the printed book page number (e.g. page 14), which differs from the PDF page number (e.g. 24) used in Path 1.
+
+Planned improvement: switching the Langflow path to vector search (Chroma) is planned but not yet implemented.
 
 ---
 
 ## Request Flow
 
 ### Authentication Flow
+
 ```
-Client → POST /auth/login (email + password)
-       → Backend validates credentials
-       → Bcrypt password verification
-       → JWT token generated (role embedded)
-       → Token returned to client
-       → Client stores token (httpOnly cookie or memory)
-       → Subsequent requests: Authorization: Bearer <token>
+Client -> POST /api/v1/auth/login (email + password)
+       -> Backend validates credentials (bcrypt)
+       -> JWT access token generated (type: "access", 60 min TTL)
+       -> Token returned to client
+       -> Client stores token
+       -> Subsequent requests: Authorization: Bearer <token>
+       -> Backend checks token type == "access" in dependency
 ```
 
-### Daily Check-In Flow
+### Daily Check-in Flow (Real Session)
+
 ```
-Elderly User
-    │
-    ├── /elderly/home → clicks "Daily Check-In"
-    │
-    ├── /elderly/check-in
-    │       │
-    │       ├── Browser: navigator.mediaDevices.getUserMedia({video: true, audio: true})
-    │       ├── Browser: MediaRecorder starts per question
-    │       ├── Browser: SpeechSynthesisUtterance speaks question
-    │       ├── User answers → recording saved
-    │       ├── Next question → repeat
-    │       └── Finish Check-In
-    │               │
-    │               ├── POST /checkins/start → create session
-    │               ├── POST /checkins/{id}/answer → save answer text
-    │               ├── POST /checkins/{id}/upload-media → upload audio/video blob
-    │               └── POST /checkins/{id}/finish → trigger AI pipeline
-    │
-    ├── Backend: AI Pipeline (async)
-    │       ├── TranscriptionService.transcribe(audio_path)
-    │       ├── VoiceAnalysisService.analyze(audio_path, transcript)
-    │       ├── LanguageAnalysisService.analyze(transcript, answers)
-    │       ├── FacialAnalysisService.analyze(video_path)
-    │       ├── RiskScoringService.score(all_analysis_results)
-    │       ├── AlertService.generate(risk_score, history)
-    │       └── RecommendationService.generate(risk_score, indicators)
-    │
-    └── /elderly/check-in/result (warm result page)
+Elderly user
+    |
+    +-- /elderly/home -> clicks "Daily Check-In"
+    |
+    +-- /elderly/check-in
+            |
+            +-- Browser: navigator.mediaDevices.getUserMedia({video: true, audio: true})
+            |   Video used for local preview only; NOT recorded, NOT sent to backend
+            +-- Browser: MediaRecorder per question (audio stream only)
+            +-- Browser: SpeechSynthesisUtterance speaks question
+            |
+            +-- POST /api/v1/elderly/checkin/start {consent: true}
+            |   -> Creates CheckinSession, returns session_id
+            |
+            +-- POST /api/v1/elderly/checkin/{id}/answer (per question)
+            |   -> Audio blob uploaded, encrypted with Fernet, saved as .webm.enc
+            |
+            +-- POST /api/v1/elderly/checkin/{id}/finish
+                    |
+                    +-- Decrypt .webm.enc files in memory
+                    +-- faster-whisper transcription per answer
+                    +-- Voice feature extraction (WPM, pauses, hesitations, response delay)
+                    +-- Feature aggregation across answers
+                    +-- Baseline selection (personal median or general reference)
+                    +-- Risk score calculation (0-10, weighted deviation)
+                    +-- Save Transcript, VoiceAnalysisResult, RiskScore
+                    +-- Generate alerts if applicable
+                    +-- Return {status, session_id, perlu_perhatian}
 ```
+
+Note: language analysis, facial analysis, and memory scoring are NULL for all real sessions. These components appear only in simulated demo data.
 
 ### Caregiver Dashboard Flow
+
 ```
-Profile Dropdown → "Dashboard" → /caregiver/pin
-    │
-    ├── POST /caregiver/verify-pin (PIN input)
-    │       └── Backend: bcrypt verify PIN hash
-    │               └── Return: caregiver_session_token
-    │
-    └── /caregiver/dashboard (with caregiver_session_token)
-            ├── GET /caregiver/dashboard → patient analytics
-            ├── GET /caregiver/alerts → generated alerts
-            ├── GET /caregiver/recommendations → care plan
-            ├── POST /guidance/ask → AI chat response
-            └── GET /caregiver/reports → monthly summary
+Profile Dropdown -> "Dashboard" -> /caregiver/pin
+    |
+    +-- POST /api/v1/caregiver/verify-pin (PIN input)
+            -> bcrypt verify PIN hash
+            -> Return: dashboard_token (JWT, 30 min TTL)
+    |
+    +-- /caregiver/dashboard (with X-Dashboard-Token header)
+            +-- GET /api/v1/caregiver/dashboard -> patient analytics
+            +-- GET /api/v1/caregiver/alerts -> generated alerts
+            +-- GET /api/v1/caregiver/recommendations -> care recommendations
+            +-- POST /api/v1/caregiver/guidance/ask -> RAG guidance answer
+            +-- GET /api/v1/caregiver/reports -> monthly reports
 ```
+
+All caregiver endpoints verify that X-Dashboard-Token is present and belongs to the same user as the JWT. Missing or mismatched token returns 403 with detail "PIN_DIPERLUKAN".
 
 ---
 
 ## Backend Layer Architecture
 
 ```
-routes/          ← Thin HTTP handlers (input validation, response shaping)
-    │
-services/        ← Business logic (orchestration, rules, AI pipeline)
-    │
-repositories/    ← Data access (SQLAlchemy queries, no business logic)
-    │
-models/          ← SQLAlchemy/SQLModel ORM models
-    │
-database/        ← Session management, connection pool
-    │
+routes/          <- Thin HTTP handlers (input validation, response shaping)
+    |
+services/        <- Business logic (orchestration, AI pipeline)
+    |
+repositories/    <- Data access (SQLAlchemy queries, no business logic)
+    |
+models/          <- SQLAlchemy ORM models
+    |
+database/        <- Session management, connection pool
+    |
 PostgreSQL
 ```
-
-**Principle**: Routes delegate to services. Services delegate to repositories. Repositories speak only to the database. No business logic in routes or repositories.
 
 ---
 
 ## Frontend Layer Architecture
 
 ```
-app/             ← Next.js App Router pages (thin page components)
-    │
-components/      ← UI components (layout, forms, charts, shared)
-    │
+app/             <- Next.js App Router pages (thin page components)
+    |
+components/      <- UI components (layout, forms, charts, shared)
+    |
 lib/
-  ├── api/       ← Typed API client functions (fetch wrappers)
-  ├── auth/      ← Auth context, token management
-  ├── hooks/     ← Custom React hooks
-  ├── types/     ← TypeScript interfaces and types
-  ├── utils/     ← Helper functions
-  └── constants/ ← App-wide constants
+  +-- api/       <- Typed API client functions (Axios wrappers)
+  +-- auth/      <- Auth context, token management
+  +-- hooks/     <- Custom React hooks
+  +-- types/     <- TypeScript interfaces and types
+  +-- utils/     <- Helper functions
 ```
-
----
-
-## AI Service Layer
-
-All AI services implement a **provider abstraction pattern**:
-
-```python
-class BaseTranscriptionProvider(ABC):
-    @abstractmethod
-    def transcribe(self, audio_path: str) -> TranscriptionResult:
-        ...
-
-class WhisperProvider(BaseTranscriptionProvider):
-    def transcribe(self, audio_path: str) -> TranscriptionResult:
-        # faster-whisper implementation
-        ...
-
-class FallbackProvider(BaseTranscriptionProvider):
-    def transcribe(self, audio_path: str) -> TranscriptionResult:
-        # Returns empty transcript with metadata, not fake data
-        ...
-```
-
-This allows:
-- Real Whisper transcription when available
-- Clean fallback without fake hardcoded data
-- Easy swap of any AI provider via config/environment variables
 
 ---
 
@@ -175,26 +191,28 @@ This allows:
 
 ```
 MEDIA_STORAGE_PATH/
-└── sessions/
-    └── {session_id}/
-        ├── question_{n}_audio.webm
-        ├── question_{n}_video.webm
-        └── session_video.webm
++-- {session_id}/
+    +-- jawaban_0.webm.enc    # Fernet-encrypted audio, question 0
+    +-- jawaban_1.webm.enc    # Fernet-encrypted audio, question 1
+    +-- jawaban_2.webm.enc
+    +-- jawaban_3.webm.enc
 ```
 
-For production: replace local filesystem with S3-compatible object storage by swapping `media_service.py` storage provider.
+Files are decrypted in memory during the `/finish` call. Decrypted bytes are never written back to disk.
 
 ---
 
 ## Security Architecture
 
-- **Authentication**: JWT tokens with expiry
-- **Password hashing**: bcrypt via Passlib
-- **Caregiver PIN**: bcrypt hashed in database
-- **CORS**: Configured for known frontend origin only
-- **Role checks**: Middleware enforced on all protected routes
-- **Media files**: Stored outside web root, served via authenticated endpoints
-- **Environment secrets**: Never committed; loaded from `.env`
+- **Authentication**: JWT access tokens, 60-minute TTL, type field enforced
+- **Password hashing**: bcrypt via passlib
+- **Caregiver PIN**: bcrypt hashed, dashboard token verified server-side
+- **PIN gate header**: X-Dashboard-Token required on all caregiver endpoints; missing or wrong token -> 403 PIN_DIPERLUKAN
+- **CORS**: configured for FRONTEND_URL origins only; X-Dashboard-Token is in allowed headers
+- **Role checks**: require_role dependency enforced on all protected routes (3 roles: elderly, caregiver, healthcare)
+- **Audio encryption**: Fernet at rest (.webm.enc); key from MEDIA_ENCRYPTION_KEY env var
+- **Environment secrets**: never committed; loaded from .env
+- **Transcript storage**: transcript text is NOT encrypted in the database
 
 ---
 
@@ -203,43 +221,9 @@ For production: replace local filesystem with S3-compatible object storage by sw
 ```yaml
 # docker-compose.yml
 services:
-  frontend:     # Next.js on port 3000
-  backend:      # FastAPI on port 8000
-  postgres:     # PostgreSQL on port 5432
+  postgres:    # PostgreSQL 15 on port 5432
+  backend:     # FastAPI on port 8000 (alembic upgrade + seed + uvicorn)
+  frontend:    # Next.js on port 3000
 ```
 
-Each service has its own `Dockerfile`. Environment configured via `.env` file at root level.
-
----
-
-## Component Interaction Diagram
-
-```
-┌──────────────────────────────────────────────────────────────┐
-│                          BROWSER                             │
-│  Next.js Frontend                                            │
-│  ┌──────────┐  ┌──────────┐  ┌──────────────────────────┐  │
-│  │ Elderly  │  │Caregiver │  │   Healthcare             │  │
-│  │   UI     │  │   UI     │  │      UI                  │  │
-│  └──────────┘  └──────────┘  └──────────────────────────┘  │
-│       │              │                    │                  │
-│  getUserMedia   Recharts Charts     Patient List            │
-│  MediaRecorder  Alerts/Reports      Session View            │
-│  SpeechSynth    Guidance Chat                               │
-└──────────────────────┬───────────────────────────────────────┘
-                       │ HTTPS / REST API
-                       │ Authorization: Bearer JWT
-┌──────────────────────▼───────────────────────────────────────┐
-│                    FastAPI Backend                           │
-│  ┌────────────┐  ┌─────────────┐  ┌──────────────────────┐  │
-│  │   Routes   │  │  Services   │  │    Repositories      │  │
-│  │ (thin)     │→ │ (logic)     │→ │    (data access)     │  │
-│  └────────────┘  └─────────────┘  └──────────────────────┘  │
-│                        │                    │                │
-│                   AI Pipeline          SQLAlchemy            │
-│               ┌────────┴────────┐           │               │
-│           Whisper/STT      RiskScoring       ▼               │
-│           AudioAnalysis    Alerts      PostgreSQL            │
-│           FaceDetection    Recos                             │
-└──────────────────────────────────────────────────────────────┘
-```
+Docker Compose is provided for local development and testing. A production hosting guide will be added once the backend is deployed to a hosting provider.

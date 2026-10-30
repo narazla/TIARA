@@ -1,4 +1,4 @@
-# 04 — Database Design
+# 04 - Database Design
 
 ## Overview
 
@@ -39,7 +39,7 @@ Stores all platform users regardless of role.
 | `email` | VARCHAR(255) | UNIQUE, NOT NULL | Login email |
 | `hashed_password` | VARCHAR(255) | NOT NULL | Bcrypt hashed password |
 | `full_name` | VARCHAR(255) | NOT NULL | Display name |
-| `role` | ENUM | NOT NULL | `elderly`, `caregiver`, `healthcare`, `admin` |
+| `role` | ENUM | NOT NULL | `elderly`, `caregiver`, `healthcare` (admin planned, not yet implemented) |
 | `is_active` | BOOLEAN | DEFAULT TRUE | Account status |
 | `is_deleted` | BOOLEAN | DEFAULT FALSE | Soft delete flag |
 | `created_at` | TIMESTAMPTZ | DEFAULT NOW() | Account creation time |
@@ -342,5 +342,5 @@ Generated monthly reports.
 
 - All schema changes managed via Alembic
 - Initial migration: `alembic/versions/001_initial_schema.py`
-- Seed data applied via `backend/scripts/seed.py`
+- Seed data applied via `backend/app/scripts/seed.py`
 - Never manually alter schema in production without a migration file

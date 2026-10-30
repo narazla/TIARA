@@ -1,264 +1,231 @@
-# 09 — Demo Script
+# 09 - Demo Script
 
-## Competition Demo Script
+## Skrip Demo Kompetisi
 
-**Estimated duration**: 8-10 minutes  
-**Demo credentials**:
-- Elderly: `elderly@tiara.app` / `Lansia_123`
-- Caregiver: `caregiver@tiara.app` / `Caregiver_123` / PIN: `123456`
-- Healthcare: `doctor@tiara.app` / `Dokter_123`
+**Estimasi durasi**: 8-10 menit
+**Prasyarat**: backend, frontend, dan PostgreSQL berjalan; seed sudah dijalankan.
+
+**Akun demo** (hanya untuk penggunaan lokal):
+
+| Peran | Email | Kata Sandi | PIN |
+|---|---|---|---|
+| Lansia | `elderly@tiara.app` | `Lansia_123` | - |
+| Caregiver | `caregiver@tiara.app` | `Caregiver_123` | `123456` |
+| Tenaga Kesehatan | `doctor@tiara.app` | `Dokter_123` | - |
+
+**Catatan penting tentang data**: grafik tren di dashboard caregiver menampilkan campuran 60 hari data simulasi (dari seed) dan sesi check-in nyata (dari rekaman suara). Saat demo, sebutkan secara jujur bahwa sebagian data adalah simulasi untuk demonstrasi.
 
 ---
 
-## Scene 1: Landing Page (60 seconds)
+## Adegan 1: Halaman Utama (60 detik)
 
 **URL**: `http://localhost:3000`
 
-**Narration**:
+**Narasi**:
+> "TIARA adalah platform pemantauan kognitif berbasis AI untuk lansia dan keluarga mereka. Setiap hari, keluarga kesulitan mendeteksi tanda-tanda perubahan kognitif dini pada orang tua mereka. TIARA membawa pemantauan dini ke dalam kehidupan sehari-hari melalui check-in suara yang sederhana."
 
-> "TIARA is an AI-powered early cognitive decline screening and caregiver support platform. Every day, millions of families struggle to notice the subtle early signs of cognitive change in their loved ones. TIARA brings early detection into everyday life — through a simple daily check-in."
-
-**Show**:
-1. Land on the hero section: "Early cognitive insights, from everyday conversations."
-2. Scroll to trust points: Consent-based, Designed with caregivers, Not a medical diagnosis
-3. Scroll to "Two experiences, one connected care system" — show the three cards
-4. Click "Get Started" → Login page
+**Tunjukkan**:
+1. Hero section
+2. Tiga kartu pengalaman pengguna (lansia, caregiver, tenaga kesehatan)
+3. Klik "Mulai" menuju halaman login
 
 ---
 
-## Scene 2: Login (30 seconds)
+## Adegan 2: Login Lansia (30 detik)
 
 **URL**: `http://localhost:3000/login`
 
-**Narration**:
+**Narasi**: "Masuk sebagai Nenek Ladya, pengguna lansia demo."
 
-> "Let's log in as Nenek Ladya, our elderly user."
-
-**Actions**:
-1. Enter `elderly@tiara.app` / `Lansia_123`
-2. Click Login
-3. System redirects to `/elderly/home`
+**Tindakan**:
+1. Masukkan `elderly@tiara.app` / `Lansia_123`
+2. Klik Login
+3. Diarahkan ke `/elderly/home`
 
 ---
 
-## Scene 3: Elderly Home Page (45 seconds)
+## Adegan 3: Halaman Home Lansia (45 detik)
 
 **URL**: `http://localhost:3000/elderly/home`
 
-**Narration**:
+**Narasi**:
+> "Ini halaman home Nenek Ladya. Tampilannya sengaja dibuat hangat dan sederhana. Tidak ada angka risiko, tidak ada data klinis yang terlihat oleh lansia."
 
-> "This is Nenek Ladya's home page. The design is intentionally warm and simple — no clinical data, no confusing numbers. She sees a friendly greeting and two clear options."
-
-**Show**:
-1. Personalized greeting: "Welcome, Nenek Ladya"
-2. Subtitle and today's check-in status: "Your daily check-in is waiting for you today."
-3. Two large buttons: Daily Check-In and TIARA Companion
-4. Quick peek at profile dropdown
+**Tunjukkan**:
+1. Sapaan personal "Selamat datang, Nenek Ladya"
+2. Status check-in hari ini
+3. Dua tombol besar: Daily Check-In dan TIARA Companion
 
 ---
 
-## Scene 4: Daily Check-In — Starting (60 seconds)
+## Adegan 4: Persetujuan Check-in (30 detik)
 
 **URL**: `http://localhost:3000/elderly/check-in`
 
-**Narration**:
+**Narasi**:
+> "Check-in memerlukan persetujuan merekam suara sebelum dimulai. Video hanya digunakan sebagai pratinjau lokal di browser; tidak dikirim ke server dan tidak dianalisis."
 
-> "The Daily Check-In is the core of TIARA. It uses the device's camera and microphone to observe how Nenek Ladya is speaking and responding — just like a gentle conversation."
-
-**Actions**:
-1. Click "Daily Check-In"
-2. Show the check-in page layout: left = video preview, right = check-in panel
-3. Click "Start Check-In"
-4. Browser shows camera/microphone permission dialog — grant both
-5. Show: camera feed appears, status shows "Camera ready" then "Microphone ready"
+**Tindakan**:
+1. Klik "Daily Check-In"
+2. Halaman check-in muncul dengan pratinjau kamera
+3. Baca persetujuan, centang, klik "Mulai Check-in"
+4. Browser meminta izin kamera dan mikrofon; berikan keduanya
 
 ---
 
-## Scene 5: Daily Check-In — AI Questions (90 seconds)
+## Adegan 5: Jawab Pertanyaan dengan Suara (90 detik)
 
-**Narration**:
+**Narasi**:
+> "TIARA mengucapkan setiap pertanyaan. Lansia menjawab dengan suara. Ada empat pertanyaan dalam satu sesi. Audio direkam per pertanyaan."
 
-> "TIARA speaks each question aloud. Watch the status — it shows 'TIARA is speaking…' then switches to 'Listening to your answer.' The system records the response."
+**Tindakan**:
 
-**Actions**:
+**Pertanyaan 1 - Orientasi:**
+1. TTS browser mengucapkan "Hari apa sekarang, Bapak/Ibu?"
+2. Jawab dengan suara (beberapa kalimat)
+3. Klik "Pertanyaan Berikutnya"
 
-**Question 1 — Orientation:**
-1. Status: "TIARA is speaking…" (browser TTS speaks "What day is today?")
-2. Status changes to "Listening to your answer…"
-3. Speak an answer or type one
-4. Click "Next Question"
-5. Status: "Recording response… ✓"
+**Pertanyaan 2 - Daya Ingat:**
+1. TTS mengucapkan pertanyaan makanan pagi
+2. Jawab dengan suara
+3. Klik "Pertanyaan Berikutnya"
 
-**Question 2 — Memory Recall:**
-1. TTS speaks "What did you eat this morning?"
-2. User answers
-3. Click "Next Question"
-
-**Show progress bar advancing through categories**: Orientation → Memory Recall → Long-Term Memory → Emotional Wellbeing
+**Pertanyaan 3 dan 4**: lanjutkan dengan cara yang sama.
 
 ---
 
-## Scene 6: Finishing Check-In and AI Processing (45 seconds)
+## Adegan 6: Selesaikan Check-in (45 detik)
 
-**Narration**:
+**Narasi**:
+> "Setelah semua pertanyaan dijawab, sistem memproses rekaman: mendekripsi berkas audio, mentranskrip dengan faster-whisper, menghitung fitur pola bicara, lalu membuat Skor Risiko Kognitif."
 
-> "After all questions are answered, Nenek Ladya clicks Finish. The system uploads the session and our AI pipeline begins processing: transcription, voice analysis, language analysis, and risk scoring."
-
-**Actions**:
-1. Complete remaining questions quickly (can demonstrate with one click per question)
-2. Click "Finish Check-In"
-3. Show: "Processing your session…" loading state
-4. Automatic redirect to result page
+**Tindakan**:
+1. Klik "Selesai Check-in"
+2. Tampilkan status "Memproses sesi..."
+3. Halaman hasil muncul otomatis
 
 ---
 
-## Scene 7: Elderly Result Page (30 seconds)
+## Adegan 7: Halaman Hasil Lansia (30 detik)
 
 **URL**: `http://localhost:3000/elderly/check-in/result`
 
-**Narration**:
+**Narasi**:
+> "Halaman hasil menampilkan pesan dorongan, bukan skor risiko. Caregiver melihat data lengkap secara terpisah di dashboard mereka. Jika skor hari ini Tinggi, kotak catatan lembut muncul di sini."
 
-> "The result page is intentionally gentle. Nenek Ladya sees encouragement and gratitude — not a risk score, not clinical data. Her caregiver sees the full picture separately."
-
-**Show**:
-1. "Congratulations, Nenek Ladya 🎉"
-2. "Overall, you're doing good."
-3. "Thank you for completing today's check-in. Your caregiver can review today's care summary later."
-4. Click "Back to Home"
+**Tunjukkan**:
+1. Pesan dorongan positif
+2. Kotak perhatian (hanya muncul jika skor Tinggi; kalau tidak muncul, jelaskan bahwa skor hari ini tidak Tinggi)
+3. Klik "Kembali ke Home"
 
 ---
 
-## Scene 8: Accessing Caregiver Dashboard (45 seconds)
+## Adegan 8: Masuk Dashboard Caregiver (45 detik)
 
-**Narration**:
+**Narasi**:
+> "Dari perangkat yang sama, caregiver mengakses dashboard. Dashboard memerlukan PIN terpisah agar data klinis tidak terlihat oleh lansia yang menggunakan perangkat yang sama."
 
-> "Now — from the same device, the caregiver wants to check on Nenek Ladya. They access the dashboard through the profile menu."
-
-**Actions**:
-1. Click profile dropdown (top right)
-2. Click "Dashboard"
-3. Redirected to `/caregiver/pin`
-4. Show PIN page: "Enter Caregiver PIN — This dashboard contains care insights and is protected for caregiver access."
-5. Enter `123456`
-6. Redirect to `/caregiver/dashboard`
+**Tindakan**:
+1. Klik dropdown profil (pojok kanan atas)
+2. Klik "Dashboard" - diarahkan ke `/caregiver/pin`
+3. Masukkan PIN `123456`
+4. Diarahkan ke `/caregiver/dashboard`
 
 ---
 
-## Scene 9: Caregiver Dashboard (90 seconds)
+## Adegan 9: Dashboard Caregiver (90 detik)
 
 **URL**: `http://localhost:3000/caregiver/dashboard`
 
-**Narration**:
+**Narasi**:
+> "Dashboard menampilkan tren Skor Risiko Kognitif 30 hari terakhir. Sebagian data adalah simulasi untuk demo; sesi nyata dari check-in tadi juga masuk ke grafik yang sama."
 
-> "The caregiver dashboard shows the full picture — cognitive risk trend, memory consistency, response delay, speech hesitation, and today's alerts. All real data from the session we just completed."
-
-**Show**:
-1. Patient profile card: Nenek Ladya
-2. Latest check-in card with risk level badge
-3. Cognitive Risk Trend chart (Recharts line chart) — point out the current session's data point
-4. Memory consistency indicator
-5. Response delay indicator
-6. Speech hesitation rate
-7. Unread alerts badge
+**Tunjukkan**:
+1. Kartu profil pasien: Nenek Ladya
+2. Kartu check-in terakhir dengan level risiko
+3. Grafik tren Skor Risiko Kognitif (Recharts)
+4. Sebutkan: "Ini campuran data simulasi dan sesi nyata. Produksi akan memisahkan keduanya."
 
 ---
 
-## Scene 10: Alerts Page (30 seconds)
+## Adegan 10: Peringatan (30 detik)
 
 **URL**: `http://localhost:3000/caregiver/alerts`
 
-**Narration**:
+**Narasi**:
+> "TIARA membuat peringatan otomatis berdasarkan sesi check-in. Alert dari sesi tadi mungkin sudah muncul di sini."
 
-> "TIARA automatically generates alerts when it detects patterns worth noting — always informational, never alarming."
-
-**Show**:
-1. Click "Alerts" in sidebar
-2. Show alert cards with severity badges (info/warning)
-3. Show one alert: title, description, suggested next step
-4. Mark one as read
-
----
-
-## Scene 11: Care Recommendations (30 seconds)
-
-**URL**: `http://localhost:3000/caregiver/recommendations`
-
-**Narration**:
-
-> "Based on today's session, TIARA generates a practical care plan for the day."
-
-**Show**:
-1. Click "Care Recommendations" in sidebar
-2. Show sections: Today's Care Plan, Cognitive Activities, Social Suggestions
-3. Highlight a specific recommendation
+**Tunjukkan**:
+1. Daftar alert dengan badge level (INFO/WARNING)
+2. Contoh alert: "Jeda respons meningkat dalam 10 hari terakhir" (dari data simulasi)
+3. Jika ada alert dari sesi tadi, tunjukkan juga
+4. Sebutkan: "Tidak ada push notification atau email. Peringatan hanya muncul saat caregiver membuka dashboard."
 
 ---
 
-## Scene 12: Dementia Guidance AI (60 seconds)
+## Adegan 11: Rekomendasi dan Laporan (30 detik)
+
+**Tunjukkan**:
+1. Halaman Rekomendasi: daftar rekomendasi per kategori (Rutinitas, Kognitif, Sosial, Medis)
+2. Halaman Laporan: dua laporan bulanan dari data simulasi
+
+---
+
+## Adegan 12: Dementia Guidance AI (60 detik)
 
 **URL**: `http://localhost:3000/caregiver/guidance`
 
-**Narration**:
+**Narasi**:
+> "Caregiver bisa bertanya langsung ke AI berbasis dokumen resmi Kemenkes. Jawaban diambil dari PNPK Tata Laksana Demensia dan Panduan Caregiver Kemenkes menggunakan pencarian vektor FAISS."
 
-> "Caregivers often have urgent questions. The Dementia Guidance AI provides evidence-informed responses — always with a clear medical disclaimer."
-
-**Actions**:
-1. Click "Dementia Guidance" in sidebar
-2. Click suggested question: "Why is my mother repeating stories?"
-3. Show AI response (rule-based or LLM)
-4. Show disclaimer: "This guidance is not a medical diagnosis..."
-5. Type a follow-up: "Is forgetting names normal aging?"
-6. Show response
+**Tindakan**:
+1. Klik "Panduan Demensia" di sidebar
+2. Ketik: "Bagaimana cara menangani lansia yang gelisah di malam hari?"
+3. Tunjukkan jawaban dengan referensi halaman di akhir
+4. Tunjukkan disclaimer medis
+5. Coba pertanyaan tentang dosis obat - tunjukkan bahwa AI menolak memberikan dosis
 
 ---
 
-## Scene 13: Reports (30 seconds)
+## Adegan 13: Tenaga Kesehatan (45 detik)
 
-**URL**: `http://localhost:3000/caregiver/reports`
+**Narasi**: "Terakhir, tampilan tenaga kesehatan."
 
-**Narration**:
-
-> "Caregivers can generate a monthly care report to share with their healthcare provider."
-
-**Show**:
-1. Click "Reports" in sidebar
-2. Show report list card
-3. Click a report to view
-4. Show report content: patient profile, trend chart, key indicators, recommendations, disclaimer
-5. Click "Download PDF"
+**Tindakan**:
+1. Logout, login sebagai `doctor@tiara.app` / `Dokter_123`
+2. Diarahkan ke `/healthcare/dashboard`
+3. Tunjukkan daftar 5 pasien dengan badge risiko berbeda
+4. Klik Bapak Wayan - tunjukkan alert CRITICAL (dari data simulasi)
+5. Tunjukkan tren longitudinal dan riwayat sesi
 
 ---
 
-## Scene 14: Healthcare Worker Dashboard (45 seconds)
+## Pernyataan Penutup
 
-**Narration**:
-
-> "Finally, let's look at the healthcare worker view. Log in as Dr. Sarah."
-
-**Actions**:
-1. Log out
-2. Log in as `doctor@tiara.app` / `Dokter_123`
-3. Redirected to `/healthcare/dashboard`
-4. Show patient list with risk level badges
-5. Click on Nenek Ladya
-6. Show longitudinal trend and session history
-7. Show clinical notes section
+**Narasi**:
+> "TIARA menghubungkan rumah dan klinik. Keluarga mendapat alat untuk mendeteksi perubahan lebih awal, caregiver mendapat wawasan untuk bertindak, dan tenaga kesehatan mendapat data longitudinal yang lebih kaya. Semua ini sambil menjaga pengalaman lansia tetap hangat dan bermartabat. TIARA bukan alat diagnosis medis. Skor yang dihasilkan adalah indikator informatif dari pola bicara, bukan diagnosis, dan belum divalidasi secara klinis."
 
 ---
 
-## Closing Statement
+## Cadangan Demo
 
-**Narration**:
+### Jika kamera atau mikrofon tidak tersedia
+- Gunakan sesi yang sudah selesai dari data simulasi
+- Tunjukkan dashboard dengan data yang sudah ada
+- Jelaskan alur check-in suara secara verbal
 
-> "TIARA bridges the gap between the home and the clinic. It gives families the tools to notice changes early, caregivers the insights to act thoughtfully, and healthcare workers the longitudinal data they need for better clinical decisions — all while keeping the elderly experience warm, simple, and dignified."
+### Jika pipeline lebih lambat dari biasa
+- Model faster-whisper diunduh saat pertama dipakai (~145 MB). Pastikan sudah diunduh sebelum demo.
+- Jika `/finish` butuh waktu lama, jelaskan bahwa transkripsi berjalan di CPU
 
-> "TIARA is not a medical diagnosis tool. It is a cognitive trend monitoring and caregiver support platform, designed to encourage timely clinical consultation when it matters most."
+### Jika LLM tidak dikonfigurasi (tidak ada `LLM_API_KEY`)
+- RAG tetap berjalan (retrieval FAISS berhasil, chunk ditemukan)
+- Pesan yang muncul: "Layanan AI belum dikonfigurasi"
+- Jelaskan arsitektur dua jalur (in-app RAG vs Langflow MCP)
 
----
+### Jika pertanyaan muncul tentang data yang terlihat di grafik
+- Jawab jujur: "60 hari pertama adalah data simulasi dari seed script, ditandai provider 'simulasi-demo'. Sesi check-in nyata dari tadi juga ikut masuk grafik. Di produksi keduanya akan dipisahkan atau hanya data nyata yang ditampilkan."
 
-## Backup Demo Notes
-
-- If camera/microphone not available: pre-record a session using seed data, show dashboard with completed data
-- If AI pipeline slow: show cached session result, explain async processing
-- If LLM not configured: show rule-based guidance AI response, explain pluggable provider design
-- Always emphasize: "This is real data from the session we just completed — not hardcoded demo data"
+### Jika pertanyaan tentang enkripsi audio
+- Audio disimpan terenkripsi (`.webm.enc`) dengan Fernet AES-128
+- Transkrip teks di database tidak dienkripsi (batasan yang diketahui, dicantumkan di SECURITY.md)

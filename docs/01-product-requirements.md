@@ -1,10 +1,10 @@
-# 01 — Product Requirements
+# 01 - Product Requirements
 
 ## What is TIARA?
 
 **TIARA** (Thinking, Interaction, And Recall Assistant) is an AI-powered early cognitive risk screening and caregiver support platform designed for elderly users, their caregivers, and healthcare workers.
 
-TIARA uses daily AI-guided conversations — combining voice, video, and language signals — to monitor **cognitive trends over time** and surface early indicators that may warrant timely clinical attention.
+TIARA uses daily AI-guided voice conversations to monitor **speech pattern trends over time** and surface early indicators that may warrant timely clinical attention. Video is used as a local preview during check-in and is not recorded or analyzed.
 
 > ⚕️ **Important Positioning**: TIARA is **not** a medical diagnosis tool. It is a **cognitive trend monitoring and caregiver support platform**. All outputs are informational and must not replace professional clinical assessment.
 
@@ -26,7 +26,7 @@ TIARA uses daily AI-guided conversations — combining voice, video, and languag
 ### 1. Person in Care / Elderly
 - Completes daily AI-guided check-ins
 - Uses TIARA Companion for cognitive engagement activities
-- Sees only warm, reassuring results — never clinical risk scores
+- Sees only warm, reassuring results - never clinical risk scores
 
 ### 2. Caregiver
 - Accesses a PIN-protected dashboard
@@ -48,7 +48,7 @@ TIARA uses daily AI-guided conversations — combining voice, video, and languag
 
 ## Main Problem Statement
 
-Cognitive decline in older adults — including early-stage dementia and mild cognitive impairment (MCI) — often goes undetected for years. By the time families or clinicians notice significant changes, the window for early intervention has passed.
+Cognitive decline in older adults - including early-stage dementia and mild cognitive impairment (MCI) - often goes undetected for years. By the time families or clinicians notice significant changes, the window for early intervention has passed.
 
 **Key challenges:**
 - Families lack tools to track subtle daily changes in memory, language, and orientation
@@ -61,7 +61,7 @@ Cognitive decline in older adults — including early-stage dementia and mild co
 ## Product Goals
 
 1. Enable **daily cognitive trend monitoring** through AI-guided check-ins
-2. Provide **caregiver-facing insights** — not raw clinical data — in an accessible format
+2. Provide **caregiver-facing insights** - not raw clinical data - in an accessible format
 3. Offer a **supportive companion experience** for elderly users to reduce isolation
 4. Surface **early cognitive risk indicators** that encourage timely clinical consultation
 5. Support **healthcare workers** with longitudinal behavioral data
@@ -73,7 +73,7 @@ Cognitive decline in older adults — including early-stage dementia and mild co
 
 ### For Elderly Users
 - Warm, accessible home page
-- Daily AI-guided check-in (voice + video + spoken questions)
+- Daily AI-guided check-in (voice per question + spoken questions; video preview only, not recorded)
 - TIARA Companion (story time, memory game, mood check, family memories)
 - Simple check-in result (no clinical data shown)
 
@@ -97,12 +97,12 @@ Cognitive decline in older adults — including early-stage dementia and mild co
 
 TIARA is explicitly positioned as:
 
-✅ **Cognitive risk indicator** — a signal, not a verdict  
-✅ **Cognitive trend monitoring** — tracking change over time  
-✅ **Early cognitive decline screening** — for timely clinical action  
-✅ **Caregiver support** — practical guidance for families  
-✅ **Not a medical diagnosis** — always stated clearly  
-✅ **Encourages timely clinical assessment** — not a replacement  
+✅ **Cognitive risk indicator** - a signal, not a verdict  
+✅ **Cognitive trend monitoring** - tracking change over time  
+✅ **Early cognitive decline screening** - for timely clinical action  
+✅ **Caregiver support** - practical guidance for families  
+✅ **Not a medical diagnosis** - always stated clearly  
+✅ **Encourages timely clinical assessment** - not a replacement  
 
 ---
 

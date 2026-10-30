@@ -137,12 +137,6 @@ function CaregiverPinContent() {
               </div>
             )}
 
-            {/* Demo PIN */}
-            <div className="bg-secondary rounded-2xl p-3 border border-border/60">
-              <p className="text-[10px] font-bold text-muted-foreground text-center">
-                Demo PIN: <span className="font-mono font-bold text-foreground bg-card/70 px-2 py-0.5 rounded border border-border/50">123456</span>
-              </p>
-            </div>
 
             {/* Submit */}
             <button

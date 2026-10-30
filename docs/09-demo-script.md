@@ -4,9 +4,9 @@
 
 **Estimated duration**: 8-10 minutes  
 **Demo credentials**:
-- Elderly: `elderly@tiara.app` / `password123`
-- Caregiver: `caregiver@tiara.app` / `password123` / PIN: `123456`
-- Healthcare: `doctor@tiara.app` / `password123`
+- Elderly: `elderly@tiara.app` / `Lansia_123`
+- Caregiver: `caregiver@tiara.app` / `Caregiver_123` / PIN: `123456`
+- Healthcare: `doctor@tiara.app` / `Dokter_123`
 
 ---
 
@@ -35,7 +35,7 @@
 > "Let's log in as Nenek Ladya, our elderly user."
 
 **Actions**:
-1. Enter `elderly@tiara.app` / `password123`
+1. Enter `elderly@tiara.app` / `Lansia_123`
 2. Click Login
 3. System redirects to `/elderly/home`
 
@@ -237,7 +237,7 @@
 
 **Actions**:
 1. Log out
-2. Log in as `doctor@tiara.app` / `password123`
+2. Log in as `doctor@tiara.app` / `Dokter_123`
 3. Redirected to `/healthcare/dashboard`
 4. Show patient list with risk level badges
 5. Click on Nenek Ladya

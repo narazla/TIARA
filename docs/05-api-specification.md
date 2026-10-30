@@ -42,7 +42,7 @@ Register a new user account.
 ```json
 {
   "email": "user@example.com",
-  "password": "password123",
+  "password": "Password123",
   "full_name": "Nenek Ladya",
   "role": "elderly"
 }
@@ -72,7 +72,7 @@ Authenticate and receive JWT token.
 ```json
 {
   "email": "elderly@tiara.app",
-  "password": "password123"
+  "password": "Password123"
 }
 ```
 

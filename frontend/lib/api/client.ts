@@ -27,8 +27,33 @@ apiClient.interceptors.request.use((config) => {
       config.headers.Authorization = `Bearer ${token}`;
     }
   }
+  if (typeof window !== "undefined") {
+    const dashboardToken = localStorage.getItem("tiara_caregiver_token");
+    if (dashboardToken) {
+      config.headers["X-Dashboard-Token"] = dashboardToken;
+    }
+  }
   return config;
 });
+
+// Token PIN habis atau tidak ada: kembali ke halaman PIN
+apiClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (
+      typeof window !== "undefined" &&
+      axios.isAxiosError(error) &&
+      error.response?.status === 403 &&
+      error.response?.data?.detail === "PIN_DIPERLUKAN"
+    ) {
+      localStorage.removeItem("tiara_caregiver_token");
+      if (!window.location.pathname.startsWith("/caregiver/pin")) {
+        window.location.href = "/caregiver/pin";
+      }
+    }
+    return Promise.reject(error);
+  }
+);
 
 export const getErrorMessage = (error: unknown): string => {
   if (axios.isAxiosError(error)) {

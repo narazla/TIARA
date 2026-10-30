@@ -8,7 +8,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.constants import PIN_LOCKOUT_MINUTES, PIN_MAX_ATTEMPTS, Role
-from app.core.dependencies import require_role
+from app.core.dependencies import require_caregiver_pin, require_role
 from app.core.security import create_caregiver_dashboard_token, verify_pin
 from app.database.session import get_db
 from app.models.caregiver import CaregiverPatientLink, CaregiverPin
@@ -84,7 +84,7 @@ async def verify_caregiver_pin(
 
 @router.get("/dashboard")
 async def get_caregiver_dashboard(
-    current_user: User = Depends(require_role(Role.CAREGIVER)),
+    current_user: User = Depends(require_caregiver_pin),
     db: AsyncSession = Depends(get_db),
 ):
     """
@@ -270,7 +270,7 @@ async def get_caregiver_dashboard(
 
 @router.get("/alerts")
 async def get_caregiver_alerts(
-    current_user: User = Depends(require_role(Role.CAREGIVER)),
+    current_user: User = Depends(require_caregiver_pin),
     db: AsyncSession = Depends(get_db),
 ):
     """Return all alerts for the caregiver's linked patient."""
@@ -311,7 +311,7 @@ async def get_caregiver_alerts(
 
 @router.get("/recommendations")
 async def get_caregiver_recommendations(
-    current_user: User = Depends(require_role(Role.CAREGIVER)),
+    current_user: User = Depends(require_caregiver_pin),
     db: AsyncSession = Depends(get_db),
 ):
     """Return active care recommendations for the caregiver's linked patient."""
@@ -353,7 +353,7 @@ async def get_caregiver_recommendations(
 
 @router.get("/reports")
 async def get_caregiver_reports(
-    current_user: User = Depends(require_role(Role.CAREGIVER)),
+    current_user: User = Depends(require_caregiver_pin),
     db: AsyncSession = Depends(get_db),
 ):
     """Return generated reports for the caregiver's linked patient."""
@@ -397,7 +397,7 @@ class GuidanceAskRequest(BaseModel):
 @router.post("/guidance/ask")
 async def ask_guidance_ai(
     data: GuidanceAskRequest,
-    current_user: User = Depends(require_role(Role.CAREGIVER)),
+    current_user: User = Depends(require_caregiver_pin),
 ):
     """
     Ask the Dementia Guidance AI (RAG-based chatbot) a question.

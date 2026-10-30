@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { ProtectedRoute } from "@/components/shared/ProtectedRoute";
+import { voiceCheckinApi } from "@/lib/api";
 
 const QUESTIONS = [
   { id: "q1", category: "Orientasi", text: "Hari apa sekarang, Bapak/Ibu?", step: 1 },
@@ -25,6 +26,9 @@ const QUESTIONS = [
   { id: "q3", category: "Memori Jangka Panjang", text: "Ceritakan satu kenangan masa kecil yang Bapak/Ibu sukai.", step: 3 },
   { id: "q4", category: "Kesejahteraan Emosional", text: "Bagaimana perasaan Bapak/Ibu hari ini?", step: 4 },
 ];
+
+// order_index pertanyaan di tabel checkin_questions untuk 4 pertanyaan di atas
+const QUESTION_ORDER = [0, 2, 5, 6];
 
 function CheckInContent() {
   const router = useRouter();
@@ -35,6 +39,7 @@ function CheckInContent() {
   const [cameraActive, setCameraActive] = useState(false);
   const [micActive, setMicActive] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -72,8 +77,77 @@ function CheckInContent() {
     };
   }, []);
 
+  // Perekaman jawaban (audio saja) untuk analisis suara
+  const sessionIdRef = useRef<string | null>(null);
+  const recorderRef = useRef<MediaRecorder | null>(null);
+  const chunksRef = useRef<Blob[]>([]);
+
+  const startRecording = () => {
+    if (recorderRef.current && recorderRef.current.state === "recording") return;
+    if (!streamRef.current || typeof MediaRecorder === "undefined") return;
+    const audioTracks = streamRef.current.getAudioTracks();
+    if (audioTracks.length === 0) return;
+    try {
+      const audioStream = new MediaStream(audioTracks);
+      const mimeType = MediaRecorder.isTypeSupported("audio/webm;codecs=opus")
+        ? "audio/webm;codecs=opus"
+        : "";
+      const recorder = mimeType
+        ? new MediaRecorder(audioStream, { mimeType })
+        : new MediaRecorder(audioStream);
+      chunksRef.current = [];
+      recorder.ondataavailable = (e) => {
+        if (e.data && e.data.size > 0) chunksRef.current.push(e.data);
+      };
+      recorder.start();
+      recorderRef.current = recorder;
+    } catch (err) {
+      console.error("Perekaman tidak dapat dimulai", err);
+    }
+  };
+
+  const stopRecording = (): Promise<Blob | null> => {
+    return new Promise((resolve) => {
+      const recorder = recorderRef.current;
+      if (!recorder || recorder.state === "inactive") {
+        resolve(null);
+        return;
+      }
+      recorder.onstop = () => {
+        const blob = new Blob(chunksRef.current, { type: recorder.mimeType || "audio/webm" });
+        chunksRef.current = [];
+        recorderRef.current = null;
+        resolve(blob);
+      };
+      recorder.stop();
+    });
+  };
+
+  const discardRecording = () => {
+    const recorder = recorderRef.current;
+    if (recorder && recorder.state !== "inactive") {
+      recorder.onstop = null;
+      recorder.stop();
+    }
+    recorderRef.current = null;
+    chunksRef.current = [];
+  };
+
+  useEffect(() => {
+    if (started && status === "recording") startRecording();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [started, status]);
+
+  // Pasang aliran kamera ke elemen video setelah elemen itu tampil
+  useEffect(() => {
+    if (cameraActive && videoRef.current && streamRef.current) {
+      videoRef.current.srcObject = streamRef.current;
+    }
+  }, [cameraActive]);
+
   // Speak question with Indonesian voice when available
   const speakQuestion = (text: string) => {
+    discardRecording();
     if (!synthRef.current) {
       // No speech synthesis — show text only, no error
       setStatus("listening");
@@ -105,21 +179,47 @@ function CheckInContent() {
   };
 
   const handleStart = async () => {
+    setErrorMsg(null);
+    if (!micActive) {
+      setErrorMsg("Mikrofon belum aktif. Izinkan akses mikrofon di browser, lalu muat ulang halaman.");
+      return;
+    }
     setLoading(true);
     try {
-      // Try to invoke API check-in start (ignore 404 backend missing)
-      // Belum terhubung ke backend. Sesi check-in nyata dikerjakan lewat pipeline terpisah.
-    } catch (e) {
-      // Silent catch
-    } finally {
-      setLoading(false);
+      const mulai = await voiceCheckinApi.start();
+      sessionIdRef.current = mulai.session_id;
       setStarted(true);
       setCurrentIdx(0);
       speakQuestion(QUESTIONS[0].text);
+    } catch (err) {
+      console.error("Gagal memulai check-in", err);
+      setErrorMsg("Check-in belum bisa dimulai. Periksa koneksi lalu coba lagi.");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
+    setErrorMsg(null);
+    const blob = await stopRecording();
+    if (!blob || blob.size < 1500 || !sessionIdRef.current) {
+      setErrorMsg("Jawaban belum terekam. Tunggu TIARA selesai bertanya, lalu jawab dengan suara.");
+      if (status === "recording") startRecording();
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await voiceCheckinApi.sendAnswer(sessionIdRef.current, QUESTION_ORDER[currentIdx], blob);
+    } catch (err) {
+      console.error("Gagal mengirim jawaban", err);
+      setErrorMsg("Jawaban belum terkirim. Silakan jawab sekali lagi.");
+      setLoading(false);
+      if (status === "recording") startRecording();
+      return;
+    }
+    setLoading(false);
+
     if (currentIdx < QUESTIONS.length - 1) {
       const nextIdx = currentIdx + 1;
       setCurrentIdx(nextIdx);
@@ -137,15 +237,23 @@ function CheckInContent() {
     setStatus("processing");
     setLoading(true);
     try {
-      // Try to invoke API finish (ignore backend missing)
-      // Belum terhubung ke backend. Sesi check-in nyata dikerjakan lewat pipeline terpisah.
-    } catch (e) {
-      // Silent catch
+      const hasil = await voiceCheckinApi.finish(sessionIdRef.current as string);
+      if (hasil.status === "tidak_ada_suara") {
+        setErrorMsg("Suara belum terdengar jelas. Silakan ulangi check-in di ruangan yang lebih tenang.");
+        sessionIdRef.current = null;
+        setStarted(false);
+        setStatus("idle");
+        return;
+      }
+      router.push("/elderly/check-in/result");
+    } catch (err) {
+      console.error("Gagal memproses check-in", err);
+      setErrorMsg("Check-in belum bisa diproses. Silakan coba lagi.");
+      sessionIdRef.current = null;
+      setStarted(false);
+      setStatus("idle");
     } finally {
-      setTimeout(() => {
-        setLoading(false);
-        router.push("/elderly/check-in/result");
-      }, 1500);
+      setLoading(false);
     }
   };
 
@@ -164,7 +272,7 @@ function CheckInContent() {
             Kembali ke Beranda
           </Link>
           <div className="flex items-center gap-2.5">
-            <img src="/Logo.png" alt="Logo TIARA" className="h-[32px] object-contain" />
+            <img src="/Logo.png" alt="Logo TIARA" className="h-[40px] object-contain" />
             <span className="text-xl font-bold tracking-tight text-foreground">Check-In</span>
           </div>
           <div className="w-20" /> {/* Spacer */}
@@ -238,7 +346,7 @@ function CheckInContent() {
                 )}
               </div>
             </div>
-            <p className="text-xs text-muted-foreground font-medium">Rekaman dienkripsi dan aman</p>
+            <p className="text-xs text-muted-foreground font-medium">Jawaban suara dipakai untuk check-in hari ini</p>
           </div>
         </div>
 
@@ -254,6 +362,12 @@ function CheckInContent() {
               <p className="text-base text-muted-foreground leading-relaxed max-w-sm mx-auto mb-8 font-medium">
                 TIARA akan mengajukan 4 pertanyaan ringan tentang hari ini, daya ingat, dan perasaan Bapak/Ibu. Tidak perlu terburu-buru.
               </p>
+              <p className="text-sm text-muted-foreground max-w-sm mx-auto mb-6">
+                Dengan menekan Mulai Check-In, Bapak/Ibu setuju jawaban suara direkam untuk check-in hari ini.
+              </p>
+              {errorMsg && (
+                <p className="text-sm font-bold text-red-600 max-w-sm mx-auto mb-4">{errorMsg}</p>
+              )}
               <button
                 onClick={handleStart}
                 disabled={loading}
@@ -339,6 +453,9 @@ function CheckInContent() {
                 </div>
               </div>
 
+              {errorMsg && (
+                <p className="text-sm font-bold text-red-600 text-center mb-3">{errorMsg}</p>
+              )}
               {/* Action Buttons */}
               <div className="space-y-3">
                 <button

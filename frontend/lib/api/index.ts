@@ -94,3 +94,30 @@ export const moodApi = {
     return response.data;
   },
 };
+
+// --- CHECK-IN SUARA API ---
+export const voiceCheckinApi = {
+  start: async () => {
+    const response = await apiClient.post("/api/v1/elderly/checkin/start", { consent: true });
+    return response.data as { session_id: string };
+  },
+  sendAnswer: async (sessionId: string, questionOrder: number, audio: Blob) => {
+    const form = new FormData();
+    form.append("question_order", String(questionOrder));
+    form.append("audio", audio, `jawaban_${questionOrder}.webm`);
+    const response = await apiClient.post(
+      `/api/v1/elderly/checkin/${sessionId}/answer`,
+      form,
+      { headers: { "Content-Type": "multipart/form-data" }, timeout: 60000 }
+    );
+    return response.data;
+  },
+  finish: async (sessionId: string) => {
+    const response = await apiClient.post(
+      `/api/v1/elderly/checkin/${sessionId}/finish`,
+      {},
+      { timeout: 300000 }
+    );
+    return response.data as { status: string; session_id: string };
+  },
+};

@@ -1,4 +1,5 @@
-# TIARA - AI Cognitive Care Platform
+
+# TIARA - Platform Perawatan Kognitif Berbasis AI
 
 <br>
 <div align="left">
@@ -11,120 +12,122 @@
 <br>
 
 > **Medical disclaimer:** TIARA is not a medical diagnosis tool. It provides informational cognitive trend monitoring and caregiver support only, and does not replace professional clinical assessment. Always consult a qualified healthcare professional for medical advice.
+>
+> **Pernyataan medis:** TIARA bukan alat diagnosis medis. Platform ini hanya menyediakan pemantauan tren kognitif dan dukungan caregiver yang bersifat informatif, dan tidak menggantikan penilaian klinis profesional. Selalu konsultasikan dengan tenaga kesehatan yang berkualifikasi untuk nasihat medis.
 
 ---
 
-## Ringkasan (Indonesian)
+## Ringkasan
 
 TIARA (Thinking, Interaction, And Recall Assistant) adalah platform perawatan kognitif berbasis AI yang membantu keluarga mendeteksi perubahan kognitif dini pada lansia melalui sesi check-in harian berbasis suara. Lansia menjawab empat pertanyaan dengan suara; audio direkam per pertanyaan, ditranskripsi dengan faster-whisper, lalu dianalisis fitur pola bicaranya. Platform ini menyediakan dashboard terlindungi PIN untuk caregiver berisi tren Skor Risiko Kognitif, peringatan otomatis, dan rekomendasi perawatan. TIARA juga dilengkapi Dementia Guidance AI yang menjawab pertanyaan caregiver berdasarkan PNPK Tata Laksana Demensia dan Panduan Caregiver Kemenkes, serta terintegrasi dengan IBM Bob melalui Langflow MCP. Skor yang dihasilkan adalah indikator informatif dari pola bicara, bukan diagnosis medis.
 
 ---
 
-## Overview
+## Gambaran Umum
 
-TIARA addresses a gap in early cognitive care for older adults and their families. Informal caregivers often lack timely, evidence-based guidance; clinical teams lack longitudinal data between appointments; and the older adult themselves needs a gentle, non-clinical daily interaction rather than a medical test.
+TIARA menjawab kesenjangan dalam perawatan kognitif dini bagi lansia dan keluarga mereka. Caregiver informal sering kali kekurangan panduan berbasis bukti yang tepat waktu; tim klinik kekurangan data longitudinal di antara jadwal kunjungan; dan lansia sendiri membutuhkan interaksi harian yang hangat dan tidak terkesan seperti tes medis.
 
-TIARA brings three experiences together in one platform:
+TIARA menyatukan tiga pengalaman dalam satu platform:
 
-- **Older adults** complete a gentle daily voice check-in through their device microphone, guided by spoken AI questions.
-- **Caregivers** access a PIN-protected dashboard that aggregates cognitive risk trends, smart alerts, AI care recommendations, and a dementia guidance chat.
-- **Healthcare workers** monitor patients, review longitudinal session data, and access monthly reports.
+- **Lansia** menyelesaikan check-in suara harian yang sederhana melalui mikrofon perangkat mereka, dipandu oleh pertanyaan AI yang diucapkan.
+- **Caregiver** mengakses dashboard terlindungi PIN yang merangkum tren risiko kognitif, peringatan cerdas, rekomendasi perawatan AI, dan chat panduan demensia.
+- **Tenaga kesehatan** memantau pasien, meninjau data sesi longitudinal, dan mengakses laporan bulanan.
 
 ---
 
-## Core User Flows
+## Alur Pengguna Utama
 
 ```text
-Older adult:
-  Login -> Home -> Daily check-in (voice per question, consent required)
-        -> Result page (warm, no clinical data shown)
+Lansia:
+  Login -> Beranda -> Check-in harian (suara per pertanyaan, persetujuan diperlukan)
+        -> Halaman hasil (hangat, tanpa data klinis yang ditampilkan)
 
 Caregiver:
-  Login -> Caregiver PIN -> Dashboard -> Alerts -> Recommendations
-        -> Dementia Guidance AI -> Reports
+  Login -> PIN Caregiver -> Dashboard -> Peringatan -> Rekomendasi
+        -> Dementia Guidance AI -> Laporan
 
-Healthcare worker:
-  Login -> Patient monitoring -> Session history -> Longitudinal trends -> Monthly reports
+Tenaga kesehatan:
+  Login -> Pemantauan pasien -> Riwayat sesi -> Tren longitudinal -> Laporan bulanan
 ```
 
 ---
 
-## Features
+## Fitur
 
-- **Daily voice check-in** - AI-guided spoken questions (4 questions per session) with consent-based microphone capture. Video is used only as a local preview; it is not recorded and not analyzed.
-- **AI speech analysis pipeline** - Transcription with faster-whisper (model `base`, Indonesian, CPU int8, word timestamps and VAD). Voice features extracted: words per minute, inter-word pauses >= 0.5 s, hesitation words, consecutive word repetitions, and response delay (time to first word). Score 0-10, weighted deviation from personal baseline. Language, facial, and memory components are null in real sessions (simulation data only).
-- **Caregiver dashboard** - Cognitive risk trend charts (30-day), patient summary, smart alerts feed, AI care recommendations grouped by category, and monthly reports. Dashboard data for the demo account includes simulated history; real check-in sessions appear in the same chart.
-- **Dementia Guidance AI (in-app)** - Answers caregiver questions by retrieving relevant passages from two official Indonesian health documents (PNPK Tata Laksana Demensia, Kemenkes caregiver guide) using a FAISS vector index and multilingual-e5-large embeddings, then synthesizing a response with Gemini. Responds in the language of the question.
-- **Role-based access** - Separate flows and protected routes for elderly, caregivers, and healthcare workers (3 roles).
-- **Caregiver PIN protection** - Secondary access step required to enter the caregiver dashboard. Dashboard endpoints require header `X-Dashboard-Token`; without it the API returns 403 `PIN_DIPERLUKAN`.
+- **Check-in suara harian** - Pertanyaan berbasis AI yang diucapkan (4 pertanyaan per sesi) dengan rekaman mikrofon berbasis persetujuan. Video hanya digunakan sebagai pratinjau lokal; tidak direkam dan tidak dianalisis.
+- **Pipeline analisis suara AI** - Transkripsi dengan faster-whisper (model `base`, bahasa Indonesia, CPU int8, word timestamps, dan VAD). Fitur suara yang diekstrak: kata per menit, jeda antar kata >= 0,5 detik, kata ragu, pengulangan kata berurutan, dan jeda respons (waktu hingga kata pertama). Skor 0-10, penyimpangan berbobot dari baseline pribadi. Komponen bahasa, wajah, dan memori bernilai null pada sesi nyata (hanya ada di data simulasi).
+- **Dashboard caregiver** - Grafik tren Skor Risiko Kognitif (30 hari), ringkasan pasien, feed peringatan cerdas, rekomendasi perawatan AI per kategori, dan laporan bulanan. Data dashboard untuk akun demo menyertakan riwayat simulasi; sesi check-in nyata muncul dalam grafik yang sama.
+- **Dementia Guidance AI (dalam aplikasi)** - Menjawab pertanyaan caregiver dengan mengambil bagian yang relevan dari dua dokumen resmi kesehatan Indonesia (PNPK Tata Laksana Demensia, Panduan Caregiver Kemenkes) menggunakan FAISS vector index dan embedding multilingual-e5-large, lalu menyusun jawaban dengan Gemini. Merespons dalam bahasa pertanyaan.
+- **Akses berbasis peran** - Alur dan rute terproteksi terpisah untuk lansia, caregiver, dan tenaga kesehatan (3 peran).
+- **Perlindungan PIN caregiver** - Langkah akses sekunder yang diperlukan untuk masuk ke dashboard caregiver. Endpoint dashboard memerlukan header `X-Dashboard-Token`; tanpa header ini API mengembalikan 403 `PIN_DIPERLUKAN`.
 
 ---
 
-## Automatic Alerts
+## Peringatan Otomatis
 
-Alerts are generated at the end of each `/elderly/checkin/{session_id}/finish` call:
+Peringatan dibuat di akhir setiap panggilan `/elderly/checkin/{session_id}/finish`:
 
-| Condition | Severity | Title |
+| Kondisi | Tingkat | Judul |
 |---|---|---|
-| Voice risk score Tinggi (>= 7) | WARNING | "Pola bicara hari ini menyimpang dari biasanya" |
-| Fewer than 5 words detected (session failed) | INFO | "Check-in hari ini tidak terekam" |
+| Skor Risiko Kognitif Tinggi (>= 7) | WARNING | "Pola bicara hari ini menyimpang dari biasanya" |
+| Kurang dari 5 kata terdeteksi (sesi gagal) | INFO | "Check-in hari ini tidak terekam" |
 
-- The same alert title is not duplicated within 12 hours.
-- The `/finish` response includes `perlu_perhatian: true` when a WARNING alert is created. The elderly result page shows a soft notice only when this flag is true.
-- Alerts appear on the caregiver dashboard when the caregiver opens it. There are no push notifications, WhatsApp messages, or email notifications.
-
----
-
-## Demo Data and Simulation Mode
-
-When `DEMO_MODE=True` (default), the seed script creates 60 days of simulated check-in history for the demo elderly account and four additional simulated patients for the healthcare worker view. Simulated sessions are tagged with provider `"simulasi-demo"` in the database.
-
-Real check-in sessions from voice check-ins appear in the same trend chart as simulated data for the primary demo patient (Nenek Ladya). The dashboard does not currently separate these visually.
-
-The mood journal is stored in the database but is not yet displayed in the caregiver or healthcare worker dashboard.
+- Judul peringatan yang sama tidak dibuat ulang dalam 12 jam.
+- Respons `/finish` menyertakan `perlu_perhatian: true` ketika peringatan WARNING dibuat. Halaman hasil lansia menampilkan kotak catatan lembut hanya ketika flag ini aktif.
+- Peringatan muncul di dashboard caregiver saat caregiver membukanya. Tidak ada push notification, pesan WhatsApp, atau notifikasi email.
 
 ---
 
-## Demo Accounts
+## Data Demo dan Mode Simulasi
 
-The following credentials are for local demo use only. Do not use these on a public server.
+Ketika `DEMO_MODE=True` (default), skrip seed membuat 60 hari riwayat check-in simulasi untuk akun lansia demo dan empat pasien simulasi tambahan untuk tampilan tenaga kesehatan. Sesi simulasi ditandai dengan provider `"simulasi-demo"` di database.
 
-| Role | Email | Password | PIN |
+Sesi check-in nyata dari rekaman suara muncul dalam grafik tren yang sama dengan data simulasi untuk pasien demo utama (Nenek Ladya). Dashboard saat ini tidak memisahkan keduanya secara visual.
+
+Jurnal suasana hati tersimpan di database tetapi belum ditampilkan di dashboard caregiver maupun tenaga kesehatan.
+
+---
+
+## Akun Demo
+
+Kredensial berikut hanya untuk penggunaan demo lokal. Jangan gunakan di server publik.
+
+| Peran | Email | Kata Sandi | PIN |
 |---|---|---|---|
 | Lansia | `elderly@tiara.app` | `Lansia_123` | - |
 | Caregiver | `caregiver@tiara.app` | `Caregiver_123` | `123456` |
 | Tenaga Kesehatan | `doctor@tiara.app` | `Dokter_123` | - |
 
-Additional simulated patients linked to the doctor account: `pasien.hendra@tiara.app`, `pasien.siti@tiara.app`, `pasien.wayan@tiara.app`, `pasien.rahayu@tiara.app` (passwords are random UUIDs set by the seed script; these accounts are not intended for direct login).
+Pasien simulasi tambahan yang terhubung ke akun dokter: `pasien.hendra@tiara.app`, `pasien.siti@tiara.app`, `pasien.wayan@tiara.app`, `pasien.rahayu@tiara.app` (kata sandi berupa UUID acak yang ditetapkan oleh skrip seed; akun-akun ini tidak dimaksudkan untuk login langsung).
 
 ---
 
-## IBM Bob + Langflow Integration
+## Integrasi IBM Bob + Langflow
 
-TIARA's Dementia Guidance capability is also exposed as an MCP (Model Context Protocol) tool through Langflow, making it callable directly from IBM Bob. This is a separate path from the in-app RAG pipeline.
+Kemampuan Dementia Guidance TIARA juga diekspos sebagai alat MCP (Model Context Protocol) melalui Langflow, sehingga dapat dipanggil langsung dari IBM Bob. Ini adalah jalur terpisah dari pipeline RAG dalam aplikasi.
 
-### How the Langflow path works
+### Cara kerja jalur Langflow
 
-1. **Langflow agent** - A flow named `TIARA` is configured in Langflow Desktop with a single tool: `answer_from_dementia_guideline` (no "s" at the end). The agent is loaded with the full text of both documents as prompt context - it does not use vector search. This makes responses slower (around 46 seconds) and subject to Gemini's free-tier input token limit (approximately one question per minute at 250k tokens/minute).
-2. **MCP server** - Langflow exposes the project as an MCP server at:
+1. **Agen Langflow** - Proyek bernama `TIARA` dikonfigurasi di Langflow Desktop dengan satu flow bernama `answer_from_dementia_guideline`. Agen dimuat dengan teks lengkap kedua dokumen sebagai konteks prompt - tidak menggunakan pencarian vektor. Hal ini membuat respons lebih lambat (sekitar 46 detik) dan terbatas oleh batas token input tier gratis Gemini (sekitar satu pertanyaan per menit pada 250 ribu token/menit).
+2. **Server MCP** - Langflow mengekspos proyek sebagai server MCP di:
    ```
    http://localhost:7860/api/v1/mcp/project/<project-id>/streamable
    ```
-3. **Bob as MCP client** - IBM Bob connects to this MCP server via `mcp-proxy` (configured in `~/.bob/settings/mcp.json`). The tool `answer_from_dementia_guideline` then appears in Bob's tool list.
+3. **Bob sebagai klien MCP** - IBM Bob terhubung ke server MCP ini melalui `mcp-proxy` (dikonfigurasi di `~/.bob/settings/mcp.json`). Alat `answer_from_dementia_guideline` kemudian muncul di daftar alat Bob.
 
-The Langflow folder (`langflow/`) contains the exported flow without API keys. API keys are read from a Langflow global variable named `GOOGLE_API_KEY`.
+Folder Langflow (`langflow/`) berisi flow yang diekspor tanpa kunci API. Kunci API dibaca dari variabel global Langflow bernama `GOOGLE_API_KEY`.
 
-**Page number difference between paths:** In the in-app RAG (FAISS path), PNPK page labels shown to users are `stored_index + 1`; Caregiver Guide labels are as stored. In the Langflow path, PNPK references are corrected via agent instructions, and Caregiver Guide references use the printed page number in the book (e.g. page 14), which differs from the PDF page number (e.g. 24) used in the FAISS path.
+**Perbedaan nomor halaman antar jalur:** Pada RAG dalam aplikasi (jalur FAISS), label halaman PNPK yang ditampilkan ke pengguna adalah `stored_index + 1`; label Panduan Caregiver dipakai apa adanya. Pada jalur Langflow, referensi halaman PNPK dikoreksi melalui instruksi agen, dan referensi Panduan Caregiver menggunakan nomor halaman cetak dalam buku (misalnya hal. 14), yang berbeda dari nomor halaman PDF (misalnya hal. 24) yang digunakan di jalur FAISS.
 
-**Planned improvement:** Switching the Langflow path to vector search (Chroma with Google embeddings) is planned. It is not yet implemented in the `langflow/` folder.
+**Rencana perbaikan:** Peralihan jalur Langflow ke pencarian vektor (Chroma dengan embedding Google) sedang direncanakan. Belum diimplementasikan di folder `langflow/`.
 
-### Guardrails (configured via agent instructions and prompt)
+### Guardrail (dikonfigurasi melalui instruksi agen dan prompt)
 
-- The agent answers only from the loaded document context and acknowledges when a question falls outside it.
-- It does not provide medical diagnoses or specific medication dosages.
-- It directs the caregiver to a healthcare professional when the question requires clinical judgment.
+- Agen hanya menjawab dari konteks dokumen yang dimuat dan mengakui ketika pertanyaan berada di luar cakupannya.
+- Tidak memberikan diagnosis medis atau dosis obat spesifik.
+- Mengarahkan caregiver ke tenaga kesehatan ketika pertanyaan memerlukan penilaian klinis.
 
-### Bob MCP config (`~/.bob/settings/mcp.json`)
+### Konfigurasi Bob MCP (`~/.bob/settings/mcp.json`)
 
 ```json
 {
@@ -143,112 +146,112 @@ The Langflow folder (`langflow/`) contains the exported flow without API keys. A
 }
 ```
 
-> Replace `<your-project-id>` with the UUID shown in Langflow under your project's MCP Server tab.
+> Ganti `<your-project-id>` dengan UUID yang ditampilkan di Langflow pada tab MCP Server proyek Anda.
 
 ---
 
-## RAG Evaluation
+## Evaluasi RAG
 
-The in-app RAG pipeline (FAISS + multilingual-e5-large, TOP_K=6) was evaluated on retrieval accuracy. The evaluation measures whether the correct source page appears in the retrieved chunks - it does **not** measure the correctness of the final generated answer.
+Pipeline RAG dalam aplikasi (FAISS + multilingual-e5-large, TOP_K=6) dievaluasi pada akurasi retrieval. Evaluasi mengukur apakah halaman sumber yang benar muncul di chunk yang diambil - **tidak** mengukur kebenaran jawaban akhir yang dihasilkan.
 
-### Retrieval results - document-language questions (34 questions)
+### Hasil retrieval - pertanyaan berbahasa dokumen (34 pertanyaan)
 
-| Metric | All (n=34) | PNPK (n=19) | Caregiver Guide (n=15) |
+| Metrik | Semua (n=34) | PNPK (n=19) | Panduan Caregiver (n=15) |
 |---|---|---|---|
-| Correct document retrieved | 100% | 100% | 100% |
-| Exact page match (displayed label) | 79.4% (27/34) | 84.2% (16/19) | 73.3% (11/15) |
-| Within 1 page of displayed label (top-k) | 100% (34/34) | 100% (19/19) | 100% (15/15) |
-| Top-1 within 1 page | 79.4% (27/34) | 89.5% (17/19) | 66.7% (10/15) |
+| Dokumen benar terambil | 100% | 100% | 100% |
+| Halaman persis sama (label yang ditampilkan) | 79,4% (27/34) | 84,2% (16/19) | 73,3% (11/15) |
+| Dalam rentang 1 halaman dari label (top-k) | 100% (34/34) | 100% (19/19) | 100% (15/15) |
+| Top-1 dalam rentang 1 halaman | 79,4% (27/34) | 89,5% (17/19) | 66,7% (10/15) |
 
-### Retrieval results - plain-language questions (10 questions)
+### Hasil retrieval - pertanyaan berbahasa awam (10 pertanyaan)
 
-| Metric | All (n=10) |
+| Metrik | Semua (n=10) |
 |---|---|
-| Correct document retrieved | 100% (10/10) |
-| Exact page match (displayed label) | 90% (9/10) |
-| Within 1 page of displayed label (top-k) | 90% (9/10) |
-| Top-1 within 1 page | 50% (5/10) |
+| Dokumen benar terambil | 100% (10/10) |
+| Halaman persis sama (label yang ditampilkan) | 90% (9/10) |
+| Dalam rentang 1 halaman dari label (top-k) | 90% (9/10) |
+| Top-1 dalam rentang 1 halaman | 50% (5/10) |
 
-Note: the plain-language sample is small (10 questions); one question missed by 10 pages. Numbers are indicative.
+Catatan: sampel pertanyaan berbahasa awam kecil (10 pertanyaan); satu pertanyaan meleset 10 halaman. Angka-angka ini bersifat indikatif.
 
-The 1-page offset in the Caregiver Guide results from chunks that straddle page boundaries in the original PDF. Faithfulness (whether the generated answer is correct) has not been evaluated and is a planned next step.
+Selisih 1 halaman pada Panduan Caregiver terjadi karena chunk yang memotong batas halaman pada PDF asli. Faithfulness (apakah jawaban yang dihasilkan benar) belum dievaluasi dan menjadi langkah lanjutan yang direncanakan.
 
-Full evaluation files: [`docs/evaluasi-rag/`](docs/evaluasi-rag/)
+Berkas evaluasi lengkap: [`docs/evaluasi-rag/`](docs/evaluasi-rag/)
 
-Chunk-size research (separate repo): 128-token hit rate 91.2%, 256-token 97.1%, 512-token 91.2% - [narazla/TIARA-rag-chunking](https://github.com/narazla/TIARA-rag-chunking)
+Penelitian ukuran chunk (repositori terpisah): hit rate 128-token 91,2%, 256-token 97,1%, 512-token 91,2% - [narazla/TIARA-rag-chunking](https://github.com/narazla/TIARA-rag-chunking)
 
 ---
 
-## Responsible AI
+## AI yang Bertanggung Jawab
 
-| Principle | What is actually implemented |
+| Prinsip | Yang benar-benar diimplementasikan |
 |---|---|
-| Informed consent | Camera and microphone access requires explicit per-session consent (`consent_given` stored in DB) |
-| Caregiver privacy | Dashboard requires a separate PIN; JWT access tokens expire after 60 minutes |
-| Role separation | `require_role` enforced in backend for elderly, caregiver, and healthcare worker |
-| Medical disclaimer | Shown at every result and guidance screen; hardcoded in API summary field |
-| Evidence-based guidance | RAG retrieves from two official Indonesian health documents only |
-| Human oversight | All AI scores are indicators; clinical decisions remain with healthcare professionals |
-| Guidance guardrail | Guidance AI is configured via prompt to acknowledge when a question is not in the documents |
-| Audio encryption at rest | Recordings stored as `.webm.enc` (Fernet); decrypted in memory only |
-| Transcript privacy | Transcript text in the `transcripts` table is NOT encrypted |
+| Persetujuan pengguna | Akses kamera dan mikrofon memerlukan persetujuan eksplisit per sesi (`consent_given` disimpan di DB) |
+| Privasi caregiver | Dashboard memerlukan PIN terpisah; JWT access token kedaluwarsa setelah 60 menit |
+| Pemisahan peran | `require_role` diterapkan di backend untuk lansia, caregiver, dan tenaga kesehatan |
+| Disclaimer medis | Ditampilkan di setiap halaman hasil dan panduan; di-hardcode di field summary API |
+| Panduan berbasis bukti | RAG hanya mengambil dari dua dokumen resmi kesehatan Indonesia |
+| Pengawasan manusia | Semua skor AI adalah indikator; keputusan klinis tetap berada di tangan tenaga kesehatan |
+| Guardrail panduan | Guidance AI dikonfigurasi via prompt untuk mengakui ketika pertanyaan tidak ada dalam dokumen |
+| Enkripsi audio saat disimpan | Rekaman disimpan sebagai `.webm.enc` (Fernet); didekripsi hanya di memori |
+| Privasi transkrip | Teks transkrip di tabel `transcripts` TIDAK dienkripsi |
 
 ---
 
-## Technology Stack
+## Tumpukan Teknologi
 
-| Layer | Technology |
+| Lapisan | Teknologi |
 |---|---|
 | Frontend | Next.js (App Router), TypeScript, Tailwind CSS v4, Framer Motion, Recharts, Radix UI |
 | Backend | FastAPI, Python 3.11, SQLAlchemy 2 (async), PostgreSQL 15, Alembic |
-| Authentication | JWT (python-jose), bcrypt, caregiver PIN protection |
-| AI - speech analysis | faster-whisper (transcription + voice feature extraction) |
-| AI - guidance RAG | FAISS, sentence-transformers (multilingual-e5-large), Google Gemini |
-| AI - Bob integration | Langflow MCP server, mcp-proxy, IBM Bob |
-| Media security | cryptography (Fernet) for audio file encryption at rest |
+| Autentikasi | JWT (python-jose), bcrypt, perlindungan PIN caregiver |
+| AI - analisis suara | faster-whisper (transkripsi + ekstraksi fitur suara) |
+| AI - RAG panduan | FAISS, sentence-transformers (multilingual-e5-large), Google Gemini |
+| AI - integrasi Bob | Langflow MCP server, mcp-proxy, IBM Bob |
+| Keamanan media | cryptography (Fernet) untuk enkripsi berkas audio saat disimpan |
 
 ---
 
-## Repository Structure
+## Struktur Repositori
 
 ```text
 TIARA-IBM/
-├── frontend/                  # Next.js application
-│   ├── app/                   # App Router pages
-│   │   ├── elderly/           # Check-in, companion, and home flows
-│   │   ├── caregiver/         # PIN page and caregiver dashboard
-│   │   ├── login/             # Authentication pages
+├── frontend/                  # Aplikasi Next.js
+│   ├── app/                   # Halaman App Router
+│   │   ├── elderly/           # Alur check-in, companion, dan beranda
+│   │   ├── caregiver/         # Halaman PIN dan dashboard caregiver
+│   │   ├── login/             # Halaman autentikasi
 │   │   └── register/
 │   ├── components/shared/     # Footer, ProtectedRoute
 │   └── lib/                   # API client, auth context, types
-├── backend/                   # FastAPI application
+├── backend/                   # Aplikasi FastAPI
 │   ├── app/
-│   │   ├── routes/            # auth, elderly, caregiver, healthcare, checkin route handlers
-│   │   ├── models/            # SQLAlchemy ORM models
-│   │   ├── services/          # RAG guidance, voice analysis, media crypto
-│   │   │   └── rag_data/      # Pre-built FAISS index and document chunks
-│   │   ├── schemas/           # Pydantic request/response schemas
+│   │   ├── routes/            # Handler rute auth, elderly, caregiver, healthcare, checkin
+│   │   ├── models/            # Model ORM SQLAlchemy
+│   │   ├── services/          # RAG guidance, analisis suara, media crypto
+│   │   │   └── rag_data/      # FAISS index dan chunk dokumen yang sudah dibuat
+│   │   ├── schemas/           # Skema request/response Pydantic
 │   │   ├── core/              # Config, security, dependencies
 │   │   └── scripts/           # seed.py, evaluasi_rag.py
-│   └── alembic/               # Database migrations
-├── docs/                      # Product, architecture, API, AI, and security docs
-│   └── evaluasi-rag/          # RAG evaluation question sets and results
-├── langflow/                  # Exported Langflow flow (MCP tool for IBM Bob)
-├── assets/                    # Master logo files
-├── docker-compose.yml         # PostgreSQL + backend + frontend services
-├── .env.example               # Environment variable template
+│   └── alembic/               # Migrasi database
+├── docs/                      # Dokumen produk, arsitektur, API, AI, dan keamanan
+│   └── evaluasi-rag/          # Set pertanyaan dan hasil evaluasi RAG
+├── langflow/                  # Flow Langflow yang diekspor (alat MCP untuk IBM Bob)
+├── assets/                    # Berkas logo master
+├── docker-compose.yml         # Layanan PostgreSQL + backend + frontend
+├── .env.example               # Template variabel lingkungan
 └── README.md
 ```
 
 ---
 
-## Local Setup
+## Pengaturan Lokal
 
-### Prerequisites
+### Prasyarat
 
-- Node.js 18 or newer
-- Python 3.11 or newer
-- PostgreSQL 15 or newer (or use Docker Compose)
+- Node.js 18 atau lebih baru
+- Python 3.11 atau lebih baru
+- PostgreSQL 15 atau lebih baru (atau gunakan Docker Compose)
 
 ### Backend
 
@@ -268,17 +271,17 @@ python -m app.scripts.seed
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-The API runs at `http://localhost:8000`. Interactive docs are at `http://localhost:8000/docs`.
+API berjalan di `http://localhost:8000`. Dokumentasi interaktif tersedia di `http://localhost:8000/docs`.
 
-To rebuild the simulated history (e.g. after schema changes):
+Untuk membangun ulang riwayat simulasi (misalnya setelah perubahan skema):
 
 ```bash
 python -m app.scripts.seed --reset-demo
 ```
 
-### Environment variables (backend)
+### Variabel lingkungan (backend)
 
-Copy `.env.example` to `backend/.env` and set:
+Salin `.env.example` ke `backend/.env` dan isi:
 
 ```text
 DATABASE_URL=postgresql+asyncpg://tiara:tiara_password@localhost:5432/tiara_db
@@ -290,15 +293,15 @@ FRONTEND_URL=http://localhost:3000
 DEMO_MODE=True
 ```
 
-Generate a Fernet key for `MEDIA_ENCRYPTION_KEY`:
+Buat kunci Fernet untuk `MEDIA_ENCRYPTION_KEY`:
 
 ```bash
 python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
 ```
 
-**Warning:** if `MEDIA_ENCRYPTION_KEY` is lost, all encrypted recordings (`.webm.enc` files) become permanently unreadable. Store the key securely and keep a backup copy.
+**Peringatan:** jika `MEDIA_ENCRYPTION_KEY` hilang, semua rekaman terenkripsi (berkas `.webm.enc`) menjadi permanen tidak bisa dibaca. Simpan kunci secara aman dan buat salinan cadangan.
 
-The faster-whisper model (`base`, ~145 MB) is downloaded automatically on first use. No manual download step is needed.
+Model faster-whisper (`base`, ~145 MB) diunduh otomatis saat pertama digunakan. Tidak diperlukan langkah unduhan manual.
 
 ### Frontend
 
@@ -308,7 +311,7 @@ npm install
 npm run dev
 ```
 
-The frontend runs at `http://localhost:3000`. Set `NEXT_PUBLIC_BACKEND_URL=http://localhost:8000` in `frontend/.env.local` if the backend is not on the default port.
+Frontend berjalan di `http://localhost:3000`. Atur `NEXT_PUBLIC_BACKEND_URL=http://localhost:8000` di `frontend/.env.local` jika backend tidak menggunakan port default.
 
 ### Docker Compose
 
@@ -320,7 +323,7 @@ $env:JWT_SECRET_KEY="<your-secret>"; docker compose up --build
 JWT_SECRET_KEY=<your-secret> docker compose up --build
 ```
 
-Note: `docker-compose.yml` does not pass `MEDIA_ENCRYPTION_KEY` by default. Add it to your `.env` file at the repository root before building if you need encrypted audio storage.
+Catatan: `docker-compose.yml` tidak meneruskan `MEDIA_ENCRYPTION_KEY` secara default. Tambahkan ke berkas `.env` di root repositori sebelum build jika memerlukan penyimpanan audio terenkripsi.
 
 ---
 
@@ -330,83 +333,83 @@ Demo berjalan secara lokal. Panduan deployment akan ditambahkan setelah backend 
 
 ---
 
-## AI Pipeline (Check-in Analysis)
+## Pipeline AI (Analisis Check-in)
 
-After a check-in session is finished via `POST /elderly/checkin/{session_id}/finish`, TIARA processes all recorded audio through these steps:
+Setelah sesi check-in diselesaikan melalui `POST /elderly/checkin/{session_id}/finish`, TIARA memproses semua audio yang direkam melalui langkah-langkah berikut:
 
-1. **Decryption** - `.webm.enc` files are decrypted in memory using Fernet.
-2. **Transcription** - each answer's audio is transcribed with faster-whisper (`base` model, Indonesian, CPU int8, word timestamps, VAD filter).
-3. **Voice feature extraction** - per answer: words per minute (from word timestamps), inter-word pauses >= 0.5 s, hesitation words (`eh`, `ehm`, `hmm`, `anu`, `apa ya`, etc.), consecutive word repetitions, and response delay (timestamp of first word). Features are aggregated across all answers.
-4. **Baseline selection** - if the patient has >= 3 prior real sessions, the median of the last 14 sessions is used as personal baseline. Otherwise, general reference values are used (100 wpm, 0.8 s pause, 2.0 hesitations/min, 2.0 s response delay).
-5. **Risk scoring** - score = clamp(1.5 + 7.5 * weighted_deviation, 0, 10). Weights: speech rate 0.3, pause 0.3, response delay 0.3, hesitation 0.1. Level: Rendah (< 4), Sedang (4-6.9), Tinggi (>= 7).
-6. **Alerts** - a WARNING alert is created if the score is Tinggi; an INFO alert is created if fewer than 5 words were detected.
+1. **Dekripsi** - Berkas `.webm.enc` didekripsi di memori menggunakan Fernet.
+2. **Transkripsi** - Audio setiap jawaban ditranskripsi dengan faster-whisper (model `base`, bahasa Indonesia, CPU int8, word timestamps, VAD filter).
+3. **Ekstraksi fitur suara** - per jawaban: kata per menit (dari word timestamps), jeda antar kata >= 0,5 detik, kata ragu (`eh`, `ehm`, `hmm`, `anu`, `apa ya`, dll.), pengulangan kata berurutan, dan jeda respons (timestamp kata pertama). Fitur digabungkan dari semua jawaban.
+4. **Pemilihan baseline** - jika pasien memiliki >= 3 sesi nyata sebelumnya, median dari 14 sesi terakhir digunakan sebagai baseline pribadi. Jika tidak, nilai acuan umum digunakan (100 wpm, jeda 0,8 detik, 2,0 keraguan/menit, jeda respons 2,0 detik).
+5. **Penilaian risiko** - skor = clamp(1,5 + 7,5 * weighted_deviation, 0, 10). Bobot: laju bicara 0,3, jeda 0,3, jeda respons 0,3, keraguan 0,1. Tingkat: Rendah (< 4), Sedang (4-6,9), Tinggi (>= 7).
+6. **Peringatan** - peringatan WARNING dibuat jika skor Tinggi; peringatan INFO dibuat jika kurang dari 5 kata terdeteksi.
 
-**What is not in the real pipeline:** there is no librosa audio analysis, no OpenCV facial analysis, and no language analysis (orientation, memory, coherence) in real sessions. The `language_component`, `facial_component`, and `memory_component` fields in `risk_scores` are null for all real check-in sessions. These fields are populated only in simulated demo data.
+**Yang tidak ada di pipeline nyata:** tidak ada analisis audio librosa, tidak ada analisis wajah OpenCV, dan tidak ada analisis bahasa (orientasi, memori, koherensi) pada sesi nyata. Field `language_component`, `facial_component`, dan `memory_component` di `risk_scores` bernilai null untuk semua sesi check-in nyata. Field-field ini hanya terisi pada data simulasi demo.
 
-All results are informational indicators only, not diagnoses.
+Semua hasil hanya merupakan indikator informatif, bukan diagnosis.
 
 ---
 
-## Seed Commands
+## Perintah Seed
 
 ```bash
-# From the backend/ directory:
+# Dari direktori backend/:
 
-# Normal seed (idempotent - safe to run multiple times)
+# Seed biasa (idempoten - aman dijalankan berkali-kali)
 python -m app.scripts.seed
 
-# Reset and rebuild all simulated history
+# Reset dan bangun ulang semua riwayat simulasi
 python -m app.scripts.seed --reset-demo
 ```
 
 ---
 
-## RAG Evaluation Command
+## Perintah Evaluasi RAG
 
 ```bash
-# From the backend/ directory:
-python -m app.scripts.evaluasi_rag docs/evaluasi-rag/pertanyaan_uji_dokumen.csv
-python -m app.scripts.evaluasi_rag docs/evaluasi-rag/pertanyaan_uji_awam.csv
+# Dari direktori backend/:
+python -m app.scripts.evaluasi_rag ..\docs\evaluasi-rag\pertanyaan_uji_dokumen.csv
+python -m app.scripts.evaluasi_rag ..\docs\evaluasi-rag\pertanyaan_uji_awam.csv
 ```
 
-Results are saved to `evaluasi_rag_hasil.csv` in the current directory.
+Hasil disimpan ke `evaluasi_rag_hasil.csv` di direktori saat ini.
 
 ---
 
-## Documentation
+## Dokumentasi
 
-Additional project documentation is in [`docs/`](docs/):
+Dokumentasi proyek tambahan ada di [`docs/`](docs/):
 
-- [Product requirements](docs/01-product-requirements.md)
-- [MVP scope](docs/02-mvp-scope.md)
-- [System architecture](docs/03-system-architecture.md)
-- [Database design](docs/04-database-design.md)
-- [API specification](docs/05-api-specification.md)
-- [AI pipeline](docs/06-ai-pipeline.md)
-- [Security and privacy](docs/07-security-and-privacy.md)
-- [Development roadmap](docs/08-development-roadmap.md)
-- [Demo script](docs/09-demo-script.md)
-- [RAG evaluation files](docs/evaluasi-rag/)
-
----
-
-## Known Limitations
-
-- Dashboard data for the demo patient (Nenek Ladya) is a mix of 60 days of simulated history and any real sessions from voice check-ins. There is no visual separation between simulated and real data in the chart.
-- Voice scores are informational indicators based on speech pattern deviation. They have not been clinically validated and are not a substitute for professional assessment.
-- faster-whisper frequently removes hesitation words (`eh`, `hmm`, etc.) during transcription, so hesitation counts tend to be underestimated.
-- Transcript text in the `transcripts` table is stored unencrypted in the database.
-- The mood journal is saved to the database but is not yet shown to caregivers or healthcare workers.
-- Summary cards on the caregiver dashboard (Memory Consistency, Response Delay, Speech Hesitation) may show static or simulated values for sessions without a full real analysis. Verify visually during demo.
-- AI analysis quality depends on microphone quality and ambient noise.
-- Dementia Guidance AI responses are only as current as the loaded documents.
-- RAG evaluation measures retrieval accuracy only; faithfulness of generated answers has not been evaluated.
-- The plain-language RAG evaluation sample is small (10 questions); results are indicative only.
-- TIARA must not be used as a substitute for professional medical evaluation.
+- [Persyaratan produk](docs/01-product-requirements.md)
+- [Cakupan MVP](docs/02-mvp-scope.md)
+- [Arsitektur sistem](docs/03-system-architecture.md)
+- [Desain database](docs/04-database-design.md)
+- [Spesifikasi API](docs/05-api-specification.md)
+- [Pipeline AI](docs/06-ai-pipeline.md)
+- [Keamanan dan privasi](docs/07-security-and-privacy.md)
+- [Peta jalan pengembangan](docs/08-development-roadmap.md)
+- [Skrip demo](docs/09-demo-script.md)
+- [Berkas evaluasi RAG](docs/evaluasi-rag/)
 
 ---
 
-## Meet the Team
+## Keterbatasan yang Diketahui
+
+- Data dashboard untuk pasien demo (Nenek Ladya) merupakan campuran 60 hari riwayat simulasi dan sesi nyata dari check-in suara. Tidak ada pemisahan visual antara data simulasi dan nyata dalam grafik.
+- Skor suara adalah indikator informatif berdasarkan penyimpangan pola bicara. Belum divalidasi secara klinis dan bukan pengganti penilaian profesional.
+- faster-whisper sering menghapus kata ragu (`eh`, `hmm`, dll.) selama transkripsi, sehingga hitungan keraguan cenderung rendah.
+- Teks transkrip di tabel `transcripts` disimpan tanpa enkripsi di database.
+- Jurnal suasana hati tersimpan di database tetapi belum ditampilkan ke caregiver atau tenaga kesehatan.
+- Kartu ringkasan di dashboard caregiver (Memory Consistency, Response Delay, Speech Hesitation) mungkin menampilkan nilai statis atau simulasi untuk sesi tanpa analisis nyata lengkap. Verifikasi secara visual saat demo.
+- Kualitas analisis AI bergantung pada kualitas mikrofon dan kebisingan lingkungan.
+- Respons Dementia Guidance AI hanya seakurat dokumen yang dimuat.
+- Evaluasi RAG hanya mengukur akurasi retrieval; faithfulness jawaban yang dihasilkan belum dievaluasi.
+- Sampel evaluasi RAG berbahasa awam kecil (10 pertanyaan); hasilnya bersifat indikatif.
+- TIARA tidak boleh digunakan sebagai pengganti evaluasi medis profesional.
+
+---
+
+## Tim
 
 <table>
 <tr>
@@ -433,5 +436,5 @@ Additional project documentation is in [`docs/`](docs/):
 
 ---
 
-Built for **IBM SkillsBuild University Education National Hackathon 2026**
+Dibuat untuk **IBM SkillsBuild University Education National Hackathon 2026**
 **Hacktiv8 x IBM x Komdigi**

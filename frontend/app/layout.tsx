@@ -7,9 +7,9 @@ import Footer from "@/components/shared/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "TIARA — Platform Perawatan Kognitif Berbasis AI",
+  title: "TIARA: Platform Perawatan Kognitif Berbasis AI",
   description:
-    "TIARA dirancang untuk membantu keluarga memantau perubahan kognitif melalui check-in harian, catatan longitudinal, dan panduan demensia untuk caregiver. Bukan alat diagnosis medis.",
+    "Check-in harian yang singkat dan ramah dirancang agar keluarga bisa melihat pola dari waktu ke waktu, lengkap dengan panduan demensia dari dokumen resmi Kemenkes. Bukan alat diagnosis medis.",
   keywords: [
     "skrining kognitif",
     "dukungan caregiver",

@@ -102,12 +102,11 @@ export default function LandingPage() {
               variants={fadeIn}
               className="text-5xl lg:text-[56px] font-bold font-serif-editorial leading-[1.12] mb-6 text-foreground tracking-tight"
             >
-              Perawatan kognitif penuh kasih, <span className="font-serif italic block lg:inline text-foreground/95">dipandu oleh AI.</span>
+              Teman bicara harian untuk lansia, <span className="font-serif italic block lg:inline text-foreground/95">mata kedua bagi keluarga.</span>
             </motion.h1>
 
-            <motion.p variants={fadeIn} className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">
-              TIARA dirancang untuk membantu keluarga memantau perubahan kognitif melalui
-              check-in harian, catatan longitudinal, dan panduan demensia untuk caregiver.
+            <motion.p variants={fadeIn} className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-xl">
+              Check-in harian yang singkat dan ramah dirancang agar keluarga bisa melihat pola dari waktu ke waktu, lengkap dengan panduan demensia dari dokumen resmi Kemenkes.
             </motion.p>
 
             {/* Main Action Button */}
@@ -116,7 +115,7 @@ export default function LandingPage() {
                 href="/login"
                 className="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white font-bold text-base px-12 py-3 rounded-xl transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                Mulai sekarang
+                Coba TIARA
               </Link>
             </motion.div>
 
@@ -220,7 +219,7 @@ export default function LandingPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold font-serif-editorial text-foreground mb-4">
-              Dua pengalaman, satu sistem perawatan terhubung.
+              Tiga peran, satu sistem perawatan terhubung.
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Dirancang untuk lansia penerima perawatan, keluarga mereka, dan tim klinis.
@@ -248,14 +247,14 @@ export default function LandingPage() {
                 features: [
                   "Dashboard dilindungi PIN",
                   "Grafik tren risiko kognitif",
-                  "Peringatan dan notifikasi cerdas",
-                  "Rekomendasi perawatan berbasis AI",
+                  "Peringatan saat pola berubah",
+                  "Rekomendasi perawatan harian",
                   "Chat Panduan Demensia AI",
                 ],
               },
               {
                 icon: Stethoscope,
-                audience: "Untuk Tenaga Kesehatan",
+                audience: "Untuk Tenaga Kesehatan (dalam pengembangan)",
                 bg: "bg-primary/5 border border-primary/20",
                 features: [
                   "Dashboard pemantauan pasien",
@@ -379,7 +378,7 @@ export default function LandingPage() {
               href="/register"
               className="flex items-center gap-2 bg-white text-primary-dark hover:bg-secondary font-bold px-8 py-4 rounded-xl transition-all shadow-md cursor-pointer"
             >
-              Daftar gratis
+              Daftar sekarang
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link

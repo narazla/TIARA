@@ -82,11 +82,17 @@ interface ChatMessage {
 }
 
 const GUIDANCE_PROMPTS = [
-  "How can caregivers manage emotional stress and burnout?",
-  "How can caregiver burden be assessed in dementia care?",
-  "What interventions can reduce caregiver stress and improve quality of life?",
-  "How can caregivers support independence in daily activities?",
+  "Apa yang sebaiknya dilakukan caregiver saat penderita demensia gelisah di malam hari?",
+  "Bagaimana menjaga kebiasaan tidur lansia dengan demensia?",
+  "Bagaimana cara mengelola stres bagi caregiver?",
+  "Bagaimana caregiver membantu lansia berpindah tempat dengan aman?",
 ];
+
+const SEVERITY_LABEL: Record<string, string> = {
+  high: "Tinggi",
+  medium: "Sedang",
+  low: "Rendah",
+};
 
 function CaregiverDashboardContent() {
   const router = useRouter();
@@ -114,7 +120,7 @@ function CaregiverDashboardContent() {
     {
       id: "welcome",
       sender: "bot",
-      text: "Hello, I am TIARA's Dementia Care Assistant. Ask me anything about supporting your loved one with cognitive care, daily routines, or behavioral observations.",
+      text: "Halo, saya Asisten Panduan Demensia TIARA. Silakan tanyakan cara mendampingi keluarga Anda, mulai dari rutinitas harian sampai perilaku yang perlu diperhatikan.",
     },
   ]);
   const [chatLoading, setChatLoading] = useState(false);
@@ -185,14 +191,14 @@ function CaregiverDashboardContent() {
       const botMsg: ChatMessage = {
         id: Math.random().toString(),
         sender: "bot",
-        text: response.answer || "I could not retrieve an answer at this time. Please try again.",
+        text: response.answer || "Maaf, tidak dapat mengambil jawaban saat ini. Silakan coba lagi.",
       };
       setChatMessages((prev) => [...prev, botMsg]);
     } catch (e) {
       const botErrorMsg: ChatMessage = {
         id: Math.random().toString(),
         sender: "bot",
-        text: "Sorry, I am having trouble connecting to the guidance system right now.",
+        text: "Maaf, sistem panduan sedang tidak dapat dihubungi. Silakan coba lagi sebentar lagi.",
       };
       setChatMessages((prev) => [...prev, botErrorMsg]);
     } finally {
@@ -222,10 +228,10 @@ function CaregiverDashboardContent() {
           <nav className="p-4 space-y-1">
             {[
               { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-              { id: "alerts", label: "Alerts Feed", icon: AlertTriangle, count: alerts.filter(a => !a.is_read).length },
-              { id: "recommendations", label: "Recommendations", icon: CheckSquare },
-              { id: "guidance", label: "Dementia Guidance", icon: Bot },
-              { id: "reports", label: "Monthly Reports", icon: FileText },
+               { id: "alerts", label: "Daftar Peringatan", icon: AlertTriangle, count: alerts.filter(a => !a.is_read).length },
+               { id: "recommendations", label: "Rekomendasi", icon: CheckSquare },
+               { id: "guidance", label: "Panduan Demensia", icon: Bot },
+               { id: "reports", label: "Laporan Bulanan", icon: FileText },
             ].map(({ id, label, icon: Icon, count }) => (
               <button
                 key={id}
@@ -262,7 +268,7 @@ function CaregiverDashboardContent() {
             className="w-full flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-destructive hover:bg-destructive/5 transition-colors cursor-pointer"
           >
             <LogOut className="w-4 h-4" />
-            Logout
+            Keluar
           </button>
         </div>
       </aside>
@@ -277,19 +283,19 @@ function CaregiverDashboardContent() {
             </div>
             <div>
               <h1 className="font-bold text-base text-foreground font-serif-editorial">
-                {patient?.full_name || "Linked Patient Profile"}
+                {patient?.full_name || "Profil Pasien Terhubung"}
               </h1>
-              <p className="text-xs text-muted-foreground font-medium">Caregiver Oversight Portal</p>
+              <p className="text-xs text-muted-foreground font-medium">Portal Pemantauan Caregiver</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             {currentRiskLevel === "high" ? (
-              <span className="risk-badge-high">● High Risk Status</span>
+              <span className="risk-badge-high">● Status Risiko Tinggi</span>
             ) : currentRiskLevel === "medium" ? (
-              <span className="risk-badge-medium">● Medium Risk Status</span>
+              <span className="risk-badge-medium">● Status Risiko Sedang</span>
             ) : (
-              <span className="risk-badge-low">● Stable Status</span>
+              <span className="risk-badge-low">● Status Stabil</span>
             )}
           </div>
         </header>
@@ -314,19 +320,19 @@ function CaregiverDashboardContent() {
                   {/* Stats Overview */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     <div className="bg-card border border-border/70 rounded-2xl p-5 shadow-sm">
-                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Memory Consistency</p>
+                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Konsistensi Memori</p>
                       <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">82%</p>
-                      <p className="text-xs text-primary-dark font-semibold mt-1">Within normal variance</p>
+                      <p className="text-xs text-primary-dark font-semibold mt-1">Dalam batas variasi normal</p>
                     </div>
                     <div className="bg-card border border-border/70 rounded-2xl p-5 shadow-sm">
-                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Response Delay</p>
-                      <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">+1.2s</p>
-                      <p className="text-xs text-amber-700 font-semibold mt-1">Slight hesitation noted</p>
+                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Jeda Respons</p>
+                      <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">+1,2 dtk</p>
+                      <p className="text-xs text-amber-700 font-semibold mt-1">Sedikit keraguan terdeteksi</p>
                     </div>
                     <div className="bg-card border border-border/70 rounded-2xl p-5 shadow-sm">
-                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Speech Hesitation</p>
-                      <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">4.5%</p>
-                      <p className="text-xs text-primary-dark font-semibold mt-1">Normal speech pace</p>
+                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Keraguan Bicara</p>
+                      <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">4,5%</p>
+                      <p className="text-xs text-primary-dark font-semibold mt-1">Kecepatan bicara normal</p>
                     </div>
                   </div>
 
@@ -334,7 +340,7 @@ function CaregiverDashboardContent() {
                   <div className="grid lg:grid-cols-3 gap-8">
                     {/* Line Chart */}
                     <div className="lg:col-span-2 bg-card border border-border/70 rounded-[24px] p-6 shadow-sm">
-                      <h2 className="text-lg font-bold font-serif-editorial text-foreground mb-6">Cognitive Risk Index (30 Days)</h2>
+                      <h2 className="text-lg font-bold font-serif-editorial text-foreground mb-6">Skor Risiko Kognitif (30 Hari)</h2>
                       <div className="h-64">
                         {mounted && trendData.length > 0 ? (
                           <ResponsiveContainer width="100%" height="100%">
@@ -353,7 +359,7 @@ function CaregiverDashboardContent() {
                           </ResponsiveContainer>
                         ) : (
                           <div className="h-full flex items-center justify-center text-muted-foreground text-sm font-medium">
-                            No screening sessions recorded in the last 30 days.
+                            Belum ada sesi pemeriksaan dalam 30 hari terakhir.
                           </div>
                         )}
                       </div>
@@ -363,12 +369,12 @@ function CaregiverDashboardContent() {
                     <div className="bg-card border border-border/70 rounded-[24px] p-6 shadow-sm flex flex-col">
                       <h2 className="text-lg font-bold font-serif-editorial text-foreground mb-4.5 flex items-center gap-2">
                         <AlertTriangle className="w-5 h-5 text-terracotta" />
-                        Recent Alerts
+                        Peringatan Terbaru
                       </h2>
                       <div className="flex-1 space-y-3.5 overflow-y-auto max-h-64 pr-1">
                         {alerts.length === 0 ? (
                           <div className="text-center py-8 text-muted-foreground text-sm font-medium">
-                            No alerts triggered
+                            Belum ada peringatan
                           </div>
                         ) : (
                           alerts.slice(0, 3).map((a) => (
@@ -381,10 +387,10 @@ function CaregiverDashboardContent() {
                                     ? "bg-warning/15 text-amber-700"
                                     : "bg-primary/15 text-primary-dark"
                                 }`}>
-                                  {a.severity}
+                                  {SEVERITY_LABEL[a.severity] ?? a.severity}
                                 </span>
                                 <span className="text-[10px] text-muted-foreground font-medium">
-                                  {new Date(a.created_at).toLocaleDateString()}
+                                  {new Date(a.created_at).toLocaleDateString("id-ID")}
                                 </span>
                               </div>
                               <h4 className="font-bold text-sm text-foreground">{a.title}</h4>
@@ -397,14 +403,14 @@ function CaregiverDashboardContent() {
                         onClick={() => setActiveTab("alerts")}
                         className="w-full text-center text-sm font-bold text-primary hover:text-primary-dark mt-4 border-t border-border/60 pt-3"
                       >
-                        View all alerts
+                        Lihat semua peringatan
                       </button>
                     </div>
                   </div>
 
                   {/* Care Recommendations Preview */}
                   <div className="bg-card border border-border/70 rounded-[24px] p-6 shadow-sm">
-                    <h2 className="text-lg font-bold font-serif-editorial text-foreground mb-4.5">Recommended Actions</h2>
+                    <h2 className="text-lg font-bold font-serif-editorial text-foreground mb-4.5">Tindakan yang Disarankan</h2>
                     <div className="grid md:grid-cols-2 gap-4">
                       {recommendations.today_plan.slice(0, 2).map((r) => (
                         <div key={r.id} className="flex gap-3 border border-border/60 rounded-xl p-4 bg-secondary/20">
@@ -438,10 +444,10 @@ function CaregiverDashboardContent() {
                   exit={{ opacity: 0, y: -12 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-2xl font-bold font-serif-editorial text-foreground">Alerts Feed</h2>
+                  <h2 className="text-2xl font-bold font-serif-editorial text-foreground">Daftar Peringatan</h2>
                   <div className="space-y-4">
                     {alerts.length === 0 ? (
-                      <p className="text-muted-foreground text-sm font-medium">No alerts available for this patient.</p>
+                      <p className="text-muted-foreground text-sm font-medium">Belum ada peringatan untuk pasien ini.</p>
                     ) : (
                       alerts.map((a) => (
                         <div key={a.id} className="bg-card border border-border/70 rounded-2xl p-6 shadow-sm flex gap-4.5 items-start">
@@ -458,13 +464,13 @@ function CaregiverDashboardContent() {
                             <div className="flex justify-between items-center mb-1">
                               <h3 className="font-bold text-lg text-foreground">{a.title}</h3>
                               <span className="text-xs text-muted-foreground font-medium">
-                                {new Date(a.created_at).toLocaleString()}
+                                {new Date(a.created_at).toLocaleString("id-ID")}
                               </span>
                             </div>
                             <p className="text-sm text-muted-foreground leading-relaxed mb-3">{a.description}</p>
                             {a.suggested_action && (
                               <div className="bg-secondary/40 border border-border/50 rounded-xl p-3 text-xs leading-relaxed text-foreground font-medium">
-                                <span className="font-bold text-primary-dark block mb-0.5">Suggested Action:</span>
+                                <span className="font-bold text-primary-dark block mb-0.5">Tindakan yang Disarankan:</span>
                                 {a.suggested_action}
                               </div>
                             )}
@@ -485,15 +491,15 @@ function CaregiverDashboardContent() {
                   exit={{ opacity: 0, y: -12 }}
                   className="space-y-8"
                 >
-                  <h2 className="text-2xl font-bold font-serif-editorial text-foreground">AI Care Recommendations</h2>
+                  <h2 className="text-2xl font-bold font-serif-editorial text-foreground">Rekomendasi Perawatan AI</h2>
 
                   {/* Sectioned recommendations */}
                   {[
-                    { title: "Today's Routine Plan", data: recommendations.today_plan, icon: Calendar, color: "text-primary" },
-                    { title: "Cognitive Exercises", data: recommendations.cognitive_activities, icon: Brain, color: "text-accent" },
-                    { title: "Social Suggestions", data: recommendations.social_suggestions, icon: Heart, color: "text-terracotta" },
-                    { title: "Wellbeing & Medical Notes", data: recommendations.medical_notes, icon: FileText, color: "text-amber-700" },
-                    { title: "Seek Healthcare Consultation", data: recommendations.when_to_seek_help, icon: ShieldAlert, color: "text-destructive" },
+                    { title: "Rencana Rutinitas Hari Ini", data: recommendations.today_plan, icon: Calendar, color: "text-primary" },
+                    { title: "Latihan Kognitif", data: recommendations.cognitive_activities, icon: Brain, color: "text-accent" },
+                    { title: "Saran Sosial", data: recommendations.social_suggestions, icon: Heart, color: "text-terracotta" },
+                    { title: "Catatan Kesehatan dan Medis", data: recommendations.medical_notes, icon: FileText, color: "text-amber-700" },
+                    { title: "Konsultasi Tenaga Kesehatan", data: recommendations.when_to_seek_help, icon: ShieldAlert, color: "text-destructive" },
                   ].map(({ title, data, icon: Icon, color }) => (
                     <div key={title} className="bg-card border border-border/70 rounded-[24px] p-6 shadow-sm">
                       <h3 className="text-lg font-bold font-serif-editorial text-foreground mb-4.5 flex items-center gap-2.5">
@@ -501,7 +507,7 @@ function CaregiverDashboardContent() {
                         {title}
                       </h3>
                       {data.length === 0 ? (
-                        <p className="text-sm text-muted-foreground italic font-medium pl-8">No current recommendations for this category.</p>
+                        <p className="text-sm text-muted-foreground italic font-medium pl-8">Belum ada rekomendasi untuk kategori ini.</p>
                       ) : (
                         <div className="space-y-3.5 pl-8">
                           {data.map((r) => (
@@ -532,8 +538,8 @@ function CaregiverDashboardContent() {
                       <Bot className="w-5 h-5" />
                     </div>
                     <div>
-                      <h2 className="font-bold text-foreground">Dementia Guidance Companion</h2>
-                      <p className="text-xs text-muted-foreground font-medium">AI caregiver counseling & behavioral tips</p>
+                      <h2 className="font-bold text-foreground">TIARA Companion Panduan Demensia</h2>
+                      <p className="text-xs text-muted-foreground font-medium">Konseling AI untuk caregiver dan saran penanganan perilaku</p>
                     </div>
                   </div>
 
@@ -565,7 +571,7 @@ function CaregiverDashboardContent() {
                       <div className="flex justify-start">
                         <div className="bg-secondary text-muted-foreground rounded-2xl rounded-bl-none border border-border/60 px-4.5 py-3 text-sm flex items-center gap-2">
                           <Loader2 className="w-4 h-4 animate-spin text-primary" />
-                          Thinking...
+                          Sedang berpikir...
                         </div>
                       </div>
                     )}
@@ -588,7 +594,7 @@ function CaregiverDashboardContent() {
                   <div className="p-4 bg-card border-t border-border flex gap-3">
                     <input
                       type="text"
-                      placeholder="Ask for advice on dementia care, activities, routines..."
+                      placeholder="Tanyakan tentang perawatan demensia, aktivitas, rutinitas..."
                       value={chatInput}
                       onChange={(e) => setChatInput(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && handleSendChat()}
@@ -614,10 +620,10 @@ function CaregiverDashboardContent() {
                   exit={{ opacity: 0, y: -12 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-2xl font-bold font-serif-editorial text-foreground">Generated Reports</h2>
+                  <h2 className="text-2xl font-bold font-serif-editorial text-foreground">Laporan yang Dibuat</h2>
                   <div className="space-y-4">
                     {reports.length === 0 ? (
-                      <p className="text-muted-foreground text-sm font-medium">No reports generated yet. Reports are compiled monthly.</p>
+                      <p className="text-muted-foreground text-sm font-medium">Belum ada laporan yang dibuat. Laporan dikompilasi setiap bulan.</p>
                     ) : (
                       reports.map((r) => (
                         <div key={r.id} className="bg-card border border-border/70 rounded-2xl p-6 shadow-sm flex items-center justify-between">
@@ -628,15 +634,15 @@ function CaregiverDashboardContent() {
                             <div>
                               <h3 className="font-bold text-lg text-foreground">{r.title}</h3>
                               <p className="text-xs text-muted-foreground mt-0.5">
-                                {r.checkin_count} check-ins • Avg. Risk Score: {r.avg_risk_score.toFixed(1)}
+                                {r.checkin_count} check-in. Rata-rata Skor Risiko: {r.avg_risk_score.toFixed(1)}
                               </p>
                             </div>
                           </div>
                           <button
-                            onClick={() => alert("Report download triggered (mocked PDF)")}
+                            onClick={() => alert("Unduhan laporan (simulasi PDF)")}
                             className="bg-card border border-border hover:bg-secondary text-foreground font-bold px-4 py-2 rounded-xl text-sm transition-colors cursor-pointer"
                           >
-                            Download PDF
+                            Unduh PDF
                           </button>
                         </div>
                       ))

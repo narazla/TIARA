@@ -49,8 +49,8 @@ function CaregiverPinContent() {
     } catch (err) {
       const message = getErrorMessage(err);
       setError(
-        message.includes("Incorrect") || message.includes("Invalid")
-          ? "Incorrect PIN. Please try again."
+        message.includes("PIN salah") || message.includes("Incorrect") || message.includes("Invalid")
+          ? "PIN salah. Silakan coba lagi."
           : message
       );
       setPin(["", "", "", "", "", ""]);
@@ -83,7 +83,7 @@ function CaregiverPinContent() {
         {/* Logo */}
         <div className="text-center mb-2">
           <Link href="/" className="inline-flex items-center justify-center group">
-            <img src="/Logo.png" alt="TIARA Logo" className="h-[120px] object-contain mx-auto transition-transform group-hover:scale-105" />
+            <img src="/Logo.png" alt="Logo TIARA" className="h-[120px] object-contain mx-auto transition-transform group-hover:scale-105" />
           </Link>
         </div>
 
@@ -93,16 +93,16 @@ function CaregiverPinContent() {
             <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-2.5">
               <Shield className="w-5 h-5 text-primary-dark" />
             </div>
-            <h1 className="text-xl font-bold font-serif-editorial text-foreground">Caregiver Dashboard PIN</h1>
+            <h1 className="text-xl font-bold font-serif-editorial text-foreground">PIN Dashboard Caregiver</h1>
             <p className="text-muted-foreground text-xs mt-1 leading-normal max-w-[280px] mx-auto font-medium">
-              This dashboard contains care insights and is protected for caregiver access.
+              Dashboard ini berisi informasi perawatan dan dilindungi khusus untuk akses caregiver.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-center text-xs font-semibold text-muted-foreground mb-3 uppercase tracking-wider">
-                Enter your 6-digit PIN
+                Masukkan PIN 6 digit Anda
               </label>
               <div className="flex justify-center gap-2">
                 {pin.map((digit, index) => (
@@ -151,9 +151,9 @@ function CaregiverPinContent() {
               className="w-full bg-primary hover:bg-primary-dark disabled:bg-primary/50 text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-sm cursor-pointer text-sm"
             >
               {isSubmitting ? (
-                <><Loader2 className="w-4 h-4 animate-spin" /> Verifying...</>
+                <><Loader2 className="w-4 h-4 animate-spin" /> Memverifikasi...</>
               ) : (
-                "Access Dashboard"
+                "Akses Dashboard"
               )}
             </button>
           </form>
@@ -164,14 +164,14 @@ function CaregiverPinContent() {
               className="inline-flex items-center gap-1.5 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              Back to home
+              Kembali ke beranda
             </Link>
           </div>
         </div>
 
         {/* Disclaimer */}
         <p className="text-center text-[10px] text-muted-foreground/60 mt-4 px-4 leading-relaxed">
-          ⚕️ TIARA is not a medical diagnosis tool. Informational support only.
+          ⚕️ TIARA bukan alat diagnosis medis. Hanya untuk dukungan informatif.
         </p>
       </motion.div>
     </div>

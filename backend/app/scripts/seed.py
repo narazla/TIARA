@@ -96,7 +96,7 @@ DEMO_RECOMMENDATIONS = [
     (RecommendationCategory.ROUTINE, "Siapkan jadwal harian sederhana",
      "Tempel jadwal harian dengan tulisan besar di tempat yang mudah dilihat untuk membantu orientasi waktu.", 2),
     (RecommendationCategory.COGNITIVE, "Dengarkan musik kesukaan bersama",
-     "Luangkan waktu mendengarkan lagu yang disukai. Terapi musik tercatat membantu fungsi kognitif pada pasien demensia (PNPK Demensia hal 121).", 3),
+     "Luangkan waktu mendengarkan lagu yang disukai. Luangkan waktu mendengarkan lagu yang disukai. PNPK Demensia (hal 121) mencatat terapi musik dapat meningkatkan fungsi kognitif, meski efeknya tidak bertahan dalam jangka panjang.", 3),
     (RecommendationCategory.COGNITIVE, "Lakukan kegiatan yang menjadi hobinya",
      "Ajak melakukan kegiatan yang dulu disukai atau hal baru yang menyenangkan, sesuai kemampuan pada hari itu.", 2),
     (RecommendationCategory.SOCIAL, "Jaga kontak sosial yang hangat",

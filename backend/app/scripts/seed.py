@@ -4,9 +4,9 @@ TIARA Seed Script
 Membuat akun demo dan data awal untuk pengembangan dan demo lomba.
 
 Demo credentials:
-    Elderly:     elderly@tiara.app / password123
-    Caregiver:   caregiver@tiara.app / password123 / PIN: 123456
-    Healthcare:  doctor@tiara.app / password123
+    Elderly:     elderly@tiara.app / Lansia_123
+    Caregiver:   caregiver@tiara.app / Caregiver_123 / PIN: 123456
+    Healthcare:  doctor@tiara.app / Dokter_123
 
 Run with:
     cd backend
@@ -96,7 +96,7 @@ DEMO_RECOMMENDATIONS = [
     (RecommendationCategory.ROUTINE, "Siapkan jadwal harian sederhana",
      "Tempel jadwal harian dengan tulisan besar di tempat yang mudah dilihat untuk membantu orientasi waktu.", 2),
     (RecommendationCategory.COGNITIVE, "Dengarkan musik kesukaan bersama",
-     "Luangkan waktu mendengarkan lagu yang disukai. Luangkan waktu mendengarkan lagu yang disukai. PNPK Demensia (hal 121) mencatat terapi musik dapat meningkatkan fungsi kognitif, meski efeknya tidak bertahan dalam jangka panjang.", 3),
+     "Luangkan waktu mendengarkan lagu yang disukai. PNPK Demensia (hal 121) mencatat terapi musik dapat meningkatkan fungsi kognitif, meski efeknya tidak bertahan dalam jangka panjang.", 3),
     (RecommendationCategory.COGNITIVE, "Lakukan kegiatan yang menjadi hobinya",
      "Ajak melakukan kegiatan yang dulu disukai atau hal baru yang menyenangkan, sesuai kemampuan pada hari itu.", 2),
     (RecommendationCategory.SOCIAL, "Jaga kontak sosial yang hangat",
@@ -363,6 +363,8 @@ async def get_or_create_user(db: AsyncSession, email: str, **kwargs) -> tuple[Us
     result = await db.execute(select(User).where(User.email == email))
     user = result.scalar_one_or_none()
     if user:
+        if "hashed_password" in kwargs:
+            user.hashed_password = kwargs["hashed_password"]
         return user, False
 
     user = User(email=email, **kwargs)
@@ -379,7 +381,7 @@ async def seed(db: AsyncSession, reset_demo: bool = False) -> None:
     elderly, created = await get_or_create_user(
         db,
         email="elderly@tiara.app",
-        hashed_password=hash_password("password123"),
+        hashed_password=hash_password("Lansia_123"),
         full_name="Nenek Ladya",
         role=Role.ELDERLY,
     )
@@ -397,7 +399,7 @@ async def seed(db: AsyncSession, reset_demo: bool = False) -> None:
     caregiver, created = await get_or_create_user(
         db,
         email="caregiver@tiara.app",
-        hashed_password=hash_password("password123"),
+        hashed_password=hash_password("Caregiver_123"),
         full_name="Nazla",
         role=Role.CAREGIVER,
     )
@@ -437,7 +439,7 @@ async def seed(db: AsyncSession, reset_demo: bool = False) -> None:
     hcw, created = await get_or_create_user(
         db,
         email="doctor@tiara.app",
-        hashed_password=hash_password("password123"),
+        hashed_password=hash_password("Dokter_123"),
         full_name="Dr. Sarah",
         role=Role.HEALTHCARE,
     )
@@ -470,9 +472,9 @@ async def seed(db: AsyncSession, reset_demo: bool = False) -> None:
     logger.info("Seed selesai.")
     logger.info("")
     logger.info("Demo credentials:")
-    logger.info("  Elderly:    elderly@tiara.app / password123")
-    logger.info("  Caregiver:  caregiver@tiara.app / password123 / PIN: 123456")
-    logger.info("  Healthcare: doctor@tiara.app / password123")
+    logger.info("  Elderly:    elderly@tiara.app / Lansia_123")
+    logger.info("  Caregiver:  caregiver@tiara.app / Caregiver_123 / PIN: 123456")
+    logger.info("  Healthcare: doctor@tiara.app / Dokter_123")
 
 
 async def main(reset_demo: bool = False):

@@ -70,11 +70,11 @@ export default function LoginPage() {
 
           {/* Demo credentials hint */}
           <div className="bg-secondary rounded-2xl p-3.5 mb-4 border border-border/60">
-            <p className="text-[10px] font-bold text-primary-dark mb-1 uppercase tracking-wide">Demo Credentials</p>
+            <p className="text-[10px] font-bold text-primary-dark mb-1 uppercase tracking-wide">Akun demo</p>
             <div className="space-y-1 text-[11px] text-muted-foreground font-medium">
-              <p>Elderly: <span className="font-mono text-foreground bg-card/60 px-1 py-0.5 rounded border border-border/40">elderly@tiara.app</span> / <span className="font-mono text-foreground bg-card/60 px-1 py-0.5 rounded border border-border/40">password123</span></p>
-              <p>Caregiver: <span className="font-mono text-foreground bg-card/60 px-1 py-0.5 rounded border border-border/40">caregiver@tiara.app</span> / <span className="font-mono text-foreground bg-card/60 px-1 py-0.5 rounded border border-border/40">password123</span></p>
-              <p>Doctor: <span className="font-mono text-foreground bg-card/60 px-1 py-0.5 rounded border border-border/40">doctor@tiara.app</span> / <span className="font-mono text-foreground bg-card/60 px-1 py-0.5 rounded border border-border/40">password123</span></p>
+              <p>Lansia: <span className="font-mono text-foreground bg-card/60 px-1 py-0.5 rounded border border-border/40">elderly@tiara.app</span> / <span className="font-mono text-foreground bg-card/60 px-1 py-0.5 rounded border border-border/40">Lansia_123</span></p>
+              <p>Caregiver: <span className="font-mono text-foreground bg-card/60 px-1 py-0.5 rounded border border-border/40">caregiver@tiara.app</span> / <span className="font-mono text-foreground bg-card/60 px-1 py-0.5 rounded border border-border/40">Caregiver_123</span></p>
+              <p>Dokter: <span className="font-mono text-foreground bg-card/60 px-1 py-0.5 rounded border border-border/40">doctor@tiara.app</span> / <span className="font-mono text-foreground bg-card/60 px-1 py-0.5 rounded border border-border/40">Dokter_123</span></p>
             </div>
           </div>
 

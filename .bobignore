@@ -1,0 +1,21 @@
+# Rahasia dan konfigurasi lokal
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Dependensi dan hasil build
+backend/venv/
+backend/.venv/
+frontend/node_modules/
+frontend/.next/
+**/__pycache__/
+.pytest_cache/
+.git/
+
+# Data dan media lokal
+*.wav
+*.mp3
+*.webm
+*.sqlite3

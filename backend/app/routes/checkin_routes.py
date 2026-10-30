@@ -9,7 +9,7 @@ Komponen wajah dan bahasa tidak diisi karena belum ada pipeline-nya.
 import io
 import logging
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
@@ -19,9 +19,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from starlette.concurrency import run_in_threadpool
 
 from app.core.config import settings
-from app.core.constants import MediaFileType, ProcessingStatus, Role, SessionStatus
+from app.core.constants import AlertSeverity, MediaFileType, ProcessingStatus, Role, SessionStatus
 from app.core.dependencies import require_role
 from app.database.session import get_db
+from app.models.alert import Alert
 from app.models.analysis import RiskScore, Transcript, VoiceAnalysisResult
 from app.models.checkin import CheckinAnswer, CheckinQuestion, CheckinSession
 from app.models.media import MediaFile
@@ -201,6 +202,48 @@ async def _tandai_gagal(db: AsyncSession, session_id: uuid.UUID, ditinggalkan: b
     await db.commit()
 
 
+async def _tambah_peringatan(
+    db: AsyncSession,
+    patient_user_id: uuid.UUID,
+    session_id: uuid.UUID,
+    severity: str,
+    title: str,
+    description: str,
+    suggested_action: str,
+) -> bool:
+    """Tambah alert untuk caregiver. Satu judul yang sama hanya sekali dalam 12 jam."""
+    batas = datetime.now(timezone.utc) - timedelta(hours=12)
+    ada = await db.execute(
+        select(Alert.id).where(
+            Alert.patient_user_id == patient_user_id,
+            Alert.title == title,
+            Alert.created_at >= batas,
+        ).limit(1)
+    )
+    if ada.first() is not None:
+        return False
+    db.add(Alert(
+        patient_user_id=patient_user_id,
+        session_id=session_id,
+        severity=severity,
+        title=title,
+        description=description,
+        suggested_action=suggested_action,
+        is_read=False,
+    ))
+    return True
+
+
+async def _peringatan_tanpa_suara(db: AsyncSession, patient_user_id: uuid.UUID, session_id: uuid.UUID) -> None:
+    if await _tambah_peringatan(
+        db, patient_user_id, session_id, AlertSeverity.INFO,
+        "Check-in hari ini tidak terekam",
+        "Tidak ada suara yang cukup terdeteksi pada check-in terakhir, sehingga skor tidak dapat dihitung.",
+        "Periksa mikrofon, lalu ajak lansia mengulang check-in di ruangan yang tenang.",
+    ):
+        await db.commit()
+
+
 @router.post("/{session_id}/finish")
 async def selesai(
     session_id: uuid.UUID,
@@ -248,6 +291,7 @@ async def selesai(
 
         if gabungan["jumlah_kata"] < suara.MIN_KATA_SESI:
             await _tandai_gagal(db, session_id, ditinggalkan=True)
+            await _peringatan_tanpa_suara(db, patient_user_id, session_id)
             return {"status": "tidak_ada_suara", "session_id": str(session_id)}
 
         riwayat = await _riwayat_pribadi(db, patient_user_id, session_id)
@@ -255,6 +299,7 @@ async def selesai(
         penilaian = suara.hitung_skor(gabungan, dasar)
         if penilaian["skor"] is None:
             await _tandai_gagal(db, session_id, ditinggalkan=True)
+            await _peringatan_tanpa_suara(db, patient_user_id, session_id)
             return {"status": "tidak_ada_suara", "session_id": str(session_id)}
 
         for (jawaban, t), fitur in zip(potongan, fitur_per_jawaban):
@@ -310,6 +355,18 @@ async def selesai(
             main_indicators=penilaian["indikator"],
         ))
 
+        perlu_perhatian = False
+        if penilaian["tingkat"] == "high":
+            alasan = "; ".join(penilaian["indikator"]) or "pola bicara menyimpang dari pembanding"
+            perlu_perhatian = await _tambah_peringatan(
+                db, patient_user_id, session_id, AlertSeverity.WARNING,
+                "Pola bicara hari ini menyimpang dari biasanya",
+                f"Skor risiko hari ini {penilaian['skor']} (Tinggi), dibandingkan dengan {asal}. "
+                f"Penyebab utama: {alasan}. Ini indikator informatif, bukan diagnosis.",
+                "Tanyakan kabar lansia, perhatikan tidur, kelelahan dan perubahan obat, lalu catat untuk "
+                "dibahas dengan tenaga kesehatan. Jika perubahan terasa cepat, segera konsultasikan.",
+            )
+
         selesai_pada = datetime.now(timezone.utc)
         sesi.status = SessionStatus.COMPLETED
         sesi.processing_status = ProcessingStatus.COMPLETED
@@ -328,4 +385,4 @@ async def selesai(
         await _tandai_gagal(db, session_id)
         raise HTTPException(status_code=500, detail="Check-in belum bisa diproses")
 
-    return {"status": "selesai", "session_id": str(session_id)}
+    return {"status": "selesai", "session_id": str(session_id), "perlu_perhatian": perlu_perhatian}

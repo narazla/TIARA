@@ -245,6 +245,12 @@ function CheckInContent() {
         setStatus("idle");
         return;
       }
+      try {
+        const perlu = (hasil as { perlu_perhatian?: boolean }).perlu_perhatian;
+        sessionStorage.setItem("tiara_perlu_perhatian", perlu ? "1" : "0");
+      } catch {
+        /* penyimpanan browser tidak tersedia, pesan tambahan dilewati */
+      }
       router.push("/elderly/check-in/result");
     } catch (err) {
       console.error("Gagal memproses check-in", err);

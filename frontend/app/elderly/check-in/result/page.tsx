@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { CheckCircle2, Heart, Calendar, ShieldCheck, Waves } from "lucide-react";
@@ -9,6 +10,16 @@ import { ProtectedRoute } from "@/components/shared/ProtectedRoute";
 function CheckInResultContent() {
   const { user } = useAuth();
   const displayName = user?.full_name || "teman";
+  const [perluPerhatian, setPerluPerhatian] = useState(false);
+
+  useEffect(() => {
+    try {
+      setPerluPerhatian(sessionStorage.getItem("tiara_perlu_perhatian") === "1");
+      sessionStorage.removeItem("tiara_perlu_perhatian");
+    } catch {
+      /* penyimpanan browser tidak tersedia */
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col justify-between p-6">
@@ -73,6 +84,15 @@ function CheckInResultContent() {
               </div>
             </div>
           </div>
+
+          {perluPerhatian && (
+            <div className="bg-terracotta/10 border border-terracotta/30 rounded-2xl p-4 mb-6 text-left">
+              <p className="text-sm font-semibold text-foreground">Ada hal yang perlu sedikit diperhatikan hari ini.</p>
+              <p className="text-xs text-muted-foreground mt-1">
+                Hasilnya sudah tercatat dan dapat dilihat caregiver Anda. Ini bukan diagnosis, jadi Anda tidak perlu khawatir.
+              </p>
+            </div>
+          )}
 
           <Link
             href="/elderly/home"

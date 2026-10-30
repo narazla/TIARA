@@ -63,7 +63,7 @@ function ElderlyHomeContent() {
       <header className="bg-card/90 backdrop-blur-md border-b border-border sticky top-0 z-40">
         <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/Logo.png" alt="TIARA Logo" className="h-[48px] object-contain" />
+            <img src="/Logo.png" alt="Logo TIARA" className="h-[48px] object-contain" />
           </div>
 
           {/* Profile dropdown */}
@@ -106,7 +106,7 @@ function ElderlyHomeContent() {
                   className="w-full flex items-center gap-3 px-4 py-3.5 text-sm font-bold text-destructive hover:bg-destructive/5 transition-colors cursor-pointer text-left"
                 >
                   <LogOut className="w-4.5 h-4.5" />
-                  Logout
+                  Keluar
                 </button>
               </motion.div>
             )}
@@ -122,10 +122,10 @@ function ElderlyHomeContent() {
           className="text-center max-w-2xl mx-auto space-y-6"
         >
           <h1 className="text-4xl md:text-5xl font-bold font-serif-editorial text-foreground leading-tight">
-            Welcome, {displayName}
+            Selamat datang, Bapak/Ibu {displayName}
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            How are you feeling today? Let&apos;s do a gentle check-in or spend some time with TIARA.
+            Bagaimana kabar Bapak/Ibu hari ini? Mari lakukan check-in ringan atau luangkan waktu bersama TIARA.
           </p>
 
           {/* Simple side-by-side buttons */}
@@ -135,14 +135,14 @@ function ElderlyHomeContent() {
               href="/elderly/check-in"
               className="w-full sm:w-auto inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white font-bold text-lg px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg cursor-pointer"
             >
-              Daily Checkin
+              Check-in Harian
             </Link>
             <Link
               id="companion-btn"
               href="/elderly/companion"
               className="w-full sm:w-auto inline-flex items-center justify-center bg-card border border-border text-foreground hover:bg-secondary font-bold text-lg px-8 py-3.5 rounded-xl transition-all shadow-sm cursor-pointer"
             >
-              Tiara Companion
+              TIARA Companion
             </Link>
           </div>
         </motion.div>

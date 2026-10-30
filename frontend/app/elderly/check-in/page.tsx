@@ -21,10 +21,10 @@ import { checkInApi } from "@/lib/api";
 import { ProtectedRoute } from "@/components/shared/ProtectedRoute";
 
 const QUESTIONS = [
-  { id: "q1", category: "Orientation", text: "What day is today?", step: 1 },
-  { id: "q2", category: "Memory Recall", text: "What did you eat this morning?", step: 2 },
-  { id: "q3", category: "Long-Term Memory", text: "What is one childhood memory you remember fondly?", step: 3 },
-  { id: "q4", category: "Emotional Wellbeing", text: "How are you feeling today?", step: 4 },
+  { id: "q1", category: "Orientasi", text: "Hari apa sekarang, Bapak/Ibu?", step: 1 },
+  { id: "q2", category: "Daya Ingat", text: "Tadi pagi Bapak/Ibu makan apa?", step: 2 },
+  { id: "q3", category: "Memori Jangka Panjang", text: "Ceritakan satu kenangan masa kecil yang Bapak/Ibu sukai.", step: 3 },
+  { id: "q4", category: "Kesejahteraan Emosional", text: "Bagaimana perasaan Bapak/Ibu hari ini?", step: 4 },
 ];
 
 function CheckInContent() {
@@ -73,18 +73,34 @@ function CheckInContent() {
     };
   }, []);
 
-  // Speak question
+  // Speak question with Indonesian voice when available
   const speakQuestion = (text: string) => {
-    if (!synthRef.current) return;
+    if (!synthRef.current) {
+      // No speech synthesis — show text only, no error
+      setStatus("listening");
+      setTimeout(() => setStatus("recording"), 1500);
+      return;
+    }
     synthRef.current.cancel();
     setStatus("speaking");
     const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "id-ID";
+
+    // Prefer an Indonesian voice if available
+    const voices = synthRef.current.getVoices();
+    const idVoice = voices.find(
+      (v) => v.lang.startsWith("id") || v.lang.startsWith("in")
+    );
+    if (idVoice) utterance.voice = idVoice;
+
+    utterance.onerror = () => {
+      // Speech failed — fall back to text display silently
+      setStatus("listening");
+      setTimeout(() => setStatus("recording"), 1500);
+    };
     utterance.onend = () => {
       setStatus("listening");
-      // After a brief listening delay, go to recording
-      setTimeout(() => {
-        setStatus("recording");
-      }, 1500);
+      setTimeout(() => setStatus("recording"), 1500);
     };
     synthRef.current.speak(utterance);
   };
@@ -146,10 +162,10 @@ function CheckInContent() {
             className="flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            Kembali ke Beranda
           </Link>
           <div className="flex items-center gap-2.5">
-            <img src="/Logo.png" alt="TIARA Logo" className="h-[48px] object-contain" />
+            <img src="/Logo.png" alt="Logo TIARA" className="h-[48px] object-contain" />
             <span className="text-xl font-bold tracking-tight text-foreground">Check-In</span>
           </div>
           <div className="w-20" /> {/* Spacer */}
@@ -172,8 +188,8 @@ function CheckInContent() {
             ) : (
               <div className="text-center p-6 text-zinc-500">
                 <VideoOff className="w-16 h-16 mx-auto mb-4 text-zinc-600" />
-                <p className="font-bold text-lg">Camera Accessing...</p>
-                <p className="text-sm text-zinc-600 mt-1">Please allow camera and mic permissions</p>
+                <p className="font-bold text-lg">Mengakses kamera...</p>
+                <p className="text-sm text-zinc-600 mt-1">Mohon izinkan akses kamera dan mikrofon</p>
               </div>
             )}
 
@@ -187,7 +203,7 @@ function CheckInContent() {
                   className="absolute bottom-6 left-6 bg-red-600/90 text-white font-bold text-sm px-4 py-2 rounded-full flex items-center gap-2.5 shadow-lg pulse-ring"
                 >
                   <span className="w-2.5 h-2.5 rounded-full bg-white animate-ping" />
-                  Recording Response
+                  Merekam Jawaban
                 </motion.div>
               )}
             </AnimatePresence>
@@ -200,12 +216,12 @@ function CheckInContent() {
                 {cameraActive ? (
                   <span className="inline-flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-                    Camera ready
+                    Kamera siap
                   </span>
                 ) : (
                   <span className="inline-flex items-center gap-1 text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-100">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-600" />
-                    Configuring camera...
+                    Mengatur kamera...
                   </span>
                 )}
               </div>
@@ -213,17 +229,17 @@ function CheckInContent() {
                 {micActive ? (
                   <span className="inline-flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-                    Microphone ready
+                    Mikrofon siap
                   </span>
                 ) : (
                   <span className="inline-flex items-center gap-1 text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-100">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-600" />
-                    Configuring mic...
+                    Mengatur mikrofon...
                   </span>
                 )}
               </div>
             </div>
-            <p className="text-xs text-muted-foreground font-medium">Recordings are encrypted and secure</p>
+            <p className="text-xs text-muted-foreground font-medium">Rekaman dienkripsi dan aman</p>
           </div>
         </div>
 
@@ -235,9 +251,9 @@ function CheckInContent() {
               <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6 text-primary-dark shadow-inner">
                 <Video className="w-8 h-8" />
               </div>
-              <h2 className="text-2xl font-bold font-serif-editorial text-foreground mb-3">Ready to begin?</h2>
+              <h2 className="text-2xl font-bold font-serif-editorial text-foreground mb-3">Siap memulai?</h2>
               <p className="text-base text-muted-foreground leading-relaxed max-w-sm mx-auto mb-8 font-medium">
-                We will ask 4 gentle questions about your day, your memory, and how you feel. Take all the time you need.
+                TIARA akan mengajukan 4 pertanyaan ringan tentang hari ini, daya ingat, dan perasaan Bapak/Ibu. Tidak perlu terburu-buru.
               </p>
               <button
                 onClick={handleStart}
@@ -249,7 +265,7 @@ function CheckInContent() {
                 ) : (
                   <>
                     <Play className="w-5 h-5 fill-current" />
-                    Start Check-In
+                    Mulai Check-In
                   </>
                 )}
               </button>
@@ -264,7 +280,7 @@ function CheckInContent() {
                     {currentQuestion.category}
                   </span>
                   <span className="text-sm font-bold text-muted-foreground">
-                    Step {currentQuestion.step} of 4
+                    Langkah {currentQuestion.step} dari 4
                   </span>
                 </div>
 
@@ -291,13 +307,13 @@ function CheckInContent() {
                         <span className="w-1.5 bg-primary/85 rounded-full animate-bounce h-6" style={{ animationDelay: "150ms" }} />
                         <span className="w-1.5 bg-primary/80 rounded-full animate-bounce h-5" style={{ animationDelay: "300ms" }} />
                       </div>
-                      <p className="text-sm font-bold text-primary-dark">TIARA is speaking...</p>
+                      <p className="text-sm font-bold text-primary-dark">TIARA sedang berbicara...</p>
                     </div>
                   )}
 
                   {status === "listening" && (
                     <div className="space-y-2">
-                      <p className="text-sm font-bold text-amber-700 animate-pulse">Listening to your answer...</p>
+                      <p className="text-sm font-bold text-amber-700 animate-pulse">Mendengarkan jawaban Bapak/Ibu...</p>
                     </div>
                   )}
 
@@ -311,14 +327,14 @@ function CheckInContent() {
                         <span className="w-1 h-5 bg-red-500 rounded-full animate-pulse" style={{ animationDelay: "600ms" }} />
                         <span className="w-1 h-2 bg-red-500 rounded-full animate-pulse" style={{ animationDelay: "800ms" }} />
                       </div>
-                      <p className="text-sm font-bold text-red-600">Recording response...</p>
+                      <p className="text-sm font-bold text-red-600">Merekam jawaban...</p>
                     </div>
                   )}
 
                   {status === "processing" && (
                     <div className="space-y-2">
                       <Loader2 className="w-6 h-6 text-primary animate-spin mx-auto" />
-                      <p className="text-sm font-bold text-muted-foreground">Processing response...</p>
+                      <p className="text-sm font-bold text-muted-foreground">Memproses jawaban...</p>
                     </div>
                   )}
                 </div>
@@ -336,10 +352,10 @@ function CheckInContent() {
                   ) : currentIdx === QUESTIONS.length - 1 ? (
                     <>
                       <CheckCircle2 className="w-5 h-5" />
-                      Finish Check-In
+                      Selesai Check-In
                     </>
                   ) : (
-                    "Next Question"
+                    "Pertanyaan Berikutnya"
                   )}
                 </button>
                 <div className="flex gap-3">
@@ -348,7 +364,7 @@ function CheckInContent() {
                     className="flex-1 bg-card border border-border text-foreground hover:bg-secondary font-bold py-3.5 rounded-xl transition-all text-sm cursor-pointer text-center flex items-center justify-center gap-1.5"
                   >
                     <Volume2 className="w-4 h-4 text-primary" />
-                    Repeat
+                    Ulangi
                   </button>
                   <button
                     onClick={() => {
@@ -357,7 +373,7 @@ function CheckInContent() {
                     }}
                     className="flex-1 bg-card border border-border text-muted-foreground hover:text-foreground hover:bg-secondary font-bold py-3.5 rounded-xl transition-all text-sm cursor-pointer text-center"
                   >
-                    Back to Home
+                    Kembali ke Beranda
                   </button>
                 </div>
               </div>

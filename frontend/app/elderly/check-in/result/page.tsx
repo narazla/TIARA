@@ -8,7 +8,7 @@ import { ProtectedRoute } from "@/components/shared/ProtectedRoute";
 
 function CheckInResultContent() {
   const { user } = useAuth();
-  const displayName = user?.full_name || "Friend";
+  const displayName = user?.full_name || "Bapak/Ibu";
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col justify-between p-6">
@@ -19,7 +19,7 @@ function CheckInResultContent() {
       {/* Header */}
       <header className="max-w-xl mx-auto w-full flex justify-between items-center py-4 z-10">
         <div className="flex items-center">
-          <img src="/Logo.png" alt="TIARA Logo" className="h-[48px] object-contain" />
+          <img src="/Logo.png" alt="Logo TIARA" className="h-[48px] object-contain" />
         </div>
       </header>
 
@@ -38,18 +38,18 @@ function CheckInResultContent() {
 
           {/* Heading */}
           <h1 className="text-3xl font-bold font-serif-editorial text-foreground leading-tight mb-2">
-            Congratulations,
+            Hebat sekali,
           </h1>
           <p className="text-xl font-semibold text-primary-dark font-serif-editorial mb-6">
-            {displayName}
+            Bapak/Ibu {displayName}
           </p>
 
           <div className="bg-secondary/40 border border-border/55 rounded-2xl p-5 mb-8 text-left space-y-4">
             <div className="flex gap-3">
               <Heart className="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5" />
               <div>
-                <p className="font-bold text-sm text-foreground">Overall, you&apos;re doing good.</p>
-                <p className="text-xs text-muted-foreground mt-0.5">Thank you for sharing your thoughts and memory with us today.</p>
+                <p className="font-bold text-sm text-foreground">Bapak/Ibu sudah melakukan dengan baik hari ini.</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Terima kasih sudah berbagi cerita dan kenangan bersama kami hari ini.</p>
               </div>
             </div>
 
@@ -58,8 +58,8 @@ function CheckInResultContent() {
             <div className="flex gap-3">
               <Calendar className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <div>
-                <p className="font-bold text-sm text-foreground">Next check-in tomorrow</p>
-                <p className="text-xs text-muted-foreground mt-0.5">We will notify you when it is ready. A daily routine supports cognitive health.</p>
+                <p className="font-bold text-sm text-foreground">Check-in berikutnya besok</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Kami akan memberitahu saat sudah siap. Rutinitas harian mendukung kesehatan kognitif.</p>
               </div>
             </div>
 
@@ -68,8 +68,8 @@ function CheckInResultContent() {
             <div className="flex gap-3">
               <ShieldCheck className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
               <div>
-                <p className="font-bold text-sm text-foreground">Secure & private</p>
-                <p className="text-xs text-muted-foreground mt-0.5">Your responses have been securely stored and shared with your caregiver.</p>
+                <p className="font-bold text-sm text-foreground">Aman dan terjaga privasinya</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Jawaban Bapak/Ibu telah disimpan dengan aman dan dibagikan kepada caregiver.</p>
               </div>
             </div>
           </div>
@@ -78,14 +78,14 @@ function CheckInResultContent() {
             href="/elderly/home"
             className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-4.5 rounded-xl text-lg transition-all shadow-sm active:scale-[0.99] cursor-pointer flex items-center justify-center gap-1.5"
           >
-            Return to Home
+            Kembali ke Beranda
           </Link>
         </motion.div>
       </main>
 
       {/* Footer disclaimer */}
       <footer className="text-center text-xs text-muted-foreground/60 max-w-sm mx-auto z-10 mt-6 leading-relaxed">
-        ⚕️ TIARA is not a medical diagnosis tool. Informational support and daily care routines only.
+        ⚕️ TIARA bukan alat diagnosis medis. Hanya untuk dukungan informatif dan rutinitas perawatan harian.
       </footer>
     </div>
   );

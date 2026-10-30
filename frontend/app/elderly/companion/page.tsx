@@ -20,29 +20,29 @@ const ACTIVITIES = [
   {
     id: "story",
     icon: BookOpen,
-    title: "Story Time",
-    desc: "Tell or read comforting stories together. We will listen and converse with you.",
+    title: "Waktu Bercerita",
+    desc: "Ceritakan atau dengarkan kisah yang menenangkan bersama TIARA.",
     color: "text-terracotta bg-terracotta/10",
   },
   {
     id: "memory",
     icon: Trophy,
-    title: "Memory Matching",
-    desc: "A simple, stimulating memory card matching game to exercise your recall.",
+    title: "Permainan Memori",
+    desc: "Permainan kartu memori yang sederhana dan menstimulasi untuk melatih daya ingat.",
     color: "text-primary-dark bg-primary/15",
   },
   {
     id: "mood",
     icon: Heart,
-    title: "Mood Journal",
-    desc: "Express how you feel today through recording a voice message or drawing.",
+    title: "Jurnal Suasana Hati",
+    desc: "Ungkapkan perasaan Bapak/Ibu hari ini melalui pesan suara atau gambar.",
     color: "text-rose-500 bg-rose-500/10",
   },
   {
     id: "family",
     icon: Image,
-    title: "Family Album",
-    desc: "Recall memories of family and look at past photos together.",
+    title: "Album Keluarga",
+    desc: "Kenang kembali kenangan bersama keluarga dan lihat foto-foto lama.",
     color: "text-accent bg-accent/10",
   },
 ];
@@ -63,10 +63,10 @@ function CompanionContent() {
             className="flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            Kembali ke Beranda
           </Link>
           <div className="flex items-center gap-2.5">
-            <img src="/Logo.png" alt="TIARA Logo" className="h-[48px] object-contain" />
+            <img src="/Logo.png" alt="Logo TIARA" className="h-[48px] object-contain" />
             <span className="text-xl font-bold tracking-tight text-foreground">Companion</span>
           </div>
           <div className="w-20" />
@@ -77,10 +77,10 @@ function CompanionContent() {
       <main className="max-w-4xl mx-auto px-6 py-12 flex-1 w-full">
         <div className="text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold font-serif-editorial text-foreground leading-tight mb-3">
-            TIARA Companion Activities
+            Aktivitas TIARA Companion
           </h1>
           <p className="text-base md:text-lg text-muted-foreground max-w-lg mx-auto leading-relaxed">
-            Select any activity below to start a relaxing, engaging companion session.
+            Pilih aktivitas di bawah ini untuk memulai sesi companion yang menyenangkan.
           </p>
         </div>
 
@@ -135,34 +135,36 @@ function CompanionContent() {
                     <div className="p-3 rounded-xl bg-terracotta/10 text-terracotta">
                       <BookOpen className="w-6 h-6" />
                     </div>
-                    <h2 className="text-2xl font-bold font-serif-editorial">Comforting Story Time</h2>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed mb-6 font-medium">
-                    TIARA will read you a comforting story about a calm forest lake, or you can record and share your own stories.
-                  </p>
-                  <div className="bg-secondary/40 border border-border/60 rounded-2xl p-5 mb-6 text-center">
-                    <p className="italic text-base text-foreground font-medium mb-3">
-                      &ldquo;Once upon a time, in a small village nestled among gentle hills, there was a garden that bloomed with gold wildflowers...&rdquo;
+                    <h2 className="text-2xl font-bold font-serif-editorial">Waktu Bercerita</h2>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed mb-6 font-medium">
+                      TIARA akan membacakan cerita yang menenangkan, atau Bapak/Ibu bisa merekam dan berbagi kisah sendiri.
                     </p>
+                    <div className="bg-secondary/40 border border-border/60 rounded-2xl p-5 mb-6 text-center">
+                      <p className="italic text-base text-foreground font-medium mb-3">
+                        &ldquo;Dahulu kala, di sebuah desa kecil di antara bukit-bukit yang tenang, terdapat sebuah taman yang bermekaran dengan bunga liar berwarna emas...&rdquo;
+                      </p>
+                      <button
+                        onClick={() => {
+                          const synth = window.speechSynthesis;
+                          if (synth) {
+                            synth.cancel();
+                            const utt = new SpeechSynthesisUtterance("Dahulu kala, di sebuah desa kecil di antara bukit-bukit yang tenang, terdapat sebuah taman yang bermekaran dengan bunga liar berwarna emas");
+                            utt.lang = "id-ID";
+                            synth.speak(utt);
+                          }
+                        }}
+                        className="inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-dark"
+                      >
+                        <Volume2 className="w-4.5 h-4.5" /> Bacakan keras
+                      </button>
+                    </div>
                     <button
-                      onClick={() => {
-                        const synth = window.speechSynthesis;
-                        if (synth) {
-                          synth.cancel();
-                          synth.speak(new SpeechSynthesisUtterance("Once upon a time, in a small village nestled among gentle hills, there was a garden that bloomed with gold wildflowers"));
-                        }
-                      }}
-                      className="inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-dark"
+                      onClick={() => setActiveActivity(null)}
+                      className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl transition-colors cursor-pointer"
                     >
-                      <Volume2 className="w-4.5 h-4.5" /> Speak Out loud
+                      Selesai Bercerita
                     </button>
-                  </div>
-                  <button
-                    onClick={() => setActiveActivity(null)}
-                    className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl transition-colors cursor-pointer"
-                  >
-                    Done Story Time
-                  </button>
                 </div>
               )}
 
@@ -173,40 +175,40 @@ function CompanionContent() {
                     <div className="p-3 rounded-xl bg-primary/10 text-primary-dark">
                       <Trophy className="w-6 h-6" />
                     </div>
-                    <h2 className="text-2xl font-bold font-serif-editorial">Memory Exercise</h2>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed mb-6 font-medium">
-                    Stimulate memory by completing the match! What is the opposite of:
-                  </p>
-                  <div className="bg-secondary/40 border border-border/60 rounded-2xl p-5 mb-6 text-center space-y-4">
-                    <p className="font-bold text-xl text-foreground">Sunny Day ☀️</p>
-                    {matches === 0 ? (
-                      <div className="grid grid-cols-2 gap-2.5">
-                        <button
-                          onClick={() => setMatches(1)}
-                          className="bg-card hover:bg-primary/10 hover:border-primary border border-border text-sm font-bold py-3 rounded-xl transition-all cursor-pointer"
-                        >
-                          Rainy Day 🌧️
-                        </button>
-                        <button
-                          onClick={() => alert("Try again!")}
-                          className="bg-card hover:bg-primary/10 hover:border-primary border border-border text-sm font-bold py-3 rounded-xl transition-all cursor-pointer"
-                        >
-                          Winter Day ❄️
-                        </button>
-                      </div>
-                    ) : (
-                      <div className="text-emerald-700 font-bold flex flex-col items-center justify-center gap-1.5 py-4">
-                        <Sparkles className="w-6 h-6" /> Correct! You matched it!
-                      </div>
-                    )}
-                  </div>
-                  <button
-                    onClick={() => setActiveActivity(null)}
-                    className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl transition-colors cursor-pointer"
-                  >
-                    Close Game
-                  </button>
+                    <h2 className="text-2xl font-bold font-serif-editorial">Latihan Memori</h2>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed mb-6 font-medium">
+                      Stimulasi memori dengan menemukan pasangan yang tepat. Apa lawan dari:
+                    </p>
+                    <div className="bg-secondary/40 border border-border/60 rounded-2xl p-5 mb-6 text-center space-y-4">
+                      <p className="font-bold text-xl text-foreground">Hari Cerah ☀️</p>
+                      {matches === 0 ? (
+                        <div className="grid grid-cols-2 gap-2.5">
+                          <button
+                            onClick={() => setMatches(1)}
+                            className="bg-card hover:bg-primary/10 hover:border-primary border border-border text-sm font-bold py-3 rounded-xl transition-all cursor-pointer"
+                          >
+                            Hari Hujan 🌧️
+                          </button>
+                          <button
+                            onClick={() => alert("Coba lagi!")}
+                            className="bg-card hover:bg-primary/10 hover:border-primary border border-border text-sm font-bold py-3 rounded-xl transition-all cursor-pointer"
+                          >
+                            Hari Dingin ❄️
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="text-emerald-700 font-bold flex flex-col items-center justify-center gap-1.5 py-4">
+                          <Sparkles className="w-6 h-6" /> Benar. Bapak/Ibu berhasil menjawab.
+                        </div>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => setActiveActivity(null)}
+                      className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl transition-colors cursor-pointer"
+                    >
+                      Tutup Permainan
+                    </button>
                 </div>
               )}
 
@@ -217,23 +219,23 @@ function CompanionContent() {
                     <div className="p-3 rounded-xl bg-rose-500/10 text-rose-500">
                       <Heart className="w-6 h-6" />
                     </div>
-                    <h2 className="text-2xl font-bold font-serif-editorial">Mood Check-In</h2>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed mb-6 font-medium">
-                    How has your mood been in the last few hours? Sharing is a helpful emotional outlet.
-                  </p>
-                  <div className="grid grid-cols-3 gap-2.5 mb-6">
-                    {[
-                      { emoji: "😊", text: "Calm & Happy" },
-                      { emoji: "😐", text: "Just Fine" },
-                      { emoji: "😔", text: "A Bit Lonely" },
-                    ].map(({ emoji, text }) => (
-                      <button
-                        key={text}
-                        onClick={() => {
-                          alert(`Thank you for sharing. We saved your mood: ${text}`);
-                          setActiveActivity(null);
-                        }}
+                    <h2 className="text-2xl font-bold font-serif-editorial">Catatan Suasana Hati</h2>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed mb-6 font-medium">
+                      Bagaimana suasana hati Bapak/Ibu beberapa jam terakhir? Berbagi perasaan sangat membantu.
+                    </p>
+                    <div className="grid grid-cols-3 gap-2.5 mb-6">
+                      {[
+                        { emoji: "😊", text: "Tenang dan Bahagia" },
+                        { emoji: "😐", text: "Biasa Saja" },
+                        { emoji: "😔", text: "Sedikit Kesepian" },
+                      ].map(({ emoji, text }) => (
+                        <button
+                          key={text}
+                          onClick={() => {
+                            alert(`Terima kasih sudah berbagi. Suasana hati Bapak/Ibu sudah disimpan: ${text}`);
+                            setActiveActivity(null);
+                          }}
                         className="bg-card hover:bg-rose-50 border border-border hover:border-rose-300 p-4 rounded-2xl flex flex-col items-center justify-center transition-all cursor-pointer"
                       >
                         <span className="text-2xl mb-1.5">{emoji}</span>
@@ -245,7 +247,7 @@ function CompanionContent() {
                     onClick={() => setActiveActivity(null)}
                     className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl transition-colors cursor-pointer"
                   >
-                    Done
+                    Selesai
                   </button>
                 </div>
               )}
@@ -257,22 +259,22 @@ function CompanionContent() {
                     <div className="p-3 rounded-xl bg-accent/10 text-accent">
                       <Image className="w-6 h-6" />
                     </div>
-                    <h2 className="text-2xl font-bold font-serif-editorial">Family Albums</h2>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed mb-6 font-medium">
-                    Caregivers can upload pictures for you. Relive these happy memories.
-                  </p>
-                  <div className="bg-secondary/40 border border-border/60 rounded-2xl p-5 mb-6 text-center py-8">
-                    <Image className="w-10 h-10 text-muted-foreground/60 mx-auto mb-2" />
-                    <p className="text-sm font-semibold text-muted-foreground">No photos uploaded yet</p>
-                    <p className="text-xs text-muted-foreground/50 mt-1">Caregivers can add family memories in their portal</p>
-                  </div>
-                  <button
-                    onClick={() => setActiveActivity(null)}
-                    className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl transition-colors cursor-pointer"
-                  >
-                    Close Album
-                  </button>
+                    <h2 className="text-2xl font-bold font-serif-editorial">Album Keluarga</h2>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed mb-6 font-medium">
+                      Caregiver dapat mengunggah foto untuk Bapak/Ibu. Kenang kembali momen-momen bahagia itu.
+                    </p>
+                    <div className="bg-secondary/40 border border-border/60 rounded-2xl p-5 mb-6 text-center py-8">
+                      <Image className="w-10 h-10 text-muted-foreground/60 mx-auto mb-2" />
+                      <p className="text-sm font-semibold text-muted-foreground">Belum ada foto yang diunggah</p>
+                      <p className="text-xs text-muted-foreground/50 mt-1">Caregiver dapat menambahkan kenangan keluarga melalui portal mereka</p>
+                    </div>
+                    <button
+                      onClick={() => setActiveActivity(null)}
+                      className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl transition-colors cursor-pointer"
+                    >
+                      Tutup Album
+                    </button>
                 </div>
               )}
             </motion.div>
@@ -282,7 +284,7 @@ function CompanionContent() {
 
       {/* Footer disclaimer */}
       <footer className="text-center text-xs text-muted-foreground/60 py-6 leading-relaxed">
-        ⚕️ TIARA is not a medical diagnosis tool. Companion support and daily care routines only.
+        ⚕️ TIARA bukan alat diagnosis medis. Hanya untuk dukungan Companion dan rutinitas perawatan harian.
       </footer>
     </div>
   );

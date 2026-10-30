@@ -74,6 +74,13 @@ def _perluas_pertanyaan(pertanyaan: str) -> str:
     return pertanyaan + (" " + " ".join(tambahan) if tambahan else "")
 
 
+def _halaman_cetak(chunk: dict) -> int:
+    """PNPK menyimpan halaman mulai dari 0 (halaman cetak = halaman + 1).
+    Panduan Caregiver sudah mulai dari 1, jadi dipakai apa adanya."""
+    h = int(chunk["halaman"])
+    return h + 1 if chunk["dokumen"].startswith("PNPK") else h
+
+
 def _retrieve(pertanyaan: str) -> tuple[str, list[str]]:
     """Cari TOP_K chunk paling relevan untuk pertanyaan."""
     _load_resources()
@@ -87,9 +94,9 @@ def _retrieve(pertanyaan: str) -> tuple[str, list[str]]:
     sumber: list[str] = []
     for idx in indeks[0]:
         chunk = _chunks[idx]
-        label = f"{chunk['dokumen']} hal {chunk['halaman']}"
+        label = f"{chunk['dokumen']} hal {_halaman_cetak(chunk)}"
         sumber.append(label)
-        konteks += f"[{chunk['dokumen']}, Halaman {chunk['halaman']}]\n{chunk['teks']}\n\n"
+        konteks += f"[{chunk['dokumen']}, Halaman {_halaman_cetak(chunk)}]\n{chunk['teks']}\n\n"
 
     return konteks, sumber
 

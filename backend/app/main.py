@@ -1,4 +1,6 @@
+import asyncio
 import logging
+from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -19,10 +21,23 @@ def get_allowed_origins() -> list[str]:
     ]
 
 
+def _warmup_rag() -> None:
+    """Muat model embedding dan FAISS index di thread terpisah saat startup."""
+    try:
+        from app.services.rag_guidance_service import _load_resources
+        _load_resources()
+        logger.info("Model RAG berhasil dimuat saat startup.")
+    except Exception as exc:
+        logger.warning("Pemanasan model RAG gagal; layanan tetap berjalan. Detail: %s", exc)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application startup and shutdown lifecycle."""
     logger.info(f"Starting {settings.APP_NAME} v{settings.APP_VERSION}")
+    loop = asyncio.get_event_loop()
+    with ThreadPoolExecutor(max_workers=1) as pool:
+        loop.run_in_executor(pool, _warmup_rag)
     yield
     logger.info("Shutting down TIARA API")
 

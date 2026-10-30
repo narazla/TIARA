@@ -1,6 +1,8 @@
+import logging
 from datetime import datetime, timezone, timedelta
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.concurrency import run_in_threadpool
 from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -12,6 +14,8 @@ from app.database.session import get_db
 from app.models.caregiver import CaregiverPatientLink, CaregiverPin
 from app.models.user import User
 from app.services.rag_guidance_service import get_rag_answer
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/caregiver", tags=["Caregiver"])
 
@@ -36,14 +40,6 @@ async def verify_caregiver_pin(
     pin_record = result.scalar_one_or_none()
 
     if not pin_record:
-        # Unified account fallback: if using the demo PIN, allow login immediately
-        if data.pin == "123456":
-            dashboard_token = create_caregiver_dashboard_token(str(current_user.id))
-            return {
-                "verified": True,
-                "dashboard_token": dashboard_token,
-                "expires_in": 1800,
-            }
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="PIN belum dikonfigurasi untuk caregiver ini",
@@ -305,11 +301,12 @@ async def ask_guidance_ai(
         )
 
     try:
-        result = get_rag_answer(data.question)
+        result = await run_in_threadpool(get_rag_answer, data.question)
     except Exception as e:
+        logger.error("Guidance AI error: %s", e, exc_info=True)
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail=f"Layanan Panduan AI sedang tidak tersedia: {str(e)}",
+            detail="Layanan Panduan AI sedang tidak tersedia. Silakan coba lagi.",
         )
 
     return {

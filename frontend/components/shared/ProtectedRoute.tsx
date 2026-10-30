@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/lib/auth/AuthContext";
+import { useAuth, getRoleHomePath } from "@/lib/auth/AuthContext";
 import type { UserRole } from "@/lib/types";
 import { Loader2, Brain } from "lucide-react";
 
@@ -25,6 +25,12 @@ export function ProtectedRoute({ children, allowedRoles }: ProtectedRouteProps) 
     }
   }, [isAuthenticated, isLoading, router]);
 
+  useEffect(() => {
+    if (!isLoading && isAuthenticated && user && allowedRoles && !allowedRoles.includes(user.role)) {
+      router.replace(getRoleHomePath(user.role));
+    }
+  }, [isAuthenticated, isLoading, user, allowedRoles, router]);
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -41,6 +47,10 @@ export function ProtectedRoute({ children, allowedRoles }: ProtectedRouteProps) 
 
   if (!isAuthenticated) {
     return null; // redirect is happening
+  }
+
+  if (allowedRoles && user && !allowedRoles.includes(user.role)) {
+    return null; // pengalihan ke halaman sesuai role sedang berjalan
   }
 
   return <>{children}</>;

@@ -41,33 +41,37 @@ logger = logging.getLogger(__name__)
 
 
 DEMO_QUESTIONS = [
-    # Orientation
-    {"category": QuestionCategory.ORIENTATION, "question_text": "What day is today?", "order_index": 0},
-    {"category": QuestionCategory.ORIENTATION, "question_text": "Do you know where you are right now?", "order_index": 1},
-    # Memory Recall
-    {"category": QuestionCategory.MEMORY_RECALL, "question_text": "What did you eat this morning?", "order_index": 2},
-    {"category": QuestionCategory.MEMORY_RECALL, "question_text": "Did anyone visit you yesterday?", "order_index": 3},
-    # Long-Term Memory
-    {"category": QuestionCategory.LONG_TERM_MEMORY, "question_text": "Tell me about your first job.", "order_index": 4},
-    {"category": QuestionCategory.LONG_TERM_MEMORY, "question_text": "What is one childhood memory you remember fondly?", "order_index": 5},
-    # Emotional Wellbeing
-    {"category": QuestionCategory.EMOTIONAL_WELLBEING, "question_text": "How are you feeling today?", "order_index": 6},
-    {"category": QuestionCategory.EMOTIONAL_WELLBEING, "question_text": "What made you happy recently?", "order_index": 7},
+    # Orientasi
+    {"category": QuestionCategory.ORIENTATION, "question_text": "Hari apa sekarang, Bapak/Ibu?", "order_index": 0},
+    {"category": QuestionCategory.ORIENTATION, "question_text": "Apakah Bapak/Ibu tahu sedang berada di mana sekarang?", "order_index": 1},
+    # Daya Ingat
+    {"category": QuestionCategory.MEMORY_RECALL, "question_text": "Tadi pagi Bapak/Ibu makan apa?", "order_index": 2},
+    {"category": QuestionCategory.MEMORY_RECALL, "question_text": "Apakah ada yang berkunjung kemarin?", "order_index": 3},
+    # Memori Jangka Panjang
+    {"category": QuestionCategory.LONG_TERM_MEMORY, "question_text": "Ceritakan tentang pekerjaan pertama Bapak/Ibu.", "order_index": 4},
+    {"category": QuestionCategory.LONG_TERM_MEMORY, "question_text": "Ceritakan satu kenangan masa kecil yang Bapak/Ibu sukai.", "order_index": 5},
+    # Kesejahteraan Emosional
+    {"category": QuestionCategory.EMOTIONAL_WELLBEING, "question_text": "Bagaimana perasaan Bapak/Ibu hari ini?", "order_index": 6},
+    {"category": QuestionCategory.EMOTIONAL_WELLBEING, "question_text": "Apa yang membuat Bapak/Ibu senang belakangan ini?", "order_index": 7},
 ]
 
 
 async def seed_questions(db: AsyncSession) -> None:
-    """Seed the question bank if not already present."""
-    result = await db.execute(select(CheckinQuestion).limit(1))
-    if result.scalar_one_or_none():
-        logger.info("Questions already seeded, skipping...")
-        return
-
+    """Upsert pertanyaan check-in berdasarkan order_index (idempoten)."""
     for q_data in DEMO_QUESTIONS:
-        question = CheckinQuestion(**q_data)
-        db.add(question)
+        result = await db.execute(
+            select(CheckinQuestion).where(CheckinQuestion.order_index == q_data["order_index"])
+        )
+        existing = result.scalar_one_or_none()
+        if existing:
+            existing.question_text = q_data["question_text"]
+            existing.category = q_data["category"]
+            logger.info(f"Diperbarui pertanyaan order_index={q_data['order_index']}")
+        else:
+            db.add(CheckinQuestion(**q_data))
+            logger.info(f"Ditambahkan pertanyaan order_index={q_data['order_index']}")
 
-    logger.info(f"Seeded {len(DEMO_QUESTIONS)} check-in questions")
+    logger.info(f"Sinkronisasi {len(DEMO_QUESTIONS)} pertanyaan check-in selesai")
 
 
 async def get_or_create_user(db: AsyncSession, email: str, **kwargs) -> tuple[User, bool]:

@@ -24,7 +24,7 @@ class AuthService:
         if await user_repository.email_exists(db, data.email):
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail="An account with this email already exists",
+                detail="Akun dengan email ini sudah terdaftar",
             )
 
         user = await user_repository.create(
@@ -52,13 +52,13 @@ class AuthService:
         if not user or not verify_password(data.password, user.hashed_password):
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Invalid email or password",
+                detail="Email atau kata sandi tidak valid",
             )
 
         if not user.is_active:
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
-                detail="This account has been deactivated",
+                detail="Akun ini telah dinonaktifkan",
             )
 
         token = create_access_token(str(user.id), user.role)
@@ -77,7 +77,7 @@ class AuthService:
         if not user or not user.is_active:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="User not found or account inactive",
+                detail="Pengguna tidak ditemukan atau akun tidak aktif",
             )
 
         return user

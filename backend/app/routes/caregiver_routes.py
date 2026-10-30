@@ -46,7 +46,7 @@ async def verify_caregiver_pin(
             }
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="No PIN configured for this caregiver",
+            detail="PIN belum dikonfigurasi untuk caregiver ini",
         )
 
     # Check lockout
@@ -54,7 +54,7 @@ async def verify_caregiver_pin(
         remaining = int((pin_record.locked_until - datetime.now(timezone.utc)).total_seconds() / 60)
         raise HTTPException(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
-            detail=f"Too many incorrect attempts. Try again in {remaining} minutes.",
+            detail=f"Terlalu banyak percobaan salah. Coba lagi dalam {remaining} menit.",
         )
 
     if not verify_pin(data.pin, pin_record.hashed_pin):
@@ -65,12 +65,12 @@ async def verify_caregiver_pin(
             await db.commit()
             raise HTTPException(
                 status_code=status.HTTP_429_TOO_MANY_REQUESTS,
-                detail=f"Too many incorrect attempts. Account locked for {PIN_LOCKOUT_MINUTES} minutes.",
+                detail=f"Terlalu banyak percobaan salah. Akun dikunci selama {PIN_LOCKOUT_MINUTES} menit.",
             )
         await db.commit()
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect PIN. Please try again.",
+            detail="PIN salah. Silakan coba lagi.",
         )
 
     # Success — reset failed attempts and issue dashboard token
@@ -301,7 +301,7 @@ async def ask_guidance_ai(
     if not data.question or not data.question.strip():
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Question cannot be empty",
+            detail="Pertanyaan tidak boleh kosong",
         )
 
     try:
@@ -309,7 +309,7 @@ async def ask_guidance_ai(
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail=f"Guidance AI is temporarily unavailable: {str(e)}",
+            detail=f"Layanan Panduan AI sedang tidak tersedia: {str(e)}",
         )
 
     return {

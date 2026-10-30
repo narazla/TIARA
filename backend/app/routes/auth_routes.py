@@ -57,4 +57,4 @@ async def logout(current_user: User = Depends(get_current_user)):
     Token invalidation is handled client-side (remove token from storage).
     Post-MVP: add server-side token blacklist for full invalidation.
     """
-    return MessageResponse(message="Logged out successfully")
+    return MessageResponse(message="Berhasil keluar")

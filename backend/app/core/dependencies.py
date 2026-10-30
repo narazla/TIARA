@@ -21,7 +21,7 @@ async def get_current_user(
     if not user_id:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid token payload",
+            detail="Token tidak valid",
         )
 
     from uuid import UUID
@@ -30,7 +30,7 @@ async def get_current_user(
     if not user or not user.is_active:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="User not found or account inactive",
+            detail="Pengguna tidak ditemukan atau akun tidak aktif",
         )
 
     return user

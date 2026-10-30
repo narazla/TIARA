@@ -18,10 +18,10 @@ router = APIRouter(prefix="/elderly", tags=["Elderly"])
 def _get_greeting() -> str:
     hour = datetime.now().hour
     if hour < 12:
-        return "Good morning"
+        return "Selamat pagi"
     elif hour < 17:
-        return "Good afternoon"
-    return "Good evening"
+        return "Selamat siang"
+    return "Selamat sore"
 
 
 @router.get("/home")

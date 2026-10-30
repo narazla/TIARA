@@ -17,7 +17,6 @@ import {
   Waves,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth/AuthContext";
-import { checkInApi } from "@/lib/api";
 import { ProtectedRoute } from "@/components/shared/ProtectedRoute";
 
 const QUESTIONS = [
@@ -109,7 +108,7 @@ function CheckInContent() {
     setLoading(true);
     try {
       // Try to invoke API check-in start (ignore 404 backend missing)
-      await checkinApi.start().catch((e) => console.log("API Start fallback active:", e));
+      // Belum terhubung ke backend. Sesi check-in nyata dikerjakan lewat pipeline terpisah.
     } catch (e) {
       // Silent catch
     } finally {
@@ -139,7 +138,7 @@ function CheckInContent() {
     setLoading(true);
     try {
       // Try to invoke API finish (ignore backend missing)
-      await checkinApi.finish("demo-session", 180).catch((e) => console.log("API Finish fallback active"));
+      // Belum terhubung ke backend. Sesi check-in nyata dikerjakan lewat pipeline terpisah.
     } catch (e) {
       // Silent catch
     } finally {

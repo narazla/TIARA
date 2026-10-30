@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
@@ -34,6 +34,7 @@ import { caregiverApi, guidanceApi } from "@/lib/api";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { ProtectedRoute } from "@/components/shared/ProtectedRoute";
 import ReactMarkdown from 'react-markdown';
+import { isAxiosError } from "axios";
 
 interface TrendPoint {
   date: string;
@@ -202,6 +203,11 @@ function CaregiverDashboardContent() {
         const repRes = await caregiverApi.getReports();
         setReports(repRes.reports || []);
       } catch (err) {
+        if (isAxiosError(err) && err.response?.status === 401) {
+          localStorage.removeItem("tiara_caregiver_token");
+          logout();
+          return;
+        }
         console.error("Error loading dashboard data", err);
       } finally {
         setLoading(false);
@@ -244,9 +250,15 @@ function CaregiverDashboardContent() {
       const botErrorMsg: ChatMessage = {
         id: Math.random().toString(),
         sender: "bot",
-        text: "Maaf, sistem panduan sedang tidak dapat dihubungi. Silakan coba lagi sebentar lagi.",
+        text: isAxiosError(e) && e.response?.status === 401 ? "Sesi Anda sudah berakhir. Silakan masuk kembali." : "Maaf, sistem panduan sedang tidak dapat dihubungi. Silakan coba lagi sebentar lagi.",
       };
       setChatMessages((prev) => [...prev, botErrorMsg]);
+      if (isAxiosError(e) && e.response?.status === 401) {
+        setTimeout(() => {
+          localStorage.removeItem("tiara_caregiver_token");
+          logout();
+        }, 1500);
+      }
     } finally {
       setChatLoading(false);
     }

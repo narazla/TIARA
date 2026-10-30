@@ -23,3 +23,4 @@ from app.models.alert import Alert  # noqa: F401
 from app.models.recommendation import CareRecommendation  # noqa: F401
 from app.models.guidance import GuidanceMessage  # noqa: F401
 from app.models.report import Report  # noqa: F401
+from app.models.mood import MoodEntry  # noqa: F401

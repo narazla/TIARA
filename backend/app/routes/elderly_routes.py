@@ -9,6 +9,9 @@ from app.core.constants import Role, SessionStatus
 from app.core.dependencies import require_role
 from app.database.session import get_db
 from app.models.checkin import CheckinSession
+from app.models.mood import MoodEntry
+from pydantic import BaseModel
+from typing import Literal
 from app.models.patient import Patient
 from app.models.user import User
 
@@ -88,4 +91,26 @@ async def get_elderly_profile(
         "email": current_user.email,
         "date_of_birth": patient.date_of_birth.isoformat() if patient and patient.date_of_birth else None,
         "gender": patient.gender if patient else None,
+    }
+
+
+class MoodRequest(BaseModel):
+    mood: Literal["tenang_bahagia", "biasa", "sedikit_kesepian"]
+
+
+@router.post("/mood", status_code=201)
+async def save_mood(
+    data: MoodRequest,
+    current_user: User = Depends(require_role(Role.ELDERLY)),
+    db: AsyncSession = Depends(get_db),
+):
+    """Simpan suasana hati yang dipilih lansia di TIARA Companion."""
+    entry = MoodEntry(patient_user_id=current_user.id, mood=data.mood)
+    db.add(entry)
+    await db.commit()
+    await db.refresh(entry)
+    return {
+        "id": str(entry.id),
+        "mood": entry.mood,
+        "created_at": entry.created_at.isoformat(),
     }

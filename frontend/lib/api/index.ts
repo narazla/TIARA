@@ -86,3 +86,11 @@ export const healthcareApi = {
     return response.data;
   },
 };
+
+// --- MOOD JOURNAL API ---
+export const moodApi = {
+  save: async (mood: string) => {
+    const response = await apiClient.post("/api/v1/elderly/mood", { mood });
+    return response.data;
+  },
+};

@@ -17,7 +17,7 @@
 </div>
 <br>
 
-**Demo langsung:** [tiara.heyizza.my.id](https://tiara.heyizza.my.id) (akun demo ada di bagian Akun Demo)
+**Demo langsung:** [tiara.heyizza.my.id](https://tiara.heyizza.my.id) (akun demo ada di bagian [Akun Demo](#akun-demo))
 
 > **Pernyataan medis:** TIARA bukan alat diagnosis medis. Platform ini hanya menyediakan pemantauan tren kognitif dan dukungan caregiver yang bersifat informatif, dan tidak menggantikan penilaian klinis profesional. Selalu konsultasikan dengan tenaga kesehatan yang berkualifikasi untuk nasihat medis.
 

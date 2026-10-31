@@ -16,10 +16,8 @@ python-jose[cryptography]==3.3.0
 pydantic[email]==2.7.1
 pydantic-settings==2.2.1
 
-# AI / Media processing (optional — graceful fallback if missing)
+# Transkripsi suara
 faster-whisper==1.0.2
-librosa==0.10.2
-opencv-python-headless==4.9.0.80
 numpy==1.26.4
 soundfile==0.12.1
 

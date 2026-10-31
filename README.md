@@ -1,11 +1,20 @@
 
-# TIARA - Platform Perawatan Kognitif Berbasis AI
+<div align="center">
+  <img src="assets/Logo.png" alt="TIARA" width="120" />
+
+### TIARA
+
+**Pemantauan Kognitif Harian untuk Lansia dan Caregiver**
+
+*Early detection, from home*
+
+</div>
 
 <br>
-<div align="left">
+<div align="center">
   <img
-    src="https://drive.google.com/uc?export=view&id=1dUp6ivua4Vf6c_AFTg3gRGn2PuY_I98f"
-    alt="TIARA"
+    src="https://drive.google.com/uc?export=view&id=17Cajv7tbxUqnyNX4kfuXru_om32-4GcB"
+    alt="Pemantauan Kognitif Harian untuk Lansia dan Caregiver"
     style="width:100%; max-width:1400px;"
   />
 </div>
@@ -19,7 +28,7 @@
 
 ## Ringkasan
 
-TIARA (Thinking, Interaction, And Recall Assistant) adalah platform perawatan kognitif berbasis AI yang membantu keluarga mendeteksi perubahan kognitif dini pada lansia melalui sesi check-in harian berbasis suara. Lansia menjawab empat pertanyaan dengan suara; audio direkam per pertanyaan, ditranskripsi dengan faster-whisper, lalu dianalisis fitur pola bicaranya. Platform ini menyediakan dashboard terlindungi PIN untuk caregiver berisi tren Skor Risiko Kognitif, peringatan otomatis, dan rekomendasi perawatan. TIARA juga dilengkapi Dementia Guidance AI yang menjawab pertanyaan caregiver berdasarkan PNPK Tata Laksana Demensia dan Panduan Caregiver Kemenkes, serta terintegrasi dengan IBM Bob melalui Langflow MCP. Skor yang dihasilkan adalah indikator informatif dari pola bicara, bukan diagnosis medis.
+TIARA (Thinking, Interaction, And Recall Assistant) adalah platform perawatan kognitif berbasis AI yang membantu keluarga memantau perubahan pola bicara lansia, yang dapat berkaitan dengan perubahan kognitif, melalui sesi check-in harian berbasis suara. Lansia menjawab empat pertanyaan dengan suara; audio direkam per pertanyaan, ditranskripsi dengan faster-whisper, lalu dianalisis fitur pola bicaranya. Platform ini menyediakan dashboard terlindungi PIN untuk caregiver berisi tren Skor Risiko Kognitif, peringatan otomatis, dan rekomendasi berbasis aturan. TIARA juga dilengkapi Dementia Guidance AI yang menjawab pertanyaan caregiver berdasarkan PNPK Tata Laksana Demensia dan Panduan Caregiver Kemenkes, serta terintegrasi dengan IBM Bob melalui Langflow MCP. Skor yang dihasilkan adalah indikator informatif dari pola bicara, bukan diagnosis medis.
 
 ---
 
@@ -30,7 +39,7 @@ TIARA menjawab kesenjangan dalam perawatan kognitif dini bagi lansia dan keluarg
 TIARA menyatukan tiga pengalaman dalam satu platform:
 
 - **Lansia** menyelesaikan check-in suara harian yang sederhana melalui mikrofon perangkat mereka, dipandu oleh pertanyaan AI yang diucapkan.
-- **Caregiver** mengakses dashboard terlindungi PIN yang merangkum tren risiko kognitif, peringatan cerdas, rekomendasi perawatan AI, dan chat panduan demensia.
+- **Caregiver** mengakses dashboard terlindungi PIN yang merangkum tren risiko kognitif, peringatan otomatis, rekomendasi berbasis aturan, dan chat panduan demensia.
 - **Tenaga kesehatan** memantau pasien, meninjau data sesi longitudinal, dan mengakses laporan bulanan.
 
 ---
@@ -56,8 +65,8 @@ Tenaga kesehatan:
 
 - **Check-in suara harian** - Pertanyaan berbasis AI yang diucapkan (4 pertanyaan per sesi) dengan rekaman mikrofon berbasis persetujuan. Video hanya digunakan sebagai pratinjau lokal; tidak direkam dan tidak dianalisis.
 - **Pipeline analisis suara AI** - Transkripsi dengan faster-whisper (model `base`, bahasa Indonesia, CPU int8, word timestamps, dan VAD). Fitur suara yang diekstrak: kata per menit, jeda antar kata >= 0,5 detik, kata ragu, pengulangan kata berurutan, dan jeda respons (waktu hingga kata pertama). Skor 0-10, penyimpangan berbobot dari baseline pribadi. Komponen bahasa, wajah, dan memori bernilai null pada sesi nyata (hanya ada di data simulasi).
-- **Dashboard caregiver** - Grafik tren Skor Risiko Kognitif (30 hari), ringkasan pasien, feed peringatan cerdas, rekomendasi perawatan AI per kategori, dan laporan bulanan. Data dashboard untuk akun demo menyertakan riwayat simulasi; sesi check-in nyata muncul dalam grafik yang sama.
-- **Generator laporan bulanan** - Caregiver dapat membuat laporan bulanan secara manual melalui tombol "Buat Laporan" di tab Laporan. Laporan dihitung dari data sesi dan skor risiko nyata pasien pada bulan yang dipilih. Skor hanya berasal dari komponen suara. Laporan bersifat upsert: jika sudah ada untuk bulan tersebut, laporan diperbarui. Laporan adalah indikator informatif dan bukan diagnosis. Tidak ada penjadwalan otomatis.
+- **Dashboard caregiver** - Grafik tren Skor Risiko Kognitif (30 hari), ringkasan pasien, feed peringatan otomatis, rekomendasi berbasis aturan per kategori (bukan AI dan bukan saran medis), dan laporan bulanan. Data dashboard untuk akun demo menyertakan riwayat simulasi; sesi check-in nyata muncul dalam grafik yang sama.
+- **Generator laporan bulanan** - Caregiver dapat membuat laporan bulanan secara manual melalui tombol "Buat Laporan Bulan Ini" di tab Laporan. Laporan dihitung dari data sesi dan skor risiko nyata pasien pada bulan yang dipilih. Skor hanya berasal dari komponen suara. Laporan bersifat upsert: jika sudah ada untuk bulan tersebut, laporan diperbarui. Laporan adalah indikator informatif dan bukan diagnosis. Ringkasan laporan dibuat dari templat, bukan model bahasa. Laporan dapat dicetak atau disimpan sebagai PDF melalui dialog cetak browser. Tidak ada penjadwalan otomatis.
 - **Dementia Guidance AI (dalam aplikasi)** - Menjawab pertanyaan caregiver dengan mengambil bagian yang relevan dari dua dokumen resmi kesehatan Indonesia (PNPK Tata Laksana Demensia, Panduan Caregiver Kemenkes) menggunakan FAISS vector index dan embedding multilingual-e5-large, lalu menyusun jawaban dengan Gemini. Merespons dalam bahasa pertanyaan.
 - **Akses berbasis peran** - Alur dan rute terproteksi terpisah untuk lansia, caregiver, dan tenaga kesehatan (3 peran).
 - **Perlindungan PIN caregiver** - Langkah akses sekunder yang diperlukan untuk masuk ke dashboard caregiver. Endpoint dashboard memerlukan header `X-Dashboard-Token`; tanpa header ini API mengembalikan 403 `PIN_DIPERLUKAN`.
@@ -76,6 +85,17 @@ Peringatan dibuat di akhir setiap panggilan `/elderly/checkin/{session_id}/finis
 - Judul peringatan yang sama tidak dibuat ulang dalam 12 jam.
 - Respons `/finish` menyertakan `perlu_perhatian: true` ketika peringatan WARNING dibuat. Halaman hasil lansia menampilkan kotak catatan lembut hanya ketika flag ini aktif.
 - Peringatan muncul di dashboard caregiver saat caregiver membukanya. Tidak ada push notification, pesan WhatsApp, atau notifikasi email.
+
+---
+
+## Rekomendasi Berbasis Aturan
+
+Setiap check-in yang selesai menghasilkan satu set rekomendasi untuk caregiver. Rekomendasi ini **tidak dibuat oleh AI**. Sistem memilih teks templat tetap berdasarkan tingkat Skor Risiko Kognitif (Rendah, Sedang, Tinggi) dan tren 7 hari terakhir (tren dianggap naik jika skor hari ini minimal 1,0 di atas rata-rata 7 hari).
+
+- Lima kategori: rutinitas, aktivitas kognitif, sosial, catatan medis, dan kesejahteraan.
+- Hanya set terbaru per pasien yang ditampilkan. Rekomendasi bawaan data demo tidak diubah.
+- Dashboard menampilkan catatan bahwa rekomendasi ini berbasis aturan, bukan saran medis, dan bukan pengganti tenaga kesehatan.
+- Teks templat belum ditinjau tenaga kesehatan.
 
 ---
 
@@ -175,7 +195,20 @@ Pipeline RAG dalam aplikasi (FAISS + multilingual-e5-large, TOP_K=6) dievaluasi 
 
 Catatan: sampel pertanyaan berbahasa awam kecil (10 pertanyaan); satu pertanyaan meleset 10 halaman. Angka-angka ini bersifat indikatif.
 
-Selisih 1 halaman pada Panduan Caregiver terjadi karena chunk yang memotong batas halaman pada PDF asli. Faithfulness (apakah jawaban yang dihasilkan benar) belum dievaluasi dan menjadi langkah lanjutan yang direncanakan.
+Selisih 1 halaman pada Panduan Caregiver terjadi karena chunk yang memotong batas halaman pada PDF asli. ### Faithfulness jawaban (10 pertanyaan)
+
+Setiap jawaban dinilai terhadap potongan dokumen yang diambil sistem untuk jawaban itu.
+
+| Ukuran | Hasil |
+|---|---|
+| Pertanyaan dijawab dari dokumen: didukung penuh | 85,7% (6/7) |
+| Didukung penuh atau sebagian | 100% (7/7) |
+| Tidak didukung | 0% (0/7) |
+| Guardrail (dosis obat, diagnosis pasti, di luar topik): menolak dengan benar | 100% (3/3) |
+
+Satu jawaban (makanan saat nafsu makan turun) dinilai sebagian: saran diet pencegahan demensia dari dokumen dipakai untuk pertanyaan yang berbeda.
+
+Batas evaluasi: sampel kecil (10 pertanyaan). Penilai adalah anggota tim, dibantu pemeriksaan awal dengan AI, bukan tenaga kesehatan. Penilaian hanya mengukur kesesuaian jawaban dengan potongan dokumen, bukan kebenaran klinisnya. Lembar lengkap: `docs/evaluasi-rag/faithfulness_lembar.md`, `faithfulness_penilaian.csv`, `faithfulness_hasil.md`.
 
 Berkas evaluasi lengkap: [`docs/evaluasi-rag/`](docs/evaluasi-rag/)
 
@@ -183,7 +216,7 @@ Penelitian ukuran chunk (repositori terpisah): hit rate 128-token 91,2%, 256-tok
 
 ---
 
-## AI yang Bertanggung Jawab
+## Responsible AI
 
 | Prinsip | Yang benar-benar diimplementasikan |
 |---|---|
@@ -196,10 +229,11 @@ Penelitian ukuran chunk (repositori terpisah): hit rate 128-token 91,2%, 256-tok
 | Guardrail panduan | Guidance AI dikonfigurasi via prompt untuk mengakui ketika pertanyaan tidak ada dalam dokumen |
 | Enkripsi audio saat disimpan | Rekaman disimpan sebagai `.webm.enc` (Fernet); didekripsi hanya di memori |
 | Privasi transkrip | Teks transkrip di tabel `transcripts` TIDAK dienkripsi |
+| Rekomendasi | Berbasis aturan, bukan AI. Dashboard memuat catatan bahwa ini bukan saran medis |
 
 ---
 
-## Tumpukan Teknologi
+## Tech Stack
 
 | Lapisan | Teknologi |
 |---|---|
@@ -239,7 +273,7 @@ TIARA-IBM/
 │   └── evaluasi-rag/          # Set pertanyaan dan hasil evaluasi RAG
 ├── langflow/                  # Flow Langflow yang diekspor (alat MCP untuk IBM Bob)
 ├── assets/                    # Berkas logo master
-├── docker-compose.yml         # Layanan PostgreSQL + backend + frontend
+├── docker-compose.yml         # Layanan PostgreSQL + backend
 ├── .env.example               # Template variabel lingkungan
 └── README.md
 ```
@@ -286,7 +320,7 @@ Salin `.env.example` ke `backend/.env` dan isi:
 
 ```text
 DATABASE_URL=postgresql+asyncpg://tiara:tiara_password@localhost:5432/tiara_db
-JWT_SECRET_KEY=<a-long-random-secret-minimum-32-chars>
+JWT_SECRET_KEY=<a-long-random-secret>      # disarankan minimal 32 karakter
 LLM_API_KEY=<your-gemini-api-key>        # required for AI-generated guidance answers
 LLM_PROVIDER=gemini
 MEDIA_ENCRYPTION_KEY=<fernet-key>        # required; generate with command below
@@ -314,23 +348,31 @@ npm run dev
 
 Frontend berjalan di `http://localhost:3000`. Atur `NEXT_PUBLIC_BACKEND_URL=http://localhost:8000` di `frontend/.env.local` jika backend tidak menggunakan port default.
 
-### Docker Compose
+### Docker Compose (backend dan database)
 
 ```bash
 # Windows PowerShell
-$env:JWT_SECRET_KEY="<your-secret>"; docker compose up --build
+$env:JWT_SECRET_KEY="<your-secret>"; $env:MEDIA_ENCRYPTION_KEY="<fernet-key>"; docker compose up --build
 
 # macOS / Linux
-JWT_SECRET_KEY=<your-secret> docker compose up --build
+JWT_SECRET_KEY=<your-secret> MEDIA_ENCRYPTION_KEY=<fernet-key> docker compose up --build
 ```
 
-Catatan: `docker-compose.yml` tidak meneruskan `MEDIA_ENCRYPTION_KEY` secara default. Tambahkan ke berkas `.env` di root repositori sebelum build jika memerlukan penyimpanan audio terenkripsi.
-
+Compose menjalankan PostgreSQL dan backend. Frontend dijalankan terpisah dengan `npm run dev` di folder `frontend` (lihat bagian Frontend).
 ---
 
 ## Deployment
 
 Demo berjalan secara lokal. Panduan deployment akan ditambahkan setelah backend dihosting.
+
+---
+
+## Rencana Pengembangan
+
+- **IBM watsonx.ai:** model bahasa saat ini adalah Google Gemini. Integrasi watsonx.ai direncanakan sebagai pengembangan berikutnya dan belum diimplementasikan.
+- **Pencarian vektor untuk jalur Langflow:** peralihan ke Chroma dengan embedding Google (lihat bagian Integrasi IBM Bob + Langflow).
+- **Peninjauan tenaga kesehatan** untuk teks rekomendasi dan validasi klinis skor suara.
+- **Evaluasi lebih besar** untuk faithfulness dan uji pengguna dengan caregiver.
 
 ---
 
@@ -404,13 +446,13 @@ Dokumentasi proyek tambahan ada di [`docs/`](docs/):
 - Kartu ringkasan di dashboard caregiver (Memory Consistency, Response Delay, Speech Hesitation) mungkin menampilkan nilai statis atau simulasi untuk sesi tanpa analisis nyata lengkap. Verifikasi secara visual saat demo.
 - Kualitas analisis AI bergantung pada kualitas mikrofon dan kebisingan lingkungan.
 - Respons Dementia Guidance AI hanya seakurat dokumen yang dimuat.
-- Evaluasi RAG hanya mengukur akurasi retrieval; faithfulness jawaban yang dihasilkan belum dievaluasi.
+- Evaluasi retrieval hanya mengukur apakah halaman sumber ditemukan. Faithfulness hanya dievaluasi pada 10 pertanyaan, dinilai anggota tim (bukan tenaga kesehatan), dan hanya mengukur kesesuaian dengan potongan dokumen.
 - Sampel evaluasi RAG berbahasa awam kecil (10 pertanyaan); hasilnya bersifat indikatif.
 - TIARA tidak boleh digunakan sebagai pengganti evaluasi medis profesional.
 
 ---
 
-## Tim
+## Meet the Team
 
 <table>
 <tr>

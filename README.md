@@ -475,5 +475,5 @@ Dokumentasi proyek tambahan ada di [`docs/`](docs/):
 
 ---
 
-Dibuat untuk **IBM SkillsBuild University Education National Hackathon 2026**
+Dibuat untuk **IBM SkillsBuild University Education National Hackathon 2026**  
 **Hacktiv8 x IBM x Komdigi**

@@ -720,7 +720,12 @@ function CaregiverDashboardContent() {
                   exit={{ opacity: 0, y: -12 }}
                   className="space-y-8"
                 >
-                  <h2 className="text-2xl font-bold font-serif-editorial text-foreground">Rekomendasi Perawatan</h2>
+                  <div>
+                    <h2 className="text-2xl font-bold font-serif-editorial text-foreground">Rekomendasi Perawatan</h2>
+                    <p className="text-xs text-muted-foreground font-medium mt-1.5">
+                      Rekomendasi berbasis aturan dari hasil check-in terakhir. Bukan saran medis dan bukan pengganti tenaga kesehatan.
+                    </p>
+                  </div>
 
                   {/* Sectioned recommendations */}
                   {[

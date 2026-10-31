@@ -136,6 +136,63 @@ function formatDelta(delta: number | null, unit: string): string {
   return `${sign}${delta.toLocaleString("id-ID")}${unit} dari pekan lalu`;
 }
 
+function cetakLaporanHC(printId: string, judul: string) {
+  const sumber = document.getElementById(printId);
+  if (!sumber) return;
+
+  const rootId = "tiara-print-root";
+  const styleId = "tiara-print-style";
+  document.getElementById(rootId)?.remove();
+
+  const root = document.createElement("div");
+  root.id = rootId;
+
+  const kepala = document.createElement("div");
+  const nama = document.createElement("div");
+  nama.textContent = "TIARA";
+  nama.style.cssText = "font-size:22px;font-weight:bold;margin-bottom:4px;";
+  const sub = document.createElement("div");
+  sub.textContent = judul;
+  sub.style.cssText =
+    "font-size:14px;color:#555;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #ccc;";
+  kepala.appendChild(nama);
+  kepala.appendChild(sub);
+
+  const salinan = sumber.cloneNode(true) as HTMLElement;
+  salinan.removeAttribute("id");
+  salinan
+    .querySelectorAll(".tiara-print-hide, .tiara-hc-print-hide")
+    .forEach((n) => n.remove());
+
+  root.appendChild(kepala);
+  root.appendChild(salinan);
+  document.body.appendChild(root);
+
+  let el = document.getElementById(styleId) as HTMLStyleElement | null;
+  if (!el) {
+    el = document.createElement("style");
+    el.id = styleId;
+    document.head.appendChild(el);
+  }
+  el.textContent = `
+    @media screen {
+      #${rootId} { display: none !important; }
+    }
+    @media print {
+      body > *:not(#${rootId}) { display: none !important; }
+      #${rootId} { display: block !important; padding: 24px; color: #111; background: #fff; }
+      #${rootId} * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  `;
+
+  const bersihkan = () => {
+    document.getElementById(rootId)?.remove();
+    window.removeEventListener("afterprint", bersihkan);
+  };
+  window.addEventListener("afterprint", bersihkan);
+  window.print();
+}
+
 function HealthcareDashboardContent() {
   const { logout, user } = useAuth();
 
@@ -486,17 +543,28 @@ function HealthcareDashboardContent() {
                     <div className="space-y-4">
                       {summary.reports.map((r) => {
                         const cj = r.content_json;
+                        const printId = `laporan-hc-${r.id}`;
                         return (
-                          <div key={r.id} className="border border-border/60 rounded-xl p-4 bg-secondary/20 space-y-2">
-                            <div>
-                              <p className="font-bold text-sm text-foreground">{r.title}</p>
-                              <p className="text-xs text-muted-foreground mt-0.5">
-                                {r.checkin_count != null ? `${r.checkin_count} sesi check-in.` : ""}
-                                {r.avg_risk_score != null ? ` Rata-rata Skor Risiko Kognitif: ${r.avg_risk_score.toFixed(1)}.` : ""}
-                              </p>
-                              <p className="text-[10px] text-muted-foreground">
-                                Dibuat: {new Date(r.created_at).toLocaleString("id-ID")}
-                              </p>
+                          <div key={r.id} id={printId} className="border border-border/60 rounded-xl p-4 bg-secondary/20 space-y-2">
+                            <div className="flex items-start justify-between gap-3">
+                              <div className="flex-1 min-w-0">
+                                <p className="font-bold text-sm text-foreground">{r.title}</p>
+                                <p className="text-xs text-muted-foreground mt-0.5">
+                                  {r.checkin_count != null ? `${r.checkin_count} sesi check-in.` : ""}
+                                  {r.avg_risk_score != null ? ` Rata-rata Skor Risiko Kognitif: ${r.avg_risk_score.toFixed(1)}.` : ""}
+                                </p>
+                                <p className="text-[10px] text-muted-foreground">
+                                  Dibuat: {new Date(r.created_at).toLocaleString("id-ID")}
+                                </p>
+                              </div>
+                              <button
+                                onClick={() => cetakLaporanHC(printId, r.title)}
+                                className="tiara-hc-print-hide flex-shrink-0 flex items-center gap-1.5 border border-border hover:bg-secondary/60 text-foreground font-bold px-2.5 py-1 rounded-lg text-[11px] transition-colors cursor-pointer"
+                                title="Cetak atau simpan sebagai PDF"
+                              >
+                                <FileText className="w-3 h-3" />
+                                Cetak / Simpan PDF
+                              </button>
                             </div>
                             {cj?.sebaran_level && (
                               <div className="flex gap-2 flex-wrap">

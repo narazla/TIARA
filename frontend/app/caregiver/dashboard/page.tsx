@@ -142,6 +142,63 @@ const severityStyle = (s: string): string =>
     ? "bg-warning/15 text-amber-700"
     : "bg-primary/15 text-primary-dark";
 
+function cetakLaporan(printId: string, judul: string) {
+  const sumber = document.getElementById(printId);
+  if (!sumber) return;
+
+  const rootId = "tiara-print-root";
+  const styleId = "tiara-print-style";
+  document.getElementById(rootId)?.remove();
+
+  const root = document.createElement("div");
+  root.id = rootId;
+
+  const kepala = document.createElement("div");
+  const nama = document.createElement("div");
+  nama.textContent = "TIARA";
+  nama.style.cssText = "font-size:22px;font-weight:bold;margin-bottom:4px;";
+  const sub = document.createElement("div");
+  sub.textContent = judul;
+  sub.style.cssText =
+    "font-size:14px;color:#555;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #ccc;";
+  kepala.appendChild(nama);
+  kepala.appendChild(sub);
+
+  const salinan = sumber.cloneNode(true) as HTMLElement;
+  salinan.removeAttribute("id");
+  salinan
+    .querySelectorAll(".tiara-print-hide, .tiara-hc-print-hide")
+    .forEach((n) => n.remove());
+
+  root.appendChild(kepala);
+  root.appendChild(salinan);
+  document.body.appendChild(root);
+
+  let el = document.getElementById(styleId) as HTMLStyleElement | null;
+  if (!el) {
+    el = document.createElement("style");
+    el.id = styleId;
+    document.head.appendChild(el);
+  }
+  el.textContent = `
+    @media screen {
+      #${rootId} { display: none !important; }
+    }
+    @media print {
+      body > *:not(#${rootId}) { display: none !important; }
+      #${rootId} { display: block !important; padding: 24px; color: #111; background: #fff; }
+      #${rootId} * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  `;
+
+  const bersihkan = () => {
+    document.getElementById(rootId)?.remove();
+    window.removeEventListener("afterprint", bersihkan);
+  };
+  window.addEventListener("afterprint", bersihkan);
+  window.print();
+}
+
 function ReportCard({ r }: { r: ReportData }) {
   const cj = r.content_json;
   const adaRingkasan = cj?.ringkasan;
@@ -149,11 +206,12 @@ function ReportCard({ r }: { r: ReportData }) {
   const adaPerbandingan = cj?.perbandingan_bulan_lalu;
   const adaCatatan = cj?.catatan_tetap;
   const adaCatatanLama = cj?.catatan;
+  const printId = `laporan-cetak-${r.id}`;
 
   return (
-    <div className="bg-card border border-border/70 rounded-2xl p-6 shadow-sm space-y-3">
+    <div id={printId} className="bg-card border border-border/70 rounded-2xl p-6 shadow-sm space-y-3">
       <div className="flex items-start gap-4">
-        <div className="p-3 bg-primary/10 rounded-xl text-primary-dark flex-shrink-0">
+        <div className="p-3 bg-primary/10 rounded-xl text-primary-dark flex-shrink-0 tiara-print-hide">
           <FileText className="w-6 h-6" />
         </div>
         <div className="flex-1 min-w-0">
@@ -166,6 +224,14 @@ function ReportCard({ r }: { r: ReportData }) {
             Dibuat: {new Date(r.created_at).toLocaleString("id-ID")}
           </p>
         </div>
+        <button
+          onClick={() => cetakLaporan(printId, r.title)}
+          className="tiara-print-hide flex-shrink-0 flex items-center gap-1.5 border border-border hover:bg-secondary text-foreground font-bold px-3 py-1.5 rounded-xl text-xs transition-colors cursor-pointer"
+          title="Cetak atau simpan sebagai PDF"
+        >
+          <FileText className="w-3.5 h-3.5" />
+          Cetak / Simpan PDF
+        </button>
       </div>
 
       {adaSebaran && (

@@ -235,7 +235,7 @@ Prototipe diuji lewat wawancara terstruktur dengan 5 caregiver (C1 sampai C5), 2
 
 ### Wawancara dokter (n = 1)
 
-Wawancara dilakukan dengan seorang dokter.
+Wawancara dilakukan dengan dr. Sri Rachmani, M.Kes., MH.Kes., FISQua.
 
 - **Kebutuhan klinis:** saat pasien kontrol, dokter hanya mengetahui cerita pasien pada hari itu. Untuk penanganan yang tepat dibutuhkan pemantauan kognitif yang rutin.
 - **Siapa yang cocok:** lansia dengan keluhan ringan yang masih bisa bicara. Tidak cocok untuk afasia berat, gangguan bicara yang sudah diketahui sebelumnya, atau pasien dalam pengobatan intensif tanpa pemantauan dokter.

@@ -92,7 +92,7 @@ Setiap check-in yang selesai menghasilkan satu set rekomendasi untuk caregiver. 
 - Lima kategori: rutinitas, aktivitas kognitif, sosial, catatan medis, dan kesejahteraan.
 - Hanya set terbaru per pasien yang ditampilkan. Rekomendasi bawaan data demo tidak diubah.
 - Dashboard menampilkan catatan bahwa rekomendasi ini berbasis aturan, bukan saran medis, dan bukan pengganti tenaga kesehatan.
-- Teks templat belum ditinjau tenaga kesehatan.
+- Teks templat belum ditinjau secara resmi oleh tenaga kesehatan. Seorang dokter telah memberi masukan lewat wawancara dan bersedia meninjau teks secara tertulis (lihat Validasi Awal).
 
 ---
 
@@ -192,7 +192,9 @@ Pipeline RAG dalam aplikasi (FAISS + multilingual-e5-large, TOP_K=6) dievaluasi 
 
 Catatan: sampel pertanyaan berbahasa awam kecil (10 pertanyaan); satu pertanyaan meleset 10 halaman. Angka-angka ini bersifat indikatif.
 
-Selisih 1 halaman pada Panduan Caregiver terjadi karena chunk yang memotong batas halaman pada PDF asli. ### Faithfulness jawaban (10 pertanyaan)
+Selisih 1 halaman pada Panduan Caregiver terjadi karena chunk yang memotong batas halaman pada PDF asli.
+
+### Faithfulness jawaban (10 pertanyaan)
 
 Setiap jawaban dinilai terhadap potongan dokumen yang diambil sistem untuk jawaban itu.
 
@@ -210,6 +212,39 @@ Batas evaluasi: sampel kecil (10 pertanyaan). Penilai adalah anggota tim, dibant
 Berkas evaluasi lengkap: [`docs/evaluasi-rag/`](docs/evaluasi-rag/)
 
 Penelitian ukuran chunk (repositori terpisah): hit rate 128-token 91,2%, 256-token 97,1%, 512-token 91,2% - [narazla/TIARA-rag-chunking](https://github.com/narazla/TIARA-rag-chunking)
+
+---
+
+## Validasi Awal dengan Pengguna dan Tenaga Kesehatan
+
+Prototipe diuji lewat wawancara terstruktur dengan 5 caregiver (C1 sampai C5), 2 lansia (L1 dan L2), dan 1 dokter. Responden ditulis dengan kode, bukan nama. Ini uji awal berskala kecil, bukan studi klinis, dan hasilnya tidak dapat digeneralisasi.
+
+### Temuan dari caregiver dan lansia
+
+| Tema | Temuan | Rencana perbaikan |
+|---|---|---|
+| Check-in suara | Sebagian besar lansia bingung atau ragu di awal, lalu terbiasa setelah satu sampai dua kali. Dua caregiver menyebut pertanyaan terasa seperti ujian. | Bahasa pertanyaan lebih sederhana, izinkan mengulang, beri waktu menjawab lebih lama. |
+| Peringatan skor Tinggi | Dua caregiver menilai kata "menyimpang" menakutkan atau terdengar seperti diagnosis, satu khawatir anggota keluarga lain cemas, satu menilai nadanya pas. | Ganti kalimat peringatan dan tambahkan keterangan bahwa ini bukan diagnosis. |
+| Skor dan grafik | Dua caregiver kesulitan memahami arti skor atau skala 0 sampai 10 dengan label Rendah, Sedang, Tinggi. Satu ingin tahu penyebab skor naik. | Tambahkan keterangan skala dan catatan bahwa skor satu hari dipengaruhi kondisi tubuh. |
+| Rekaman suara dan privasi | Empat dari lima caregiver meminta kejelasan lama penyimpanan, persetujuan keluarga, atau tombol hapus. Kedua lansia tidak keberatan, satu dengan syarat keluarga mengizinkan. | Halaman persetujuan yang menjelaskan akses dan penghapusan data. |
+| Laporan bulanan | Dua caregiver menilai ringkasan membantu saat bertemu dokter. Satu tidak tahu cara membuatnya, satu ingin pembuatan otomatis, satu menilai terlalu teknis. | Petunjuk tombol dan versi laporan yang lebih sederhana. |
+| Chat panduan | Empat dari lima caregiver menilai berguna atau mudah dipahami. Satu meminta penjelasan mengapa dosis obat tidak dijawab. | Penjelasan singkat penolakan dosis dan kapan harus ke dokter. |
+| Kepercayaan pada skor | Kelima caregiver menyatakan kepercayaan bersyarat: skor dianggap pelengkap, perlu validasi dokter, atau perlu catatan jelas bahwa ini bukan diagnosis. | Penegasan batas skor di layar utama. |
+| Notifikasi | Pendapat terbagi: WhatsApp, cukup dashboard, jangan terlalu sering, atau hanya ke koordinator. | Pengaturan penerima notifikasi (pengembangan berikutnya). |
+| PIN dan akses | Tiga caregiver menyebut PIN merepotkan atau terlupa. Satu menyebut sinyal internet lemah. | Pertimbangkan pengaturan ulang PIN. |
+
+### Wawancara dokter (n = 1)
+
+Wawancara dilakukan dengan seorang dokter.
+
+- **Kebutuhan klinis:** saat pasien kontrol, dokter hanya mengetahui cerita pasien pada hari itu. Untuk penanganan yang tepat dibutuhkan pemantauan kognitif yang rutin.
+- **Siapa yang cocok:** lansia dengan keluhan ringan yang masih bisa bicara. Tidak cocok untuk afasia berat, gangguan bicara yang sudah diketahui sebelumnya, atau pasien dalam pengobatan intensif tanpa pemantauan dokter.
+- **Masukan untuk teks:** kata "menyimpang" pada peringatan dapat membuat cemas dan perlu disertai keterangan bahwa ini bukan penyakit. Saran tingkat Tinggi tidak boleh menyiratkan diagnosis dan sebaiknya mengajak menjadwalkan pemeriksaan ke dokter. Bagian bantuan segera perlu memuat tanda darurat stroke (wajah tidak simetris, bicara pelo mendadak, lemah di satu sisi tubuh, kebingungan berat) dan nomor layanan darurat. Skor satu hari dapat dipengaruhi kondisi tubuh dan emosi, sehingga yang penting adalah pola beberapa hari. Setiap layar utama perlu menyebut bahwa ini bukan diagnosis dan tidak menggantikan dokter.
+- **Privasi:** keluarga perlu tahu siapa yang dapat melihat data dan cara menghapusnya sebelum rekaman dimulai.
+- **Saran uji berikutnya:** caregiver dan kader posyandu lebih dulu, puskesmas setelah teks direvisi.
+- **Status peninjauan:** dokter bersedia meninjau teks rekomendasi dan peringatan secara tertulis dan akan menyebutkan sendiri apa yang telah ditinjau. Peninjauan itu belum selesai, sehingga TIARA belum menyatakan teksnya telah ditinjau secara resmi.
+
+Temuan di atas menjadi dasar perbaikan berikutnya. Perubahan yang sudah diterapkan dicatat di riwayat commit.
 
 ---
 
@@ -356,6 +391,7 @@ JWT_SECRET_KEY=<your-secret> MEDIA_ENCRYPTION_KEY=<fernet-key> docker compose up
 ```
 
 Compose menjalankan PostgreSQL dan backend. Frontend dijalankan terpisah dengan `npm run dev` di folder `frontend` (lihat bagian Frontend).
+
 ---
 
 ## Deployment
@@ -371,8 +407,9 @@ Aplikasi dapat dicoba di **[tiara.heyizza.my.id](https://tiara.heyizza.my.id)**.
 
 - **IBM watsonx.ai:** model bahasa saat ini adalah Google Gemini. Integrasi watsonx.ai direncanakan sebagai pengembangan berikutnya dan belum diimplementasikan.
 - **Pencarian vektor untuk jalur Langflow:** peralihan ke Chroma dengan embedding Google (lihat bagian Integrasi IBM Bob + Langflow).
-- **Peninjauan tenaga kesehatan** untuk teks rekomendasi dan validasi klinis skor suara.
-- **Evaluasi lebih besar** untuk faithfulness dan uji pengguna dengan caregiver.
+- **Peninjauan tenaga kesehatan** atas teks rekomendasi dan peringatan (dokter bersedia meninjau secara tertulis, belum selesai) serta validasi klinis skor suara.
+- **Evaluasi lebih besar** untuk faithfulness dan uji pengguna yang lebih luas, dimulai dari caregiver dan kader posyandu.
+- **Dari masukan pengguna dan dokter:** penafian di setiap layar utama, tanda darurat stroke dan nomor layanan darurat, kalimat peringatan yang lebih lembut, keterangan skala skor, halaman persetujuan serta penghapusan data, versi laporan bulanan yang lebih sederhana, pengingat jadwal kontrol, kategori komunikasi dan keselamatan pada rekomendasi, catatan kejadian harian dari keluarga, dan pengaturan penerima notifikasi.
 
 ---
 
@@ -449,6 +486,8 @@ Dokumentasi proyek tambahan ada di [`docs/`](docs/):
 - Evaluasi retrieval hanya mengukur apakah halaman sumber ditemukan. Faithfulness hanya dievaluasi pada 10 pertanyaan, dinilai anggota tim (bukan tenaga kesehatan), dan hanya mengukur kesesuaian dengan potongan dokumen.
 - Sampel evaluasi RAG berbahasa awam kecil (10 pertanyaan); hasilnya bersifat indikatif.
 - TIARA tidak boleh digunakan sebagai pengganti evaluasi medis profesional.
+- Menurut masukan dokter, pemantauan ini cocok untuk lansia dengan keluhan ringan yang masih bisa bicara, dan tidak cocok untuk afasia berat, gangguan bicara yang sudah diketahui sebelumnya, atau pasien dalam pengobatan intensif tanpa pemantauan dokter.
+- Uji pengguna masih berskala kecil (5 caregiver, 2 lansia, 1 dokter) dan belum mewakili populasi yang luas.
 
 ---
 

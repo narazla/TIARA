@@ -17,7 +17,8 @@
 </div>
 <br>
 
->
+**Demo langsung:** [tiara.heyizza.my.id](https://tiara.heyizza.my.id) (akun demo ada di bagian Akun Demo)
+
 > **Pernyataan medis:** TIARA bukan alat diagnosis medis. Platform ini hanya menyediakan pemantauan tren kognitif dan dukungan caregiver yang bersifat informatif, dan tidak menggantikan penilaian klinis profesional. Selalu konsultasikan dengan tenaga kesehatan yang berkualifikasi untuk nasihat medis.
 
 ---
@@ -107,7 +108,7 @@ Jurnal suasana hati tersimpan di database tetapi belum ditampilkan di dashboard 
 
 ## Akun Demo
 
-Kredensial berikut hanya untuk penggunaan demo lokal. Jangan gunakan di server publik.
+Akun berikut adalah akun demo dengan data simulasi, terbuka untuk dicoba juri. Jangan memasukkan data pribadi atau data kesehatan nyata ke instans demo.
 
 | Peran | Email | Kata Sandi | PIN |
 |---|---|---|---|
@@ -359,7 +360,11 @@ Compose menjalankan PostgreSQL dan backend. Frontend dijalankan terpisah dengan 
 
 ## Deployment
 
-Demo berjalan secara lokal. Panduan deployment akan ditambahkan setelah backend dihosting.
+Aplikasi dapat dicoba di **[tiara.heyizza.my.id](https://tiara.heyizza.my.id)**. Gunakan akun pada bagian [Akun Demo](#akun-demo).
+
+- Hosting saat ini memakai domain dan server milik pihak yang membantu tim, sebagai demo untuk penjurian hackathon. Aplikasi dapat dimigrasikan ke server atau domain lain.
+- Backend membutuhkan RAM sekitar 3 sampai 4 GB karena memuat model faster-whisper dan embedding multilingual-e5-large. GPU tidak diperlukan (CPU int8).
+- Variabel lingkungan yang dibutuhkan ada di `backend/.env.example`. Kunci rahasia (`JWT_SECRET_KEY`, `MEDIA_ENCRYPTION_KEY`, `LLM_API_KEY`) diisi di server dan tidak disimpan di repositori.
 
 ---
 

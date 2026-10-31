@@ -362,7 +362,6 @@ Compose menjalankan PostgreSQL dan backend. Frontend dijalankan terpisah dengan 
 
 Aplikasi dapat dicoba di **[tiara.heyizza.my.id](https://tiara.heyizza.my.id)**. Gunakan akun pada bagian [Akun Demo](#akun-demo).
 
-- Hosting saat ini memakai domain dan server milik pihak yang membantu tim, sebagai demo untuk penjurian hackathon. Aplikasi dapat dimigrasikan ke server atau domain lain.
 - Backend membutuhkan RAM sekitar 3 sampai 4 GB karena memuat model faster-whisper dan embedding multilingual-e5-large. GPU tidak diperlukan (CPU int8).
 - Variabel lingkungan yang dibutuhkan ada di `backend/.env.example`. Kunci rahasia (`JWT_SECRET_KEY`, `MEDIA_ENCRYPTION_KEY`, `LLM_API_KEY`) diisi di server dan tidak disimpan di repositori.
 

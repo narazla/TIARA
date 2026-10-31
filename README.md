@@ -1,10 +1,7 @@
 
 <div align="center">
-  <img src="assets/Logo.png" alt="TIARA" width="120" />
 
 ### TIARA
-
-**Pemantauan Kognitif Harian untuk Lansia dan Caregiver**
 
 *Early detection, from home*
 
@@ -20,7 +17,6 @@
 </div>
 <br>
 
-> **Medical disclaimer:** TIARA is not a medical diagnosis tool. It provides informational cognitive trend monitoring and caregiver support only, and does not replace professional clinical assessment. Always consult a qualified healthcare professional for medical advice.
 >
 > **Pernyataan medis:** TIARA bukan alat diagnosis medis. Platform ini hanya menyediakan pemantauan tren kognitif dan dukungan caregiver yang bersifat informatif, dan tidak menggantikan penilaian klinis profesional. Selalu konsultasikan dengan tenaga kesehatan yang berkualifikasi untuk nasihat medis.
 

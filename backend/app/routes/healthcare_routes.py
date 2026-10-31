@@ -23,7 +23,6 @@ from app.core.dependencies import require_role
 from app.database.session import get_db
 from app.models.alert import Alert
 from app.models.analysis import (
-    FacialAnalysisResult,
     LanguageAnalysisResult,
     RiskScore,
     VoiceAnalysisResult,
@@ -96,13 +95,14 @@ async def _konsistensi_memori(db: AsyncSession, id_sesi: list) -> Optional[float
 
 
 async def _jeda_respons(db: AsyncSession, id_sesi: list) -> Optional[float]:
+    # Source: VoiceAnalysisResult.avg_response_delay_seconds (waktu hingga kata pertama dari pipeline suara)
     if not id_sesi:
         return None
     hasil = await db.execute(
-        select(FacialAnalysisResult.avg_response_delay_seconds).where(
+        select(VoiceAnalysisResult.avg_response_delay_seconds).where(
             and_(
-                FacialAnalysisResult.session_id.in_(id_sesi),
-                FacialAnalysisResult.avg_response_delay_seconds.is_not(None),
+                VoiceAnalysisResult.session_id.in_(id_sesi),
+                VoiceAnalysisResult.avg_response_delay_seconds.is_not(None),
             )
         )
     )

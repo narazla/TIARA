@@ -323,6 +323,7 @@ async def selesai(
             repetition_count=gabungan["jumlah_ulang"],
             pause_count=gabungan["jumlah_jeda"],
             avg_pause_duration=round(gabungan["jeda_rata_rata"], 2),
+            avg_response_delay_seconds=round(gabungan["jeda_respons"], 2) if gabungan["jeda_respons"] is not None else None,
             voice_risk_score=penilaian["skor"],
             raw_features={
                 "sumber": suara.SUMBER,

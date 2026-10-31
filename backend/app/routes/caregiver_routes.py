@@ -97,7 +97,6 @@ async def get_caregiver_dashboard(
     from sqlalchemy import and_, desc
     from app.core.config import settings as app_settings
     from app.models.analysis import (
-        FacialAnalysisResult,
         LanguageAnalysisResult,
         RiskScore,
         VoiceAnalysisResult,
@@ -191,15 +190,16 @@ async def get_caregiver_dashboard(
         return round(mean(vals) * 100, 1) if vals else None
 
     # ── avg_response_delay: mean(avg_response_delay_seconds) ───
-    # Source: FacialAnalysisResult.avg_response_delay_seconds (float, seconds)
+    # Source: VoiceAnalysisResult.avg_response_delay_seconds (float, seconds)
+    # Nilai ini adalah rata-rata jeda sebelum menjawab dari pipeline suara (waktu hingga kata pertama).
     async def _avg_response_delay(session_ids: list) -> float | None:
         if not session_ids:
             return None
         r = await db.execute(
-            select(FacialAnalysisResult.avg_response_delay_seconds).where(
+            select(VoiceAnalysisResult.avg_response_delay_seconds).where(
                 and_(
-                    FacialAnalysisResult.session_id.in_(session_ids),
-                    FacialAnalysisResult.avg_response_delay_seconds.is_not(None),
+                    VoiceAnalysisResult.session_id.in_(session_ids),
+                    VoiceAnalysisResult.avg_response_delay_seconds.is_not(None),
                 )
             )
         )

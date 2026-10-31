@@ -35,6 +35,7 @@ class VoiceAnalysisResult(Base):
     repetition_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     pause_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     avg_pause_duration: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    avg_response_delay_seconds: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
     voice_risk_score: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
     raw_features: Mapped[Optional[dict]] = mapped_column(JSONB, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)

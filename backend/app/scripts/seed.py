@@ -240,6 +240,7 @@ async def seed_demo_history(db: AsyncSession, patient_user_id: uuid.UUID, reset:
             repetition_count=rng.randint(0, 1 + round(2 * drift)),
             pause_count=rng.randint(6, 10) + round(4 * drift),
             avg_pause_duration=round(0.8 + 0.5 * drift + rng.uniform(-0.05, 0.05), 2),
+            avg_response_delay_seconds=round(jeda, 2),
             voice_risk_score=round(_batas(skor + rng.uniform(-0.5, 0.5), 0, 10), 1),
             created_at=selesai,
         ))
@@ -554,6 +555,7 @@ async def seed_extra_patients(db: AsyncSession, hcw: User, reset: bool = False) 
                 repetition_count=rng.randint(0, 1 + round(2 * geser)),
                 pause_count=rng.randint(6, 10) + round(4 * geser),
                 avg_pause_duration=round(0.8 + 0.5 * geser + rng.uniform(-0.05, 0.05), 2),
+                avg_response_delay_seconds=round(jeda, 2),
                 voice_risk_score=round(_batas(skor + rng.uniform(-0.5, 0.5), 0, 10), 1),
                 created_at=selesai,
             ))

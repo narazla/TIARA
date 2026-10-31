@@ -208,6 +208,7 @@ Audio feature extraction results.
 | `repetition_count` | INTEGER | DEFAULT 0 | Repeated phrases detected |
 | `pause_count` | INTEGER | DEFAULT 0 | Estimated significant pauses |
 | `avg_pause_duration` | FLOAT | NULL | Average pause duration in seconds |
+| `avg_response_delay_seconds` | FLOAT | NULL | Rata-rata jeda sebelum menjawab (waktu hingga kata pertama, detik). Digunakan sebagai sumber kartu Jeda Respons di dashboard. Ditambahkan migrasi a1b2c3d4e5f6. |
 | `voice_risk_score` | FLOAT | NULL | Composite voice risk 0-100 |
 | `raw_features` | JSONB | NULL | Additional extracted features |
 | `created_at` | TIMESTAMPTZ | DEFAULT NOW() | |

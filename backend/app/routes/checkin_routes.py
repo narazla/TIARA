@@ -368,6 +368,17 @@ async def selesai(
                 "dibahas dengan tenaga kesehatan. Jika perubahan terasa cepat, segera konsultasikan.",
             )
 
+        # Rekomendasi berbasis aturan (bukan AI). Kegagalan tidak boleh menggagalkan check-in.
+        try:
+            from app.services.rekomendasi_service import buat_rekomendasi_sesi
+            async with db.begin_nested():
+                await buat_rekomendasi_sesi(
+                    db, patient_user_id, session_id,
+                    penilaian["tingkat"], penilaian["skor"],
+                )
+        except Exception:
+            logger.exception("Rekomendasi berbasis aturan gagal dibuat")
+
         selesai_pada = datetime.now(timezone.utc)
         sesi.status = SessionStatus.COMPLETED
         sesi.processing_status = ProcessingStatus.COMPLETED

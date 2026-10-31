@@ -103,8 +103,46 @@ $env:JWT_SECRET_KEY="<kunci-rahasia-anda>"; docker compose up --build
 ### 2.6 Laporan
 
 1. Klik "Laporan Bulanan" di sidebar.
-2. **Hasil yang diharapkan:** dua laporan bulanan dari data simulasi tersedia.
-3. Klik satu laporan untuk melihat isinya.
+2. **Hasil yang diharapkan:** laporan bulanan dari data simulasi tersedia (jika ada). Teks kosong berbunyi "Belum ada laporan. Tekan tombol di atas untuk membuat laporan dari data check-in."
+3. Pilih bulan dari selektor bulan, lalu klik tombol "Buat Laporan".
+4. **Hasil yang diharapkan (bulan dengan data):** pesan sukses "Laporan berhasil dibuat." atau "Laporan berhasil diperbarui." muncul di bawah tombol, dan daftar laporan diperbarui secara otomatis.
+5. **Hasil yang diharapkan (bulan tanpa data):** pesan error "Tidak ada sesi check-in pada [bulan]. Laporan tidak dibuat."
+6. **Hasil yang diharapkan (bulan masa depan):** pesan error dari server "Tidak dapat membuat laporan untuk bulan yang belum berlalu."
+7. Klik tombol "Buat Laporan" dua kali untuk bulan yang sama: laporan yang kedua memperbarui (upsert) laporan pertama, bukan membuat duplikat.
+
+### 2.6.1 Uji tombol laporan dengan curl
+
+```powershell
+# Dapatkan access token
+$body = '{"email":"caregiver@tiara.app","password":"Caregiver_123"}'
+$res = Invoke-RestMethod -Uri "http://localhost:8000/api/v1/auth/login" `
+    -Method POST -ContentType "application/json" -Body $body
+$token = $res.access_token
+
+# Dapatkan dashboard token (verifikasi PIN)
+$pinBody = '{"pin":"123456"}'
+$pinRes = Invoke-RestMethod -Uri "http://localhost:8000/api/v1/caregiver/verify-pin" `
+    -Method POST -ContentType "application/json" -Body $pinBody `
+    -Headers @{Authorization="Bearer $token"}
+$dashToken = $pinRes.dashboard_token
+
+# Buat laporan bulan ini (ganti tahun/bulan sesuai tanggal saat ini)
+$laporanBody = '{"tahun":2026,"bulan":10}'
+Invoke-RestMethod -Uri "http://localhost:8000/api/v1/caregiver/reports/generate" `
+    -Method POST -ContentType "application/json" -Body $laporanBody `
+    -Headers @{Authorization="Bearer $token"; "X-Dashboard-Token"=$dashToken}
+```
+
+**Hasil yang diharapkan:** respons JSON dengan `"status": "berhasil"` dan objek `laporan`, atau `"status": "tidak_ada_data"` jika tidak ada sesi pada bulan tersebut.
+
+```powershell
+# Uji bulan masa depan - harus gagal
+$futureBody = '{"tahun":2099,"bulan":1}'
+Invoke-RestMethod -Uri "http://localhost:8000/api/v1/caregiver/reports/generate" `
+    -Method POST -ContentType "application/json" -Body $futureBody `
+    -Headers @{Authorization="Bearer $token"; "X-Dashboard-Token"=$dashToken}
+# Diharapkan: 422 Unprocessable Entity
+```
 
 ### 2.7 Uji Negatif - Tanpa X-Dashboard-Token
 

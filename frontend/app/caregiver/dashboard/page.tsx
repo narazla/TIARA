@@ -89,12 +89,27 @@ interface RecommendationsGroup {
   when_to_seek_help: RecommendationData[];
 }
 
+interface ContentJson {
+  jumlah_sesi?: number;
+  jumlah_tanpa_suara?: number;
+  avg_skor_risiko?: number | null;
+  skor_tertinggi?: number | null;
+  skor_terendah?: number | null;
+  sebaran_level?: { Tinggi: number; Sedang: number; Rendah: number };
+  perbandingan_bulan_lalu?: string;
+  jumlah_peringatan?: number;
+  ringkasan?: string;
+  catatan_tetap?: string;
+  catatan?: string;
+}
+
 interface ReportData {
   id: string;
   title: string;
   report_month: string;
-  checkin_count: number;
-  avg_risk_score: number;
+  checkin_count: number | null;
+  avg_risk_score: number | null;
+  content_json?: ContentJson | null;
   created_at: string;
 }
 
@@ -127,6 +142,76 @@ const severityStyle = (s: string): string =>
     ? "bg-warning/15 text-amber-700"
     : "bg-primary/15 text-primary-dark";
 
+function ReportCard({ r }: { r: ReportData }) {
+  const cj = r.content_json;
+  const adaRingkasan = cj?.ringkasan;
+  const adaSebaran = cj?.sebaran_level;
+  const adaPerbandingan = cj?.perbandingan_bulan_lalu;
+  const adaCatatan = cj?.catatan_tetap;
+  const adaCatatanLama = cj?.catatan;
+
+  return (
+    <div className="bg-card border border-border/70 rounded-2xl p-6 shadow-sm space-y-3">
+      <div className="flex items-start gap-4">
+        <div className="p-3 bg-primary/10 rounded-xl text-primary-dark flex-shrink-0">
+          <FileText className="w-6 h-6" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <h3 className="font-bold text-lg text-foreground">{r.title}</h3>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            {r.checkin_count != null ? `${r.checkin_count} sesi check-in.` : ""}
+            {r.avg_risk_score != null ? ` Rata-rata Skor Risiko Kognitif: ${r.avg_risk_score.toFixed(1)}.` : ""}
+          </p>
+          <p className="text-[10px] text-muted-foreground mt-1">
+            Dibuat: {new Date(r.created_at).toLocaleString("id-ID")}
+          </p>
+        </div>
+      </div>
+
+      {adaSebaran && (
+        <div className="flex gap-2 flex-wrap">
+          {(["Tinggi", "Sedang", "Rendah"] as const).map((label) => {
+            const n = adaSebaran[label];
+            if (n === undefined) return null;
+            const style =
+              label === "Tinggi"
+                ? "bg-destructive/10 text-destructive"
+                : label === "Sedang"
+                ? "bg-warning/10 text-amber-700"
+                : "bg-primary/10 text-primary-dark";
+            return (
+              <span
+                key={label}
+                className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-border/50 ${style}`}
+              >
+                {label}: {n}
+              </span>
+            );
+          })}
+        </div>
+      )}
+
+      {adaRingkasan && (
+        <p className="text-sm text-foreground leading-relaxed">{adaRingkasan}</p>
+      )}
+
+      {adaPerbandingan && (
+        <p className="text-xs text-muted-foreground italic">{adaPerbandingan}</p>
+      )}
+
+      {adaCatatanLama && (
+        <p className="text-xs text-muted-foreground italic">{adaCatatanLama}</p>
+      )}
+
+      {adaCatatan && (
+        <p className="text-[11px] text-muted-foreground border-t border-border/40 pt-2 mt-1 leading-relaxed">
+          {adaCatatan}
+        </p>
+      )}
+    </div>
+  );
+}
+
 function CaregiverDashboardContent() {
   const router = useRouter();
   const { logout, user } = useAuth();
@@ -153,6 +238,13 @@ function CaregiverDashboardContent() {
     when_to_seek_help: [],
   });
   const [reports, setReports] = useState<ReportData[]>([]);
+  const [generateLoading, setGenerateLoading] = useState(false);
+  const [generateError, setGenerateError] = useState<string | null>(null);
+  const [generateSuccess, setGenerateSuccess] = useState<string | null>(null);
+  const [selectedBulan, setSelectedBulan] = useState<string>(() => {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+  });
 
   // AI Guidance Chat States
   const [chatInput, setChatInput] = useState("");
@@ -691,26 +783,87 @@ function CaregiverDashboardContent() {
                   exit={{ opacity: 0, y: -12 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-2xl font-bold font-serif-editorial text-foreground">Laporan yang Dibuat</h2>
+                  <h2 className="text-2xl font-bold font-serif-editorial text-foreground">Laporan Bulanan</h2>
+
+                  {/* Generator laporan */}
+                  <div className="bg-card border border-border/70 rounded-2xl p-6 shadow-sm">
+                    <h3 className="font-bold text-base text-foreground mb-4">Buat Laporan dari Data Check-in</h3>
+                    <div className="flex flex-wrap items-end gap-3">
+                      <div className="flex flex-col gap-1">
+                        <label className="text-xs font-bold text-muted-foreground">Pilih Bulan</label>
+                        <input
+                          type="month"
+                          value={selectedBulan}
+                          onChange={(e) => {
+                            setSelectedBulan(e.target.value);
+                            setGenerateError(null);
+                            setGenerateSuccess(null);
+                          }}
+                          max={`${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, "0")}`}
+                          className="bg-secondary/40 border border-input rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                        />
+                      </div>
+                      <button
+                        onClick={async () => {
+                          if (!selectedBulan) return;
+                          const [tahun, bulan] = selectedBulan.split("-").map(Number);
+                          setGenerateLoading(true);
+                          setGenerateError(null);
+                          setGenerateSuccess(null);
+                          try {
+                            const res = await caregiverApi.generateReport(tahun, bulan);
+                            if (res.status === "tidak_ada_data") {
+                              setGenerateError(res.pesan || "Tidak ada data sesi pada bulan tersebut.");
+                            } else {
+                              setGenerateSuccess(
+                                res.dibuat_baru
+                                  ? "Laporan berhasil dibuat."
+                                  : "Laporan berhasil diperbarui."
+                              );
+                              const repRes = await caregiverApi.getReports();
+                              setReports(repRes.reports || []);
+                            }
+                          } catch (err) {
+                            if (isAxiosError(err)) {
+                              setGenerateError(
+                                err.response?.data?.detail || "Gagal membuat laporan. Silakan coba lagi."
+                              );
+                            } else {
+                              setGenerateError("Terjadi kesalahan. Silakan coba lagi.");
+                            }
+                          } finally {
+                            setGenerateLoading(false);
+                          }
+                        }}
+                        disabled={generateLoading || !selectedBulan}
+                        className="flex items-center gap-2 bg-primary hover:bg-primary-dark disabled:bg-primary/50 text-white font-bold px-5 py-2 rounded-xl text-sm transition-colors cursor-pointer"
+                      >
+                        {generateLoading ? (
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                        ) : (
+                          <FileText className="w-4 h-4" />
+                        )}
+                        {generateLoading ? "Memproses..." : "Buat Laporan"}
+                      </button>
+                    </div>
+
+                    {generateError && (
+                      <p className="mt-3 text-sm text-destructive font-medium">{generateError}</p>
+                    )}
+                    {generateSuccess && (
+                      <p className="mt-3 text-sm text-primary-dark font-medium">{generateSuccess}</p>
+                    )}
+                  </div>
+
+                  {/* Daftar laporan */}
                   <div className="space-y-4">
                     {reports.length === 0 ? (
-                      <p className="text-muted-foreground text-sm font-medium">Belum ada laporan yang dibuat. Laporan dikompilasi setiap bulan.</p>
+                      <p className="text-muted-foreground text-sm font-medium">
+                        Belum ada laporan. Tekan tombol di atas untuk membuat laporan dari data check-in.
+                      </p>
                     ) : (
-                      reports.map((r, idx) => (
-                        <div key={r.id} className="bg-card border border-border/70 rounded-2xl p-6 shadow-sm flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <div className="p-3 bg-primary/10 rounded-xl text-primary-dark">
-                              <FileText className="w-6 h-6" />
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-lg text-foreground">{r.title}</h3>
-                              <p className="text-xs text-muted-foreground mt-0.5">
-                                {r.checkin_count} check-in. Rata-rata Skor Risiko: {r.avg_risk_score.toFixed(1)}
-                              </p>
-                            </div>
-                          </div>
-                          {idx === 0 && (<a href="/laporan-demo.pdf" download="Laporan-TIARA-Oktober-2026.pdf" className="bg-card border border-border hover:bg-secondary text-foreground font-bold px-4 py-2 rounded-xl text-sm transition-colors cursor-pointer inline-block">Unduh PDF</a>)}
-                        </div>
+                      reports.map((r) => (
+                        <ReportCard key={r.id} r={r} />
                       ))
                     )}
                   </div>

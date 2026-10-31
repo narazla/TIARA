@@ -54,6 +54,10 @@ export const caregiverApi = {
     const response = await apiClient.get("/api/v1/caregiver/reports");
     return response.data;
   },
+  generateReport: async (tahun: number, bulan: number) => {
+    const response = await apiClient.post("/api/v1/caregiver/reports/generate", { tahun, bulan });
+    return response.data;
+  },
 };
 
 // --- DEMENTIA GUIDANCE (RAG AI) API ---

@@ -14,6 +14,7 @@ from app.database.session import get_db
 from app.models.caregiver import CaregiverPatientLink, CaregiverPin
 from app.models.user import User
 from app.services.rag_guidance_service import get_rag_answer
+from app.services.laporan_service import buat_atau_perbarui_laporan
 
 logger = logging.getLogger(__name__)
 
@@ -383,10 +384,85 @@ async def get_caregiver_reports(
                 "report_month": r.report_month.isoformat(),
                 "checkin_count": r.checkin_count,
                 "avg_risk_score": r.avg_risk_score,
+                "content_json": r.content_json,
                 "created_at": r.created_at.isoformat(),
             }
             for r in reports
         ]
+    }
+
+
+class GenerateLaporanRequest(BaseModel):
+    tahun: int
+    bulan: int
+
+
+@router.post("/reports/generate")
+async def generate_laporan_bulanan(
+    data: GenerateLaporanRequest,
+    current_user: User = Depends(require_caregiver_pin),
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Buat atau perbarui laporan bulanan untuk pasien yang terhubung ke caregiver ini.
+    Laporan dihitung dari data sesi nyata pasien pada bulan tersebut.
+    Skor hanya dari komponen suara. Laporan adalah indikator informatif, bukan diagnosis.
+    """
+    # Validasi bulan 1-12
+    if not (1 <= data.bulan <= 12):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Bulan harus antara 1 sampai 12.",
+        )
+
+    # Larang bulan di masa depan
+    sekarang = datetime.now(timezone.utc)
+    if data.tahun > sekarang.year or (
+        data.tahun == sekarang.year and data.bulan > sekarang.month
+    ):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Tidak dapat membuat laporan untuk bulan yang belum berlalu.",
+        )
+
+    # Ambil pasien yang terhubung ke caregiver ini
+    result = await db.execute(
+        select(CaregiverPatientLink).where(
+            CaregiverPatientLink.caregiver_user_id == current_user.id
+        ).limit(1)
+    )
+    link = result.scalar_one_or_none()
+    if not link:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Tidak ada pasien yang terhubung ke akun caregiver ini.",
+        )
+    patient_id = link.patient_user_id
+
+    hasil = await buat_atau_perbarui_laporan(
+        db=db,
+        patient_user_id=patient_id,
+        tahun=data.tahun,
+        bulan=data.bulan,
+        generated_by_user_id=current_user.id,
+    )
+
+    if "pesan" in hasil:
+        return {"status": "tidak_ada_data", "pesan": hasil["pesan"]}
+
+    laporan = hasil["laporan"]
+    return {
+        "status": "berhasil",
+        "dibuat_baru": hasil["dibuat_baru"],
+        "laporan": {
+            "id": str(laporan.id),
+            "title": laporan.title,
+            "report_month": laporan.report_month.isoformat(),
+            "checkin_count": laporan.checkin_count,
+            "avg_risk_score": laporan.avg_risk_score,
+            "content_json": laporan.content_json,
+            "created_at": laporan.created_at.isoformat(),
+        },
     }
 
 

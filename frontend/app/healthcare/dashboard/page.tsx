@@ -45,12 +45,27 @@ interface AlertItem {
   is_read: boolean;
 }
 
+interface ReportContentJson {
+  jumlah_sesi?: number;
+  jumlah_tanpa_suara?: number;
+  avg_skor_risiko?: number | null;
+  skor_tertinggi?: number | null;
+  skor_terendah?: number | null;
+  sebaran_level?: { Tinggi: number; Sedang: number; Rendah: number };
+  perbandingan_bulan_lalu?: string;
+  jumlah_peringatan?: number;
+  ringkasan?: string;
+  catatan_tetap?: string;
+  catatan?: string;
+}
+
 interface ReportItem {
   id: string;
   title: string;
   report_month: string;
-  checkin_count: number;
-  avg_risk_score: number;
+  checkin_count: number | null;
+  avg_risk_score: number | null;
+  content_json?: ReportContentJson | null;
   created_at: string;
 }
 
@@ -468,15 +483,60 @@ function HealthcareDashboardContent() {
                   {summary.reports.length === 0 ? (
                     <p className="text-sm text-muted-foreground font-medium">Belum ada laporan untuk pasien ini.</p>
                   ) : (
-                    <div className="divide-y divide-border/60">
-                      {summary.reports.map((r) => (
-                        <div key={r.id} className="py-3 flex items-center justify-between gap-4">
-                          <p className="font-bold text-sm text-foreground">{r.title}</p>
-                          <p className="text-xs text-muted-foreground">
-                            {r.checkin_count} check-in. Rata-rata Skor Risiko: {r.avg_risk_score.toFixed(1)}
-                          </p>
-                        </div>
-                      ))}
+                    <div className="space-y-4">
+                      {summary.reports.map((r) => {
+                        const cj = r.content_json;
+                        return (
+                          <div key={r.id} className="border border-border/60 rounded-xl p-4 bg-secondary/20 space-y-2">
+                            <div>
+                              <p className="font-bold text-sm text-foreground">{r.title}</p>
+                              <p className="text-xs text-muted-foreground mt-0.5">
+                                {r.checkin_count != null ? `${r.checkin_count} sesi check-in.` : ""}
+                                {r.avg_risk_score != null ? ` Rata-rata Skor Risiko Kognitif: ${r.avg_risk_score.toFixed(1)}.` : ""}
+                              </p>
+                              <p className="text-[10px] text-muted-foreground">
+                                Dibuat: {new Date(r.created_at).toLocaleString("id-ID")}
+                              </p>
+                            </div>
+                            {cj?.sebaran_level && (
+                              <div className="flex gap-2 flex-wrap">
+                                {(["Tinggi", "Sedang", "Rendah"] as const).map((label) => {
+                                  const n = cj.sebaran_level![label];
+                                  if (n === undefined) return null;
+                                  const style =
+                                    label === "Tinggi"
+                                      ? "bg-destructive/10 text-destructive"
+                                      : label === "Sedang"
+                                      ? "bg-warning/10 text-amber-700"
+                                      : "bg-primary/10 text-primary-dark";
+                                  return (
+                                    <span
+                                      key={label}
+                                      className={`text-[10px] font-bold px-2 py-0.5 rounded-full border border-border/50 ${style}`}
+                                    >
+                                      {label}: {n}
+                                    </span>
+                                  );
+                                })}
+                              </div>
+                            )}
+                            {cj?.ringkasan && (
+                              <p className="text-xs text-foreground leading-relaxed">{cj.ringkasan}</p>
+                            )}
+                            {cj?.perbandingan_bulan_lalu && (
+                              <p className="text-xs text-muted-foreground italic">{cj.perbandingan_bulan_lalu}</p>
+                            )}
+                            {cj?.catatan && (
+                              <p className="text-xs text-muted-foreground italic">{cj.catatan}</p>
+                            )}
+                            {cj?.catatan_tetap && (
+                              <p className="text-[10px] text-muted-foreground border-t border-border/40 pt-1.5 leading-relaxed">
+                                {cj.catatan_tetap}
+                              </p>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
                 </div>

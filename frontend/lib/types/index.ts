@@ -134,6 +134,14 @@ export interface Report {
   checkin_count: number | null;
   avg_risk_score: number | null;
   created_at: string;
+  content_json?: Record<string, unknown>;
+}
+
+export interface GenerateReportResponse {
+  status: "berhasil" | "tidak_ada_data";
+  dibuat_baru?: boolean;
+  pesan?: string;
+  laporan?: Report;
 }
 
 export interface ApiError {

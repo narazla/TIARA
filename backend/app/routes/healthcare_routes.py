@@ -345,6 +345,7 @@ async def ringkasan_pasien(
                 "report_month": r.report_month.isoformat(),
                 "checkin_count": r.checkin_count,
                 "avg_risk_score": r.avg_risk_score,
+                "content_json": r.content_json,
                 "created_at": r.created_at.isoformat(),
             }
             for r in laporan

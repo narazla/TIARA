@@ -92,7 +92,7 @@ Setiap check-in yang selesai menghasilkan satu set rekomendasi untuk caregiver. 
 - Lima kategori: rutinitas, aktivitas kognitif, sosial, catatan medis, dan kesejahteraan.
 - Hanya set terbaru per pasien yang ditampilkan. Rekomendasi bawaan data demo tidak diubah.
 - Dashboard menampilkan catatan bahwa rekomendasi ini berbasis aturan, bukan saran medis, dan bukan pengganti tenaga kesehatan.
-- Teks templat belum ditinjau secara resmi oleh tenaga kesehatan. Seorang dokter telah memberi masukan lewat wawancara dan bersedia meninjau teks secara tertulis (lihat Validasi Awal).
+- Teks templat rekomendasi dan peringatan telah ditinjau dan disetujui penggunaannya oleh dr. Sri Rachmani, M.Kes., MH.Kes., FISQua, disertai masukan perubahan (kalimat peringatan lebih lembut, tanda darurat stroke, ajakan pemeriksaan ke dokter). Masukan itu menjadi prioritas perbaikan dan belum seluruhnya diterapkan. Ini peninjauan satu dokter, bukan sertifikasi klinis atas skor suara.
 
 ---
 
@@ -242,7 +242,7 @@ Wawancara dilakukan dengan dr. Sri Rachmani, M.Kes., MH.Kes., FISQua.
 - **Masukan untuk teks:** kata "menyimpang" pada peringatan dapat membuat cemas dan perlu disertai keterangan bahwa ini bukan penyakit. Saran tingkat Tinggi tidak boleh menyiratkan diagnosis dan sebaiknya mengajak menjadwalkan pemeriksaan ke dokter. Bagian bantuan segera perlu memuat tanda darurat stroke (wajah tidak simetris, bicara pelo mendadak, lemah di satu sisi tubuh, kebingungan berat) dan nomor layanan darurat. Skor satu hari dapat dipengaruhi kondisi tubuh dan emosi, sehingga yang penting adalah pola beberapa hari. Setiap layar utama perlu menyebut bahwa ini bukan diagnosis dan tidak menggantikan dokter.
 - **Privasi:** keluarga perlu tahu siapa yang dapat melihat data dan cara menghapusnya sebelum rekaman dimulai.
 - **Saran uji berikutnya:** caregiver dan kader posyandu lebih dulu, puskesmas setelah teks direvisi.
-- **Status peninjauan:** dokter bersedia meninjau teks rekomendasi dan peringatan secara tertulis dan akan menyebutkan sendiri apa yang telah ditinjau. Peninjauan itu belum selesai, sehingga TIARA belum menyatakan teksnya telah ditinjau secara resmi.
+- Status peninjauan: teks rekomendasi dan peringatan telah ditinjau dan disetujui penggunaannya oleh dr. Sri Rachmani, M.Kes., MH.Kes., FISQua, dengan masukan perubahan yang belum seluruhnya diterapkan. Ringkasan wawancara juga telah beliau lihat dan setujui.
 
 Temuan di atas menjadi dasar perbaikan berikutnya. Perubahan yang sudah diterapkan dicatat di riwayat commit.
 
@@ -407,7 +407,7 @@ Aplikasi dapat dicoba di **[tiara.heyizza.my.id](https://tiara.heyizza.my.id)**.
 
 - **IBM watsonx.ai:** model bahasa saat ini adalah Google Gemini. Integrasi watsonx.ai direncanakan sebagai pengembangan berikutnya dan belum diimplementasikan.
 - **Pencarian vektor untuk jalur Langflow:** peralihan ke Chroma dengan embedding Google (lihat bagian Integrasi IBM Bob + Langflow).
-- **Peninjauan tenaga kesehatan** atas teks rekomendasi dan peringatan (dokter bersedia meninjau secara tertulis, belum selesai) serta validasi klinis skor suara.
+- **Peninjauan tenaga kesehatan** lanjutan: menerapkan masukan perubahan dari dokter pada teks rekomendasi dan peringatan, serta validasi klinis skor suara.
 - **Evaluasi lebih besar** untuk faithfulness dan uji pengguna yang lebih luas, dimulai dari caregiver dan kader posyandu.
 - **Dari masukan pengguna dan dokter:** penafian di setiap layar utama, tanda darurat stroke dan nomor layanan darurat, kalimat peringatan yang lebih lembut, keterangan skala skor, halaman persetujuan serta penghapusan data, versi laporan bulanan yang lebih sederhana, pengingat jadwal kontrol, kategori komunikasi dan keselamatan pada rekomendasi, catatan kejadian harian dari keluarga, dan pengaturan penerima notifikasi.
 

@@ -72,6 +72,8 @@ interface DashboardData {
   speech_hesitation_rate_delta: number | null;
   unread_alerts: number;
   is_simulated: boolean;
+  jumlah_sesi_nyata: number;
+  minimal_sesi_baseline: number;
 }
 
 interface RecommendationData {
@@ -289,6 +291,8 @@ function CaregiverDashboardContent() {
   const [trendData, setTrendData] = useState<TrendPoint[]>([]);
   const [latestSession, setLatestSession] = useState<LatestSession | null>(null);
   const [isSimulated, setIsSimulated] = useState(false);
+  const [jumlahSesiNyata, setJumlahSesiNyata] = useState(0);
+  const [minimalSesiBaseline, setMinimalSesiBaseline] = useState(3);
   const [avgResponseDelay, setAvgResponseDelay] = useState<number | null>(null);
   const [delayDelta, setDelayDelta] = useState<number | null>(null);
   const [speechHesitationRate, setSpeechHesitationRate] = useState<number | null>(null);
@@ -343,6 +347,8 @@ function CaregiverDashboardContent() {
         setLatestSession(dash.latest_session);
         setTrendData(dash.trend_data || []);
         setIsSimulated(dash.is_simulated ?? false);
+        setJumlahSesiNyata(dash.jumlah_sesi_nyata ?? 0);
+        setMinimalSesiBaseline(dash.minimal_sesi_baseline ?? 3);
         setAvgResponseDelay(dash.avg_response_delay);
         setDelayDelta(dash.avg_response_delay_delta);
         setSpeechHesitationRate(dash.speech_hesitation_rate);
@@ -591,6 +597,11 @@ function CaregiverDashboardContent() {
                           </div>
                         )}
                       </div>
+                      {jumlahSesiNyata < minimalSesiBaseline && (
+                        <p className="text-xs text-muted-foreground mt-3">
+                          Skor check-in nyata memakai nilai acuan umum sampai ada {minimalSesiBaseline} sesi nyata. Saat ini {jumlahSesiNyata} sesi.
+                        </p>
+                      )}
                     </div>
 
                     {/* Quick Alerts */}

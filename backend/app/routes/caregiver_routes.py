@@ -94,7 +94,7 @@ async def get_caregiver_dashboard(
     Returns null for metrics when no analysis data exists.
     """
     from statistics import mean
-    from sqlalchemy import and_, desc
+    from sqlalchemy import and_, desc, func
     from app.core.config import settings as app_settings
     from app.models.analysis import (
         LanguageAnalysisResult,
@@ -103,6 +103,7 @@ async def get_caregiver_dashboard(
     )
     from app.models.alert import Alert
     from app.models.checkin import CheckinSession
+    from app.services.voice_analysis_service import MIN_RIWAYAT, SUMBER
 
     # Find linked patient
     result = await db.execute(
@@ -250,6 +251,17 @@ async def get_caregiver_dashboard(
     )
     unread_alerts = len(result.scalars().all())
 
+    # ── Count real sessions (same filter as _riwayat_pribadi) ──
+    result = await db.execute(
+        select(func.count()).select_from(VoiceAnalysisResult)
+        .join(CheckinSession, CheckinSession.id == VoiceAnalysisResult.session_id)
+        .where(
+            CheckinSession.patient_user_id == patient_id,
+            VoiceAnalysisResult.raw_features["sumber"].astext == SUMBER,
+        )
+    )
+    jumlah_sesi_nyata = result.scalar() or 0
+
     return {
         "patient": {
             "id": str(patient.id),
@@ -266,6 +278,8 @@ async def get_caregiver_dashboard(
         "speech_hesitation_rate_delta": _delta(hes_cur, hes_prev),
         "unread_alerts": unread_alerts,
         "is_simulated": app_settings.DEMO_MODE,
+        "jumlah_sesi_nyata": jumlah_sesi_nyata,
+        "minimal_sesi_baseline": MIN_RIWAYAT,
     }
 
 

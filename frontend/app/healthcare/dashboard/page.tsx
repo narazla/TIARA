@@ -403,18 +403,7 @@ function HealthcareDashboardContent() {
                 </div>
 
                 {/* Indikator */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-                  <div className="bg-card border border-border/70 rounded-2xl p-5 shadow-sm">
-                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Konsistensi Memori</p>
-                    <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">
-                      {summary.memory_consistency !== null
-                        ? `${summary.memory_consistency.toLocaleString("id-ID")}%`
-                        : "Belum ada data"}
-                    </p>
-                    <p className="text-xs text-muted-foreground font-semibold mt-1">
-                      {formatDelta(summary.memory_consistency_delta, "%")}
-                    </p>
-                  </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                   <div className="bg-card border border-border/70 rounded-2xl p-5 shadow-sm">
                     <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Jeda Respons</p>
                     <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">

@@ -289,8 +289,6 @@ function CaregiverDashboardContent() {
   const [trendData, setTrendData] = useState<TrendPoint[]>([]);
   const [latestSession, setLatestSession] = useState<LatestSession | null>(null);
   const [isSimulated, setIsSimulated] = useState(false);
-  const [memoryConsistency, setMemoryConsistency] = useState<number | null>(null);
-  const [memoryDelta, setMemoryDelta] = useState<number | null>(null);
   const [avgResponseDelay, setAvgResponseDelay] = useState<number | null>(null);
   const [delayDelta, setDelayDelta] = useState<number | null>(null);
   const [speechHesitationRate, setSpeechHesitationRate] = useState<number | null>(null);
@@ -345,8 +343,6 @@ function CaregiverDashboardContent() {
         setLatestSession(dash.latest_session);
         setTrendData(dash.trend_data || []);
         setIsSimulated(dash.is_simulated ?? false);
-        setMemoryConsistency(dash.memory_consistency);
-        setMemoryDelta(dash.memory_consistency_delta);
         setAvgResponseDelay(dash.avg_response_delay);
         setDelayDelta(dash.avg_response_delay_delta);
         setSpeechHesitationRate(dash.speech_hesitation_rate);
@@ -546,16 +542,7 @@ function CaregiverDashboardContent() {
                   className="space-y-8"
                 >
                   {/* Stats Overview */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    <div className="bg-card border border-border/70 rounded-2xl p-5 shadow-sm">
-                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Konsistensi Memori</p>
-                      <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">
-                        {memoryConsistency !== null ? `${memoryConsistency.toLocaleString("id-ID")}%` : "Belum ada data"}
-                      </p>
-                      <p className="text-xs text-muted-foreground font-semibold mt-1">
-                        {formatDelta(memoryDelta, "%")}
-                      </p>
-                    </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="bg-card border border-border/70 rounded-2xl p-5 shadow-sm">
                       <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Jeda Respons</p>
                       <p className="text-2xl font-bold font-serif-editorial text-foreground mt-2">

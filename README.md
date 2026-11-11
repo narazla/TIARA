@@ -494,10 +494,6 @@ Dokumentasi proyek tambahan ada di [`docs/`](docs/):
 - TIARA tidak boleh digunakan sebagai pengganti evaluasi medis profesional.
 - Menurut masukan dokter, pemantauan ini cocok untuk lansia dengan keluhan ringan yang masih bisa bicara, dan tidak cocok untuk afasia berat, gangguan bicara yang sudah diketahui sebelumnya, atau pasien dalam pengobatan intensif tanpa pemantauan dokter.
 - Uji pengguna masih berskala kecil (5 caregiver, 2 lansia, 1 dokter) dan belum mewakili populasi yang luas.
-- Nilai acuan umum (100 kata per menit, jeda 0,8 detik, 2,0 keraguan per menit, jeda respons 2,0 detik) dan bobot komponen adalah heuristik tim, bukan angka dari literatur klinis.
-- Pilihan kondisi sebelum check-in hanya konteks dan tidak memengaruhi skor. Belum diuji apakah konteks ini mengurangi peringatan yang tidak perlu.
-- Lansia yang tinggal sendiri tanpa caregiver belum terjangkau: peringatan hanya muncul di dashboard caregiver dan belum ada notifikasi push, WhatsApp, atau email.
-- Peringatan dapat menimbulkan kecemasan pada keluarga. Kalimat peringatan sudah dilunakkan dan memuat keterangan bahwa ini bukan diagnosis, tetapi dampak psikologisnya belum diukur.
 
 ---
 

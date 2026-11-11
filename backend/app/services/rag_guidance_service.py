@@ -18,11 +18,14 @@ Pipeline:
 """
 
 import pickle
+import re
 import time
+import uuid
 from pathlib import Path
 from typing import TypedDict
 
 import faiss
+import httpx
 import numpy as np
 from google import genai
 from sentence_transformers import SentenceTransformer
@@ -124,6 +127,63 @@ Pertanyaan: {pertanyaan}
 Jawaban:"""
 
 
+def _parse_sumber(jawaban: str) -> list[str]:
+    """Ambil sumber dari baris 'Sumber:' bila ada, jika tidak dari rujukan dalam kurung."""
+    for baris in reversed(jawaban.strip().splitlines()):
+        b = baris.strip().lstrip("*").strip()
+        if re.match(r"(?i)^sumber\s*:", b):
+            isi = b.split(":", 1)[1]
+            hasil = [s.strip(" []*") for s in isi.split(";") if s.strip(" []*")]
+            if hasil:
+                return hasil
+
+    hasil: list[str] = []
+    for kurung in re.findall(r"\(([^()]*Halaman[^()]*)\)", jawaban):
+        for bagian in kurung.split(";"):
+            m = re.match(r"\s*(.+?),?\s*Halaman\s*(\d+)", bagian)
+            if m:
+                label = f"{m.group(1).strip()} hal {m.group(2)}"
+                if label not in hasil:
+                    hasil.append(label)
+    return hasil
+
+
+def _ambil_teks_langflow(data: dict) -> str:
+    """Ambil teks jawaban dari respons API run Langflow."""
+    hasil = data["outputs"][0]["outputs"][0]
+    return hasil["results"]["message"]["text"] or ""
+
+
+def _jawab_via_langflow(pertanyaan: str) -> GuidanceAnswer | None:
+    """Coba jawab lewat Langflow. Kembalikan None bila tidak aktif atau gagal."""
+    if not (settings.LANGFLOW_URL and settings.LANGFLOW_FLOW_ID):
+        return None
+
+    url = f"{settings.LANGFLOW_URL.rstrip('/')}/api/v1/run/{settings.LANGFLOW_FLOW_ID}"
+    headers = {}
+    if settings.LANGFLOW_API_KEY:
+        headers["x-api-key"] = settings.LANGFLOW_API_KEY
+    payload = {
+        "output_type": "chat",
+        "input_type": "chat",
+        "input_value": pertanyaan,
+        "session_id": str(uuid.uuid4()),
+    }
+
+    try:
+        r = httpx.post(url, json=payload, headers=headers, timeout=settings.LANGFLOW_TIMEOUT)
+        r.raise_for_status()
+        jawaban = _ambil_teks_langflow(r.json()).strip()
+        if not jawaban:
+            raise ValueError("jawaban Langflow kosong")
+    except Exception as e:
+        print(f"[LANGFLOW WARNING] {e}. Beralih ke jalur FAISS.")
+        return None
+
+    print("[RAG] jawaban dari Langflow")
+    return {"answer": jawaban, "sources": _parse_sumber(jawaban)}
+
+
 def get_rag_answer(pertanyaan: str) -> GuidanceAnswer:
     """
     Jawab pertanyaan caregiver berbasis RAG.
@@ -132,6 +192,10 @@ def get_rag_answer(pertanyaan: str) -> GuidanceAnswer:
         GuidanceAnswer dengan field 'answer' (teks jawaban) dan 'sources'
         (daftar label dokumen+halaman yang terambil).
     """
+    hasil_langflow = _jawab_via_langflow(pertanyaan)
+    if hasil_langflow is not None:
+        return hasil_langflow
+
     try:
         konteks, sumber = _retrieve(pertanyaan)
     except Exception as e:

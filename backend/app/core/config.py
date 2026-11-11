@@ -23,6 +23,10 @@ class Settings(BaseSettings):
     # LLM
     LLM_PROVIDER: str = "none"  # none | openai | anthropic | gemini
     LLM_API_KEY: Optional[str] = None
+    LANGFLOW_URL: str = ""
+    LANGFLOW_FLOW_ID: str = ""
+    LANGFLOW_API_KEY: str = ""
+    LANGFLOW_TIMEOUT: int = 20
 
     # CORS
     # Comma-separated origins, for example:

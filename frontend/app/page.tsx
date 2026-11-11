@@ -159,7 +159,7 @@ export default function LandingPage() {
               Cara kerja TIARA
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Check-in harian membuat catatan berkala tentang kesehatan kognitif, yang dirancang untuk menampilkan pola bermakna dari waktu ke waktu.
+              Check-in harian membuat catatan berkala tentang pola bicara, yang dirancang untuk menampilkan perubahan bermakna dari waktu ke waktu.
             </p>
           </motion.div>
 
@@ -175,7 +175,7 @@ export default function LandingPage() {
                 step: "02",
                 icon: Sparkles,
                 title: "Analisis AI",
-                desc: "Pola suara, koherensi bahasa, dan daya ingat dirancang untuk dianalisis oleh pipeline AI TIARA (dalam pengembangan).",
+                desc: "Kecepatan bicara, jeda, waktu respons, dan tanda keraguan pada suara dianalisis, lalu dibandingkan dengan pola bicara sebelumnya atau acuan umum.",
               },
               {
                 step: "03",

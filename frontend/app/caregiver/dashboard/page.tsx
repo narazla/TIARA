@@ -541,6 +541,13 @@ function CaregiverDashboardContent() {
                   exit={{ opacity: 0, y: -12 }}
                   className="space-y-8"
                 >
+                  {/* Simulated data banner */}
+                  {isSimulated && (
+                    <div className="bg-warning/15 text-amber-700 text-xs font-semibold rounded-xl px-4 py-2.5">
+                      Mode demo. Tren 30 hari dan peringatan di halaman ini memuat data simulasi. Skor belum divalidasi klinis.
+                    </div>
+                  )}
+
                   {/* Stats Overview */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="bg-card border border-border/70 rounded-2xl p-5 shadow-sm">

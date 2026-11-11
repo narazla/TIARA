@@ -32,7 +32,7 @@ Dikonfigurasi untuk `FRONTEND_URL` saja. Header `X-Dashboard-Token` ada di dafta
 
 ## Enkripsi Rekaman
 
-Berkas audio disimpan sebagai `.webm.enc` (enkripsi Fernet). Kunci dari `MEDIA_ENCRYPTION_KEY`. Dekripsi hanya di memori. Kehilangan kunci membuat rekaman tidak bisa dibuka.
+Berkas audio disimpan sebagai `.webm.enc` (enkripsi Fernet, satu berkas per pertanyaan dalam folder session_id). Kunci dari `MEDIA_ENCRYPTION_KEY`. Dekripsi hanya di memori. Kehilangan kunci membuat rekaman tidak bisa dibuka.
 
 ---
 
@@ -46,8 +46,14 @@ Teks transkrip di tabel `transcripts` disimpan sebagai plaintext di database Pos
 
 - Data analisis sesi nyata tersimpan di PostgreSQL bersama data simulasi seed.
 - Data simulasi ditandai dengan `provider="simulasi-demo"`.
-- Jurnal suasana hati tersimpan di database tetapi belum ditampilkan ke caregiver.
+- Jurnal suasana hati dan pilihan kondisi sebelum check-in tersimpan di tabel yang sama (`mood_entries`) tetapi belum ditampilkan ke caregiver.
 - Tidak ada kebijakan retensi otomatis di kode saat ini.
+
+## Data yang Keluar dari Server
+
+- Teks pertanyaan chat panduan caregiver dikirim ke Langflow (bila dikonfigurasi) dan ke Gemini API (Google) untuk menyusun jawaban. Sistem tidak menambahkan data pasien ke prompt, tetapi teks apa pun yang diketik caregiver ikut terkirim, sehingga caregiver sebaiknya tidak menulis identitas pasien dalam pertanyaan.
+- Audio check-in dan teks transkrip diproses secara lokal oleh faster-whisper dan tidak dikirim ke layanan eksternal.
+- Selain unduhan model saat pertama kali dipakai (faster-whisper dan model embedding), tidak ada panggilan yang membawa data pengguna ke luar server selain ke Langflow dan Gemini API di atas.
 
 ---
 

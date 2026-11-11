@@ -126,6 +126,16 @@ score = clamp(1.5 + 7.5 * penyimpangan, 0, 10)
 
 ---
 
+## Dasar Indikator
+
+Pemilihan indikator kecepatan bicara dan jeda mengacu pada meta-analisis:
+
+> Cohen, A. S., Divers, R., et al. (2025). Speech pause and speech rate for evaluating Alzheimer's and mild cognitive impairment: A meta-analysis. *Journal of the International Neuropsychological Society*. Cambridge University Press. https://resolve.cambridge.org/core/journals/journal-of-the-international-neuropsychological-society/article/speech-pause-and-speech-rate-for-evaluating-alzheimers-and-mild-cognitive-impairment-a-metaanalysis/26ADD29A52BE763FF3A87C6F6F8EFEDB
+
+Rujukan ini mendukung pemilihan indikator kecepatan bicara dan jeda. Nilai acuan umum dan bobot komponen adalah heuristik tim. Indikator kata ragu dan jeda respons tidak bersumber dari jurnal ini.
+
+---
+
 ## RAG Guidance Pipeline
 
 Separate from the check-in pipeline. Used for Dementia Guidance AI chat.

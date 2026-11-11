@@ -5,7 +5,7 @@
 TIARA follows a layered monorepo architecture with clear separation between the frontend, backend API, and AI service layer. The system is Docker-ready and environment-variable-driven.
 
 ```
-TIARA-IBM/
+TIARA/
 ├── frontend/          # Next.js (App Router) + TypeScript + Tailwind CSS
 ├── backend/           # FastAPI + Python + PostgreSQL
 ├── langflow/          # Exported Langflow flow (IBM Bob MCP tool)
@@ -46,10 +46,22 @@ TIARA-IBM/
 
 TIARA has two separate AI paths that must not be confused:
 
-### Path 1: In-App RAG (Caregiver Guidance Chat)
+### Path 1: In-App Guidance (Caregiver Guidance Chat)
 
 Used when a caregiver types a question in the guidance chat inside the web application.
 
+The primary path calls Langflow if `LANGFLOW_URL` and `LANGFLOW_FLOW_ID` are set. If those are empty, Langflow is unavailable, or the call fails/times out, the backend automatically falls back to the FAISS path.
+
+**Langflow path (primary when configured):**
+```
+User question
+    -> POST to LANGFLOW_URL/api/v1/run/{LANGFLOW_FLOW_ID}
+    -> Langflow agent (gemini-flash-lite-latest) retrieves from Chroma
+       (chunks embedded with gemini-embedding-001)
+    -> Answer returned (~2-4 s in Playground, ~7-12 s via IBM Bob)
+```
+
+**FAISS path (automatic fallback):**
 ```
 User question
     -> Query expansion (_perluas_pertanyaan)
@@ -59,9 +71,9 @@ User question
     -> Answer + source page labels returned
 ```
 
-Index composition: 396 chunks from PNPK Demensia + 162 chunks from Panduan Caregiver Kemenkes.
+FAISS index composition: 396 chunks from PNPK Demensia + 162 chunks from Panduan Caregiver Kemenkes.
 
-Page label logic: PNPK stores pages starting at 0; displayed label = stored index + 1. Caregiver Guide stores pages starting at 1; used as-is.
+Page label logic (FAISS path): PNPK stores pages starting at 0; displayed label = stored index + 1. Caregiver Guide stores pages starting at 1; used as-is.
 
 ### Path 2: Langflow MCP (IBM Bob)
 
@@ -69,16 +81,18 @@ Used when a user asks IBM Bob via the `answer_from_dementia_guideline` tool.
 
 ```
 Bob question -> MCP tool call -> Langflow agent
-    -> Full text of both documents inserted into Gemini prompt (no vector search)
+    -> Documents chunked and stored in Chroma
+       (embedding: gemini-embedding-001)
+    -> Agent (gemini-flash-lite-latest) retrieves relevant chunks
     -> Gemini generates answer
     -> Answer returned to Bob
 ```
 
-Consequence: each call uses the full document text in the prompt (~250k tokens). On Gemini free tier this limits throughput to approximately one question per minute.
+Response time: approximately 2-4 seconds in Langflow Playground; approximately 7-12 seconds via IBM Bob (measured on three test questions).
 
-Page number difference: in the Langflow path, PNPK page references are corrected via agent instructions; Caregiver Guide references use the printed book page number (e.g. page 14), which differs from the PDF page number (e.g. 24) used in Path 1.
+Page citation: page references in the Langflow path are written by the agent inside the answer (format: Document, Page N), so page numbers may differ from the FAISS path.
 
-Planned improvement: switching the Langflow path to vector search (Chroma) is planned but not yet implemented.
+The Langflow path now uses Chroma vector search. Retrieval and faithfulness evaluation for this path has not yet been performed.
 
 ---
 
@@ -110,8 +124,13 @@ Elderly user
             +-- Browser: MediaRecorder per question (audio stream only)
             +-- Browser: SpeechSynthesisUtterance speaks question
             |
+            +-- (optional) User selects pre-check-in condition
+            |
             +-- POST /api/v1/elderly/checkin/start {consent: true}
             |   -> Creates CheckinSession, returns session_id
+            |
+            +-- (optional) POST /api/v1/elderly/mood {mood: <condition>}
+            |   -> Saves selected condition; does not affect risk score
             |
             +-- POST /api/v1/elderly/checkin/{id}/answer (per question)
             |   -> Audio blob uploaded, encrypted with Fernet, saved as .webm.enc
@@ -123,13 +142,13 @@ Elderly user
                     +-- Voice feature extraction (WPM, pauses, hesitations, response delay)
                     +-- Feature aggregation across answers
                     +-- Baseline selection (personal median or general reference)
-                    +-- Risk score calculation (0-10, weighted deviation)
+                    +-- Risk score calculation (0-10, weighted deviation; in practice 1.5 to 9.0)
                     +-- Save Transcript, VoiceAnalysisResult, RiskScore
                     +-- Generate alerts if applicable
                     +-- Return {status, session_id, perlu_perhatian}
 ```
 
-Note: language analysis, facial analysis, and memory scoring are NULL for all real sessions. These components appear only in simulated demo data.
+Note: language analysis, facial analysis, and memory scoring are NULL for all real sessions. These components appear only in simulated demo data. The Memory Consistency card has been removed from the caregiver dashboard UI because the memory component is not measured in real sessions.
 
 ### Caregiver Dashboard Flow
 

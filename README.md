@@ -35,7 +35,7 @@ TIARA menjawab kesenjangan dalam perawatan kognitif dini bagi lansia dan keluarg
 
 TIARA menyatukan tiga pengalaman dalam satu platform:
 
-- **Lansia** menyelesaikan check-in suara harian yang sederhana melalui mikrofon perangkat mereka, dipandu oleh pertanyaan AI yang diucapkan.
+- **Lansia** menyelesaikan check-in suara harian yang sederhana melalui mikrofon perangkat mereka, dipandu oleh pertanyaan lisan yang dibacakan lewat suara browser.
 - **Caregiver** mengakses dashboard terlindungi PIN yang merangkum tren risiko kognitif, peringatan otomatis, rekomendasi berbasis aturan, dan chat panduan demensia.
 - **Tenaga kesehatan** memantau pasien, meninjau data sesi longitudinal, dan mengakses laporan bulanan.
 
@@ -45,7 +45,7 @@ TIARA menyatukan tiga pengalaman dalam satu platform:
 
 ```text
 Lansia:
-  Login -> Beranda -> Check-in harian (suara per pertanyaan, persetujuan diperlukan)
+  Login -> Beranda -> Pilih kondisi (opsional) -> Check-in harian (suara per pertanyaan, persetujuan diperlukan)
         -> Halaman hasil (hangat, tanpa data klinis yang ditampilkan)
 
 Caregiver:
@@ -60,11 +60,11 @@ Tenaga kesehatan:
 
 ## Fitur
 
-- **Check-in suara harian** - Pertanyaan berbasis AI yang diucapkan (4 pertanyaan per sesi) dengan rekaman mikrofon berbasis persetujuan. Video hanya digunakan sebagai pratinjau lokal; tidak direkam dan tidak dianalisis.
-- **Pipeline analisis suara AI** - Transkripsi dengan faster-whisper (model `base`, bahasa Indonesia, CPU int8, word timestamps, dan VAD). Fitur suara yang diekstrak: kata per menit, jeda antar kata >= 0,5 detik, kata ragu, pengulangan kata berurutan, dan jeda respons (waktu hingga kata pertama). Skor 0-10, penyimpangan berbobot dari baseline pribadi. Komponen bahasa, wajah, dan memori bernilai null pada sesi nyata (hanya ada di data simulasi).
+- **Check-in suara harian** - Empat pertanyaan tetap per sesi, dibacakan lewat suara browser, dengan rekaman mikrofon berbasis persetujuan. Sebelum mulai, lansia dapat memilih kondisi hari itu (Baik-baik saja, Kurang tidur, Lelah, Kurang sehat) atau melewatinya. Video hanya digunakan sebagai pratinjau lokal; tidak direkam dan tidak dianalisis.
+- **Pipeline analisis suara AI** - Transkripsi dengan faster-whisper (model `base`, bahasa Indonesia, CPU int8, word timestamps, dan VAD). Fitur suara yang diekstrak: kata per menit, jeda antar kata >= 0,5 detik, kata ragu, pengulangan kata berurutan, dan jeda respons (waktu hingga kata pertama). Skor pada skala 0-10 (dalam praktik 1,5 sampai 9,0), dari penyimpangan berbobot terhadap baseline pribadi atau nilai acuan umum. Komponen bahasa, wajah, dan memori bernilai null pada sesi nyata (hanya ada di data simulasi).
 - **Dashboard caregiver** - Grafik tren Skor Risiko Kognitif (30 hari), ringkasan pasien, feed peringatan otomatis, rekomendasi berbasis aturan per kategori (bukan AI dan bukan saran medis), dan laporan bulanan. Data dashboard untuk akun demo menyertakan riwayat simulasi; sesi check-in nyata muncul dalam grafik yang sama.
 - **Generator laporan bulanan** - Caregiver dapat membuat laporan bulanan secara manual melalui tombol "Buat Laporan Bulan Ini" di tab Laporan. Laporan dihitung dari data sesi dan skor risiko nyata pasien pada bulan yang dipilih. Skor hanya berasal dari komponen suara. Laporan bersifat upsert: jika sudah ada untuk bulan tersebut, laporan diperbarui. Laporan adalah indikator informatif dan bukan diagnosis. Ringkasan laporan dibuat dari templat, bukan model bahasa. Laporan dapat dicetak atau disimpan sebagai PDF melalui dialog cetak browser. Tidak ada penjadwalan otomatis.
-- **Dementia Guidance AI (dalam aplikasi)** - Menjawab pertanyaan caregiver dengan mengambil bagian yang relevan dari dua dokumen resmi kesehatan Indonesia (PNPK Tata Laksana Demensia, Panduan Caregiver Kemenkes) menggunakan FAISS vector index dan embedding multilingual-e5-large, lalu menyusun jawaban dengan Gemini. Merespons dalam bahasa pertanyaan.
+- **Dementia Guidance AI (dalam aplikasi)** - Menjawab pertanyaan caregiver dari dua dokumen resmi kesehatan Indonesia (PNPK Tata Laksana Demensia, Panduan Caregiver Kemenkes). Jalur utama memanggil flow Langflow (Chroma dengan embedding Google dan agen Gemini) bila LANGFLOW_URL dan LANGFLOW_FLOW_ID diisi. Bila tidak diisi atau terjadi kesalahan, backend otomatis memakai jalur cadangan FAISS (embedding multilingual-e5-large) dan menyusun jawaban dengan Gemini.
 - **Akses berbasis peran** - Alur dan rute terproteksi terpisah untuk lansia, caregiver, dan tenaga kesehatan (3 peran).
 - **Perlindungan PIN caregiver** - Langkah akses sekunder yang diperlukan untuk masuk ke dashboard caregiver. Endpoint dashboard memerlukan header `X-Dashboard-Token`; tanpa header ini API mengembalikan 403 `PIN_DIPERLUKAN`.
 
@@ -100,9 +100,9 @@ Setiap check-in yang selesai menghasilkan satu set rekomendasi untuk caregiver. 
 
 Ketika `DEMO_MODE=True` (default), skrip seed membuat 60 hari riwayat check-in simulasi untuk akun lansia demo dan empat pasien simulasi tambahan untuk tampilan tenaga kesehatan. Sesi simulasi ditandai dengan provider `"simulasi-demo"` di database.
 
-Sesi check-in nyata dari rekaman suara muncul dalam grafik tren yang sama dengan data simulasi untuk pasien demo utama (Nenek Ladya). Dashboard saat ini tidak memisahkan keduanya secara visual.
+Sesi check-in nyata dari rekaman suara muncul dalam grafik tren yang sama dengan data simulasi untuk pasien demo utama (Nenek Ladya). Pada mode demo, dashboard memberi label bahwa riwayat dan peringatan memuat data simulasi, serta catatan jumlah sesi nyata dibanding minimal sesi untuk baseline pribadi. Grafik tetap menggabungkan keduanya, dan panah perubahan mingguan membandingkan dengan minggu sebelumnya yang dapat berisi data simulasi.
 
-Jurnal suasana hati tersimpan di database tetapi belum ditampilkan di dashboard caregiver maupun tenaga kesehatan.
+Jurnal suasana hati dan pilihan kondisi sebelum check-in tersimpan di database (tabel mood) tetapi belum ditampilkan di dashboard caregiver maupun tenaga kesehatan. Pilihan kondisi tidak mengubah skor.
 
 ---
 
@@ -126,7 +126,7 @@ Kemampuan Dementia Guidance TIARA juga diekspos sebagai alat MCP (Model Context 
 
 ### Cara kerja jalur Langflow
 
-1. **Agen Langflow** - Proyek bernama `TIARA` dikonfigurasi di Langflow Desktop dengan satu flow bernama `answer_from_dementia_guideline`. Agen dimuat dengan teks lengkap kedua dokumen sebagai konteks prompt - tidak menggunakan pencarian vektor. Hal ini membuat respons lebih lambat (sekitar 46 detik) dan terbatas oleh batas token input tier gratis Gemini (sekitar satu pertanyaan per menit pada 250 ribu token/menit).
+1. **Agen Langflow** - Proyek bernama `TIARA` di Langflow Desktop berisi flow `answer_from_dementia_guideline`. Dokumen dipecah menjadi chunk (skrip `backend/app/scripts/export_chunks_langflow.py`), disimpan di Chroma dengan embedding Google (`gemini-embedding-001`), lalu agen (`gemini-flash-lite-latest`) menjawab dari potongan yang diambil. Waktu respons sekitar 2 sampai 4 detik di Playground Langflow dan sekitar 7 sampai 12 detik lewat IBM Bob (diukur pada tiga pertanyaan uji).
 2. **Server MCP** - Langflow mengekspos proyek sebagai server MCP di:
    ```
    http://localhost:7860/api/v1/mcp/project/<project-id>/streamable
@@ -135,9 +135,9 @@ Kemampuan Dementia Guidance TIARA juga diekspos sebagai alat MCP (Model Context 
 
 Folder Langflow (`langflow/`) berisi flow yang diekspor tanpa kunci API. Kunci API dibaca dari variabel global Langflow bernama `GOOGLE_API_KEY`.
 
-**Perbedaan nomor halaman antar jalur:** Pada RAG dalam aplikasi (jalur FAISS), label halaman PNPK yang ditampilkan ke pengguna adalah `stored_index + 1`; label Panduan Caregiver dipakai apa adanya. Pada jalur Langflow, referensi halaman PNPK dikoreksi melalui instruksi agen, dan referensi Panduan Caregiver menggunakan nomor halaman cetak dalam buku (misalnya hal. 14), yang berbeda dari nomor halaman PDF (misalnya hal. 24) yang digunakan di jalur FAISS.
+**Sitasi halaman:** jalur FAISS menampilkan label halaman PNPK `stored_index + 1` dan label Panduan Caregiver apa adanya. Pada jalur Langflow, sitasi halaman ditulis agen di dalam jawaban (format Dokumen, Halaman N), sehingga penomorannya dapat berbeda dari jalur FAISS.
 
-**Rencana perbaikan:** Peralihan jalur Langflow ke pencarian vektor (Chroma dengan embedding Google) sedang direncanakan. Belum diimplementasikan di folder `langflow/`.
+Jika Langflow tidak tersedia, backend aplikasi otomatis beralih ke jalur FAISS, sehingga fitur panduan tetap berjalan.
 
 ### Guardrail (dikonfigurasi melalui instruksi agen dan prompt)
 
@@ -170,7 +170,7 @@ Folder Langflow (`langflow/`) berisi flow yang diekspor tanpa kunci API. Kunci A
 
 ## Evaluasi RAG
 
-Pipeline RAG dalam aplikasi (FAISS + multilingual-e5-large, TOP_K=6) dievaluasi pada akurasi retrieval. Evaluasi mengukur apakah halaman sumber yang benar muncul di chunk yang diambil - **tidak** mengukur kebenaran jawaban akhir yang dihasilkan.
+Jalur FAISS (FAISS + multilingual-e5-large, TOP_K=6; jalur cadangan dalam aplikasi) dievaluasi pada akurasi retrieval. Evaluasi mengukur apakah halaman sumber yang benar muncul di chunk yang diambil - **tidak** mengukur kebenaran jawaban akhir yang dihasilkan.
 
 ### Hasil retrieval - pertanyaan berbahasa dokumen (34 pertanyaan)
 
@@ -211,7 +211,7 @@ Batas evaluasi: sampel kecil (10 pertanyaan). Penilai adalah anggota tim, dibant
 
 Berkas evaluasi lengkap: [`docs/evaluasi-rag/`](docs/evaluasi-rag/)
 
-Penelitian ukuran chunk (repositori terpisah): hit rate 128-token 91,2%, 256-token 97,1%, 512-token 91,2% - [narazla/TIARA-rag-chunking](https://github.com/narazla/TIARA-rag-chunking)
+Penelitian ukuran chunk (repositori terpisah): hit rate 128-token 91,2%, 256-token 97,1%, 512-token 91,2% - [narazla/TIARA-rag-chunking](https://github.com/narazla/TIARA-rag-chunking) Angka ini berlaku untuk jalur FAISS. Jalur Langflow belum dievaluasi dengan cara yang sama.
 
 ---
 
@@ -282,7 +282,7 @@ Temuan di atas menjadi dasar perbaikan berikutnya. Perubahan yang sudah diterapk
 ## Struktur Repositori
 
 ```text
-TIARA-IBM/
+TIARA/
 ├── frontend/                  # Aplikasi Next.js
 │   ├── app/                   # Halaman App Router
 │   │   ├── elderly/           # Alur check-in, companion, dan beranda
@@ -358,6 +358,10 @@ LLM_PROVIDER=gemini
 MEDIA_ENCRYPTION_KEY=<fernet-key>        # required; generate with command below
 FRONTEND_URL=http://localhost:3000
 DEMO_MODE=True
+LANGFLOW_URL=http://localhost:7860      # opsional; kosong = langsung memakai FAISS
+LANGFLOW_FLOW_ID=<id-flow>
+LANGFLOW_API_KEY=<kunci-api-langflow>
+LANGFLOW_TIMEOUT=20
 ```
 
 Buat kunci Fernet untuk `MEDIA_ENCRYPTION_KEY`:
@@ -406,7 +410,7 @@ Aplikasi dapat dicoba di **[tiara.heyizza.my.id](https://tiara.heyizza.my.id)**.
 ## Rencana Pengembangan
 
 - **IBM watsonx.ai:** model bahasa saat ini adalah Google Gemini. Integrasi watsonx.ai direncanakan sebagai pengembangan berikutnya dan belum diimplementasikan.
-- **Pencarian vektor untuk jalur Langflow:** peralihan ke Chroma dengan embedding Google (lihat bagian Integrasi IBM Bob + Langflow).
+- **Evaluasi jalur Langflow:** retrieval dan faithfulness jalur Langflow belum dievaluasi seperti jalur FAISS.
 - **Peninjauan tenaga kesehatan** lanjutan: menerapkan masukan perubahan dari dokter pada teks rekomendasi dan peringatan, serta validasi klinis skor suara.
 - **Evaluasi lebih besar** untuk faithfulness dan uji pengguna yang lebih luas, dimulai dari caregiver dan kader posyandu.
 - **Dari masukan pengguna dan dokter:** penafian di setiap layar utama, tanda darurat stroke dan nomor layanan darurat, kalimat peringatan yang lebih lembut, keterangan skala skor, halaman persetujuan serta penghapusan data, versi laporan bulanan yang lebih sederhana, pengingat jadwal kontrol, kategori komunikasi dan keselamatan pada rekomendasi, catatan kejadian harian dari keluarga, dan pengaturan penerima notifikasi.
@@ -420,7 +424,7 @@ Setelah sesi check-in diselesaikan melalui `POST /elderly/checkin/{session_id}/f
 1. **Dekripsi** - Berkas `.webm.enc` didekripsi di memori menggunakan Fernet.
 2. **Transkripsi** - Audio setiap jawaban ditranskripsi dengan faster-whisper (model `base`, bahasa Indonesia, CPU int8, word timestamps, VAD filter).
 3. **Ekstraksi fitur suara** - per jawaban: kata per menit (dari word timestamps), jeda antar kata >= 0,5 detik, kata ragu (`eh`, `ehm`, `hmm`, `anu`, `apa ya`, dll.), pengulangan kata berurutan, dan jeda respons (timestamp kata pertama). Fitur digabungkan dari semua jawaban.
-4. **Pemilihan baseline** - jika pasien memiliki >= 3 sesi nyata sebelumnya, median dari 14 sesi terakhir digunakan sebagai baseline pribadi. Jika tidak, nilai acuan umum digunakan (100 wpm, jeda 0,8 detik, 2,0 keraguan/menit, jeda respons 2,0 detik).
+4. **Pemilihan baseline** - jika pasien memiliki >= 3 sesi nyata sebelumnya, median dari 14 sesi terakhir digunakan sebagai baseline pribadi. Jika tidak, nilai acuan umum digunakan (100 wpm, jeda 0,8 detik, 2,0 keraguan/menit, jeda respons 2,0 detik). Nilai acuan umum dan bobot komponen adalah heuristik tim dan belum divalidasi secara klinis. Yang mengacu pada literatur hanya pemilihan indikator kecepatan bicara dan jeda, yang mengacu pada meta-analisis Cohen dkk. (2025) tentang jeda dan laju bicara pada MCI dan Alzheimer (lihat Rujukan).
 5. **Penilaian risiko** - skor = clamp(1,5 + 7,5 * weighted_deviation, 0, 10). Bobot: laju bicara 0,3, jeda 0,3, jeda respons 0,3, keraguan 0,1. Tingkat: Rendah (< 4), Sedang (4-6,9), Tinggi (>= 7).
 6. **Peringatan** - peringatan WARNING dibuat jika skor Tinggi; peringatan INFO dibuat jika kurang dari 5 kata terdeteksi.
 
@@ -475,12 +479,12 @@ Dokumentasi proyek tambahan ada di [`docs/`](docs/):
 
 ## Keterbatasan yang Diketahui
 
-- Data dashboard untuk pasien demo (Nenek Ladya) merupakan campuran 60 hari riwayat simulasi dan sesi nyata dari check-in suara. Tidak ada pemisahan visual antara data simulasi dan nyata dalam grafik.
+- Data dashboard untuk pasien demo (Nenek Ladya) merupakan campuran 60 hari riwayat simulasi dan sesi nyata dari check-in suara. Grafik menggabungkan keduanya; dashboard hanya memberi label bahwa riwayat memuat data simulasi.
 - Skor suara adalah indikator informatif berdasarkan penyimpangan pola bicara. Belum divalidasi secara klinis dan bukan pengganti penilaian profesional.
 - faster-whisper sering menghapus kata ragu (`eh`, `hmm`, dll.) selama transkripsi, sehingga hitungan keraguan cenderung rendah.
 - Teks transkrip di tabel `transcripts` disimpan tanpa enkripsi di database.
-- Jurnal suasana hati tersimpan di database tetapi belum ditampilkan ke caregiver atau tenaga kesehatan.
-- Kartu ringkasan di dashboard caregiver (Memory Consistency, Response Delay, Speech Hesitation) mungkin menampilkan nilai statis atau simulasi untuk sesi tanpa analisis nyata lengkap. Verifikasi secara visual saat demo.
+- Jurnal suasana hati dan pilihan kondisi sebelum check-in tersimpan di database tetapi belum ditampilkan ke caregiver atau tenaga kesehatan.
+- Kartu Konsistensi Memori sudah dihapus dari dashboard karena komponen memori tidak diukur pada sesi nyata. Kartu Response Delay dan Speech Hesitation dihitung dari sesi 7 hari terakhir, dan panah perubahannya membandingkan dengan 7 hari sebelumnya yang pada akun demo dapat berisi data simulasi. Respons API masih menyertakan field `memory_consistency` demi kompatibilitas.
 - Kualitas analisis AI bergantung pada kualitas mikrofon dan kebisingan lingkungan.
 - Respons Dementia Guidance AI hanya seakurat dokumen yang dimuat.
 - Evaluasi retrieval hanya mengukur apakah halaman sumber ditemukan. Faithfulness hanya dievaluasi pada 10 pertanyaan, dinilai anggota tim (bukan tenaga kesehatan), dan hanya mengukur kesesuaian dengan potongan dokumen.
@@ -488,6 +492,16 @@ Dokumentasi proyek tambahan ada di [`docs/`](docs/):
 - TIARA tidak boleh digunakan sebagai pengganti evaluasi medis profesional.
 - Menurut masukan dokter, pemantauan ini cocok untuk lansia dengan keluhan ringan yang masih bisa bicara, dan tidak cocok untuk afasia berat, gangguan bicara yang sudah diketahui sebelumnya, atau pasien dalam pengobatan intensif tanpa pemantauan dokter.
 - Uji pengguna masih berskala kecil (5 caregiver, 2 lansia, 1 dokter) dan belum mewakili populasi yang luas.
+- Nilai acuan umum (100 kata per menit, jeda 0,8 detik, 2,0 keraguan per menit, jeda respons 2,0 detik) dan bobot komponen adalah heuristik tim, bukan angka dari literatur klinis.
+- Pilihan kondisi sebelum check-in hanya konteks dan tidak memengaruhi skor. Belum diuji apakah konteks ini mengurangi peringatan yang tidak perlu.
+
+---
+
+## Rujukan
+
+Cohen, A. S., Divers, R., dkk. (2025). Speech pause and speech rate for evaluating Alzheimer's and mild cognitive impairment: A meta-analysis. *Journal of the International Neuropsychological Society*. Cambridge University Press. https://resolve.cambridge.org/core/journals/journal-of-the-international-neuropsychological-society/article/speech-pause-and-speech-rate-for-evaluating-alzheimers-and-mild-cognitive-impairment-a-metaanalysis/26ADD29A52BE763FF3A87C6F6F8EFEDB
+
+Rujukan ini mendukung pemilihan indikator kecepatan bicara dan jeda. Nilai acuan umum dan bobot komponen adalah heuristik tim.
 
 ---
 

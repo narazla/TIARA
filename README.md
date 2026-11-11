@@ -76,7 +76,7 @@ Peringatan dibuat di akhir setiap panggilan `/elderly/checkin/{session_id}/finis
 
 | Kondisi | Tingkat | Judul |
 |---|---|---|
-| Skor Risiko Kognitif Tinggi (>= 7) | WARNING | "Pola bicara hari ini menyimpang dari biasanya" |
+| Skor Risiko Kognitif Tinggi (>= 7) | WARNING | "Pola bicara hari ini berbeda dari biasanya" |
 | Kurang dari 5 kata terdeteksi (sesi gagal) | INFO | "Check-in hari ini tidak terekam" |
 
 - Judul peringatan yang sama tidak dibuat ulang dalam 12 jam.
@@ -224,7 +224,7 @@ Prototipe diuji lewat wawancara terstruktur dengan 5 caregiver (C1 sampai C5), 2
 | Tema | Temuan | Rencana perbaikan |
 |---|---|---|
 | Check-in suara | Sebagian besar lansia bingung atau ragu di awal, lalu terbiasa setelah satu sampai dua kali. Dua caregiver menyebut pertanyaan terasa seperti ujian. | Bahasa pertanyaan lebih sederhana, izinkan mengulang, beri waktu menjawab lebih lama. |
-| Peringatan skor Tinggi | Dua caregiver menilai kata "menyimpang" menakutkan atau terdengar seperti diagnosis, satu khawatir anggota keluarga lain cemas, satu menilai nadanya pas. | Ganti kalimat peringatan dan tambahkan keterangan bahwa ini bukan diagnosis. |
+| Peringatan skor Tinggi | Dua caregiver menilai kata "menyimpang" menakutkan atau terdengar seperti diagnosis, satu khawatir anggota keluarga lain cemas, satu menilai nadanya pas. | Kalimat peringatan sudah diganti menjadi lebih lembut dan memuat keterangan bahwa ini bukan diagnosis. |
 | Skor dan grafik | Dua caregiver kesulitan memahami arti skor atau skala 0 sampai 10 dengan label Rendah, Sedang, Tinggi. Satu ingin tahu penyebab skor naik. | Tambahkan keterangan skala dan catatan bahwa skor satu hari dipengaruhi kondisi tubuh. |
 | Rekaman suara dan privasi | Empat dari lima caregiver meminta kejelasan lama penyimpanan, persetujuan keluarga, atau tombol hapus. Kedua lansia tidak keberatan, satu dengan syarat keluarga mengizinkan. | Halaman persetujuan yang menjelaskan akses dan penghapusan data. |
 | Laporan bulanan | Dua caregiver menilai ringkasan membantu saat bertemu dokter. Satu tidak tahu cara membuatnya, satu ingin pembuatan otomatis, satu menilai terlalu teknis. | Petunjuk tombol dan versi laporan yang lebih sederhana. |
@@ -414,6 +414,8 @@ Aplikasi dapat dicoba di **[tiara.heyizza.my.id](https://tiara.heyizza.my.id)**.
 - **Peninjauan tenaga kesehatan** lanjutan: menerapkan masukan perubahan dari dokter pada teks rekomendasi dan peringatan, serta validasi klinis skor suara.
 - **Evaluasi lebih besar** untuk faithfulness dan uji pengguna yang lebih luas, dimulai dari caregiver dan kader posyandu.
 - **Dari masukan pengguna dan dokter:** penafian di setiap layar utama, tanda darurat stroke dan nomor layanan darurat, kalimat peringatan yang lebih lembut, keterangan skala skor, halaman persetujuan serta penghapusan data, versi laporan bulanan yang lebih sederhana, pengingat jadwal kontrol, kategori komunikasi dan keselamatan pada rekomendasi, catatan kejadian harian dari keluarga, dan pengaturan penerima notifikasi.
+- **Uji etik dan validasi klinis:** belum dijadwalkan. Pengajuan kaji etik (IRB) belum dilakukan. Urutan yang direncanakan mengikuti saran dokter: uji dengan caregiver dan kader posyandu lebih dulu, puskesmas setelah teks direvisi.
+- **Migrasi ke IBM watsonx.ai (termasuk model Granite):** menunggu akses IBM Cloud dan belum dijadwalkan. Pada jalur Langflow penggantian dilakukan di node model; jalur cadangan FAISS di backend juga perlu disesuaikan. Evaluasi faithfulness perlu diulang untuk bahasa Indonesia.
 
 ---
 
@@ -494,6 +496,8 @@ Dokumentasi proyek tambahan ada di [`docs/`](docs/):
 - Uji pengguna masih berskala kecil (5 caregiver, 2 lansia, 1 dokter) dan belum mewakili populasi yang luas.
 - Nilai acuan umum (100 kata per menit, jeda 0,8 detik, 2,0 keraguan per menit, jeda respons 2,0 detik) dan bobot komponen adalah heuristik tim, bukan angka dari literatur klinis.
 - Pilihan kondisi sebelum check-in hanya konteks dan tidak memengaruhi skor. Belum diuji apakah konteks ini mengurangi peringatan yang tidak perlu.
+- Lansia yang tinggal sendiri tanpa caregiver belum terjangkau: peringatan hanya muncul di dashboard caregiver dan belum ada notifikasi push, WhatsApp, atau email.
+- Peringatan dapat menimbulkan kecemasan pada keluarga. Kalimat peringatan sudah dilunakkan dan memuat keterangan bahwa ini bukan diagnosis, tetapi dampak psikologisnya belum diukur.
 
 ---
 

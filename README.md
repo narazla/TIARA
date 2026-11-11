@@ -497,7 +497,7 @@ Dokumentasi proyek tambahan ada di [`docs/`](docs/):
 
 ---
 
-## Rujukan
+## Reference
 
 Cohen, A. S., Divers, R., dkk. (2025). Speech pause and speech rate for evaluating Alzheimer's and mild cognitive impairment: A meta-analysis. *Journal of the International Neuropsychological Society*. Cambridge University Press. https://resolve.cambridge.org/core/journals/journal-of-the-international-neuropsychological-society/article/speech-pause-and-speech-rate-for-evaluating-alzheimers-and-mild-cognitive-impairment-a-metaanalysis/26ADD29A52BE763FF3A87C6F6F8EFEDB
 

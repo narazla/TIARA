@@ -9,6 +9,7 @@ Folder ini berisi flow Langflow yang mengekspos kemampuan Dementia Guidance TIAR
 | Berkas | Keterangan |
 |---|---|
 | `answer_from_dementia_guideline.json` | Flow Langflow yang sudah diekspor, tanpa kunci API |
+| `dokumen_chunks_256_bagian1.txt` – `bagian4.txt` | Chunk dokumen (output skrip ekspor) untuk diingest ke Chroma via node File di Langflow |
 
 ---
 
@@ -25,11 +26,11 @@ Folder ini berisi flow Langflow yang mengekspos kemampuan Dementia Guidance TIAR
 
 Flow ini membutuhkan kunci Gemini API yang diatur sebagai variabel global Langflow:
 
-1. Di Langflow, buka **Settings** (ikon roda gigi) - **Global Variables**.
+1. Di Langflow, buka **Settings** (ikon roda gigi) → **Global Variables**.
 2. Tambahkan variabel baru:
    - Nama: `GOOGLE_API_KEY`
    - Nilai: kunci Gemini API Anda (`AIza...`)
-3. Simpan. Kunci ini dipakai oleh komponen Gemini di dalam flow.
+3. Simpan. Kunci ini dipakai oleh komponen embedding (`models/gemini-embedding-001`) dan komponen agen (`gemini-flash-lite-latest`) di dalam flow.
 
 Kunci API tidak tersimpan di dalam berkas JSON yang diekspor.
 
@@ -37,34 +38,58 @@ Kunci API tidak tersimpan di dalam berkas JSON yang diekspor.
 
 ## Cara Kerja Flow Ini
 
-Flow memasukkan **seluruh teks** kedua dokumen resmi Kemenkes langsung ke dalam prompt agen Gemini:
+Flow menggunakan pencarian vektor (Chroma) — bukan teks dokumen penuh di prompt. Dokumen dipecah menjadi chunk 256 token menggunakan skrip `export_chunks_langflow.py`, lalu diindeks di Chroma dengan embedding Google (`models/gemini-embedding-001`). Agen (`gemini-flash-lite-latest`) menjawab hanya dari potongan yang diambil, disertai sitasi dokumen dan halaman.
 
-- Pedoman Nasional Pelayanan Klinis Tata Laksana Demensia (PNPK Demensia)
-- Panduan Praktis Caregiver dalam Perawatan Jangka Panjang bagi Lanjut Usia
+**Dua pemakaian flow ini:**
 
-Agen tidak menggunakan pencarian vektor. Seluruh konteks dokumen dikirim ke Gemini dalam setiap permintaan.
+1. **Backend TIARA (jalur utama in-app):** backend memanggil Langflow lebih dulu bila `LANGFLOW_URL` dan `LANGFLOW_FLOW_ID` diisi. Bila Langflow tidak tersedia atau gagal, backend otomatis beralih ke jalur cadangan FAISS (multilingual-e5-large).
+2. **Alat MCP IBM Bob:** IBM Bob memanggil flow ini melalui server MCP Langflow via `mcp-proxy`.
 
-**Konsekuensi:**
-- Setiap pertanyaan mengonsumsi sekitar 250 ribu token input.
-- Pada kuota gratis Gemini (250 ribu token input per menit), throughput sekitar satu pertanyaan per menit.
-- Waktu respons sekitar 46 detik per pertanyaan.
+**Waktu respons (sampel kecil — tiga pertanyaan uji):**
+- Sekitar 2–4 detik di Playground Langflow.
+- Sekitar 7–12 detik lewat IBM Bob.
+- Versi sebelumnya yang memasukkan seluruh dokumen ke prompt memakan sekitar 46 detik per pertanyaan.
 
-**Perbedaan dengan jalur in-app RAG:**
-- Jalur in-app menggunakan FAISS + multilingual-e5-large (pencarian vektor, TOP_K=6).
-- Jalur Langflow ini memasukkan seluruh teks dokumen tanpa pencarian vektor.
+**Catatan evaluasi:** angka evaluasi retrieval dan faithfulness di README utama berlaku untuk jalur FAISS (jalur cadangan). Jalur Langflow ini belum dievaluasi dengan cara yang sama.
 
-**Rencana perbaikan:** beralih ke pencarian vektor (Chroma dengan embedding Google) untuk jalur ini. Belum diimplementasikan; jika folder ini diperbarui, dokumen ini harus diperbarui pula.
+---
+
+## Membangun Ulang Indeks Chroma
+
+Indeks Chroma **tidak tersimpan di berkas JSON** dan harus dibangun di mesin lokal sebelum flow dapat menjawab pertanyaan.
+
+**Langkah 1 — ekspor chunk:**
+
+Jalankan dari direktori `backend/`:
+
+```bash
+python -m app.scripts.export_chunks_langflow
+```
+
+Perintah ini membaca `backend/app/services/rag_data/chunks_256token.pkl` dan menulis empat berkas teks ke folder `langflow/`:
+- `dokumen_chunks_256_bagian1.txt`
+- `dokumen_chunks_256_bagian2.txt`
+- `dokumen_chunks_256_bagian3.txt`
+- `dokumen_chunks_256_bagian4.txt`
+
+Setiap berkas berisi chunk dengan separator `<<<CHUNK>>>` dan label `[Dokumen, Halaman N]` per chunk.
+
+**Langkah 2 — ingest ke Chroma via Langflow:**
+
+Di dalam flow terdapat node `File` dan `SplitText` yang terhubung ke node Chroma. Muat keempat berkas `.txt` ke node File di Langflow dan jalankan flow dalam mode ingest untuk membangun koleksi `tiara_guideline_v4` di direktori penyimpanan Chroma. Berkas JSON asli menunjuk ke folder lokal pengembang, jadi ubah path di node Chroma ke folder di komputer Anda sebelum menjalankan ingest.
 
 ---
 
 ## Perbedaan Nomor Halaman
 
+Instruksi di prompt agen mengatur koreksi nomor halaman:
+
 | Jalur | Dokumen PNPK | Panduan Caregiver |
 |---|---|---|
-| In-app RAG (FAISS) | label = indeks tersimpan + 1 (misal: indeks 86 -> hal 87) | nomor halaman PDF (misal: hal 24) |
-| Langflow (jalur ini) | dikoreksi via instruksi agen | nomor cetak dalam buku (misal: hal 14) |
+| In-app RAG (FAISS) | label = indeks tersimpan + 1 (misal: indeks 86 → hal 87) | nomor halaman PDF (misal: hal 24) |
+| Langflow (jalur ini) | agen menambahkan 1 pada nomor konteks (sesuai instruksi prompt) | nomor apa adanya dari konteks chunk |
 
-Nomor halaman berbeda antar jalur untuk Panduan Caregiver karena perbedaan penomoran PDF vs buku cetak.
+Sitasi halaman ditulis agen di dalam jawaban (format: Dokumen, hal N), sehingga penomorannya dapat berbeda dari jalur FAISS.
 
 ---
 
@@ -75,6 +100,8 @@ Agen dikonfigurasi lewat instruksi prompt untuk:
 - Mengakui dengan jujur jika pertanyaan di luar cakupan dokumen.
 - Tidak memberikan diagnosis medis.
 - Tidak menyebutkan dosis atau nama obat spesifik; mengarahkan ke tenaga kesehatan.
+- Merespons tanda bahaya (kejang, pingsan, cedera) dengan arahan ke layanan darurat.
+- Mengakhiri setiap jawaban dengan pengingat bahwa informasi ini bukan pengganti pemeriksaan dokter.
 
 Ini adalah konfigurasi via prompt, bukan jaminan teknis yang tidak bisa dilewati.
 
@@ -109,14 +136,10 @@ Tambahkan ke `~/.bob/settings/mcp.json`:
 
 Ganti `<your-project-id>` dengan UUID yang terlihat di tab "MCP Server" di proyek Langflow Anda.
 
-Nilai `timeout` diatur ke 300000 ms (5 menit) karena respons bisa memakan waktu hingga 46 detik.
+Respons lewat Bob sekitar 7–12 detik; timeout 300000 ms (5 menit) dipertahankan sebagai batas aman.
 
 ---
 
 ## Catatan Kuota
 
-Pada kuota gratis Gemini:
-- Batas: 250 ribu token input per menit.
-- Setiap pertanyaan mengonsumsi sekitar 250 ribu token (seluruh teks dokumen).
-- Jeda minimal satu menit antar pertanyaan untuk menghindari error batas kuota.
-- Untuk penggunaan yang lebih sering, pertimbangkan migrasi ke pencarian vektor (rencana ke depan).
+Setiap pertanyaan hanya mengirim potongan relevan ke agen, bukan seluruh dokumen, sehingga konsumsi token per pertanyaan jauh lebih kecil daripada versi sebelumnya. Batas kuota kunci Gemini Anda tetap berlaku.

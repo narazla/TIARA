@@ -1,0 +1,4665 @@
+[PNPK Demensia, Halaman 74]
+an melakukan layanan neurobehavior, tetapi proses 
+patologis yang mendasarinya masih belum jelas. Jika pasien 
+tersebut tidak dapat dirujuk untuk pencitraan FDG-PET, 
+pemeriksaan Single Photon Emission Computed Tomography 
+(SPECT) rCBF dapat dilakukan. 
+[I]-Ioflupane dan single-photon emission computed 
+tomography (SPECT; DaTscan) dapat berguna untuk 
+menegakkan diagnosis gangguan kognitif terkait penyakit 
+Lewy Body, pada kasus dugaan diagnosis yang belum tegak, 
+yang telah dievaluasi oleh dokter dengan kompetensi 
+tambahan melakukan layanan neurodegeneratif. 
+Penjelasan lebih lanjut mengenai peran biomarka pencitraan 
+PET Scan otak dalam penegakkan diagnosis Penyakit 
+Alzheimer dan penentuan tingkatannya dapat dilihat di Tabel 
+16, 19, dan 20. 
+  
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 74 - 
+ 
+ 
+Rekomendasi 
+Pencitraan fungsional dan berbasis ligand tidak 
+direkomendasikan secara rutin dalam mendiagnosis 
+demensia   
+(Grade C) 
+Pencitraan fungsional dan berbasis ligand 
+direkomendasikan pada kasus ter
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 75]
+endasi 
+Pencitraan fungsional dan berbasis ligand tidak 
+direkomendasikan secara rutin dalam mendiagnosis 
+demensia   
+(Grade C) 
+Pencitraan fungsional dan berbasis ligand 
+direkomendasikan pada kasus tertentu oleh dokter dengan 
+kompetensi tambahan melakukan layanan   
+neurobehavior/neurodegeneratif  
+(GPP) 
+Biomarker PET-Scan neurodegeneratif, FDG, Amyloid, dan 
+P-Tau pada otak dan persebarannya, bersama dengan 
+sindroma klinis dapat menegakkan diagnosis penyakit 
+Alzheimer dan menentukan tingkatan penyakit alzheimer 
+pada fasilitas kesehatan yang dapat mengerjakannya 
+(Grade B)  
+Biomarker PET- Scan neurodegeneratif dapat membantu 
+menegakkan diagnosis banding etiologi penyakit demensia 
+pada fasilitas kesehatan yang dapat mengerjakannya 
+(Grade B) 
+DaTscan SPECT dapat membantu penegakkan diagnosis 
+Demensia Lewy Body bila pemeriksaan PET Scan tidak 
+memungkinkan 
+(Grade C) 
+ 
+c. Elektroensefalografi 
+Peran elektroensephalografi (EEG) dalam mendiagnosis demensia 
+masih terbatas. Penggunaan EEG dapat dipert
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 75]
+ia Lewy Body bila pemeriksaan PET Scan tidak 
+memungkinkan 
+(Grade C) 
+ 
+c. Elektroensefalografi 
+Peran elektroensephalografi (EEG) dalam mendiagnosis demensia 
+masih terbatas. Penggunaan EEG dapat dipertimbangkan bila ada 
+kecurigaan adanya kejang, Creutzfeldt-Jakob disease (CJD) atau 
+delirium. EEG pada CJD sporadik memiliki sensitivitas 65% dan 
+spesifisitas 86 110. Temuan elektrofisiologis tipikal yang 
+berhubungan dengan mioklonus di PA serupa dengan yang 
+ditemukan pada cortical reflex myoclonus dengan adanya 
+negatifitas kontralateral, fokal pada EEG sebelum terjadinya 
+mioklonus.  
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 75 - 
+ 
+ 
+Rekomendasi 
+Pemeriksaan EEG hanya dilakukan pada kasus Demensia 
+dengan kecurigaan kejang, Creutzfeldt-Jakob disease, atau 
+delirium.  
+(Grade A) 
+ 
+d. Biomarka cairan 
+1) Biomarka cairan serebrospinal (CSS) 
+Analisis cairan serebrospinal (CSS) tidak secara rutin 
+direkomendasikan, tetapi dapat dipertimbangkan pada 
+pasien demensia dengan ketidakpastian diagnostik dan 
+p
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 76]
+1) Biomarka cairan serebrospinal (CSS) 
+Analisis cairan serebrospinal (CSS) tidak secara rutin 
+direkomendasikan, tetapi dapat dipertimbangkan pada 
+pasien demensia dengan ketidakpastian diagnostik dan 
+pasien dengan onset usia dini (<65 tahun) untuk 
+menyingkirkan patofisiologi penyakit Alzheimer. Analisis CSS 
+dapat dipertimbangkan pada pasien demensia dengan 
+predominasi keluhan bahasa, visuospasial, diseksekutif, 
+atau perilaku, dengan tujuan untuk menyingkirkan 
+patofisiologi AD.  
+Biomarka CSS (Aβ, tau dan p-tau) sangat sensitif dan spesifik 
+dalam membedakan DA dari proses penuaan normal (Sn 
+92%, Sp 89%), depresi, namun menunjukkan sensitivitas 
+yang lebih rendah dalam membedakan subtipe demensia 
+seperti DFT, DLB dan DV. Telah terbukti bahwa 
+ditemukannya protein 14-3-3 di CSS merupakan bukti 
+adanya CJD sporadik, dengan sensitivitas dan spesifisitas di 
+atas 90%.  
+Rasio tau/Aβ42 lebih baik dibandingkan dengan rasio 
+ptau/Aβ42 (AUC tau/Aβ42=0.8 dibanding AUC 
+ptau/AβB42=0.7) dalam memprediksi MCI da
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 76]
+CJD sporadik, dengan sensitivitas dan spesifisitas di 
+atas 90%.  
+Rasio tau/Aβ42 lebih baik dibandingkan dengan rasio 
+ptau/Aβ42 (AUC tau/Aβ42=0.8 dibanding AUC 
+ptau/AβB42=0.7) dalam memprediksi MCI dan awal DA. 
+Pasien dengan DA ringan menunjukkan biomarker CSS yang 
+sama dengan DA yang berat. Pada studi cross-sectional yang 
+membandingkan biomarker CSS dengan profil kognitif pada 
+pasien DA, tingkat Aβ42, tau dan ptau di CSS ternyata 
+mempengaruhi beratnya demensia seperti yang ditunjukkan 
+oleh gangguan memori, kecepatan proses mental dan fungsi 
+eksekutif pada pasien DA.  Penilaian biomarker CSS juga 
+dapat menggunakan rasio p ‑tau181 terhadap Aβ42, dengan 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 76 - 
+ 
+ 
+nilai ambang rasio sekitar 0,03, sebagai salah satu indikator 
+adanya proses patofisiologi penyakit Alzheimer; dalam studi 
+kohort, rasio p‑tau181/Aβ42 sekitar 0,03 konsisten muncul 
+sebagai titik potong  optimal untuk membedakan patologi 
+Alzheimer dari non ‑Alzheimer dengan nilai AUC sekitar 0,9.
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 77]
+kit Alzheimer; dalam studi 
+kohort, rasio p‑tau181/Aβ42 sekitar 0,03 konsisten muncul 
+sebagai titik potong  optimal untuk membedakan patologi 
+Alzheimer dari non ‑Alzheimer dengan nilai AUC sekitar 0,9. 
+Kadar Amyloid-β 38 (Aβ38) CSS yang lebih tinggi (yang telah 
+disesuaikan dengan faktor demografi) dikaitkan dengan lebih 
+sedikitnya penurunan skor MMSE (bahkan setelah 
+disesuaikan lebih lanjut dengan kadar Aβ42). Dalam studi 
+kohort ADNI (Alzheimer’s Disease Neuroimaging Initiative), 
+kadar Aβ38 yang lebih tinggi (yang disesuaikan dengan 
+demografi) dikaitkan dengan penurunan skor MMSE yang 
+lebih sedikit dari waktu ke waktu. Temuan ini tetap 
+signifikan dengan penyesuaian tambahan untuk kadar Aβ42. 
+Kadar Aβ38 CSS yang lebih tinggi ditemukan berasosiasi 
+dengan risiko konversi ke demensia AD yang lebih rendah 
+pada kohort BioFINDER, namun temuan tidak didapatkan 
+pada kohort ADNI. 
+ 
+Penjelasan lebih lanjut mengenai peran biomarka cairan 
+serebrospinal dalam penegakkan d iagnosis Penyakit 
+Alzheimer dan p
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 77]
+ndah 
+pada kohort BioFINDER, namun temuan tidak didapatkan 
+pada kohort ADNI. 
+ 
+Penjelasan lebih lanjut mengenai peran biomarka cairan 
+serebrospinal dalam penegakkan d iagnosis Penyakit 
+Alzheimer dan penentuan tingkatannya dapat dilihat di Tabel 
+16, 18, dan 20. 
+ 
+2) Biomarker plasma 
+a) Biomarka Aβ 
+Kadar Amyloid Beta (Aβ) (Aβ1-40 dan Aβ1-42) darah dapat 
+menjadi biomarka yang diandalkan pada penyakit 
+Alzheimer. Penggunaan kadar biomarka ini memerlukan 
+pengendalian faktor perancu  antara lain usia, fungsi 
+ginjal, jumlah platelet, faktor genetik, dan lain-lain. 
+Dalam studi kohort gabungan dari 465 peserta, plasma 
+Aβ42/Aβ40 memiliki kesesuaian yang baik dengan 
+status PET amiloid (ROC area under the curve [AUC] = 
+0.84, 95% CI = 0.80–0.87); kesesuaian menjadi 
+meningkat dengan dimasukkannya status carrier APOE 
+ε4 (AUC 0,88, 95% CI = 0,85-0,91). AUC plasma 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 77 - 
+ 
+ 
+Aβ42/Aβ40 dengan status amiloid CSS adalah 0,85 
+(95% CI 0,78–0,91) dan meningkat menjadi 0,93
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 77]
+rier APOE 
+ε4 (AUC 0,88, 95% CI = 0,85-0,91). AUC plasma 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 77 - 
+ 
+ 
+Aβ42/Aβ40 dengan status amiloid CSS adalah 0,85 
+(95% CI 0,78–0,91) dan meningkat menjadi 0,93 (95% 
+CI 0,89–0,97) dengan status APOE ε4. 
+ 
+b) Biomarka genetik dan lipoprotein plasma 
+Pasien dengan hasil Polygenic Risk Score (PRS) positif 
+disertai dengan hasil Apolipoprotein E (APOE4) yang 
+juga positif, memiliki risiko mengalami AD 3,40 (95% 
+CI=2,28-5,09) kali dan 3,34 kali (95% CI= 2,24–4,99) 
+dalam 17 tahun dibandingkan partisipan dengan hasil 
+PRS dan APOE negatif. Pasien dengan PRS positif dan 
+APOE4 positif memiliki peningkatan risiko mengalami 
+AD 4,6 kali lipat dibandingkan dengan pasien PRS 
+negatif APOE4 positif (OR 4,59; 95% CI= 2,96-7,11. 
+Apolipoprotein E (APOE) bukan hanya faktor risiko DA, 
+tapi juga untuk DLB. Pasien dengan alel APOE ε4 serta 
+kadar kolesterol yang tinggi memiliki risiko 4x lipat 
+untuk mengalami DA pada heterozigot dan 16x lipat 
+pada homozigot. Alel APOE ε4 juga me
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 78]
+o DA, 
+tapi juga untuk DLB. Pasien dengan alel APOE ε4 serta 
+kadar kolesterol yang tinggi memiliki risiko 4x lipat 
+untuk mengalami DA pada heterozigot dan 16x lipat 
+pada homozigot. Alel APOE ε4 juga menunjukkan 
+pengaruh pada DLB terlepas dari apakah kadar 
+kolesterol tinggi atau normal. DPP tidak terkait dengan 
+polimorfisme APOE ataupun dengan profil kolesterol 
+plasma. 
+ 
+c) Tau protein 
+Pada perkembangannya, untuk menghemat biaya dan 
+meningkatkan ketersediaan maka dikembangkan 
+pemeriksaan P-tau 181 dari sample plasma. Dalam 
+beberapa penelitian didapatkan penggunaan P-tau 181 
+plasma superior dalam membedakan DA dengan orang 
+tanpa gangguan kognitif dengan AUC (area under the 
+curve) = 0,9. P-tau 181 memiliki asosiasi kuat dengan 
+menurunnya kemampuan kognitif dan substansia 
+grisea. Penelitian lain menemukan bahwa 
+meningkatnya kadar P-tau 181 di plasma pada orang 
+tanpa penurunan kognitif menunjukkan korelasi yang 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 78 - 
+ 
+ 
+cukup baik untuk memprediksi adan
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 78]
+menemukan bahwa 
+meningkatnya kadar P-tau 181 di plasma pada orang 
+tanpa penurunan kognitif menunjukkan korelasi yang 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 78 - 
+ 
+ 
+cukup baik untuk memprediksi adanya peningkatan 
+deposisi Aβ di otak.   
+ 
+Rekomendasi 
+Pemeriksaan biomarka cairan serebrospinal dapat 
+dipertimbangkan dilakukan pada pasien demensia 
+dengan ketidakpastian diagnostik, usia dibawah 65 
+tahun, atau predominasi keluhan domain kognitif 
+tertentu untuk menyingkirkan patofisiologi AD 
+(Grade C) 
+Pemeriksaan biomarka, genetik, dan lipoprotein 
+plasma  tidak direkomendasikan dilakukan secara 
+rutin dalam kegunaan klinis 
+(Grade C) 
+Biomarka cairan serebrospinal neurodegeneratif, 
+Amyloid, dan p- Tau bersama dengan tingkatan 
+sindroma klinis dapat menegakkan diagnosis 
+penyakit Alzheimer serta menentukan tingkatan 
+penyakit Alzheimer 
+(Grade C) 
+Pemeriksaan biomarka plasma p- tau 181 dapat 
+membantu penegakan diagnosis penyakit Alzheimer 
+(Grade C).  
+ 
+5. Kriteria Diagnosis, Progresi, dan Derajat D
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 79]
+tukan tingkatan 
+penyakit Alzheimer 
+(Grade C) 
+Pemeriksaan biomarka plasma p- tau 181 dapat 
+membantu penegakan diagnosis penyakit Alzheimer 
+(Grade C).  
+ 
+5. Kriteria Diagnosis, Progresi, dan Derajat Demensia 
+Kriteria diagnosis demensia dan subtipe demensia dirangkum dalam 
+tabel berikut.  
+Tabel 16. Kriteria Diagnosis Demensia 
+Kondisi Kriteria  Ref. 
+Demensia  ICD 10, DSM IV/V, Dubois criteria 
+National Institute on Aging Alzheimer’s 
+Association workgroups 
+131 
+13 
+Penyakit Alzheimer National Institute on Aging Alzheimer’s 
+Association workgroups 
+13,13
+2 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 79 - 
+ 
+ 
+Frontotemporal lobe degeneration  (FTD) 
+bvFTD International bvFTD Criteria Consortium 9 
+PNFA International PPA Consortium 10 
+SD  International PPA Consortium 10 
+Demensia Penyakit 
+Parkinson (DPP) 
+Clinical Diagnostic Criteria for dementia 
+associated with PD 
+133,1
+34 
+Progressive Supranuclear 
+Palsy (PSP)  
+MDS-PSP Criteria  135 
+ 
+Dementia Lewy bodies 
+(DLB) 
+DLB consortium   7 
+Corticobasal s
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 80]
+) 
+Clinical Diagnostic Criteria for dementia 
+associated with PD 
+133,1
+34 
+Progressive Supranuclear 
+Palsy (PSP)  
+MDS-PSP Criteria  135 
+ 
+Dementia Lewy bodies 
+(DLB) 
+DLB consortium   7 
+Corticobasal syndrome 
+(CBS) 
+An international consortium of 
+behavioral neurology, neuropsychology, 
+and movement disorders specialist 
+ 
+136 
+Huntington’s diease (HD) Genetic Criteria 137 
+Prion Diseases 
+Sporadic CJD (s-CJD) 
+Variant CJD (v-CJD) 
+Update WHO  Criteria for s-CJD 
+Updated MRI-CJD Consortium Criteria 
+for S-CJD 
+Diagnostic Criteria  
+138 
+ 
+139 
+Normopressure 
+Hydrocephalus (NPH) 
+NPH Diagnostic Criteria 140 
+Limbic encephalitis (LE) Diagnostic criteria  141 
+Demensia Vaskular 
+ 
+ 
+ 
+Vascular Impairment of Cognition 
+Classification Consensus Study (VICCCS) 
+The Fifth Canadian Consensus 
+Conference on the Diagnosis and 
+Treatment of Dementia (CCCDTD5) 
+142 
+ 
+143 
+ 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 80 - 
+ 
+ 
+Beberapa instrumen dapat digunakan sebagai penanda derajat 
+demensia dan evaluasi respon
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 80]
+agnosis and 
+Treatment of Dementia (CCCDTD5) 
+142 
+ 
+143 
+ 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 80 - 
+ 
+ 
+Beberapa instrumen dapat digunakan sebagai penanda derajat 
+demensia dan evaluasi respon pasien terhadap terapi, meliputi MMSE, 
+Global Deterioration Scale (GDS), dan Clinical Dementia Rating (CDR). 
+ 
+Tabel 17. Derajat Gangguan Kognitif Berdasarkan MMSE 
+Derajat Nilai MMSE 
+Ringan MMSE 21-26 
+Sedang MMSE 15-20 
+Sedang – berat MMSE 10-14 
+Berat MMSE 0-9 
+ 
+Clinical Dementia Rating (CDR) dapat digunakan untuk mendeteksi 
+MCI dan demensia ringan. CDR mempunyai sensitivitas 86% dan 
+spesifisitas 80%. CDR juga direkomendasikan untuk menentukan 
+derajat keparahan demensia. 
+ 
+Tabel 18. Kriteria Diagnostik untuk sindrom Disfungsi Eksekutif dan 
+Penyakit alzheimer 
+  Kriteria Klinis Bukti Informasi Eksklusi 
+Sindroma 
+Disfungsi 
+Progresif 
+Penurunan 
+terus-menerus, 
+dominan, dan 
+progresif selama 
+6 bulan pada inti 
+fungsi eksekutif: 
+memori kerja, 
+fleksibilitas 
+kognitif, atau 
+hambatan tanpa 
+adanya
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 81]
+lusi 
+Sindroma 
+Disfungsi 
+Progresif 
+Penurunan 
+terus-menerus, 
+dominan, dan 
+progresif selama 
+6 bulan pada inti 
+fungsi eksekutif: 
+memori kerja, 
+fleksibilitas 
+kognitif, atau 
+hambatan tanpa 
+adanya ciri 
+perilaku yang 
+dominan (yaitu, 
+tidak memenuhi 
+kriteria untuk 
+sindrom klinis 
+perilaku 
+demensia 
+Bukti gangguan 
+fungsi eksekutif 
+diperoleh dari 
+laporan pasien 
+atau informan, 
+disertai dengan 
+evaluasi formal 
+kinerja kognitif 
+pada tugas-
+tugas yang 
+membutuhkan 
+usaha mental 
+yang 
+memerlukan 
+manipulasi aktif 
+secara sadar 
+terhadap aliran 
+informasi 
+Riwayat penyakit 
+yang muncul 
+tiba-tiba atau 
+kondisi medis 
+lain yang cukup 
+parah hingga 
+menyebabkan 
+gejala terkait 
+(contoh: 
+gangguan 
+kejiwaan primer, 
+serebrovaskular, 
+infeksi, toksik, 
+inflamasi, atau 
+metabolik) 
+  
+  
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 81 - 
+ 
+ 
+frontotemporal 
+varian perilaku). 
+abstrak atau 
+simultan. 
+Disfungsi 
+Eksekutif 
+Progresif 
+dengan 
+Penyakit 
+Alzheimer 
+(AD) 
+perubahan 
+neuropatologi
+s 
+(Kemungkina
+n
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 81]
+HATAN
+jdih.kemkes.go.id- 81 - 
+ 
+ 
+frontotemporal 
+varian perilaku). 
+abstrak atau 
+simultan. 
+Disfungsi 
+Eksekutif 
+Progresif 
+dengan 
+Penyakit 
+Alzheimer 
+(AD) 
+perubahan 
+neuropatologi
+s 
+(Kemungkina
+n disfungsi 
+AD) 
+Masuk dalam 
+kriteria disfungsi 
+progresif pada 
+sindrom klinis 
+Harus dengan 
+bukti 
+patofisiologi 
+Alzheimer dari 
+salah satu 
+berikut ini: 
+Penurunan 
+rasio amiloid-b1 
+(Ab1)-Ab42 atau 
+Ab42/Ab40 
+CSF; atau 
+penanda 
+abnormal pada 
+PET amiloid 
+Tidak ada 
+Disfungsi 
+Eksekutif 
+sindrom 
+dengan 
+Penyakit 
+Alzheimer 
+(AD) (Definitif 
+disfungsi AD) 
+Sesuai dengan 
+Kriteria untuk 
+kemungkinan 
+disfungsi 
+eksekutif pada 
+AD 
+Harus terdapat 
+bukti salah satu 
+dari berikut ini: 
+Peningkatan 
+fosforilasi tau 
+CSF 
+Penanda 
+abnormal pada 
+PET tau 
+Variasi genetik 
+dominan 
+autosomal pada 
+penyakit 
+Alzheimer 
+Kemungkinan 
+dapat dapat 
+Diagnosis AD 
+postmortem, 
+  
+  
+ 
+ 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 82 - 
+ 
+ 
+Rekomendasi 
+Clinical Dementia Rating Scale dan Global Deterioration Scale
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 82]
+Alzheimer 
+Kemungkinan 
+dapat dapat 
+Diagnosis AD 
+postmortem, 
+  
+  
+ 
+ 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 82 - 
+ 
+ 
+Rekomendasi 
+Clinical Dementia Rating Scale dan Global Deterioration Scale 
+keduanya dapat digunakan dan cukup sensitif pada MCI dan awal 
+demensia 
+(Grade C) 
+Beberapa skala seperti MMSE, Global deterioration scale, CDR, dan 
+Functional Assessment Staging dapat menentukan progresifitas 
+demensia bila diagnosis sudah ditegakkan 
+(Grade C)  
+Skala lain yang dapat digunakan yaitu Kriteria Diagnostik untuk 
+sindrom diseksekutif dan Penyakit alzheimer (Grade C)  
+ 
+6. Kriteria Diagnosis dan Stadium Dalam Kontinum Penyakit Alzheimer 
+Berdasarkan rekomendasi terbaru dari kelompok kerja NIA-AA (2024), 
+diperlukan pembedaan definisi penyakit Alzheimer dari sindroma 
+klinis dan etiologi. Penyakit Alzheimer juga disepakati bukan hanya 
+merupakan entitas klinis, tetapi didefinisikan secara biologis yang 
+dapat dibuktikan dengan adanya plak β -amiloid dan tau tangles 
+melalui pemeriksaan biomar
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 83]
+yakit Alzheimer juga disepakati bukan hanya 
+merupakan entitas klinis, tetapi didefinisikan secara biologis yang 
+dapat dibuktikan dengan adanya plak β -amiloid dan tau tangles 
+melalui pemeriksaan biomarka yang didapatkan dari cairan tubuh 
+pasien (CSS dan/atau darah) dan pencitraan menggunakan PET scan. 
+Apabila pada fasilitas kesehatan memiliki akses untuk pemeriksaan 
+penunjang biomarka penyakit Alzheimer, maka disarankan untuk 
+penegakan diagnosisnya menunggu hasil pemeriksaan biomarka yang 
+sesuai dan sementara ditulis sebagai demensia. Pemeriksaan 
+biomarka untuk Penyakit Alzheimer dapat di lihat di Tabel 12.  
+Selain itu perlu ditentukan stadium penyakit Alzheimer berdasarkan 
+gabungan pemeriksaan klinis dan biomarka. Stadium berdasarkan 
+kondisi klinis, biomarka cairan tubuh, dan pencitraan dapat dilihat di 
+Tabel 13, 14, dan 15. Apabila pemeriksaan biomarka dari cairan tubuh 
+dan pencitraan dilakukan keduanya maka dipilih stadium yang paling 
+berat dan diberi huruf F untuk cairan tubuh dan P untuk p
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 83]
+ihat di 
+Tabel 13, 14, dan 15. Apabila pemeriksaan biomarka dari cairan tubuh 
+dan pencitraan dilakukan keduanya maka dipilih stadium yang paling 
+berat dan diberi huruf F untuk cairan tubuh dan P untuk pencitraan 
+sebelum nama stadium, lalu digabung dengan stadium klinis pasien 
+seperti pada Tabel 16. Contoh stadium penyakit Alzheimer 2Fa, yang 
+berarti stadium klinis tingkat 2 dan stadium biomarka tingkat a yang 
+didapat dari pemeriksaan biomarka cairan.  
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 83 - 
+ 
+ 
+Tabel 19. Pemeriksaan Biomarka Penyakit Alzheimer 
+Kategori 
+Biomarka 
+Cairan (F) Pencitraan 
+Biomarka Inti 
+A (Aβ 
+proteinopathy) 
+Aβ42/40 Amyloid PET 
+T (AD tau 
+proteinopathy)  
+ptau 181, ptau 217 Tau PET  
+Biomarka non-spesifik dari reaksi jaringan yang terlibat dalam 
+patofisiologi AD 
+N 
+(neurodegenera
+tif: cedera, 
+disfungsi, atau 
+degenerasi 
+neuron) 
+NfL  MRI Anatomis, FDG 
+PET  
+ 
+I (Inflamasi)  
+Aktivasi 
+Astrositik  
+GFAP  
+Biomarker ko-patologi non-AD 
+V (cedera 
+vaskular otak)  
+ Infark an
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 84]
+enera
+tif: cedera, 
+disfungsi, atau 
+degenerasi 
+neuron) 
+NfL  MRI Anatomis, FDG 
+PET  
+ 
+I (Inflamasi)  
+Aktivasi 
+Astrositik  
+GFAP  
+Biomarker ko-patologi non-AD 
+V (cedera 
+vaskular otak)  
+ Infark anatomi, WMH,  
+ruang perivaskular yang 
+melebar dan berlimpah  
+S (α-synuclein) αSyn-SAA*  
+ 
+Tanda * berarti biomarka hanya dapat diperiksa dari CSS saja, dan 
+apabila tidak ada tanda maka sampel pemeriksaan biomarker dapat 
+diambil dari darah dan CSS. Singkatan: αSyn-SAAs = alpha-synuclein 
+seed amplification assays), Aβ = β -amyloid, Aβ42/40 = rasio 
+Aβ42/Aβ40, AD = Alzheimer’s disease, GFAP = glial fibrillary acidic 
+protein, CSS = cairan serebrospinal, FDG = fluorodeoxyglucose, MRI = 
+magnetic resonance imaging, NfL = neurofilament light chain protein, 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 84 - 
+ 
+ 
+PET = positron emission tomography, ptau 181 = phosphorylated tau 
+181, ptau 217 = phosphorylated Tau 217), WMH = white matter 
+hyperintensities.  
+ 
+Tabel 20. Stadium Penyakit Alzheimer Berdasarkan Pemeri
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 85]
+ET = positron emission tomography, ptau 181 = phosphorylated tau 
+181, ptau 217 = phosphorylated Tau 217), WMH = white matter 
+hyperintensities.  
+ 
+Tabel 20. Stadium Penyakit Alzheimer Berdasarkan Pemeriksaan 
+Klinis 
+Stadium Keterangan 
+Stadium 0  
+Tanpa gejala, 
+gen 
+deterministik  
+A+T+(N)- 
+● Preklinis  asimptomatik gen penyebab penyakit 
+determinan 
+● Tidak ada bukti perubahan klinis. Biomarka 
+masih dalam kisaran normal  
+Stadium 1  
+Tanpa gejala, 
+hanya bukti 
+biomarker  
+A+T-(N)- 
+● Performa dalam kisaran yang diharapkan pada 
+tes kognitif objektif. 
+● Tidak ada bukti penurunan kognitif baru-baru 
+ini atau gejala baru   
+● Hasil normal pada tes kognitif objektif 
+Stadium 2 
+Penurunan 
+transisi: 
+Perubahan 
+ringan yang 
+dapat 
+dideteksi, 
+tetapi 
+berdampak 
+minimal pada 
+fungsi sehari-
+hari  
+A+T+(N)- 
+● Performa normal dalam kisaran yang diharapkan 
+pada tes kognitif objektif. 
+● Penurunan dari tingkat fungsi kognitif atau 
+neurobehavioral sebelumnya, yang mewakili 
+perubahan dari garis dasar individ
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 85]
+● Performa normal dalam kisaran yang diharapkan 
+pada tes kognitif objektif. 
+● Penurunan dari tingkat fungsi kognitif atau 
+neurobehavioral sebelumnya, yang mewakili 
+perubahan dari garis dasar individu dalam 1-3 
+tahun terakhir, dan telah bertahan selama 
+setidaknya 6 bulan. 
+○ Dapat didokumentasikan dengan bukti 
+penurunan yang halus pada tes kognitif 
+longitudinal 
+○ yang mungkin melibatkan memori atau 
+domain kognitif lainnya tetapi kinerja masih 
+dalam kisaran normal 
+○ Dapat didokumentasikan melalui laporan 
+subyektif penurunan kognitif (SCD) 
+○ Dapat didokumentasikan dengan perubahan 
+suasana hati, kecemasan, dan motivasi yang 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 85 - 
+ 
+ 
+baru saja terjadi yang tidak dapat dijelaskan 
+oleh peristiwa pada kehidupan 
+● Tetap sepenuhnya mandiri tanpa dampak 
+fungsional atau minimal pada aktivitas 
+kehidupan sehari-hari (ADL)  
+Stadium 3 
+Gangguan 
+kognitif 
+dengan 
+dampak 
+fungsional 
+awal  
+A+T+(N)+ 
+● Performa dalam rentang gangguan/abnormal 
+pada tes kognitif
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 86]
+sional atau minimal pada aktivitas 
+kehidupan sehari-hari (ADL)  
+Stadium 3 
+Gangguan 
+kognitif 
+dengan 
+dampak 
+fungsional 
+awal  
+A+T+(N)+ 
+● Performa dalam rentang gangguan/abnormal 
+pada tes kognitif objektif 
+● Bukti penurunan dari nilai awal, 
+didokumentasikan oleh laporan individu atau 
+laporan pengamat (misal: rekan belajar/rekan 
+kerja) atau dengan perubahan pada tes kognitif 
+longitudinal atau penilaian perilaku 
+neurobehavioral.   
+● Melakukan aktivitas kehidupan sehari-hari 
+secara mandiri tetapi kesulitan kognitif dapat 
+mengakibatkan dampak fungsional yang dapat 
+dideteksi pada aktivitas kehidupan sehari-hari 
+yang kompleks, misalnya, mungkin memerlukan 
+lebih banyak waktu atau kurang ef isien tetapi 
+masih dapat menyelesaikannya. atau kurang 
+efisien tetapi masih dapat menyelesaikannya, 
+baik yang dilaporkan sendiri maupun yang 
+dilaporkan oleh pengamat.  
+Stadium 4  
+Demensia 
+dengan 
+gangguan 
+fungsional 
+ringan  
+A+T+(N)+ 
+● Gangguan kognitif progresif dan gangguan 
+fungsional ringan pada AD
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 86]
+ang dilaporkan sendiri maupun yang 
+dilaporkan oleh pengamat.  
+Stadium 4  
+Demensia 
+dengan 
+gangguan 
+fungsional 
+ringan  
+A+T+(N)+ 
+● Gangguan kognitif progresif dan gangguan 
+fungsional ringan pada ADL instrumental dan 
+tetap mandiri pada ADL dasar  
+Stadium 5 
+Demensia 
+dengan 
+gangguan 
+● Gangguan kognitif progresif dan gangguan 
+fungsional moderat pada ADL dasar yang 
+membutuhkan bantuan/asistensi 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 86 - 
+ 
+ 
+fungsional 
+sedang  
+A+T+(N)+ 
+Stadium 6 
+Demensia 
+dengan 
+gangguan 
+fungsional 
+yang parah 
+A+T+(N)+ 
+● Gangguan kognitif progresif dan gangguan 
+fungsional yang parah yang menyebabkan 
+ketergantungan/dependensi untuk ADL dasar   
+ 
+Tabel 21. Stadium Biomarka Cairan 
+ Ab42/40*, 
+ptau 181, 
+ptau, ptau 
+217, ptau 
+231 
+Ptau-T205 MTBR243  Fragmen 
+nonphosph
+orylated 
+tau 
+ 
+Stadium 
+Fa 
++ - - - 
+Stadium 
+Fb 
++ + - - 
+Stadium Fc + + + - 
+Stadium 
+Fd 
++ + + + 
+ 
+Pengujian pada biomarker Ab42/40: CSF Ab 42/40 saja sudah cukup, 
+tetapi plasma Ab42/40 harus disert
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 87]
+rylated 
+tau 
+ 
+Stadium 
+Fa 
++ - - - 
+Stadium 
+Fb 
++ + - - 
+Stadium Fc + + + - 
+Stadium 
+Fd 
++ + + + 
+ 
+Pengujian pada biomarker Ab42/40: CSF Ab 42/40 saja sudah cukup, 
+tetapi plasma Ab42/40 harus disertai dengan CSF Ab42/40, amiloid 
+PET atau tes ptau cairan 241 yang positif juga. Singkatan:  Aβ42/40 = 
+rasio Aβ42/Aβ40, ptau 181 = phosphorylated tau 181, ptau 217 
+phosphorylated tau 217, ptau 231 = phosphorylated tau 231, ptau-
+T205 = phosphorylation of tau site T205,  MTBR 243  = microtubule-
+binding region 243. 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 87 - 
+ 
+ 
+Tabel 22. Stadium biomarka pencitraan pet scan 
+ Amyloid 
+PET 
+Tau PET 
+mesial 
+temporal 
+ 
+Tau PET 
+serapan 
+neokortik
+al sedang 
+Tau PET 
+serapan 
+neokortik
+al tinggi    
+notasi 
+dalam AT 
+Stadium Pa + - - - A+T- 
+Stadium Pb + + - - A+TMTL+ 
+Stadium Pc + + +  A+TMOD+ 
+Stadium Pd + + + + A+THIGH+ 
+Singkatan: PET = positron emission tomography.  
+ 
+Tabel 23. Stadium Terintegrasi Antara Klinis Dan Biologis 
+ Stadium 
+klinis 0 
+Stadium 
+klinis 1
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 88]
+tadium Pc + + +  A+TMOD+ 
+Stadium Pd + + + + A+THIGH+ 
+Singkatan: PET = positron emission tomography.  
+ 
+Tabel 23. Stadium Terintegrasi Antara Klinis Dan Biologis 
+ Stadium 
+klinis 0 
+Stadium 
+klinis 1 
+Stadium 
+klinis 2 
+Stadium 
+klinis 3 
+Stadium 
+klinis 4-6 
+Stadium 
+biologis 
+dini (a) 
+x 1a 2a 3a 4-6a 
+Stadium 
+biologis 
+awal (b) 
+x 1b 2b 3b 4-6b 
+Stadium 
+biologis 
+intermedi
+et (c) 
+x 1c 2c 3c 4-6c 
+Stadium 
+biologis 
+lanjut (d) 
+x 1d 2d 3d 4-6d 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 88 - 
+ 
+ 
+Tabel 24. Ciri-ciri Patologi Klinis Penyakit Alzheimer disfungsi eksekutif, 
+Penyakit Alzheimer Varian Perilaku, dan Demensia Frontotemporal Varian 
+Perilaku 
+Patologi-
+Klinis 
+Disfungsi Eksekutif 
+penyakit Alzheimer 
+Variasi Perilaku 
+Penyakit 
+Alzheimer 
+Variasi Perilaku 
+Frontotemporal 
+Demensia 
+Klinis Sindrom disfungsi 
+eksekutif progresif 
+dengan usia awal yang 
+lebih muda (biasanya 
+antara 45 dan 70 
+tahun) 
+Sindrom perilaku 
+progresif dengan 
+onset bervariasi 
+berdasarkan usia 
+Sindrom perilaku 
+pro
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 89]
+Sindrom disfungsi 
+eksekutif progresif 
+dengan usia awal yang 
+lebih muda (biasanya 
+antara 45 dan 70 
+tahun) 
+Sindrom perilaku 
+progresif dengan 
+onset bervariasi 
+berdasarkan usia 
+Sindrom perilaku 
+progresif dengan 
+onset usia muda 
+(biasanya antara 40 
+dan 65 tahun) 
+Pengujian 
+Neuropsikolo
+gis 
+Biasanya, sangat tidak 
+normal dengan 
+disfungsi eksekutif yang 
+mempengaruhi kinerja 
+pada sebagian besar tes 
+(tes validitas kinerja 
+mungkin secara keliru 
+menunjukkan validitas 
+yang buruk) 
+Dapat 
+menunjukkan 
+memori dengan 
+variabel normal 
+dan disfungsi 
+eksekutif 
+Dapat menunjukkan 
+normal hingga 
+variasi memori dan 
+disfungsi eksekutif 
+Sosial, Emosi 
+dan Motivasi 
+Minor dan ciri sekunder 
+yang kemungkinan 
+tidak ada 
+Mayor dan ciri 
+primer yang 
+harus terlihat 
+Mayor dan ciri 
+primer yang harus 
+terlihat 
+Pencitraan 
+dan 
+Neuroanatom
+is 
+Asosiasi Korteks 
+heteromodal tetapi 
+fokus dominan parietal 
+dengan hal yang umum 
+dari keterlibatan frontal; 
+terdapat keterlibatan 
+hipokampus tetapi tidak 
+selalu ad
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 89]
+Pencitraan 
+dan 
+Neuroanatom
+is 
+Asosiasi Korteks 
+heteromodal tetapi 
+fokus dominan parietal 
+dengan hal yang umum 
+dari keterlibatan frontal; 
+terdapat keterlibatan 
+hipokampus tetapi tidak 
+selalu ada. 
+Frontotemporal 
+yang biasanya 
+meluas ke 
+temporal inferior 
+dan parietal 
+Frontotemporal 
+Penyakit 
+Alzheimer 
+dengan 
+Biomarker 
+Positif Positif Negatif 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 89 - 
+ 
+ 
+Tabel 25. Kriteria Klinis Inti dari National Institute on Aging dan Alzheimer’s 
+Association untuk Diagnosis Demensia Probable Akibat Penyakit Alzheimer 
+Pasien memenuhi kriteria untuk Demensia Alzheimer 
+ 
+Demensia Alzheimer menunjukkan karakteristik berikut: 
+● Onset yang perlahan (bertahap) selama beberapa bulan hingga 
+tahun. 
+● Disfungsi progresif yang didukung oleh informasi terpercaya 
+dari pengamat langsung atau informan yang dapat diandalkan. 
+● Defisit kognitif awal dan paling menonjol terlihat dalam riwayat 
+dan pemeriksaan pada salah satu kategori berikut: 
+1. Presentasi amnestik. 
+2. P
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 90]
+pengamat langsung atau informan yang dapat diandalkan. 
+● Defisit kognitif awal dan paling menonjol terlihat dalam riwayat 
+dan pemeriksaan pada salah satu kategori berikut: 
+1. Presentasi amnestik. 
+2. Presentasi nonamnestik (disfungsi bahasa, visuospasial, 
+atau eksekutif). 
+  
+Bukti yang tidak mendukung diagnosis Demensia Alzheimer: 
+● Penyakit serebrovaskular pada tingkat yang dapat menjelaskan 
+gangguan. 
+● Ciri inti dari penyakit neurodegeneratif lain (misalnya, 
+demensia dengan tubuh Lewy). 
+● Penyakit neurologis aktif atau bersamaan lainnya, atau 
+komorbiditas non-neurologis yang dapat memiliki efek 
+signifikan pada kognisi.  
+Tabel 26. Temuan pada pemeriksaan yang menunjukkan Disfungsi Higher-
+Order Kortikal Tingkat Tinggi dan Prediksi Lokasi 
+Higher-order 
+fungsi Kortikal 
+Penemuan merujuk 
+Disfungsi 
+Lokalisasi 
+Reasoning, 
+Abstraksi, 
+Pemantauan 
+Perilaku 
+Gangguan dalam 
+mempelajari gerakan 
+berpola (misalnya, Luria 
+Sequence), kesulitan 
+dalam menafsirkan 
+peribahasa umum atau 
+kemampuan untuk
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 90]
+i 
+Lokalisasi 
+Reasoning, 
+Abstraksi, 
+Pemantauan 
+Perilaku 
+Gangguan dalam 
+mempelajari gerakan 
+berpola (misalnya, Luria 
+Sequence), kesulitan 
+dalam menafsirkan 
+peribahasa umum atau 
+kemampuan untuk 
+menentukan kesamaan, 
+penggunaan (contohnya, 
+tanda kacamata hitam,87) 
+Kortes prefrontal 
+dan hubungan 
+frontoparietal 
+(Lobus Frontal dan 
+Lobus Parietal) 
+Bahasa Afasia (ekspresif atau 
+reseptif), ekolalia atau 
+palilalia, gangguan 
+pengulangan, apraksia 
+bicara, disleksia 
+Dominan pada 
+lobus frontal dan 
+temporal (Area 
+Broca dan 
+Wernicke) 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 90 - 
+ 
+ 
+permukaan (pengucapan 
+fonetik kata-kata tidak 
+beraturan: misalnya, 
+pneumonia, kolonel) 
+Pergerakan 
+motorik yang 
+berencana dan 
+eksekusi   
+Apraksia, apraksi motorik 
+(Contoh: ideasional dan 
+idemotor), mengabaikan 
+motorik 
+Suplementari dan 
+area premotor 
+(Lobus frontal), 
+Asosisasi area 
+(Lobus Parietal) 
+Integrasi 
+Sensoris 
+Akalkulia, agrafia, 
+agnosia jari, disorientasi 
+kanan-kiri, astereognosis, 
+graphest
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 91]
+an 
+motorik 
+Suplementari dan 
+area premotor 
+(Lobus frontal), 
+Asosisasi area 
+(Lobus Parietal) 
+Integrasi 
+Sensoris 
+Akalkulia, agrafia, 
+agnosia jari, disorientasi 
+kanan-kiri, astereognosis, 
+graphesthesia, 
+kepunahan atau 
+pengabaian sensorik 
+Hubungan Sensoris 
+(Lobus Parietal) 
+Fungsi 
+Visuopresepsi 
+Apraksia okulomotor, 
+ataksia optik, 
+simultagnosia, gangguan 
+diskriminasi warna 
+(contoh, plat Ishihara), 
+ketidakmampuan untuk 
+memahami item yang 
+tumpang tindih, 
+pengabaian visual 
+Asosiasi area visual 
+Lobus (Parietal dan 
+Lobus oksipital) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 91 - 
+ 
+ 
+7. Diagnosis Banding Demensia 
+Walaupun delirium dan demensia dapat terjadi bersamaan, dalam 
+praktik klinis demensia harus dibedakan dari delirium dan depresi. 
+ 
+Tabel 27. Perbedaan Antara Demensia, Delirium dan Depresi 
+ Depresi  Delirium  Demensia 
+Definisi Perubahan 
+mood yang 
+berlangsung 
+minimum 2 
+minggu , dan 
+mencakup 
+kesedihan, 
+negativitas, 
+kehilangan 
+minat, 
+kesenangan,
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 92]
+tara Demensia, Delirium dan Depresi 
+ Depresi  Delirium  Demensia 
+Definisi Perubahan 
+mood yang 
+berlangsung 
+minimum 2 
+minggu , dan 
+mencakup 
+kesedihan, 
+negativitas, 
+kehilangan 
+minat, 
+kesenangan, 
+dan/atau 
+penurunan 
+fungsi.  
+Awitan 
+mendadak, dan 
+disebabkan oleh 
+suatu penyakit. 
+Biasanya dirawat 
+di rumah sakit. 
+Rentan untuk 
+lansia (diatas 65 
+tahun). 
+Penyebabnya 
+biasanya 
+reversible.   
+Awitan lambat 
+dan bertahap, 
+dengan awal 
+penyakit yang 
+tidak jelas. Dapat 
+diawali gangguan 
+memori, namun 
+dapat mengenai 
+kesulitan 
+berpikir, 
+komunikasi, 
+perencanaan dan 
+pelaksanaan 
+tugas 
+keseharian.  
+Durasi  Minimum 6 
+minggu, tetapi 
+dapat 
+berlangsung 
+beberapa bulan 
+sampai 
+tahunan, 
+terutama jika 
+tidak diobati  
+Biasanya 
+beberapa jam 
+sampai beberapa 
+hari. Pada 
+beberapa orang 
+berlangsung 
+sampai beberapa 
+bulan, 
+tergantung pada 
+kecepatan 
+diagnosis dan 
+tingkat 
+komorbiditasnya 
+ 
+Penurunan 
+kognisi kronik 
+yang 
+berlangsung 
+beberapa tahun.  
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id-
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 92]
+g 
+sampai beberapa 
+bulan, 
+tergantung pada 
+kecepatan 
+diagnosis dan 
+tingkat 
+komorbiditasnya 
+ 
+Penurunan 
+kognisi kronik 
+yang 
+berlangsung 
+beberapa tahun.  
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 92 - 
+ 
+ 
+Proses 
+berpikir 
+Sulit membuat 
+keputusan 
+dengan pikiran 
+yang terfokus 
+pada kegagalan 
+dan 
+keputusasaan.  
+Fluktuasi antara 
+status rasional 
+dan proses 
+berpikir 
+disorganisasi, 
+dan terganggu 
+dengan bicara 
+inkoheren.  
+Bertahap 
+penurunan 
+kognisi, 
+pemecahan 
+masalah, 
+kemandirian. 
+Tingkat 
+kesadaran 
+biasanya tidak 
+terganggu 
+sampai demensia 
+menjadi berat.  
+Kognisi Dapat 
+memberikan 
+jawaban benar 
+dalam tes 
+kognisi  
+Hasil tes kognisi 
+bervariasi, 
+tergantung pada 
+waktu dalam 
+sehari, dan 
+fluktuasi kognisi. 
+Orientasi waktu 
+dan tempat 
+bervariasi.  
+Berusaha dalam 
+menjawab 
+namun tidak 
+menyadari 
+kesalahan 
+jawabannya. 
+Orientasi waktu 
+dan tempat 
+biasanya 
+terganggu. 
+Memori  Biasanya utuh, 
+walaupun bisa 
+selektif.  
+Memori baru dan 
+segera 
+terganggu.   
+Tidak mampu 
+mempel
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 93]
+n tidak 
+menyadari 
+kesalahan 
+jawabannya. 
+Orientasi waktu 
+dan tempat 
+biasanya 
+terganggu. 
+Memori  Biasanya utuh, 
+walaupun bisa 
+selektif.  
+Memori baru dan 
+segera 
+terganggu.   
+Tidak mampu 
+mempelajari 
+informasi baru 
+atau mengingat 
+kembali 
+informasi yang 
+telah dipelajari.  
+Siklus 
+tidur dan 
+bangun  
+Terganggu, 
+biasanya 
+bangun sangat 
+pagi.  
+Terganggu. 
+Siklus terbalik, 
+bangun pada 
+malam hari dan 
+ngantuk dan 
+tidak responsive 
+pada siang hari.  
+Terganggu. 
+Siklus tidur 
+terbalik, bangun 
+malam dan 
+ngantuk dan 
+tidak responsif 
+pada siang hari 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 93 - 
+ 
+ 
+terutama 
+demensia 
+progresif.  
+Halusinasi 
+dan delusi  
+Dapat terjadi 
+pada depresi 
+berat. Tema 
+perasaan 
+bersalah dan 
+membenci diri.  
+Sering, dengan 
+munculan 
+ketakutan atau 
+paranoid.  
+Bisa terjadi. 
+Salah persepsi 
+stimulus visual 
+atau auditorik. 
+Halusinasi visual 
+pada demensia 
+Lewy body.  
+ 
+Diagnosis  Menyangkal 
+depresi, namun 
+memperlihatka
+n kecemasan, 
+dan sering 
+disertai 
+kel
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 94]
+sa terjadi. 
+Salah persepsi 
+stimulus visual 
+atau auditorik. 
+Halusinasi visual 
+pada demensia 
+Lewy body.  
+ 
+Diagnosis  Menyangkal 
+depresi, namun 
+memperlihatka
+n kecemasan, 
+dan sering 
+disertai 
+keluhan fisik. 
+Orang lain akan 
+melihat adanya 
+tanda dan 
+gejala depresi. 
+Sering menarik 
+diri dari sosial.  
+Diagnosis 
+ditegakkan atas 
+dasar gejala yang 
+berfluktuasi 
+cepat. Dapat 
+disalahsangka 
+sebagai 
+demensia yang 
+progresif.  
+Penting 
+mengeluarkan 
+penyebab 
+potensial 
+gangguan 
+kognisi lainnya 
+sebelum 
+mendiagnosa 
+demensia.  
+ 
+8. Identifikasi Dini MCI 
+MCI adalah sindrom yang ditentukan berdasarkan kriteria klinis, 
+kognitif, dan fungsional yang ditandai dengan penurunan fungsi 
+kognitif pada satu atau lebih domain tanpa disertai gangguan 
+signifikan dalam aktivitas kehidupan sehari-hari. Studi oleh Liu et.al 
+(2021), menunjukkan prevalensi MCI pada lansia mencapai 12.5%, 
+dimana hipertensi dan stroke merupakan faktor resiko utama pada 
+MCI dan level edukasi yang lebih tinggi serta aktivitas so
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 94]
+oleh Liu et.al 
+(2021), menunjukkan prevalensi MCI pada lansia mencapai 12.5%, 
+dimana hipertensi dan stroke merupakan faktor resiko utama pada 
+MCI dan level edukasi yang lebih tinggi serta aktivitas sosial dapat 
+sebagai faktor protektifnya (Grade C, Level 2+). Studi oleh Peritogiannis 
+et.al (2022) menunjukkan prevalensi MCI lebih tinggi pada daerah 
+pedesaan dibandingkan kota, hal ini disebabkan oleh beberapa faktor 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 94 - 
+ 
+ 
+diantaranya adanya perbedaan lingkungan, tingkat pedidikan, dan 
+kebiasaan interaksi sosial lebih banyak diperkotaan. 
+Kriteria diagnosis MCI berdasarkan DSM-V sebagai berikut: 
+a. Bukti adanya penurunan fungsi kognitif dari keadaan 
+sebelumnya yang melibatkan satu atau lebih domain kognitif 
+(atensi kompleks, fungsi eksekutif, learning and memory, bahasa, 
+persepsi motor, atau social cognition), berdasarkan pada: 
+1) Menurut individu atau informan atau seorang klinisi adanya 
+penurunan fungsi kognitif ringan. 
+2) Gangguan fungsi kognitif ri
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 95]
+memory, bahasa, 
+persepsi motor, atau social cognition), berdasarkan pada: 
+1) Menurut individu atau informan atau seorang klinisi adanya 
+penurunan fungsi kognitif ringan. 
+2) Gangguan fungsi kognitif ringan, yang dibuktikan dengan 
+test neuropsikologis terstandardisasi atau pemeriksaan lain 
+yang sesuai. 
+b. Defisit kognitif tidak mengganggu kemandirian akan kegiatan 
+sehari-hari (pada aktivitas keseharian yang kompleks seperti 
+membayar tagihan atau menata obat pribadi). 
+c. Defisit kognitif tidak disebabkan oleh kondisi delirium 
+d. Defisit kognitif tidak disebabkan oleh gangguan kognitif lainnya. 
+Pasien MCI memiliki prevalensi depresi/kecemasan/apatis yang tinggi. 
+Lebih lanjut, pasien dengan MCI dan depresi/kecemasan/apatis yang 
+terjadi bersamaan memiliki defisit kognitif yang lebih jelas dan 
+berkembang lebih sering menjadi demensia daripada pasien MCI tanpa 
+depresi/kecemasan/sikap apatis. 
+Untuk membuat identifikasi awal DA melibatkan pemeriksaan 
+biomarker cairan serebrospinal dan neuroimaging dal
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 95]
+ang lebih sering menjadi demensia daripada pasien MCI tanpa 
+depresi/kecemasan/sikap apatis. 
+Untuk membuat identifikasi awal DA melibatkan pemeriksaan 
+biomarker cairan serebrospinal dan neuroimaging dalam mempelajari 
+stadium pre-demensia DA (MCI) dan stadium preklinik DA. Dua kelas 
+biomarker yang termasuk dalam rekomendasi, yaitu  terkait dengan 
+Aβ dan yang dapat mencerminkan kerusakan saraf. Plak amiloid 
+adalah salah satu ciri paling khas dari penyakit Alzheimer. Oleh 
+karena itu, adanya biomarker yang mampu mendeteksi dan mengukur 
+Aβ yang terakumulasi dalam jaringan otak sangat penting sebagai 
+diagnosis patologis penyakit dan prekursornya.  Penanda deposisi 
+meliputi pengukuran kadar Aβ42 dalam cairan serebrospinal sebagai 
+bukti deposisi dengan pencitraan positron emission tomography (PET) 
+menggunakan berbagai bahan pengikat spesifik. Penanda akumulasi 
+protein tau dapat diperoleh dengan pengukuran CSF. 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 95 - 
+ 
+ 
+Tabel 28. Penanda Biomarker Amiloid Bet
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 95]
+akan berbagai bahan pengikat spesifik. Penanda akumulasi 
+protein tau dapat diperoleh dengan pengukuran CSF. 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 95 - 
+ 
+ 
+Tabel 28. Penanda Biomarker Amiloid Beta dan Kerusakan Saraf 
+Biomarka Diagnosis Gangguan Kognisi 
+Biomarka deposit amiloid beta 
+● Cairan serebrospinal Aβ42 
+● Pencitraan PET amiloid 
+Biomarka cedera neuron 
+● Cairan serebrospinal tau/tau terforforilasi 
+● Penilaian kualitatif, skoring atrofi serebri, atau pengukuran 
+volumetrik terdapat atrofi hipokampus atau mediotemporal  
+● Atrofi otak  
+● Pencitraan FDG-PET 
+● Pengukuran perfusi SPET 
+● Pemeriksaan lain yang belum validasi: studi aktivasi fMRI, 
+resting BOLD functional connectivity, MRI perfusi, MR 
+Spectroscopy, dan diffusion tensor imaging  
+Adaptasi dari Albert. 
+Keterangan:  
+PET:    Positron emission tomography 
+FDG:   Florodeoxyglucose 
+SPET:  Single photon emission tomography 
+fMRI:   Functional magnetic resonance imaging 
+BOLD: Bold oxygen level dependent 
+ 
+Untuk pemeriksaan neuroim
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 96]
+itron emission tomography 
+FDG:   Florodeoxyglucose 
+SPET:  Single photon emission tomography 
+fMRI:   Functional magnetic resonance imaging 
+BOLD: Bold oxygen level dependent 
+ 
+Untuk pemeriksaan neuroimaging yang dapat dilakukan antara lain 
+adalah MRI dan PET Scan. Sebuah studi telaah sistematik oleh 
+Chandra et al., (2019) menyebutkan Magnetic Resonance Imaging (MRI)  
+sangat penting untuk memahami mekanisme neuropatologis dan 
+identifikasi klinis penyakit Alzheimer (AD) serta gangguan kognitif 
+ringan (MCI). Modalitas MRI juga dapat menunjukkan pola kerusakan 
+otak yang membedakan AD dari penyakit otak lain dan kelainan otak 
+yang terkait dengan risiko konversi ke AD dari MCI dan hasil luaran 
+lainnya. Volume hipokampus atau lobus temporal medial 
+menunjukkan sensitivitas dan spesifisitas yang rendah dan tidak 
+memenuhi syarat MRI struktural sebagai tes tambahan yang berdiri 
+sendiri untuk diagnosis dini demensia karena penyakit Alzheimer pada 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 96 - 
+ 
+ 
+orang den
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 96]
+tidak 
+memenuhi syarat MRI struktural sebagai tes tambahan yang berdiri 
+sendiri untuk diagnosis dini demensia karena penyakit Alzheimer pada 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 96 - 
+ 
+ 
+orang dengan MCI. Hal ini konsisten dengan pedoman internasional, 
+yang merekomendasikan pencitraan untuk menepis penyebab non-
+degeneratif atau bedah dari gangguan kognitif dan tidak untuk 
+mendiagnosis demensia karena penyakit Alzheimer (Grade A, level 1).  
+Modalitas MRI yang dicakup termasuk MRI struktural, difusi 
+pencitraan tensor (DTI), pelabelan putaran arteri (ASL), spektroskopi 
+resonansi magnetik (MRS), dan MRI fungsional (fMRI). Terdapat 
+banyak bukti yang mendukung validitas MRI sebagai biomarker untuk 
+gangguan ini namun, hanya pencitraan struktural yang saat ini 
+direkomendasikan untuk penggunaan rutin dalam pengaturan klinis. 
+NICE saat ini merekomendasikan neuroimaging struktural untuk 
+subtipe dalam 'dicurigai demensia dini'. Namun pencitraan yang 
+dilakukan tidak boleh menggantikan klinis yang terpe
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 97]
+dalam pengaturan klinis. 
+NICE saat ini merekomendasikan neuroimaging struktural untuk 
+subtipe dalam 'dicurigai demensia dini'. Namun pencitraan yang 
+dilakukan tidak boleh menggantikan klinis yang terperinci penilaian, 
+tetapi dapat memberikan wawasan tentang ada atau tidak adanya 
+serta derajat kerusakan saraf. Pencitraan nuklir direkomendasikan 
+oleh NICE untuk demensia dini ketika 'diagnosis tidak pasti dan 
+penyakit Alzheimer (AD) dicurigai'. Pencitraan amiloid PET dapat 
+dilakukan untuk individu dengan semua karakteristik berikut (Grade 
+A, level 1):  
+a. Keluhan kognitif dengan objektif penurunan nilai yang 
+dikonfirmasi;  
+b. AD sebagai diagnosis yang mungkin, namun diagnosis belum 
+pasti setelah dilakukan pemeriksaan menyeluruh oleh ahli; 
+c. ketika pengetahuan tentang ada atau tidak adanya patologi Aβ 
+diharapkan dapat meningkatkan kepastian diagnostik dan 
+mengubah pengelolaan 
+Selain itu dapat dilakukan pada pasien sebagai berikut: 
+a. Pasien dengan MCI yang persisten atau progresif yang tidak da
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 97]
+Aβ 
+diharapkan dapat meningkatkan kepastian diagnostik dan 
+mengubah pengelolaan 
+Selain itu dapat dilakukan pada pasien sebagai berikut: 
+a. Pasien dengan MCI yang persisten atau progresif yang tidak dapat 
+dijelaskan; 
+b. pasien yang memenuhi kriteria klinis inti untuk kemungkinan AD 
+karena presentasi klinis yang tidak jelas, baik perjalanan klinis 
+atipikal atau campuran etiologis presentasi; 
+c. pasien dengan demensia progresif dan onset usia dini yang 
+atipikal (biasanyaa didefinisikan sebagai 65 tahun atau kurang). 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 97 - 
+ 
+ 
+Dalam tata laksana pasien MCI yang paling utama yaitu menangani 
+penyebab kerusakan kognitif yang reversibel dan memodifikasi faktor 
+risiko vaskular. Diperlukan pula adanya informasi kepada pasien 
+mengenai manfaat potensial dari latihan dan intervensi kognitif. 
+a. Tangani penyebab reversibel 
+Beberapa pasien dengan MCI membaik atau tetap stabil dari 
+waktu ke waktu dengan cara memberikan evaluasi untuk 
+penyebab kerusakan kognitif yan
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 98]
+n dan intervensi kognitif. 
+a. Tangani penyebab reversibel 
+Beberapa pasien dengan MCI membaik atau tetap stabil dari 
+waktu ke waktu dengan cara memberikan evaluasi untuk 
+penyebab kerusakan kognitif yang dapat diperbaiki antara lain: 
+efek samping pengobatan, gangguan tidur, depresi, kekurangan 
+vitamin B12 atau hipotiroidisme. 
+b. Modifiasi faktor risiko vaskular 
+Faktor risiko vaskular dapat menjadi penyebab terjadinya 
+demensia sehingga pasien MCI perlu mendapatkan skrining 
+faktor risiko vaskular, menanganinya dan memodifikasi gaya 
+hidup untuk memperbaiki risiko penurunan kognitif pada pasien 
+MCI. Hal ini dikarenakan bahwa penyakit serebrovaskular 
+dianggap berperan dalam penyakit Alzheimer serta demensia 
+vaskular. Penelitian menyebutkan pengobatan hipertensi telah 
+terbukti mengurangi kejadian demensia pada populasi umum. 
+Penelitan lainnya juga memberikan bukti manfaat dari terapi 
+antiplatelet, terapi statin, berhenti merokok, dan manajemen 
+diabetes dalam pengobatan atau pencegahan demensia. 
+c.
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 98]
+sia pada populasi umum. 
+Penelitan lainnya juga memberikan bukti manfaat dari terapi 
+antiplatelet, terapi statin, berhenti merokok, dan manajemen 
+diabetes dalam pengobatan atau pencegahan demensia. 
+c. Intervensi nonfarmakologis  
+Beberapa manajemen non farmakologis dapat diberikan antara 
+lain olahraga sebagai contoh latihan aerobik dimana sebuah 
+penelitian menyebutkan latihan aerobik dapat meningkatkan 
+kemampuan kognitif global sebesar 1 poin pada MMSE dan 
+dikaitkan dengan perbaikan kecil pada tes immediate and delayed 
+recall namun tidak pada domain lain. Selain itu intervensi kognitif 
+seperti pelatihan memori dan penggunaan isyarat memori 
+eksternal terbukti meningkatkan fungsi kognitif pada lansia 
+sehat. 
+d. Tidak direkomendasikan atau tidak terbukti 
+Tidak ada obat atau suplemen makanan yang terbukti memiliki 
+manfaat simptomatik atau pencegahan pada pasien dengan MCI. 
+Selain itu pentingnya deteksi dini MCI pada lansia dan caregiver di 
+layanan primer dapat meningkatkan luaran klinisnya. Adapun
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 98]
+ukti memiliki 
+manfaat simptomatik atau pencegahan pada pasien dengan MCI. 
+Selain itu pentingnya deteksi dini MCI pada lansia dan caregiver di 
+layanan primer dapat meningkatkan luaran klinisnya. Adapun 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 98 - 
+ 
+ 
+instrumen yang dapat digunakan adalah dari MMSE, Clock Drawing 
+Test, the Memory Impariment Screen, Mini-Cog, verbal fluency test, tes 
+AD8 dan Functional Activities Questionnaire, dan Montreal Cognitive 
+Assesment.  
+Rekomendasi 
+Pemeriksaan Ciri- ciri Patologi Klinis Penyakit Alzheimer disfungsi 
+eksekutif, Penyakit Alzheimer Varian Perilaku, dan Demensia 
+Frontotemporal Varian Perilaku dapat diferensial diagnosis 
+demensia FTD dan demensia lainnya (Grade A) 
+Pemeriksaan lokasi pada pasien demensia dapat dilakukan dengan 
+Temuan pada pemeriksaan yang menunjukkan Disfungsi Higher-
+Order Kortikal Tingkat Tinggi dan Prediksi Lokasi (Grade A) 
+Deteksi dini MCI dapat membantu memberikan manajemen yang 
+tepat dengan hasil luaran yang lebih baik dan mengurangi be
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 99]
+jukkan Disfungsi Higher-
+Order Kortikal Tingkat Tinggi dan Prediksi Lokasi (Grade A) 
+Deteksi dini MCI dapat membantu memberikan manajemen yang 
+tepat dengan hasil luaran yang lebih baik dan mengurangi beban 
+caregiver (Grade A, Level 1+). 
+ 
+C. Tata Laksana 
+1. Tata Laksana di Fasilitas Pelayanan Kesehatan Tingkat Pertama 
+(FPKTP) 
+Penapisan kognitif, penilaian aktivitas hidup sehari-hari, dan penilaian 
+gejala neuropsikiatri yang sudah divalidasi, direkomendasikan untuk 
+dilakukan di fasilitas kesehatan tingkat pertama, terhadap individu 
+yang dikhawatirkan secara klinis mengalami gangguan kognitif. 
+Systematic review dari 53 panduan praktik klinis menunjukkan bahwa 
+skrining fungsi kognitif secara umum pada populasi asimptomatik 
+tidak direkomendasikan. Evaluasi disarankan untuk dilakukan pada 
+individu dengan risiko lebih tinggi untuk mengalami demensia, di 
+antaranya orang dewasa dengan disabilitas intelektual, lansia berusia 
+di atas 75 tahun dengan keluhan gangguan memori atau riwayat 
+gangguan memori
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 99]
+ngan risiko lebih tinggi untuk mengalami demensia, di 
+antaranya orang dewasa dengan disabilitas intelektual, lansia berusia 
+di atas 75 tahun dengan keluhan gangguan memori atau riwayat 
+gangguan memori pasa keluarga, atau adanya kecurigaan klinis dari 
+dokter mengenai adanya gangguan ingatan. 
+Tenaga medis pada fasilitas kesehatan tingkat pertama harus waspada 
+terhadap gejala potensial adanya gangguan kognitif pada individu 
+lanjut usia atau berisiko yang meliputi keadaan berikut:  
+a. Adanya laporan gejala kognitif oleh pasien /pendamping/ 
+pengasuh 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 99 - 
+ 
+ 
+b. penurunan dalam Instrumental Activities of Daily Living yang tidak 
+dapat dijelaskan 
+c. janji pertemuan atau kontrol yang terlewatkan 
+d. kesulitan dalam mengingat atau mengikuti instruksi atau minum 
+obat 
+e. penurunan kemampuan merawat diri 
+f. menjadi korban penipuan keuangan 
+g. perubahan perilaku baru (termasuk depresi atau kecemasan 
+baru).  
+Rekomendasi 
+Penapisan kognitif, penilaian aktivitas hidu
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 100]
+t 
+e. penurunan kemampuan merawat diri 
+f. menjadi korban penipuan keuangan 
+g. perubahan perilaku baru (termasuk depresi atau kecemasan 
+baru).  
+Rekomendasi 
+Penapisan kognitif, penilaian aktivitas hidup sehari- hari, dan  
+penilaian gejala neuropsikiatri direkomendasikan terhadap individu 
+yang diduga mengalami gangguan kognitif  
+(Grade C) 
+Tenaga medis pada fasilitas kesehatan tingkat pertama harus 
+waspada terhadap gejala gangguan kognitif pada individu lanjut usia 
+atau berisiko.  
+(Grade C) 
+ 
+a. Instrumen Penapisan 
+Tes penapisan kognitif yang dapat dilakukan di fasilitas  
+kesehatan tingkat pertama adalah The Ascertain Dementia 8-item 
+Informant Questionnaire (AD8) dan Mini-Cog. Kombinasi tes 
+wawancara keluarga dengan tes penapisan kognitif meningkatkan 
+akurasi prediksi demensia dibandingkan bila masing-masing tes 
+dilakukan sendiri. AD8 adalah tes penapisan praktis berupa 
+delapan pertanyaan yang ditujukan kepada keluarga pasien yang 
+mencakup aspek kognitif dan fungsional. Kuesioner AD8 
+direkom
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 100]
+masing-masing tes 
+dilakukan sendiri. AD8 adalah tes penapisan praktis berupa 
+delapan pertanyaan yang ditujukan kepada keluarga pasien yang 
+mencakup aspek kognitif dan fungsional. Kuesioner AD8 
+direkomendasikan untuk ditanyakan kepada pengasuh atau 
+keluarga sebagai upaya memperoleh informasi tambahan selain 
+dari alat penapisan kognitif lain atau dalam keadaan tes 
+penapisan lain tidak dapat dilakukan (karena keterbatasan waktu 
+atau pasien tidak kooperatif). 
+Studi validasi multinasional di Amerika, Hongkong, Taiwan, Cina, 
+menunjukkan sensitivitas dan spesifisitas yang baik. Di Indonesia 
+AD8 adaptasi Indonesia (AD8-INA) dengan cut off point > 2 untuk 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 100 - 
+ 
+ 
+demensia memiliki sensitivitas 89,5%; spesifisitas 94,7 %; PPV 
+85%; dan NPV 96% 162–164. Aplikasi smartphone AD8-INA sebagai 
+penapisan gangguan kognitif memiliki reliabilitas internal yang 
+baik, dan nilai sensitivitas serta spesifisitas yang tinggi. Aplikasi 
+ini telah diteliti untuk membedakan subjek
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 101]
+artphone AD8-INA sebagai 
+penapisan gangguan kognitif memiliki reliabilitas internal yang 
+baik, dan nilai sensitivitas serta spesifisitas yang tinggi. Aplikasi 
+ini telah diteliti untuk membedakan subjek normal dengan 
+demensia. Nilai reliabilitas, sensitivitas, dan spesifisitas 
+aplikasi tersebut dengan membandingkan hasil CDR subyek 
+penelitian adalah 83%; 93,34%; dan 85,29%.  Nilai sensitivitas 
+dan spesifisitas aplikasi tersebut dalam membedakan subyek 
+normal dengan MCI adalah 87,56% dan spesifisitas 85,29%B. 
+Mini Cog merupakan alat skrining gangguan kognitif dan 
+demensia yang terdiri dari recall 3 kata dan clock drawing test . 
+Mini Cog digunakan pada FPKTP memiliki sensitivitas 76%-100% 
+dan spesifisitas 27%-85%. Mini Cog memiliki kelebihan yaitu 
+tidak terpengaruh oleh Tingkat pendidikan, halangan bahasa dari 
+pemeriksa, sederhana, mudah dipelajari dan lebih mudah 
+diterima oleh pasien. Mini Cog juga membutuhkan waktu yang 
+lebih singkat yaitu hanya membutuhkan waktu sebanyak 3-4 
+menit. Hal ini me
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 101]
+bahasa dari 
+pemeriksa, sederhana, mudah dipelajari dan lebih mudah 
+diterima oleh pasien. Mini Cog juga membutuhkan waktu yang 
+lebih singkat yaitu hanya membutuhkan waktu sebanyak 3-4 
+menit. Hal ini membuat Mini-Cog cocok untuk diaplikasikan di 
+FPKTP dan untuk skrining demensia di tingkat komunitas.  
+ 
+Tabel 29.  ASCERTAINING DEMENTIA (AD-8) 
+No Pertanyaan Ya 
+berubah 
+Tidak 
+berubah 
+Tidak 
+tahu 
+1 Apakah keluarga anda mengalami 
+kesulitan dalam membuat 
+keputusan? Misalnya tidak mampu 
+memberi saran dengan benar, tidak 
+mampu mengurus keuangan, 
+membeli hadiah yang tidak layak 
+untuk orang lain, bermasalah 
+dengan pemikiran? 
+ 
+____ 
+ 
+_____ 
+ 
+____ 
+2 Apakah keluarga anda sudah tidak 
+menekuni hobi/ kegiatan yang 
+sebelumnya disenangi? Misalnya 
+merajut, menjahit, berkebun, 
+ 
+____ 
+ 
+_____ 
+ 
+____ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 101 - 
+ 
+ 
+memasak kue, membaca buku, 
+bermain catur, memainkan alat 
+musik, atau bernyanyi? 
+3 Apakah keluarga anda mengulang-
+ulang pertanyaan, cerita atau 
+perny
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 101]
+EMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 101 - 
+ 
+ 
+memasak kue, membaca buku, 
+bermain catur, memainkan alat 
+musik, atau bernyanyi? 
+3 Apakah keluarga anda mengulang-
+ulang pertanyaan, cerita atau 
+pernyataan yang sama? 
+____ 
+ 
+____ 
+_____ 
+ 
+_____ 
+____ 
+ 
+____ 
+4 Apakah keluarga anda mengalami 
+kesulitan belajar menggunakan 
+perkakas & peralatan?, seperti TV, 
+radio, komputer, microwave, remote 
+control, kompor, setrika, blender? 
+ 
+____ 
+ 
+_____ 
+ 
+____ 
+5 Apakah keluarga anda lupa nama 
+bulan atau tahun? 
+____ _____ ____ 
+6 Apakah keluarga anda mengalami 
+kesulitan mengatur keuangan? 
+Misalnya membayar rekening 
+air/listrik, periksa buku cek, pajak 
+pendapatan, mengambil uang 
+pensiun di bank? 
+ 
+____ 
+ 
+_____ 
+ 
+____ 
+7 Apakah keluarga anda mengalami 
+kesulitan mengingat janji terhadap 
+orang lain? 
+____ _____ ____ 
+8 Apakah keluarga anda sehari-
+harinya mengalami gangguan 
+memori dan pemikiran yang 
+konsisten?. Misalnya lupa 
+meletakkan kaca mata, kunci 
+kendaraan, meletakkan barang 
+tidak sesuai pada
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 102]
+__ _____ ____ 
+8 Apakah keluarga anda sehari-
+harinya mengalami gangguan 
+memori dan pemikiran yang 
+konsisten?. Misalnya lupa 
+meletakkan kaca mata, kunci 
+kendaraan, meletakkan barang 
+tidak sesuai pada tempatnya 
+ 
+____ 
+ 
+_____ 
+ 
+____ 
+ Skor total    
+ 
+Rekomendasi 
+Instrumen kuesioner AD8-INA dapat digunakan sebelum tes penapisan kognitif 
+lain. 
+(Grade C) 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 102 - 
+ 
+ 
+Instrumen MMSE dan GDS versi singkat dapat dilakukan pada individu yang 
+diduga mengalami gangguan kognitif.  
+(Grade C) 
+Pemeriksaan AD-8 INA, MoCA INA, MMSE, dan atau GDS versi singkat dapat 
+dilakukan di fasilitas kesehatan tingkat pertama  
+(GPP) 
+ 
+Individu yang direkomendasikan untuk menjalani penapisan 
+kognitif adalah individu yang berisiko tinggi mengalami gangguan 
+kognitif. Jika didapatkan gangguan kognitif yang secara klinis 
+signifikan, maka individu tersebut direkomendasikan untuk 
+dilakukan evaluasi penilaian kognitif, perilaku, dan fungsional 
+lebih lanjut. 
+Individu yang memerlukan
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 103]
+n gangguan kognitif yang secara klinis 
+signifikan, maka individu tersebut direkomendasikan untuk 
+dilakukan evaluasi penilaian kognitif, perilaku, dan fungsional 
+lebih lanjut. 
+Individu yang memerlukan penapisan kognitif adalah individu 
+yang memiliki kondisi berikut: 
+1) Usia sangat lanjut 
+2) Diabetes mellitus 
+3) Riwayat stroke atau Transient Ischemic Attack (TIA) 
+4) Gangguan depresif onset lambat atau riwayat gangguan 
+depresi mayor  
+5) Sleep apnea yang tidak diterapi 
+6) Morbiditas metabolik atau kardiovaskular yang tidak stabil 
+7) Episode delirium terbaru 
+8) Episode gangguan psikiatri mayor (seperti psikosis, 
+kecemasan, depresi, mania) pertama kali pada usia lanjut  
+9) Cedera kepala yang baru terjadi 
+10) Penyakit Parkinson  
+11) Gangguan memori dan gangguan kognitif (dilaporkan oleh 
+pasien sendiri maupun oleh orang lain) 
+12) Lupa progresif  
+13) Kecurigaan adanya gangguan perilaku  
+14) Riwayat keluarga dengan demensia 
+ 
+Individu dengan keluhan kognitif yang bersifat subyektif dengan 
+hasil
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 103]
+diri maupun oleh orang lain) 
+12) Lupa progresif  
+13) Kecurigaan adanya gangguan perilaku  
+14) Riwayat keluarga dengan demensia 
+ 
+Individu dengan keluhan kognitif yang bersifat subyektif dengan 
+hasil pemeriksaan kognitif normal (Subjective Cognitive Decline), 
+tanpa gangguan dalam Instrumental Activities of Daily Living, 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 103 - 
+ 
+ 
+harus menjalani pemeriksaan diagnostik yang sesuai (seperti: 
+pemeriksaan kognitif demensia standar, identifikasi penyebab 
+reversibel, evaluasi gejala psikiatri terutama gejala depresi dan 
+kecemasan). 
+Rekomendasi 
+Penapisan kognitif direkomendasikan terhadap individu dengan 
+risiko tinggi mengalami gangguan kognitif.  
+(Grade C) 
+Pemeriksaan kognitif lengkap dan evaluasi psikiatri 
+direkomendasikan terhadap individu dengan Subjective 
+Cognitive Decline.  
+(Grade C) 
+ 
+ 
+SKEMA 1. SKRINING DEMENSIA PADA FASILITAS KESEHATAN TINGKAT 
+PERTAMA (PUSKESMAS/KLINIK) 
+ 
+ 
+ 
+Gejala demensia (keluhan memori subjektif, perubahan Activity 
+Daily Li
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 104]
+Cognitive Decline.  
+(Grade C) 
+ 
+ 
+SKEMA 1. SKRINING DEMENSIA PADA FASILITAS KESEHATAN TINGKAT 
+PERTAMA (PUSKESMAS/KLINIK) 
+ 
+ 
+ 
+Gejala demensia (keluhan memori subjektif, perubahan Activity 
+Daily Living (ADL), dan / atau keluhan pengasuh / keluarga) 
+Pemeriksaan Klinis : 
+Anamnesis riwayat pasien / keluarga 
+Pemeriksaan Fisik meliputi sistem kardiovaskular dan neurologis 
+Pemeriksaan AD 8 yang diisi pramurukti/ keluarga / pemeriksaan 
+MoCA-INA pada pasien 
+Abnormalitas pada pemeriksaan klinis dan 
+neurologis  / AD8 INA  > 2 / MoCA-INA < 26 
+Periksa Ulang 
+6 bulan 
+kemudian 
+Rujuk ke fasilitas pelayanan kesehatan tingkat lanjut/ Klinik 
+Memori  
+Ya 
+Tidak 
+Ya 
+Ya 
+Singkatan skema: 
+AD8     = The Ascertaining Dementia 8-item (Informant Questionnaire)    
+versi Indonesia 
+MoCA-INA = Montreal Cognitive Assessment versi Indonesia 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 104 - 
+ 
+ 
+AChEI 
+EGB76 
+DMT 
+(Lecanemab) 
+ 
+SKEMA 2. ALGORITMA PENATALAKSANAAN DEMENSIA 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Pasien dengan demensia 
+Interve
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 104]
+ssment versi Indonesia 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 104 - 
+ 
+ 
+AChEI 
+EGB76 
+DMT 
+(Lecanemab) 
+ 
+SKEMA 2. ALGORITMA PENATALAKSANAAN DEMENSIA 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Pasien dengan demensia 
+Intervensi farmakologis Intervensi psikososial 
+Asesmen multidisiplin 
+Intervensi untuk pasien 
+dan keluarga 
+Demensia 
+Alzheimer Vaskuler Lewy body/ 
+parkinson 
+Fronto- 
+temporal 
+Terapi risiko vaskuler 
+(antihipertensi, anti-lipid, 
+anti diabetes, anti platelet, 
+antikoagulan) 
+Pertimbangkan 
+Rivastigmine 
+Donepezil 
+SSRI 
+Ringan Sedang 
+berat 
+Donepezil + 
+memantin 
+EGB76 
+Pertimbangkan 
+AChEI, EGB76 
+Aktivitas untuk meningkatkan kemandirian 
+Behavioral and Psychological Symptoms of Dementia (BPSD) 
+Komorbiditas kelainan 
+emosional 
+Ansietas, depresi 
+Mempertahankan 
+fungsi 
+Mempertahankan 
+fungsi kognitif 
+Agitasi, agresi, dan 
+psikosis 
+Terapi lini pertama : intervensi psikososial 
+Pertimbangkan antipsikotik bila gejala sangat 
+mengganggu dan intervensi non- farmakologi gagal 
+(hindari pada DLB) 
+Terapi lini pe
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 105]
+si, agresi, dan 
+psikosis 
+Terapi lini pertama : intervensi psikososial 
+Pertimbangkan antipsikotik bila gejala sangat 
+mengganggu dan intervensi non- farmakologi gagal 
+(hindari pada DLB) 
+Terapi lini pertama : intervensi psikososial 
+Antidepresan pada pasien depresi 
+Pertimbangkan ansiolitik pada pasien dengan 
+gejala ansietas berat 
+Singkatan skema: 
+AchEI       = Acetyl-cholinesterase-inhibitor 
+DLB         = Demensia Lewy Body 
+EGB 761  = Extract Ginkgo Biloba 761 
+DMT = Disease Modifying Therapy 
+SSRI = Selective Serotonin Receptor Inhibitor 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 105 - 
+ 
+ 
+b. Indikasi Merujuk ke Fasilitas pelayanan kesehatan tingkat lanjut 
+Pasien dengan demensia perlu dirujuk ke dokter dengan 
+kompetensi melakukan layanan neurolog, psikiatrik, geriatrik 
+atau klinik memori setelah penatalaksanaan di fasilitas kesehatan 
+tingkat pertama. Dua buah guideline merekomendasikan 
+beberapa kasus demensia perlu dirujuk untuk keperluan 
+diagnosis, terapi dan penanganan khusus. 
+ 
+Tabel 30. A
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 106]
+penatalaksanaan di fasilitas kesehatan 
+tingkat pertama. Dua buah guideline merekomendasikan 
+beberapa kasus demensia perlu dirujuk untuk keperluan 
+diagnosis, terapi dan penanganan khusus. 
+ 
+Tabel 30. Alasan Merujuk ke dokter dengan kompetensi layanan 
+melakukan neurolog, psikiatrik, geriatrik  
+No Keterangan Sumber 
+1 Alasan diagnosis, termasuk second opinion a,b 
+2 Masalah perilaku yang berat 
+3 Komorbiditas psikitrik seperti depresi 
+4 Alasan terapeutik, termasuk akses terhadap obat-obatan 
+5 Mendapatkan pelayanan suportif komunitas 
+6 Usia kurang dari 60 tahun a 
+7 Penurunan yang cepat dari kondisi klinis 
+8 Paparan terhadap logam berat 
+9 Konseling genetik b 
+10 Untuk penanganan yang melibatkan tenaga kesehatan 
+profesional lainnya 
+Keterangan  
+a. Australia Practice Guidelines 2003 
+b. Royal College of Psychiatrist 2005 
+Rekomendasi 
+Semua pasien yang dicurigai demensia harus dirujuk ke dokter 
+dengan kompetensi melakukan layanan (neurolog, psikiatrik, 
+geriatrik) atau klinik memori untuk mendapatkan
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 106]
+f Psychiatrist 2005 
+Rekomendasi 
+Semua pasien yang dicurigai demensia harus dirujuk ke dokter 
+dengan kompetensi melakukan layanan (neurolog, psikiatrik, 
+geriatrik) atau klinik memori untuk mendapatkan penanganan 
+komprehensif. 
+(Grade C) 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 106 - 
+ 
+ 
+2. Tata Laksana Pelayanan Rujukan 
+a. Non-Farmakologis 
+Tujuan terapi nonfarmakologi atau intervensi psikososial adalah 
+meningkatkan kualitas hidup Orang dengan Demensia (ODD). 
+Tidak ada pendekatan psikososial tunggal yang optimal, sehingga 
+pendekatan multidimensial sangat penting untuk intervensi yang 
+efektif. Pendekatan sebaiknya terfokus pada individu dan 
+disesuaikan dengan kebutuhan, kepribadian, kekuatan dan 
+preferensi. 
+Pendekatan individual dalam mengelola masalah perilaku pada 
+pasien dengan demensia sangat diperlukan. (GPP) Setiap pasien 
+perlu menjalani evaluasi menyeluruh yang mencakup 
+perencanaan perawatan secara komprehensif. Dalam 
+tatalaksana, perlu dilakukan asesmen terhadap caregiver burden, 
+eval
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 107]
+diperlukan. (GPP) Setiap pasien 
+perlu menjalani evaluasi menyeluruh yang mencakup 
+perencanaan perawatan secara komprehensif. Dalam 
+tatalaksana, perlu dilakukan asesmen terhadap caregiver burden, 
+evaluasi kebutuhan dan kapasitas caregiver, serta identifikasi 
+keberadaan komorbiditas, status nutrisi pasien, dan strategi 
+pengaturan perawatan. Asesmen ini mencakup identifikasi 
+caregiver utama, penilaian terhadap sistem dukungan yang 
+dimiliki oleh caregiver, keberadaan caregiver formal atau 
+berbayar, serta keterhubungan pasien dan keluarganya dengan 
+komunitas demensia atau layanan paliatif yang tersedia. 
+Pendekatan ini bertujuan untuk memastikan kontinuitas 
+perawatan yang optimal, meningkatkan kualitas hidup pasien, 
+serta mencegah kelelahan caregiver yang dapat berdampak 
+negatif pada hasil perawatan. Beberapa hal penting yang 
+diperhatikan, seperti: masalah aktivitas sehari-hari agar mandiri, 
+meningkatkan fungsi, beradaptasi dan belajar keterampilan, serta 
+meminimalkan bantuan. 
+Evaluasi juga terma
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 107]
+Beberapa hal penting yang 
+diperhatikan, seperti: masalah aktivitas sehari-hari agar mandiri, 
+meningkatkan fungsi, beradaptasi dan belajar keterampilan, serta 
+meminimalkan bantuan. 
+Evaluasi juga termasuk: 
+1) Kesehatan fisik 
+2) Depresi 
+3) Kemungkinan nyeri yang tidak terdeteksi atau kegelisahan 
+4) Efek samping dari pengobatan 
+5) Riwayat penyakit individu 
+6) Faktor Psikososial 
+7) Faktor Lingkungan Fisik 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 107 - 
+ 
+ 
+Analisis perilaku dan fungsi harus dilakukan dalam 
+hubungannya dengan caregiver atau pekerja perawatan. 
+Rencana perawatan individu harus dikembangkan dan dicatat 
+dalam “catatan” pasien. “Catatan” tersebut harus ditinjau secara 
+teratur dengan caregiver dan staf lainnya. 
+Berdasarkan tujuan akhir yang akan dicapai. Intervensi dibagi 
+menjadi 3 kelompok: 
+1) Mempertahankan fungsi: 
+a) Mengadopsi strategi untuk meningkatkan kemandirian 
+b) Memelihara fungsi kognitif. 
+2) Meningkatkan fungsi melalui pendekatan neurorestoratif 
+dan neuroengineering
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 108]
+elompok: 
+1) Mempertahankan fungsi: 
+a) Mengadopsi strategi untuk meningkatkan kemandirian 
+b) Memelihara fungsi kognitif. 
+2) Meningkatkan fungsi melalui pendekatan neurorestoratif 
+dan neuroengineering 
+3) Manajemen perilaku sulit - agitasi,  agresi, and psikosis dan 
+mengurangi gangguan emosional komorbid akan dibicarakan 
+di bab berikutnya. 
+Uraian lebih lanjut adalah sebagai berikut: 
+1) Mempertahankan fungsi 
+a) Strategi untuk meningkatkan kemandirian 
+Tingkat kemandirian setiap pasien berbeda-beda tergantung 
+pada stadium demensia dan adanya penyakit lain. Caregiver 
+harus mendorong ODD untuk mengambil peran lebih aktif 
+serta mempertahankan kemandirian pasien selama mungkin 
+dengan cara-cara kreatif dan menentukan stimulasi yang 
+tepat (Grade A, Level 1++) 
+Sedikit penelitian dengan kesimpulan jelas mengenai 
+intervensi spesifik untuk meningkatkan kemandirian. 
+Beberapa strategi direkomendasikan untuk meningkatkan 
+kemandirian. Aktivitas yang dipilih harus bersifat individu 
+sesuai kebutuhan pasien, k
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 108]
+engenai 
+intervensi spesifik untuk meningkatkan kemandirian. 
+Beberapa strategi direkomendasikan untuk meningkatkan 
+kemandirian. Aktivitas yang dipilih harus bersifat individu 
+sesuai kebutuhan pasien, kekuatan dan keterbatasan (Grade 
+B, Level 1). 
+Beberapa aktivitas yang mempromosikan kemandirian: 
+(1) Strategi komunikasi (seperti: isyarat, buku memori) 
+(2) Pelatihan keterampilan ADL/perencanaan kegiatan 
+(3) Teknologi bantuan/telecare/adaptive aids 
+(4) Olahraga/meningkatkan pergerakan tubuh 
+(5) Program rehabilitasi 
+(6) Intervensi kombinasi 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 108 - 
+ 
+ 
+(a) Komunikasi 
+Komunikasi yang baik dengan ODD: menggunakan 
+bahasa sederhana, kalimat-kalimat pendek dan 
+konkrit yang sesuai dengan tingkat pemahaman. 
+Komunikasi nonverbal termasuk isyarat dan gerak 
+tubuh. Komunikasi bisa juga dalam bentuk tertulis 
+atau bergambar, seperti buku memori.  
+Penglihatan dan pendengaran ODD juga perlu diuji 
+dan dikoreksi dengan alat bantu yang telah 
+ditentukan. Bagi ODD yang mem
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 109]
+munikasi bisa juga dalam bentuk tertulis 
+atau bergambar, seperti buku memori.  
+Penglihatan dan pendengaran ODD juga perlu diuji 
+dan dikoreksi dengan alat bantu yang telah 
+ditentukan. Bagi ODD yang memiliki masalah 
+komunikasi khusus, kemampuan berbicara, dan 
+gangguan bahasa perlu berkonsultasi mengenai 
+strategi tepat untuk mengatasinya (Grade A, Level 
+1). 
+Kesulitan komunikasi dapat dihubungkan dengan 
+gangguan kognitif pada ODD yang dapat berefek 
+pada kemampuan seseorang untuk berpartisipasi 
+dalam suatu percakapan. Komunikasi 
+menggunakan pendekatan keluarga menjadi 
+rekomendasi terapi suportif pada pasien demensia. 
+(Grade A, Level 1+) 
+(b) Pelatihan keterampilan ADL/perencanaan kegiatan 
+Pelatihan keterampilan Activities of Daily Living 
+(ADL) dapat meningkatkan kemandirian dalam 
+aktivitas perawatan pribadi pasien (seperti: mandi, 
+berpakaian, dan makan), serta membantu mereka 
+dalam memaksimalkan kemampuan yang tersisa 
+dalam perawatan pribadi mereka sendiri. Misalnya, 
+jadwal berkemih dapat mem
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 109]
+tan pribadi pasien (seperti: mandi, 
+berpakaian, dan makan), serta membantu mereka 
+dalam memaksimalkan kemampuan yang tersisa 
+dalam perawatan pribadi mereka sendiri. Misalnya, 
+jadwal berkemih dapat membantu mereka dalam 
+memelihara fungsi saluran kemih (Grade  A, Level 
+1+). 
+Pelatihan keterampilan ADL melibatkan penilaian 
+kemampuan, gangguan yang terjadi, dan kinerja 
+seseorang dalam memahami masalah fisik, 
+psikososial, dan neurologi yang terjadi pada diri 
+mereka. Strategi dapat mencakup isyarat verbal 
+atau visual, demonstrasi, bimbingan fisik, bantuan 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 109 - 
+ 
+ 
+fisik sebagian, dan pemecahan masalah. 
+Profesional terlatih dalam penilaian dan 
+perencanaan perawatan dapat menyusun “Program 
+pelatihan keterampilan ADL untuk caregiver 
+dan/atau staf perawatan” (Grade A, Level 1+). 
+Pelatihan multikomponen menggabungkan latihan 
+aerobik, kekuatan, postural, dan keseimbangan 
+secara signifikan memperbaiki ADL pasien (p= 
+0,01). Pelatihan ini dilakukan antara 4 ming
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 110]
+rade A, Level 1+). 
+Pelatihan multikomponen menggabungkan latihan 
+aerobik, kekuatan, postural, dan keseimbangan 
+secara signifikan memperbaiki ADL pasien (p= 
+0,01). Pelatihan ini dilakukan antara 4 minggu 
+hingga 12 bulan setiap hari hingga dua kali 
+seminggu, dan setiap sesi berlangsung selama 30 -
+60 menit (Grade A, Level 1). 
+Latihan kognitif, fisik dan multitasking dengan 
+intensitas yang cukup dapat  meningkatkan ADL 
+pasien dengan demensia secara signifikan (SMD 
+95% Cl 0,27-1,44). Latihan ini meningkatkan 
+kemampuan berjalan, keseimbangan dan proses 
+visual sehingga memberikan kemandirian bagi 
+penderita demensia dan gangguan kognitif ringan 
+(Grade A, Level 1+). 
+(c) Assistive technology/telecare/adaptive aids 
+Teknologi alat bantu didefinisikan sebagai suatu 
+hal, produk, sistem, atau peralatan yang dapat 
+digunakan untuk mempertahankan, 
+meningkatkan, atau memperbaiki kemampuan 
+fungsional dari seseorang dengan gangguan 
+kognitif, fisik, atau komunikasi (Grade A, Level 1). 
+Telecare melibatkan ber
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 110]
+g dapat 
+digunakan untuk mempertahankan, 
+meningkatkan, atau memperbaiki kemampuan 
+fungsional dari seseorang dengan gangguan 
+kognitif, fisik, atau komunikasi (Grade A, Level 1). 
+Telecare melibatkan berbagai pelayanan, termasuk 
+kunjungan virtual, system pengingat, keamanan 
+rumah, dan system alarm sosial, yang semuanya 
+bertujuan untuk mencegah rawat inap dan 
+membantu pasien menjalani masa penuaan di 
+rumahnya. Sebuah paket telecare dapat berupa 
+pemantauan dalam mendeteksi adanya perubahan 
+yang mungkin berbahaya terhadap kesehatan, 
+misalnya peristiwa jatuh. Alarm responsif dapat 
+mendeteksi risiko dengan memantau gerak 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 110 - 
+ 
+ 
+(misalnya jatuh) serta adanya api atau gas, 
+kemudian alarm mengirim peringatan ke pusat 
+respons atau caregiver (Grade D, Level 2). 
+Wandering merupakan salah satu manifestasi 
+masalah perilaku yang dapat mengakibatkan 
+gangguan emosional/distress pada caregiver dan 
+perawatan institusi dini ODD.  Hal ini diperkirakan 
+terjadi pada 20
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 111]
+Wandering merupakan salah satu manifestasi 
+masalah perilaku yang dapat mengakibatkan 
+gangguan emosional/distress pada caregiver dan 
+perawatan institusi dini ODD.  Hal ini diperkirakan 
+terjadi pada 20-25% pasien yang tinggal di 
+masyarakat. Perangkat elektronik untuk manandai 
+dan pelacakan, seperti teknologi pada telepon 
+genggam dan Global Positioning System (GPS) dapat 
+diaplikasi untuk menciptakan lingkungan yang 
+lebih aman bagi ODD rentan yang berisiko. Namun, 
+sampai saat ini belum ada uji klinis acak yang 
+dilakukan untuk mengetahui efektifitas perangkat 
+elektronik tersebut  (Grade B, Level 2++). 
+Penggunaan sistem telekomunikasi dan teknologi 
+komputer mungkin juga dapat digunakan untuk 
+mendukung pengasuhan jarak jauh, meskipun hal 
+ini belum dimanfaatkan sepenuhnya. 
+Penggunaan aplikasi kesehatan mobile phone dapat 
+memperbaiki kemampuan ADL pasien demensia 
+Alzheimer dan kualitas hidup caregiver. Aplikasi ini 
+mampu menggabungkan berbagai strategi dan 
+sumber daya untuk meningkatkan perawatan
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 111]
+tan mobile phone dapat 
+memperbaiki kemampuan ADL pasien demensia 
+Alzheimer dan kualitas hidup caregiver. Aplikasi ini 
+mampu menggabungkan berbagai strategi dan 
+sumber daya untuk meningkatkan perawatan 
+pasien demensia di komunitas (Grade A, Level 1)y. 
+Sebuah studi di Indonesia juga mengkaji 
+penggunaan individualised cognitive stimulation 
+therapy (iCST), yaitu aplikasi yang berisikan 
+serangkaian aktivitas yang dapat dilakukan 
+bersama oleh ODD dan caregiver, seperti pencarian 
+kata, permainan, dan diskusi. Melalui studi 
+feasibilitas ini didapatkan bahwa terdapat respon 
+positif terhadap penggunaan teknologi, yang dinilai 
+sebagai alat yang menarik untuk membantu 
+stimulasi mental; namun terdapat kendala di 
+antaranya terkait kurangnya pengalaman dan 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 111 - 
+ 
+ 
+kesulitan dalam mengoperasikan gawai. 
+(d) Latihan fisik 
+Aktivitas fisik merupakan faktor protektif yang 
+dapat dimodifikasi dan menurunkan insiden 
+semua penyebab demensia dan penyakit Alzheimer 
+secar
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 112]
+kesulitan dalam mengoperasikan gawai. 
+(d) Latihan fisik 
+Aktivitas fisik merupakan faktor protektif yang 
+dapat dimodifikasi dan menurunkan insiden 
+semua penyebab demensia dan penyakit Alzheimer 
+secara signifikan (Grade A, Level 1+). 
+Belum dapat disimpulkan intervensi aktivitas fisik 
+yang ideal bagi pasien demensia karena tingginya 
+heterogenitas dari beberapa studi. Diperlukan 
+studi lebih lanjut tentang aktivitas fisik terkait 
+modalitas, intensitas dan kepatuhan aktivitas fisik 
+yang ideal bagi pasien dengan (Grade A, Level 1). 
+Terdapat bukti bahwa intervensi menari dan 
+latihan pikiran-tubuh (Tai Chi, Qigong) secara 
+moderat dapat meningkatkan fungsi kognitif pasien 
+demensia. Diperlukan penelitian skala lebih besar 
+untuk menunjang bukti ini (GPP). 
+(e) Program rehabilitasi 
+Sebuah tinjauan sistematis yang difokuskan pada 
+efek intervensi motorik, seperti fisioterapi, terapi 
+okupasi, dan pendidikan jasmani pada pasien 
+demensia menemukan bahwa intervensi motorik 
+meminimalkan penurunan fisik dan
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 112]
+atis yang difokuskan pada 
+efek intervensi motorik, seperti fisioterapi, terapi 
+okupasi, dan pendidikan jasmani pada pasien 
+demensia menemukan bahwa intervensi motorik 
+meminimalkan penurunan fisik dan mental (Grade 
+B, Level 2++). 
+Sebuah pedoman yang digunakan di Indonesia 
+menggaris bawahi program kegiatan terstruktur, 
+neurorestorasi, dan latihan fisik sebagai bagian 
+dari terapi nonfarmakologi. 
+Penelitian sistematik review tentang terapi okupasi 
+pada pasien demensia stadium sedang bertujuan 
+untuk mengoptimalkan aktivitas sehari -hari dan 
+meningkatkan kulitas hidup. Terapis okupasi 
+bekerja sama dengan care-giver untuk 
+mengidentifikasi tujuan, menyesuaikan kegiatan 
+dan memodifikasi lingkungan untuk 
+mempertahankan keterlibatan dan partisipasi 
+(Grade A, Level 1+). 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 112 - 
+ 
+ 
+Terapi dengan hewan dalam suatu penelitian 
+sistematik review tidak memberikan efek pada 
+perbaikan ADL, depresi, agitasi dan kualitas hidup 
+serta fungsi kognitif pada pasien demensia
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 112]
+s.go.id- 112 - 
+ 
+ 
+Terapi dengan hewan dalam suatu penelitian 
+sistematik review tidak memberikan efek pada 
+perbaikan ADL, depresi, agitasi dan kualitas hidup 
+serta fungsi kognitif pada pasien demensia. Terapi 
+tersebut adalah dog- assisted therapis (DAT) yaitu 
+terapi nonfarmakologis berbasis interaksi antara 
+pasien dengan anjing (Grade A, Level 1+). 
+Pasien demensia yang tinggal di komunitas 
+sebaiknya dilakukan terapi okupasi yang terdiri 
+dari pengkajian lingkungan, modifikasi untuk 
+membantu kemandirian dan aplikasi teknologi agar 
+ODD dapat beraktivitas secara mandiri (Grade A, 
+Level 1+). 
+Transcranial Magnetic Stimulation secara noninvasif 
+dapat menilai eksitabilitas kortikal dan koneksi 
+fungsionalitas otak yang dapat menginduksi 
+plastisitas. Belum tersedianya terapi modifikasi 
+penyakit atau terapi farmakologis dengan bukti 
+efikasi tepat maka rTMS bisa menjadi salah satu 
+pilihan untuk meningkatkan fungsi kognitif (GPP). 
+Repetitive Transcranial Magnetic Stimulation (rTMS) 
+merupakan stimulas
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 113]
+erapi farmakologis dengan bukti 
+efikasi tepat maka rTMS bisa menjadi salah satu 
+pilihan untuk meningkatkan fungsi kognitif (GPP). 
+Repetitive Transcranial Magnetic Stimulation (rTMS) 
+merupakan stimulasi otak noninvasif untuk AD. 
+rTMS yang dikombinasikan dengan terapi stimulasi 
+kognitif dapat memberikan perbaikan kognitif yang 
+lebih besar.  Peningkatan kognitif dengan rTMS  
+lebih signifikan pada pasien dengan tingkat 
+pendidikan lebih tinggi atau pada pasien dengan 
+AD ringan-sedang (Grade A, Level 1+). 
+Pada sebuah uji klinis acak (n=165) pasien 
+demensia ringan hingga sedang menemukan 
+bahwa terapi okupasi berbasis masyarakat dapat 
+meningkatkan fungsi sehari-hari pasien demensia 
+(Grade B, Level 1+). Tata laksana rehabilitasi pada 
+kasus demensia dirangkum pada Tabel 32 dan 
+Tabel 33.  
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 113 - 
+ 
+ 
+Tabel 31. Rehabilitasi medis pada kasus demensia 
+ 
+Asesmen 
+Fungsional 
+Indikasi LoE 
+1. Uji prediksi 
+kebugaran 
+kardiovaskuler 
+dan mobilitasx  
+Pasien dengan k
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 113]
+KESEHATAN
+jdih.kemkes.go.id- 113 - 
+ 
+ 
+Tabel 31. Rehabilitasi medis pada kasus demensia 
+ 
+Asesmen 
+Fungsional 
+Indikasi LoE 
+1. Uji prediksi 
+kebugaran 
+kardiovaskuler 
+dan mobilitasx  
+Pasien dengan kecurigaan gangguan fungsi kardiovaskuler: 
+1. Uji berjalan untuk pasien yang mampu berjalan mandiri 
+minimal 15 m 
+2. Uji arm cycle untuk pasien yang tidak mampu berjalan 
+1A 
+xLin JC, Chen IH, Cheng FY. Review articles (Meta-Analyses) effects of walking on 
+cognitive function in individuals with mild cognitive impairment: a systematic review and 
+meta-analysis. BMC Geriatr. 2023 Aug 21;23(1):500. doi: 10.1186/s12877-023-04235-z. 
+PMID: 37605156; PMCID: PMC10441758. 
+2. Uji fungsi 
+menelanxx 
+Pasien dengan kecurigaan gangguan fungsi menelan, pasca 
+rawat inap, dan pneumonia berulang 
+1A 
+xx Putri AR, Chu YH, Chen R, et al. Prevalence of swallowing disorder in different 
+dementia subtypes among older adults: a meta-analysis. Age and Ageing. 2024 
+Mar;53(3):afae037. DOI: 10.1093/ageing/afae037. PMID: 38536471.
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 114]
+Chen R, et al. Prevalence of swallowing disorder in different 
+dementia subtypes among older adults: a meta-analysis. Age and Ageing. 2024 
+Mar;53(3):afae037. DOI: 10.1093/ageing/afae037. PMID: 38536471. 
+3. Uji fungsi 
+komunikasixx
+x 
+Pasien dengan gangguan komunikasi verbal dan non-verbal 1A 
+xxxAstrid Maria Sunjaya, Tamar Schreiber, Kumud Kantilal, Nathan Davies, Sarah 
+Griffiths, Communication strategies for delivering personalised dementia care and 
+support: a mixed-methods systematic review and narrative synthesis, Age and Ageing, 
+Volume 54, Issue 5, May 2025, afaf120, https://doi.org/10.1093/ageing/afaf120 
+4.  Uji 
+keseimbanga
+nxxxx 
+Pasien dengan gangguan kesimbangan atau riwayat jatuh 
+berulang 
+1A 
+xxxxDivandari, N., Bird, M., Vakili, M. et al. The association between dynamic balance 
+and executive function: Which dynamic balance test has the strongest association with 
+executive function? A systematic review and meta-analysis. Curr Neurol Neurosci Rep 24, 
+151–161 (2024). https://doi.org/10.1007/
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 114]
+e function: Which dynamic balance test has the strongest association with 
+executive function? A systematic review and meta-analysis. Curr Neurol Neurosci Rep 24, 
+151–161 (2024). https://doi.org/10.1007/s11910-024-01340-3 
+Terapi Dosis Efek LoE 
+Latihan aerobik Durasi 150 menit/minggu 
+(30 menit/sesi), 3 
+kali/minggu, intensitas 
+sedang, selama minimal 6 
+Meningkatkan nilai MMSE 
+(weighted mean difference 1.50) 
+Meningkatkan kekuatan 
+genggam tangan 
+1A 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 114 - 
+ 
+ 
+minggu 
+Latihan 
+multimodal 
+(latihan fisik 
+dan intervensi 
+non 
+farmakologis)  
+  
+Frekuensi: 3 sesi/minggu 
+Intensitas: - 
+Durasi: 1 jam/sesi selama 
+12 minggu 
+Tipe: Tai- chi dan latihan 
+kognitif (aktivitas memori 
+dan permainan memori) 
+Memperbaiki fungsi kognitif 
+(memori dan penamaan), atensi, 
+kemampuan aktivitas 
+keseharian, dan kualitas hidup 
+1A 
+Edukasi pelaku 
+rawat 
+Intervensi multikomponen 
+kepada pelaku rawat berupa 
+edukasi, keterampilan fisik 
+(stimulasi kognitif dan 
+latihan fisik), duku
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 115]
+mpuan aktivitas 
+keseharian, dan kualitas hidup 
+1A 
+Edukasi pelaku 
+rawat 
+Intervensi multikomponen 
+kepada pelaku rawat berupa 
+edukasi, keterampilan fisik 
+(stimulasi kognitif dan 
+latihan fisik), dukungan 
+sosial, manajemen stress 
+Metode: tatap muka / 
+telepon / video call 
+Menurunkan Behavioural and 
+Psychological Symptoms of 
+Dementia (BPSD) pasien 
+demensia dan memperbaiki 
+reaksi negatif dari pelaku rawat 
+1A 
+Robotik Robotic care intervention, 1-
+5 sesi/minggu @15-60 
+menit selama 4-12 minggu 
+Menurunkan tingkat depresi 
+dan jumlah tidur saat siang hari 
+pada pasien demensia 
+1A 
+Virtual Reality Virtual Reality semi -
+immerse, durasi 20-30 
+menit/sesi, 10- 15 sesi, 
+mode VR: tugas spesifik 
+Intervensi Virtual Reality (VR) 
+menunjukan efek positif dalam 
+segi physical fitness, kognitif, 
+dan emosi pasien dengan 
+gangguan kognitif ringan atau 
+demensia 
+2A 
+Terapi 
+kelompok 
+Latihan fisik kelompok 60 
+menit/sesi (10 menit 
+pemanasan, 10 menit 
+kegiatan memasak, 40 
+menit latihan fisik, 10 menit 
+pendi
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 115]
+sien dengan 
+gangguan kognitif ringan atau 
+demensia 
+2A 
+Terapi 
+kelompok 
+Latihan fisik kelompok 60 
+menit/sesi (10 menit 
+pemanasan, 10 menit 
+kegiatan memasak, 40 
+menit latihan fisik, 10 menit 
+pendinginan), 1 kali/minggu 
+selama 10 sesi 
+Memperbaiki nilai MMSE dan 
+kualitas hidup, serta 
+menurunkan tingkat depresi 
+pasien demensia ringan 
+2A 
+Okupasi terapi 
+kelompok 
+Okupasi terapi kelompok 
+(maksimum 6 orang) 1 
+kali/minggu, 90 menit/sesi 
+Memperbaiki kemampuan 
+memori hingga follow up 3 
+bulan 
+2A 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 115 - 
+ 
+ 
+selama 5 minggu 
+Okupasi terapi Okupasi terapi yang 
+melibatkan pasien demensia 
+dan pelaku rawat untuk 
+melakukan rutinitas harian, 
+selama 8 sesi, 60-90 
+menit/sesi 
+Meningkatkan kemampuan 
+melakukan aktivitas keseharian 
+(ADL Barthel), IADL, dan 
+kualitas hidup pasien 
+demensia. 
+Dampak bagi pelaku rawat: 
+berkurangnya jam perawatan 
+pasien demensia, menurunkan 
+tingkat stress, dan memperbaiki 
+kualitas hidup. 
+2A 
+Terapi wicara Stimulasi kognitif, 
+al
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 116]
+tas hidup pasien 
+demensia. 
+Dampak bagi pelaku rawat: 
+berkurangnya jam perawatan 
+pasien demensia, menurunkan 
+tingkat stress, dan memperbaiki 
+kualitas hidup. 
+2A 
+Terapi wicara Stimulasi kognitif, 
+alternative and 
+augmentative 
+communication, pelatihan 
+pelaku rawat; 30-60 
+menit/sesi 2 kali/minggu, 
+selama 12 minggu 
+Memperbaiki fungsi 
+komunikasi, partisipasi, dan 
+kualitas hidup 
+2A 
+Stimulasi listrik 1. Electrical Muscle 
+Stimulation (EMS) 
+diletakkan pada 
+kelompok otot besar 
+tungkai bawah, posisi 
+duduk, 23 menit/sesi, 
+3 kali/minggu, selama 
+12 minggu. 
+2. Dosis EMS: intensitas 
+4.85 mA, frekuensi 20 
+Hz, square wave, 
+pulse duration 100 
+ms, pulse period 50 
+ms 
+3. Program rehabilitasi: 
+transfer (duduk ke 
+Meningkatkan massa otot, 
+mempertahankan fungsi 
+keseimbangan pasien demensia 
+2B 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 116 - 
+ 
+ 
+berdiri), 
+keseimbangan (berdiri 
+satu tungkai dan 
+berdiri pada 
+permukaan tidak 
+rata), dan latihan 
+berjalan 
+Pemenuhan 
+kebutuhan 
+spiritual 
+Terapi invid
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 116]
+ERIAN KESEHATAN
+jdih.kemkes.go.id- 116 - 
+ 
+ 
+berdiri), 
+keseimbangan (berdiri 
+satu tungkai dan 
+berdiri pada 
+permukaan tidak 
+rata), dan latihan 
+berjalan 
+Pemenuhan 
+kebutuhan 
+spiritual 
+Terapi invidual/kelompok 
+mengenai aktivitas spiritual 
+seperti motivasi, religi, dan 
+makna kehidupan 
+Mempengaruhi dalam aspek 
+kesehatan fisik, well-being, dan 
+fungsi fungsi kognitif 
+4 
+ 
+Tabel 32. Rehabilitasi Medis Gangguan Kognitif Sesuai Tingkat Fasilitas 
+Kesehatan 
+ Asesmen 
+FPKTP Fasilitas pelayanan kesehatan tingkat lanjut 
+Mini Cog → 
+Normal atau 
+Mild Cognitive 
+Impairment 
+  
+  
+A. Normal atau Mild Cognitive Impairment dengan disabilitas 
+(impending/aktual) dengan/tanpa sindroma geriatri dengan 
+klinis penyakit memerlukan tatalaksana dokter dengan 
+kompetensi melakukan layanan kedokteran fisik dan 
+rehabilitasi medik bersama: 
+a. Salah satu anggota tim rehabilitasi medik 
+b. Interdisiplin beberapa anggota tim rehabilitasi medik 
+c. Interdisiplin beberapa anggota tim rehabilitasi medik 
+dengan kompetensi s
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 117]
+litasi medik bersama: 
+a. Salah satu anggota tim rehabilitasi medik 
+b. Interdisiplin beberapa anggota tim rehabilitasi medik 
+c. Interdisiplin beberapa anggota tim rehabilitasi medik 
+dengan kompetensi subspesialistik 
+B. Demensia, dengan klinis penyakit memerlukan tatalaksana 
+dokter dengan kompetensi melakukan layanan kedokteran 
+fisik dan rehabilitasi medik bersama: 
+a. Salah satu anggota tim rehabilitasi medik 
+b. Interdisiplin beberapa anggota tim rehabilitasi medik 
+c. Interdisiplin beberapa anggota tim rehabilitasi medik 
+dengan kompetensi subspesialistik 
+PAR-Q → 
+Tidak 
+Berisiko 
+Berisiko 
+Mini Cog, PAR-Q, Barthel Index dan IADL Lawton (pada baseline & pasca 
+tatalaksana) 
+Tata 
+laksana 
+Latihan 
+untuk 
+Sesuai hasil assesmen disabilitas dan síndroma geriatri pada 
+kolom C1 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 117 - 
+ 
+ 
+mempertahan
+kan/meningk
+atkan fungsi 
+mendapat rujuk balik sesuai ekspertise dari faskes terkait 
+SDM • Dokter 
+Umum 
+• Perawat  
+• Nakes 
+Rehabilita
+si Medik 
+• Kader 
+kesehata
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 117]
+h.kemkes.go.id- 117 - 
+ 
+ 
+mempertahan
+kan/meningk
+atkan fungsi 
+mendapat rujuk balik sesuai ekspertise dari faskes terkait 
+SDM • Dokter 
+Umum 
+• Perawat  
+• Nakes 
+Rehabilita
+si Medik 
+• Kader 
+kesehatan 
+terlatih 
+Sesuai KMK 378 tahun 2008 terkait layanan Rehabilitasi Medik di 
+Rumah Sakit 
+Fellow Rehabilitasi Frailty untuk pasien dengan Non Reversible 
+Frailty 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 118 - 
+ 
+ 
+2) Kegiatan rekreasi 
+Kegiatan rekreasi memberikan kesempatan bagi ODD untuk 
+terlibat dalam kegiatan yang berarti, dan sering digunakan untuk 
+memfasilitasi kebutuhan individu dalam berkomunikasi, 
+menghargai diri, mengenal diri dan produktivitasnya. Namun, 
+aktivitas tersebut sebaiknya bersifat individu dan disesuaikan 
+dengan kemampuan yang tersisa pada pasien. Aktivitas 
+berdasarkan minat pasien demensia mungkin lebih bermanfaat 
+dibandingkan kegiatan yang umum (GPP). 
+3) Kombinasi intervensi 
+Pasien demensia tidak hanya mengalami gangguan kognitif, 
+tetapi juga gangguan fisik, emosional, dan
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 119]
+en demensia mungkin lebih bermanfaat 
+dibandingkan kegiatan yang umum (GPP). 
+3) Kombinasi intervensi 
+Pasien demensia tidak hanya mengalami gangguan kognitif, 
+tetapi juga gangguan fisik, emosional, dan sosial. Intervensi 
+harus menargetkan beberapa aspek dari pasien demensia, 
+caregiver, dan lingkungan dalam rangka memenuhi kebutuhan 
+ODD yang kompleks (Grade B, Level 2++). 
+Sebuah tinjauan kualitatif sistematis dilakukan menggunakan 25 
+penelitian di mana 22 program intervensi terdapat di dalamnya. 
+Efek program intervensi pada caregiver dinilai berdasarkan tiga 
+efek, yaitu kesehatan mental, beban, dan kompetensi. Efek 
+program pada pasien demensia dinilai berdasarkan kesehatan 
+mental, fungsi kognitif, masalah perilaku, fungsi fisik, masuk ke 
+institusi yang lebih lama, dan kematian. Kesimpulannya adalah 
+kesehatan mental umum caregiver secara positif dipengaruhi oleh 
+program kombinasi. Pada pasien demensia, program kombinasi 
+dapat meningkatkan kesehatan mental dan menunda terjadinya 
+perawatan yang la
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 119]
+kesehatan mental umum caregiver secara positif dipengaruhi oleh 
+program kombinasi. Pada pasien demensia, program kombinasi 
+dapat meningkatkan kesehatan mental dan menunda terjadinya 
+perawatan yang lama (Grade B, Level 1+). 
+Beberapa intervensi berbasiskan terapi stimulasi kognitif 
+(menggambar jam, bermain games, terapi musik, terapi cahaya 
+terang, aromaterapi, terapi sentuhan, berkebun, senam otak) 
+memiliki hasil yang signifikan untuk meningkatkan fungsi 
+kognitif dan fungsi eksekutif pada pasien dengan demensia 
+(Grade A, Level 1+). 
+ 
+ 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 119 - 
+ 
+ 
+Rekomendasi 
+Penyusunan modul aktivitas berdasarkan minat pasien 
+demensia mungkin lebih bermanfaat dibandingkan kegiatan 
+yang umum (GPP). 
+Caregiver harus berperan lebih aktif dengan cara- cara kreatif 
+dan stimulasi yang tepat untuk mempertahankan kemandirian 
+pasien.   
+(Grade A) 
+Kombinasi intervensi yang dapat meningkatkan komunikasi, 
+mobilitas, dan kognisi direkomendasikan untuk memfasilitasi 
+kemandiria
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 120]
+imulasi yang tepat untuk mempertahankan kemandirian 
+pasien.   
+(Grade A) 
+Kombinasi intervensi yang dapat meningkatkan komunikasi, 
+mobilitas, dan kognisi direkomendasikan untuk memfasilitasi 
+kemandirian pasien demensia.  
+(Grade  A) 
+Aplikasi kesehatan mobile phone  dapat memperbaiki 
+kemampuan ADL pasien demensia Alzheimer, kualitas hidup 
+caregiver, dan meningkatkan perawatan pasien demensia di 
+komunitas. 
+(Grade  A) 
+Aktivitas fisik merupakan faktor protektif yang dapat 
+dimodifikasi dan secara signifikan menurunkan insiden semua 
+penyebab demensia dan penyakit Alzheimer.  
+(Grade  A) 
+Rehabilitasi Medik, fisioterapi, terapi okupasi, dan pendidikan 
+jasmani pada pasien demensia menemukan bahwa intervensi 
+motorik meminimalkan penurunan fisik dan mental 
+(Grade B) 
+Kombinasi intervensi Intervensi harus menargetkan beberapa 
+aspek dari pasien demensia, caregiver , dan lingkungan dalam 
+rangka memenuhi kebutuhan ODD yang kompleks  
+(Grade B) 
+ 
+a) Mempertahankan fungsi kognisi 
+Evaluasi intervensi nonfarm
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 120]
+menargetkan beberapa 
+aspek dari pasien demensia, caregiver , dan lingkungan dalam 
+rangka memenuhi kebutuhan ODD yang kompleks  
+(Grade B) 
+ 
+a) Mempertahankan fungsi kognisi 
+Evaluasi intervensi nonfarmakologi dalam kaitannya dengan 
+pemeliharaan fungsi kognitif masih dalam tahap awal 
+pengembangan. 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 120 - 
+ 
+ 
+(1) Pendekatan berorientasi kognitif 
+Tiga jenis pendekatan dengan fokus utama kognitif, 
+yaitu:  
+(a) Stimulasi Kognitif memerlukan paparan dan 
+keterlibatan dengan kegiatan dan materi yang 
+melibatkan beberapa tingkat pengolahan kognitif. 
+(b) Pelatihan Kognitif merupakan latihan khusus yang 
+diarahkan untuk meningkatkan fungsi kognitif 
+spesifik 
+(c) Rehabilitasi Kognitif termasuk untuk menggapai 
+tujuan pribadi, sering menggunakan alat bantu 
+kognitif eksternal dan dengan penggunaan 
+beberapa strategi pembelajaran. 
+Tinjauan sistematis Cochrane pada ODD Alzheimer 
+ringan hingga sedang atau Demensia vaskular tidak 
+menemukan bukti dari efektivitas pelat
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 121]
+eksternal dan dengan penggunaan 
+beberapa strategi pembelajaran. 
+Tinjauan sistematis Cochrane pada ODD Alzheimer 
+ringan hingga sedang atau Demensia vaskular tidak 
+menemukan bukti dari efektivitas pelatihan kognitif 
+(Grade A, Level 1+).  Tidak ada bukti juga untuk 
+rehabilitasi kognitif. Namun, terapi stimulasi kognitif 
+menghasilkan perbaikan moderat dalam fungsi kognitif 
+pada pasien demensia ringan hingga sedang (Grade A, 
+Level 1+). 
+Stimulasi kognitif dapat diberikan secara informal 
+melalui kegiatan rekreasi, atau formal melalui program 
+membangkitkan memori, seperti kegiatan pemecahan 
+masalah dan kelancaran percakapan (terapi orientasi 
+kenangan atau kenyataan), atau pelatihan wajah-nama 
+(Grade A, Level 1). 
+Cognitive Remediation (stimulasi kognitif, pelatihan 
+kognitif dan rehabilitasi kognitif) efektif meningkatkan 
+IADL secara signifikan pada pasien dengan mild 
+cognitive impairment dan early stage dementia (Grade A, 
+level 1+). 
+Stimulasi kognitif terdiri dari beberapa bentuk 
+diantaranya meng
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 121]
+efektif meningkatkan 
+IADL secara signifikan pada pasien dengan mild 
+cognitive impairment dan early stage dementia (Grade A, 
+level 1+). 
+Stimulasi kognitif terdiri dari beberapa bentuk 
+diantaranya menggambar jam, bermain games, terapi 
+musik, terapi cahaya terang, aromaterapi, terapi 
+sentuhan, berkebun, dan senam otak. Stimulasi 
+kognitif mudah dilakukan pada kondisi apapun, dan 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 121 - 
+ 
+ 
+meningkatkan fungsi kognitif dan eksekutif secara 
+signifikan pada pasien dengan demensia (Grade A, Level 
+1). 
+Terapi musik dapat meningkatkan fungsi kognitif pada 
+pasien dengan demensia. Pada penelitian ini, 
+peningkatan kualitas hidup dialami ODD setelah terapi 
+musik selesai, namun tidak memiliki efek jangka 
+panjang (Grade A, Level 1)219. 
+(2) Terapi orientasi realitas 
+Terapi Orientasi Realitas dikembangkan berdasarkan 
+konsep: mengatakan sesuatu secara terus-menerus 
+dan berulang atau menunjukkan pengingat tertentu 
+kepada orang yang mengalami kehilangan memori 
+ringan h
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 122]
+rapi Orientasi Realitas dikembangkan berdasarkan 
+konsep: mengatakan sesuatu secara terus-menerus 
+dan berulang atau menunjukkan pengingat tertentu 
+kepada orang yang mengalami kehilangan memori 
+ringan hingga sedang dapat menghasilkan peningkatan 
+interaksi dengan orang sekelilingnya dan meningkatkan 
+orientasi. Terdapat dua jenis Terapi Orientasi Realitas 
+(TOR), yaitu TOR 24 jam dan TOR formal/kelas.  
+Berdasarkan SIGN guidelines, TOR dapat 
+memperlambat penurunan kognitif dan memperlambat 
+progresivitas penyakit. Metode TOR 24 jam memiliki 
+lebih banyak manfaat dibandingkan metode formal. 
+Selain itu, TOR sebaiknya dikelola oleh praktisi terampil 
+dan terapi bersifat individual. Sebuah tinjauan 
+sistematis menemukan adanya efek positif dalam 
+penggunaan TOR formal pada kognitif dalam domain 
+informasi/orientasi dan memori (Grade A, Level 1+). 
+Sebuah penelitian potong lintang (n=50) pada pasien 
+kemungkinan Demensia Alzheimer menemukan bahwa 
+TOR yang dikombinasikan dengan sesi terpadu 
+pelatihan kognitif
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 122]
+entasi dan memori (Grade A, Level 1+). 
+Sebuah penelitian potong lintang (n=50) pada pasien 
+kemungkinan Demensia Alzheimer menemukan bahwa 
+TOR yang dikombinasikan dengan sesi terpadu 
+pelatihan kognitif-terkomputerisasi, memiliki manfaat 
+menguntungkan pada fungsi kognitif, dan perbaikan 
+pada ADL dan perilaku (Grade D, Level 3)221. 
+(3) Terapi reminiscence 
+Terapi Reminiscence dapat dipertimbangkan pada 
+pasien demensia dengan gangguan perilaku dan 
+psikologis (Grade  B, Level 1+). Terapi Reminiscence 
+melibatkan diskusi tentang kegiatan, peristiwa, dan 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 122 - 
+ 
+ 
+pengalaman masa lalu, dengan orang lain atau 
+sekelompok orang. Terapi ini sering menggunakan alat 
+bantu berupa video, gambar, arsip, dan buku kisah 
+hidup. Penelitian yang dilakukan menunjukkan 
+beberapa hasil yang signifikan, yaitu: peningkatan 
+kognitif dan suasana hati dalam 4-6 minggu setelah 
+terapi, caregiver berpartisipasi dengan anggota keluarga 
+pasien demensia pada kelompok reminiscence  
+mela
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 123]
+a hasil yang signifikan, yaitu: peningkatan 
+kognitif dan suasana hati dalam 4-6 minggu setelah 
+terapi, caregiver berpartisipasi dengan anggota keluarga 
+pasien demensia pada kelompok reminiscence  
+melaporkan adanya indikasi peningkatan kemampuan 
+fungsi kognitif. Namun, masih terdapat hasil penelitian 
+yang lebih berkualitas di lapangan. 
+Penelitian sistemik review oleh Kyung, 2020, 
+mengatakan bahwa penggunaan terapi reminiscence 
+memiliki efek moderate terhadap perbaikan kognitif 
+pada pasien dengan demensia (SMD = 0.59, 95% CI: 
+0.27–0.91) (Grade A, Level 1+). 
+Sebuah uji klinis acak (n=102) dilakukan dengan durasi 
+8 minggu. Hasil studi menunjukkan bahwa mereka 
+yang menerima Terapi Reminiscence terbukti 
+berhubungan signifikan dengan perbaikan fungsi 
+kognitif serta fungsi afektif yang diukur dengan Cornell 
+Scale for Depression in Dementia (CSDD) (p=0,026) 
+(Grade A, Level 1). 
+4) Meningkatkan fungsi melalui pendekatan neurorestoratif dan 
+neuroengineering 
+Beberapa hasil penelitian maupun metaanalis
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 123]
+ornell 
+Scale for Depression in Dementia (CSDD) (p=0,026) 
+(Grade A, Level 1). 
+4) Meningkatkan fungsi melalui pendekatan neurorestoratif dan 
+neuroengineering 
+Beberapa hasil penelitian maupun metaanalisis menunjukkan 
+hasil yang sugestif untuk pemberian stimulasi otak noninvasif 
+sebagai pilihan terapi pada demensia Alzheimer maupun Mild  
+Cognitive Impairment (MCI) (Grade A, Level 1+). 
+a) Repetitive Transcranial Magnetic Stimulation (rTMS) 
+rTMS dapat secara signifikan memperbaiki kemampuan 
+kognitif pada pasien dengan demensia Alzheimer derajat 
+ringan hingga sedang (Grade A, Level 1+). 
+Pemberian stimulasi pada area multiple  memberikan 
+perbaikan yang lebih signifikan dibandingkan stimulasi 
+pada satu area saja (Grade A, Level 1+). 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 123 - 
+ 
+ 
+Sesi rTMS yang lebih banyak (5 kali atau lebih) dapat 
+memberikan manfaat yang lebih dibandingkan dengan 
+hanya 3 kali atau kurang (Grade A, Level 1+). 
+Stimulasi rTMS yang diberikan dengan latihan kognitif dapat 
+memberik
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 124]
+ih banyak (5 kali atau lebih) dapat 
+memberikan manfaat yang lebih dibandingkan dengan 
+hanya 3 kali atau kurang (Grade A, Level 1+). 
+Stimulasi rTMS yang diberikan dengan latihan kognitif dapat 
+memberikan hasil yang lebih signifikan dibandingkan rTMS 
+saja (Grade A, Level 1+). Stimulasi rTMS dengan frekuensi 
+20Hz lebih efektif dibandingkan dengan 10Hz dan 1Hz 
+(Grade A, Level 1+). 
+Suatu metaanalisis juga menyebutkan bahwa rTMS 
+frekuensi tinggi pada korteks dorsolateral prefrontal kiri dan 
+rTMS frekuensi rendah pada korteks dorsolateral prefrontal 
+kanan dapat meningkatkan fungsi memori, sedangkan 
+RTMS frekuensi tinggi pada girus frontalis inferior kanan 
+dapat memperbaiki fungsi eksekutif (Grade A, Level 1+). 
+Perbaikan kognitif yang terjadi dapat bertahan hingga 
+minimal 6 minggu setelah terapi (Grade A, Level 1+). 
+b) Transcranial direct current stimulation (TDCS) 
+Transcranial direct current stimulation adalah alat stimulasi 
+otak noninvasif yang dipertimbangkan memiliki efek 
+potensial untuk memper
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 124]
+A, Level 1+). 
+b) Transcranial direct current stimulation (TDCS) 
+Transcranial direct current stimulation adalah alat stimulasi 
+otak noninvasif yang dipertimbangkan memiliki efek 
+potensial untuk memperbaiki gangguan kognitif pada pasien 
+dengan MCI dan demensia Alzheimer. 
+Bila dibandingkan dengan sham, pasien dengan MCI dan 
+demensia Alzheimer mengalami perbaikan gangguan kognitif 
+secara garis besar meskipun keluhan behavioural, fungsi 
+rekognisi memori, atensi, dan fungsi eksekutif belum 
+mengalami perbaikan yang signifikan (Grade A, Level 1+). 
+Stimulasi lebih efektif bila diberikan pada lobus temporalis 
+dengan jumlah sesi minimal 10 kali (Grade A, Level 1+). 
+Stimulasi tDCS dikatakan lebih bermanfaat pada pasien 
+dengan demensia Alzheimer dibandingkan dengan MCI 
+(Grade A, Level 1+). 
+Stimulasi anodal dapat memberikan manfaat secara 
+signifikan sementara stimulasi katodal dan sham tidak. 
+Selain cukup efektif, stimulasi dengan menggunakan tDCS 
+dapat ditoleransi dengan baik oleh pasien (Grade 1A, Lev
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 124]
+l dapat memberikan manfaat secara 
+signifikan sementara stimulasi katodal dan sham tidak. 
+Selain cukup efektif, stimulasi dengan menggunakan tDCS 
+dapat ditoleransi dengan baik oleh pasien (Grade 1A, Level 
+1+). 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 124 - 
+ 
+ 
+c) Neurofeedback 
+Studi oleh Luijmes et al tahun 2016 membuktikan bahwa 
+neurofeedback dapat meningkatkan fungsi memori pada 
+pasien dengan demensia Alzheimer (Grade D, Level 2+). 
+d) Audio stimulation 
+Gamma entrainment dengan frekuensi 40 Hz terbukti dapat 
+memperbaiki mood, memori, serta fungsi kognitif (Grade D, 
+Level 2). 
+5) Nutrisi 
+Pada ODD, seringkali ditemukan permasalahan gizi dan 
+penurunan berat badan (BB), khususnya seiring dengan 
+peningkatan derajat keparahan penyakit. Mekanisme yang 
+mendasarinya bersifat kompleks, multifaktorial dan baru 
+diketahui sebagian. Beberapa penelitian menggarisbawahi proses 
+neurodegeneratif pada beberapa area di otak, faktor genetik dan 
+proses inflamasi mendasari permasalahan asupan gizi pasien 
+Alzh
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 125]
+dan baru 
+diketahui sebagian. Beberapa penelitian menggarisbawahi proses 
+neurodegeneratif pada beberapa area di otak, faktor genetik dan 
+proses inflamasi mendasari permasalahan asupan gizi pasien 
+Alzheimer. Atrofi otak terkait demensia dapat mempengaruhi area 
+di otak yang terlibat pada pengaturan nafsu makan dan perilaku 
+makan. Selain itu didapatkan kesulitan untuk 
+mengkomunikasikan rasa haus dan lapar, adanya perubahan 
+dari kebiasaan pola makan dan preferensi makanan, dan 
+hendaya fisik (permasalahan koordinasi, mengunyah dan 
+menelan, konstipasi, gangguan penglihatan, gangguan pengecap 
+dan penghidu). Pada fase awal demensia, ODD dapat mengalami 
+permasalahan dalam penyiapan dan pengolahan makanan, lupa 
+waktu makan dan perubahan kebiasaan makan. Terapi 
+farmakologis yang memiliki efek sedatif juga akan mengur angi 
+keinginan dan asupan makan. Disfagia (sulit menelan) juga 
+dialami oleh 13-57% ODD terutama pada stadium akhir 
+demensia fronto-temporal. Bahkan pneumonia aspirasi 
+dilaporkan menjadi pe
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 125]
+akan mengur angi 
+keinginan dan asupan makan. Disfagia (sulit menelan) juga 
+dialami oleh 13-57% ODD terutama pada stadium akhir 
+demensia fronto-temporal. Bahkan pneumonia aspirasi 
+dilaporkan menjadi penyebab utama kematian pada ODD. 
+Penurunan berat badan pada ODD berhubungan dengan risiko 
+mortalitas dan prediktor kematian. Indeks massa tubuh (IMT) 
+yang rendah berhubungan dengan berkurangnya harapan hidup. 
+Hal ini menunjukkan pentingnya penapisan/skrining malnutrisi 
+untuk semua ODD yang dirawat di fasilitas layanan kesehatan. 
+Alat penapisan yang dapat digunakan adalah Mini Nutritional 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 125 - 
+ 
+ 
+Assessment – Short Form (MNA-SF) karena mudah digunakan dan 
+direkomendasikan untuk lanjut usia. Dari penapisan tersebut 
+akan dapat ditemukan ODD yang berisiko mengalami malnutrisi 
+dan memerlukan tindakan lebih lanjut berupa asesmen gizi 
+individual yang mencakup penilaian secara detail status gizi, 
+riwayat asupan gizi dan permasalahannya, serta merancang tata 
+laks
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 126]
+ami malnutrisi 
+dan memerlukan tindakan lebih lanjut berupa asesmen gizi 
+individual yang mencakup penilaian secara detail status gizi, 
+riwayat asupan gizi dan permasalahannya, serta merancang tata 
+laksana gizi yang sesuai. Tata laksana gizi yang diberikan akan 
+disesuaikan dengan permasalahan nutrisi yang dialami oleh 
+masing-masing ODD. 
+Pemenuhan kebutuhan energi dan zat gizi pada ODD bertujuan 
+mencegah terjadinya malnutrisi atau memperbaiki kondisi 
+malnutrisi yang sudah ada. Perhatian khusus pada penyajian 
+makanan, rasa, warna, tekstur, konsistensi dapat membantu 
+meningkatkan asupan ODD. Selain makanan utama, kudapan 
+juga berperan penting dalam pemenuhan gizi ODD. Terlalu 
+banyak pantangan makan juga merupakan salah satu penyebab 
+malnutrisi karena keterbatasan bahan makanan yang dapat 
+dikonsumsi. 
+Berdasarkan ESPEN 2024 merekomendasikan pendekatan multi-
+level yang mencakup intervensi di tingkat institusi dan individu. 
+Seluruh perawatan professional kesehatan harus dididik 
+mengenai perawatan gi
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 126]
+Berdasarkan ESPEN 2024 merekomendasikan pendekatan multi-
+level yang mencakup intervensi di tingkat institusi dan individu. 
+Seluruh perawatan professional kesehatan harus dididik 
+mengenai perawatan gizi untuk memastikan kesadaran dan 
+keterampilan dalam meningkatkan asupan makanan dan cairan 
+yang cukup bagi penderita demensia (Grade B, Level 1+) 
+ESPEN RECCOMENDATION 2024 
+Penilaian Multilevel   - organisasi perawatan dianjurkan untuk 
+menerapkan perawatan nutrisi yang 
+terstruktur,  
+- dengan staf terlatih, lingkungan makan 
+yang fungsional, serta penyediaan 
+makanan dan minuman yang menarik 
+dan beragam yang disesuaikan dengan 
+preferensi individu.  
+- Perawatan secara keseluruhan dengan 
+asupan nutrisi baik 
+Individu 
+- Skrining penilaian ru tin deteksi 
+malnutrisi dan dehidrasi 
+- Bantuan makan dan suplemen nutrisi 
+oral 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 126 - 
+ 
+ 
+- Diet khusus demensia tidak di 
+rekomendasikan dengan penelitian 
+masih terbatas 
+ 
+Studi terkait intervensi nutrisi dan kompone
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 126]
+uplemen nutrisi 
+oral 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 126 - 
+ 
+ 
+- Diet khusus demensia tidak di 
+rekomendasikan dengan penelitian 
+masih terbatas 
+ 
+Studi terkait intervensi nutrisi dan komponen diet pada ODD 
+cukup menantang untuk dilakukan dan masih menjadi 
+kontroversi. Beberapa mikronutrien yang berpotensi protektif di 
+antaranya adalah folat, vitamin B, C, D, dan E, dan selenium 43. 
+Namun hingga saat ini berbagai penelitian menunjukkan bahwa 
+pemberian suplementasi vitamin dan mineral tertentu belum 
+terbukti berdampak bermakna terhadap perbaikan fungsi 
+kognitif ODD. 
+Asupan energi yang direkomendasikan untuk ODD adalah 30-35 
+kkal/kgBB/hari dan protein 1,2-1,5 gram/kgBB/hari, dengan 
+catatan untuk ODD dengan laju filtrasi glomerulus (LFG) <30 
+mL/menit diberikan 0,8 gram/kgBB/hari sedangkan ODD 
+dengan LFG 30-60 mL/mnt diberikan 0,8-1 gram/kgBB/hari. 
+Jika asupan dari makanan sehari -hari dinilai kurang, 
+penggunaan ONS direkomendasikan dan terbukti bermanfaat 
+dalam meningkatkan berat bada
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 127]
+ODD 
+dengan LFG 30-60 mL/mnt diberikan 0,8-1 gram/kgBB/hari. 
+Jika asupan dari makanan sehari -hari dinilai kurang, 
+penggunaan ONS direkomendasikan dan terbukti bermanfaat 
+dalam meningkatkan berat badan dan indeks massa tubuh. 
+Selain itu, beberapa studi juga telah menunjukkan manfaat dari 
+pendekatan diet secara umum terhadap demensia, seperti 
+dengan diet Mediterranean, yaitu diet dengan asupan tinggi 
+sayuran, kacang-kacangan, buah-buahan, sereal, dan minyak 
+olive, dengan menurunkan asupan lemak jenuh dan daging. 
+Sebuah studi prospektif menunjukkan bahwa Mediterranean 
+yang ditemukan mengurangi insiden penurunan fungsi kognitif. 
+Sementara itu, studi lainnya yang melakukan follow-up selama 
+25 tahun melaporkan bahwa diet Mediterranean tidak 
+melindungi individu dari demensia, kecuali pada populasi dengan 
+penyakit kardiovaskular. Ini mengindikasikan bahwa diet 
+Mediterranean dapat menjadi faktor protektif untuk risiko 
+demensia melalui pengaruhnya terhadap faktor risiko 
+kardiovaskular. 
+ 
+ 
+ 
+KEMENTE
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 127]
+gan 
+penyakit kardiovaskular. Ini mengindikasikan bahwa diet 
+Mediterranean dapat menjadi faktor protektif untuk risiko 
+demensia melalui pengaruhnya terhadap faktor risiko 
+kardiovaskular. 
+ 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 127 - 
+ 
+ 
+6) Tata Laksana Lingkungan 
+Terdapat beberapa rekomendasi good practice terkait penataan 
+lingkungan tempat tinggal ODD. Desain lingkungan yang sesuai 
+diharapkan dapat membantu orientasi dan meminimalisasi 
+kebingungan atau kecemasan pada ODD. Ini dapat dilakukan di 
+antaranya dengan memastikan penerangan ruangan yang baik 
+dan adanya jendela agar sinar matahari dapat masuk, penanda 
+jalan untuk memberikan petunjuk arah, dan penanda orientasi 
+realitas (contoh: jam dinding dengan ditandai waktu makan dan 
+tidur). 
+Desain lingkungan disarankan dibuat sederhana, dengan tingkat 
+stimulasi lingkungan yang sedang, misalnya dengan mengadakan 
+halaman indoor atau area outdoor yang dapat dikunjungi ODD 
+dengan aman. Tidak direkomendasikan untuk menggunakan 
+ruangan besar
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 128]
+gan tingkat 
+stimulasi lingkungan yang sedang, misalnya dengan mengadakan 
+halaman indoor atau area outdoor yang dapat dikunjungi ODD 
+dengan aman. Tidak direkomendasikan untuk menggunakan 
+ruangan besar multi-fungsi dan karpet dengan tekstur kasar 
+yang membuat ODD tidak nyaman berjalan di atasnya. Selain itu, 
+perlu berhati-hati terkait penggunaan warna atau pola pada 
+lantai. Sebagai contoh, permukaan dengan pola yang kompleks 
+dengan kontras warna yang tidak baik dapat menyebabkan rasa 
+pusing atau kebingungan pada ODD. Respon setiap ODD dapat 
+berbeda terhadap penataan lingkungan yang sama, sehingga 
+penyesuaian perlu dilakukan untuk menjaga kenyamanan dan 
+meningkatkan kualitas hidup ODD. 
+ 
+Rekomendasi 
+Terapi stimulasi kognitif secara signifikan meningkatkan fungsi 
+kognitif dan fungsi eksekutif pada pasien dengan demensia.  
+(Grade A) 
+Cognitive Remediation (stimulasi kognitif, pelatihan kognitif dan 
+rehabilitasi kognitif) secara signifikan efektif meningkatkan IADL 
+secara langsung pada pasien deng
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 128]
+pasien dengan demensia.  
+(Grade A) 
+Cognitive Remediation (stimulasi kognitif, pelatihan kognitif dan 
+rehabilitasi kognitif) secara signifikan efektif meningkatkan IADL 
+secara langsung pada pasien dengan mild cognitive impairment dan 
+early stage dementia. 
+(Grade A) 
+Terapi musik meningkatkan fungsi kognitif dan kualitas hidup 
+ODD, namun tidak memiliki efek jangka panjang. 
+(Grade A) 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 128 - 
+ 
+ 
+Terapi reminiscence memiliki efek moderate terhadap perbaikian 
+kognitif pada pasien dengan demensia. 
+(Grade A) 
+Stimulasi kognitif (baik Terapi Orientasi Realitas maupun Terapi 
+Reminiscence) dapat digunakan untuk meningkatkan fungsi 
+kognitif pada pasien dengan demensia ringan hingga sedang. 
+(Grade A) 
+pemberian stimulasi otak non invasif sebagai pilihan terapi pada 
+demensia Alzheimer maupun Mild Cognitive Impairment (MCI)                                                             
+(Grade A) 
+Pemberian nutrisi pada pasien demensia perlu dilakukan secara 
+multi-level
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 129]
+emensia Alzheimer maupun Mild Cognitive Impairment (MCI)                                                             
+(Grade A) 
+Pemberian nutrisi pada pasien demensia perlu dilakukan secara 
+multi-level melalui institusi dan individu. Dibantu dengan Oral 
+Nutrition Supplement (ONS)              
+(Grade B) 
+ 
+b. Farmakologis 
+Pemberian terapi pada tatalaksana pasien demensia harus 
+mengikuti beberapa kondisi. Penggunaan AChE inhibitor atau 
+memantine untuk permulaan pengobatan harus berdasarkan 
+saran dari dokter dengan kompetensi melakukan layanan  
+demensia seperti layanan neurologi, kedokteran jiwa, geriatri 
+yang memiliki keahlian khusus dalam mendiagnosis dan 
+mengobati penyakit Alzheimer. 
+Keputusan terkait dengan pemberian obat yang memperbaiki 
+kognisi harus mempertimbangkan preferensi pasien (berlaku bagi 
+individu yang mampu membuat keputusan mengenai 
+pengobatan), dan bekerja sama dengan keluarga, apabila individu 
+tidak mampu memberikan persetujuan  (Grade C, Level of 
+Evidence 1). 
+Penelusuran re
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 129]
+bagi 
+individu yang mampu membuat keputusan mengenai 
+pengobatan), dan bekerja sama dengan keluarga, apabila individu 
+tidak mampu memberikan persetujuan  (Grade C, Level of 
+Evidence 1). 
+Penelusuran respon terhadap terapi dan perkembangan pasien 
+demensia setiap waktunya harus dievaluasi, serta memerlukan 
+pendekatan multidimensi. Tidak dianjurkan hanya mengacu 
+pada satu tool atau domain klinis saja dan diperlukan informasi 
+yang akurat dari perawat/pengasuh (caregiver). Frekuensi 
+kunjungan klinis bervariasi antar individu, rata-rata berkisar 
+antara 6-12 bulan. Pasien dengan gangguan perilaku 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 129 - 
+ 
+ 
+memerlukan asesmen yang lebih sering. Tidak semua domain 
+perlu dikaji dalam setiap kunjungan, tetapi semua domain harus 
+dinilai minimal satu tahun sekali (Grade C, Level of Evidence 1). 
+Penguat kognisi yang dikenal selama ini terdapat  2 preparat yang 
+berbeda, yaitu asetilkolinesterase inhibitor (AChEI) yang 
+menghambat enzim cholinesterase dari memecah ACh,
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 130]
+e C, Level of Evidence 1). 
+Penguat kognisi yang dikenal selama ini terdapat  2 preparat yang 
+berbeda, yaitu asetilkolinesterase inhibitor (AChEI) yang 
+menghambat enzim cholinesterase dari memecah ACh, sehingga 
+dapat meningkatkan baik efektivitasnya maupun durasi kerja 
+neurotransmiter kolinergik di otak. Preparat lain adalah anti-
+reseptor N-methyl-D-aspartate (NMDA), menghambat aliran arus 
+melalui saluran reseptor NMDA dengan afinitas rendah hingga 
+sedang, dan menghambat masuknya ion Ca2+ yang berlebihan 
+ke dalam sel yang dapat mengakibatkan eksitotoksisitas neuron. 
+Aktivasi berlebihan dari reseptor NMDA dapat  pula 
+mengakibatkan neurodegenerasi dan hilangnya fungsi sinaptik 
+melalui eksitotoksisitas akibat glutamate toksisitas. 
+Neurotransmisi kolinergik memainkan peran kunci dalam 
+gangguan fungsi kognitif pada Demensia Alzheimer (AD) dan pada 
+gangguan demensia onset dewasa. Saat ini, peningkatan 
+neurotransmisi kolinergik masih merupakan pendekatan utama 
+dalam pengobatan simtomatik gejala kogni
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 130]
+kognitif pada Demensia Alzheimer (AD) dan pada 
+gangguan demensia onset dewasa. Saat ini, peningkatan 
+neurotransmisi kolinergik masih merupakan pendekatan utama 
+dalam pengobatan simtomatik gejala kognitif dan perilaku AD 
+ringan - sedang.  
+Pada Formularium Nasional (KMK No. 
+HK.01.07/MENKES/2197/2023; berlaku 1 Maret 2024) 
+kelompok obat antidemensia hanya mencantumkan donepezil. 
+Obat antidemensia lain seperti rivastigmine, galantamine, dan 
+memantine tidak tercantum, sehingga secara definisi merupakan 
+contoh obat non-Fornas bila ingin digunakan dalam pelayanan 
+JKN dan memerlukan mekanisme khusus (persetujuan direktur 
+RS/dokter penanggung jawab, skema pembelian mandiri pasien, 
+atau usulan adendum Fornas). Contoh obat non-Fornas yang 
+relevan dengan bukti klinis internasional yang mungkin 
+diperlukan pada kondisi tertentu adalah rivastigmine, 
+galantamine, memantine, lecanemab, dan brexipiprazole.  
+Rivastigmine (oral dan transdermal patch) adalah inhibitor 
+asetilkolinesterase; direkomendasikan inter
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 130]
+pada kondisi tertentu adalah rivastigmine, 
+galantamine, memantine, lecanemab, dan brexipiprazole.  
+Rivastigmine (oral dan transdermal patch) adalah inhibitor 
+asetilkolinesterase; direkomendasikan internasional sebagai opsi 
+untuk demensia Alzheimer ringan–sedang; juga digunakan pada 
+demensia Parkinson & Lewy body. Patch bermanfaat pada pasien 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 130 - 
+ 
+ 
+dengan intoleransi gastrointestinal atau masalah kepatuhan 
+minum obat.  Galantamine adalah golongan obat AChE inhibitor 
+lain untuk demensia Alzheimer ringan–sedang; pilihan alternatif 
+bila donepezil tidak toleran atau tidak efektif; tersedia formulasi 
+immediate & extended-release secara global.  Memantine adalah 
+antagonis reseptor NMDA; direkomendasikan untuk demensia 
+Alzheimer sedang–berat, atau pada pasien dengan intoleransi 
+terhadap AChE inhibitor; dapat dikombinasikan dengan AChE 
+inhibitor pada stadium lebih lanjut. Lecanemab merupakan obat 
+yang telah diakui sebagai terapi disease-modifying sejak 2023
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 131]
+dengan intoleransi 
+terhadap AChE inhibitor; dapat dikombinasikan dengan AChE 
+inhibitor pada stadium lebih lanjut. Lecanemab merupakan obat 
+yang telah diakui sebagai terapi disease-modifying sejak 2023 
+oleh FDA dan regulator lain seperti PMDA (Pharmaceuticals and 
+Medical Devices Agency – Jepang). Brexpiprazole digunakan 
+untuk agitasi terkait demensia Alzheimer. 
+1) Penyakit Alzheimer 
+a) Penyakit Alzheimer ringan-sedang 
+Tiga inhibitor AChE yaitu donepezil, galantamine dan 
+rivastigmine sebagai monoterapi direkomendasikan 
+sebagai pilihan untuk mengelola AD ringan hingga 
+sedang. 
+Monoterapi memantine direkomendasikan sebagai 
+pilihan untuk mengelola AD derajat sedang yang tidak 
+toleran atau memiliki kontraindikasi terhadap AChEI 
+atau AD derajat berat. Memantine dapat pula sebagai 
+tambahan terapi pasien AD yang sudah mendapatkan 
+AChEI pada AD derajat sedang dan berat. 
+Apabila meresepkan inhibitor AChE (donepezil, 
+galantamine atau rivastigmine), maka pemberian obat 
+dimulai dengan biaya terendah pad
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 131]
+en AD yang sudah mendapatkan 
+AChEI pada AD derajat sedang dan berat. 
+Apabila meresepkan inhibitor AChE (donepezil, 
+galantamine atau rivastigmine), maka pemberian obat 
+dimulai dengan biaya terendah pada dosis harian.  
+(1) Donepezil 
+Donepezil lebih efektif dibandingkan placebo 
+dalam hal perbaikan dengan menggunakan 
+instrumen Alzheimer Disease Assessment Scale-
+Cognition (ADAS-Cog) berdasarkan 12 RCT.  Begitu 
+pula halnya penilaian dengan instrumen Mini 
+Mental State Examination (MMSE) maupun Severe 
+Impairment Battery (SIB) menunjukkan perbedaan 
+signifikan secara statistik antara penggunakan 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 131 - 
+ 
+ 
+donepezil dengan plasebo. 
+Studi meta analisis terkait efektivitas donepezil 
+dari clinical impression of change (CIBIC-Plus) 
+menunjukkan adanya hasil signifikan secara 
+statistik pemberian donepezil 10 mg/hari 
+dibandingkan dengan placebo selama 12-24 
+minggu. Beberapa analisis data global yang 
+dilakukan pada studi NICE menunjukkan hasil 
+signifikan dalam peng
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 132]
+n secara 
+statistik pemberian donepezil 10 mg/hari 
+dibandingkan dengan placebo selama 12-24 
+minggu. Beberapa analisis data global yang 
+dilakukan pada studi NICE menunjukkan hasil 
+signifikan dalam penggunaan berbagai dosis 
+donepezil dibandingkan dengan placebo selama 
+24-26 minggu (mean  dari baseline vs placebo -
+0.377 (p<0.001) dan -0.429 (p<0.001) selama 12 
+dan 24 minggu dengan menggunakan CIBIC-plus 
+score serta -0.263 (p=0.03) dan -0.568 (p<0.001) 
+selama 12 dan 24 minggu dengan menggunakan 
+CDR Score).  
+(2) Rivastigmine 
+Rivastigmine telah diteliti pada berbagai studi 
+terkait AD. Bukti dari 3 buah review sistematik, 4 
+buah RCT (n=1940), rivastigmine bermanfaat 
+untuk AD pada dosis lebih tinggi (6–12 mg/hari). 
+Meta analisis dari 2 buah RCT (durasi 26 minggu) 
+menunjukkan perbedaan signifikan untuk 
+rivastigmine 6-12 mg/hari dibandingkan plasebo 
+dengan menggunakan ADAS-cog. 
+The Investigation of transdermal Exelon in 
+Alzheimers disease  (IDEAL) study (n=1195) 
+menemukan bahwa rivastigmine patch
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 132]
+uk 
+rivastigmine 6-12 mg/hari dibandingkan plasebo 
+dengan menggunakan ADAS-cog. 
+The Investigation of transdermal Exelon in 
+Alzheimers disease  (IDEAL) study (n=1195) 
+menemukan bahwa rivastigmine patch  17.4 mg 
+(20cm2/24 jam) dan 9.5 mg (10 cm 2/24jam) 
+menunjukan efikasi yang sama dengan kapsul (6 
+mg dua kali sehari). Meski demikian target dosis 
+tidak tercapai pada sebagian besar pasien dan 
+perbandingan dosis yang efektif adalah 9 mg/hari 
+(kapsul). Pada studi ini, semua grup rivastigmine 
+bila dibandingkan dengan plasebo menunjukkan 
+perbaikan signifikan secara statistik pada ADAS-
+cog setelah 24 minggu (Grade B, Level 2). 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 132 - 
+ 
+ 
+Bila dibandingkan dengan kapsul, patch 9.5 mg 
+hanya menghasilkan efek samping 2/3 lebih 
+sedikit berupa mual dan muntah. Meski demikian 
+patch 17.4 mg menunjukkan tolerabilitas yang 
+sama dengan kapsul. Tolerabilitas kulit baik (>90% 
+tidak mengalami atau hanya iritasi kulit ringan) 
+(Grade B, Level 2).  
+(3) Galantamine 
+Galant
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 133]
+demikian 
+patch 17.4 mg menunjukkan tolerabilitas yang 
+sama dengan kapsul. Tolerabilitas kulit baik (>90% 
+tidak mengalami atau hanya iritasi kulit ringan) 
+(Grade B, Level 2).  
+(3) Galantamine 
+Galantamine 24 mg dibandingkan dengan plasebo 
+memberikan perbaikan pada ADAS-Cog. Inhibitor 
+kolinesterase (donepezil, galantamine, 
+rivastigmine) dan antagonis reseptor N-methyl-D-
+aspartate (NMDA) memantine dapat 
+dipertimbangkan untuk pengobatan gangguan 
+kognitif vaskular pada pasien tertentu (Grade B, 
+Level 2).  
+(4) Perbandingan dengan AChEI 
+Hasil penelitian mempertimbangkan adanya bukti 
+bahwa satu jenis AChEI secara klinis lebih efektif 
+dibanding yang lain. Didapatkan hanya 1 RCT 
+berkualitas yang membandingkan antara 
+donepezil dan rivastigmine yang dipublikasikan 
+tahun 2004 tapi tidak mengubah kesimpulan dari 
+NICE. Komite menyimpulkan terdapat bukti yang 
+insufisien untk membedakan antar AChE inhibitor 
+dalam efektivitas klinis. 
+Cochrane systematic review  menyatakan ketiga 
+AChEI menunjukkan efika
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 133]
+ulan dari 
+NICE. Komite menyimpulkan terdapat bukti yang 
+insufisien untk membedakan antar AChE inhibitor 
+dalam efektivitas klinis. 
+Cochrane systematic review  menyatakan ketiga 
+AChEI menunjukkan efikasi untuk AD ringan – 
+sedang, tanpa perbedaan bermakna diantara 
+ketiganya (Grade B, Level 1).  
+(5) Penghentian cholinesterase inhibitor 
+Untuk individu yang menggunakan cholinesterase 
+inhibitor (AChEI) pada AD, demensia penyakit 
+parkinson (PDD), demensia badan lewy (DLB), atau 
+demensia   vaskular   (VaD)   selama    > 12 bulan,  
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 133 - 
+ 
+ 
+penghentian pengobatan harus dipertimbangkan 
+jika:  
+(a) terjadi perburukan bermakna secara klinis, 
+tercermin dalam perubahan kognisi, fungsi, 
+atau penilaian global selama 6 bulan terakhir 
+tanpa adanya kondisi medis lainnya (delirium, 
+penyakit medis bersamaan yang signifikan) 
+atau faktor lingkungan yang berkontribusi;  
+(b) tidak ada manfaat bermakna secara klinis 
+yang diamati selama pengobatan (perbaikan, 
+stabilisa
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 134]
+nnya (delirium, 
+penyakit medis bersamaan yang signifikan) 
+atau faktor lingkungan yang berkontribusi;  
+(b) tidak ada manfaat bermakna secara klinis 
+yang diamati selama pengobatan (perbaikan, 
+stabilisasi, penurunan tingkat penurunan);  
+(c) individu tersebut menderita demensia berat 
+atau tahap akhir;  
+(d) efek samping yang tidak dapat ditoleransi 
+(mual parah, muntah, kehilangan berat 
+badan, anoreksia, jatuh);  
+(e) kepatuhan pengobatan buruk dan 
+menghalangi penggunaan obat secara 
+berkelanjutan atau ketidakmampuan untuk 
+menilai keefektifan obat obatnya. 
+Untuk individu yang diresepkan AChEI untuk 
+indikasi selain AD, PDD, DLB, atau VaD (misalnya, 
+demensia frontotemporal/FTD), AChEI harus 
+dihentikan (Grade B, Level 1).  
+(6) Memantine 
+Cochrane review , berdasarkan 3 (tiga) RCT 
+menunjukkan bahwa memantine 20 mg/hari 
+memberikan sedikit perbaikan pada CIBIC-Plus, 
+perubahan skor CIBIC-Plus 0.13 poin, 95% CI: 
+0.01, 0.25, p=0.030, dan ADAS-Cog (0.99 poin, 
+95%CI 0.2 to 1.8, p=0.01) untuk pasien denga
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 134]
+mantine 20 mg/hari 
+memberikan sedikit perbaikan pada CIBIC-Plus, 
+perubahan skor CIBIC-Plus 0.13 poin, 95% CI: 
+0.01, 0.25, p=0.030, dan ADAS-Cog (0.99 poin, 
+95%CI 0.2 to 1.8, p=0.01) untuk pasien dengan AD 
+ringan – sedang setelah 24 minggu. Tidak ada 
+perbedaan signifikan dalam jumlah pasien yang 
+mengalami efek samping (NNH=39) (Grade B, Level 
+1). Pada sebuah RCT (n=403), memantine 
+dibandingkan plasebo memperbaiki fungsi kognitif 
+pada AD ringan - sedang (-1.9 poin, 95%CI, -3.1 to 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 134 - 
+ 
+ 
+-0.6) pada ADAS-cog setelah 24 minggu  (Grade B, 
+Level 1). 
+Memantine terdaftar hanya untuk digunakan pada 
+terapi AD derajat sedang-berat.242 Meski demikian 
+bila pasien tidak dapat mentoleransi AChEI pada 
+AD derajat ringan-sedang maka memantine dapat 
+diberikan. Memantine menunjukkan efek 
+perbaikan bermakna pada fungsi bahasa pada 
+pasien dengan AD sedang-berat, pada penelitian 
+menggunakan skala bahasa language subscale of 
+the Severe Impairment Battery (SIB-L). 
+Berd
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 135]
+ne menunjukkan efek 
+perbaikan bermakna pada fungsi bahasa pada 
+pasien dengan AD sedang-berat, pada penelitian 
+menggunakan skala bahasa language subscale of 
+the Severe Impairment Battery (SIB-L). 
+Berdasarkan subkelompok post-hoc dari hingga 
+empat penelitian di sekitar 600 peserta 
+menunjukkan bahwa mungkin tidak ada 
+perbedaan antara memantine dan plasebo untuk 
+CF: 0,21 ADAS-cog (95% CI -0,95 hingga 1,38) 
+sehingga tidak dianjurkan pada kasus AD ringan.  
+Rekomendasi 
+Inhibitor kolinesterase (donepezil, rivastigmin dan 
+galantamin) bermanfaat dalam memperbaiki fungsi kognisi 
+pasien AD ringan – sedang.   
+(Grade A, Level 1++) 
+Pasien dalam terapi penguat kognisi harus dinilai 
+sedikitnya 1 kali dalam 6 bulan dengan menggunakan 
+pemeriksaan psikometrik.   
+(Grade C, Level 2+) 
+ 
+b) Penyakit Alzheimer sedang-berat 
+Ketika menggunakan skala penilaian untuk 
+menentukan tingkat keparahan penyakit Alzheimer, 
+profesional kesehatan seharusnya juga menilai 
+kesulitan terkait kemampuan fisik, sensorik dan 
+pembe
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 135]
+ang-berat 
+Ketika menggunakan skala penilaian untuk 
+menentukan tingkat keparahan penyakit Alzheimer, 
+profesional kesehatan seharusnya juga menilai 
+kesulitan terkait kemampuan fisik, sensorik dan 
+pembelajaran atau komunikasi yang dapat 
+mempengaruhi hasil dan membuat penilaian yang 
+tepat.  
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 135 - 
+ 
+ 
+(1) Donepezil 
+Setelah pemberian terapi donepezil selama 26 
+minggu dibandingkan dengan placebo, ternyata 
+memberikan efek fungsi kognitif yang lebih baik 
+pada Alzheimer’s Disease Assessment Scale-
+Cognitive (ADAS-Cog) berkisar 0-70 MD -2.67, 95% 
+CI -3.31 s/d -2.02, 1130 partisipan, 5 studi; skor 
+Mini-Mental State Examination (MMSE) MD 1.05, 
+95% CI 0.73-1.37, 1757 partisipan, 7 studi; dan 
+Severe Impairment Battery (SIB) berkisar 0-100 MD 
+5.92, 95% CI 4.53 sampai 7.31, 1348 partisipan, 5 
+studi. 
+Pada studi Alzheimer ringan-sedang dan sedang-
+berat, efek samping donepezil dapat ditoleransi 
+seperti diare dan halusinasi. Sebelum mulai studi, 
+didapatkan 3 dari 8
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 136]
+ai 7.31, 1348 partisipan, 5 
+studi. 
+Pada studi Alzheimer ringan-sedang dan sedang-
+berat, efek samping donepezil dapat ditoleransi 
+seperti diare dan halusinasi. Sebelum mulai studi, 
+didapatkan 3 dari 8 pasien dengan donepezil dan 1 
+pasien dengan placebo mengalami manifestasi dari 
+penyakit tapi bukan efek samping dari 
+pengobatan, namun banyak pasien dengan 
+donepezil yang meninggalkan studi dibanding 
+pasien dengan plasebo. Tapi secara keseluruhan, 
+donepezil merupakan pengobatan efektif dengan 
+efek samping yang dapat ditoleransi bahkan ketika 
+diberikan pada pasien Alzheimer berat. 
+Efektivitas donepezil dalam mempertahankan 
+fungsi kognitif dan fungsi global pada pasien 
+dengan Alzheimer berat terbukti pada uji coba dan 
+penggunaan selama 10 tahun pasien yang 
+menggunakan donepezil pada stadium awal 
+penyakit.  
+(2) Rivastigmine 
+Rivastigmine memiliki izin untuk diedarkan di 
+Inggris sebagai terapi simptomatik pada pasien 
+demensia Alzheimer ringan hingga berat. Dosis 
+diawali dengan 1.5 mg 2x/hari da
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 136]
+penyakit.  
+(2) Rivastigmine 
+Rivastigmine memiliki izin untuk diedarkan di 
+Inggris sebagai terapi simptomatik pada pasien 
+demensia Alzheimer ringan hingga berat. Dosis 
+diawali dengan 1.5 mg 2x/hari dan ditingkatkan 
+bertahap 1.5 mg 2x/hari selama interval 2 minggu 
+sampai mencapai kadar toleransi dosis maksimal 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 136 - 
+ 
+ 
+yaitu 6 mg 2x/hari.  
+(3) Galantamine 
+Studi SERAD (Safety and Efficacy of Reminyl in 
+Alzheimers disease) menunjukkan bahwa 
+galatamine dapat digunakan secara aman dengan 
+tolerabilitas yang baik pada kelompok pasien 
+dengan Alzheimer berat. Galantamine secara 
+signifikan dapat memperbaiki fungsi kognitif 
+dengan terutama pada kemampuan memori, 
+praksis dan visuospasial. 
+Inhibitor kolinesterase tidak boleh dihentikan pada 
+individu yang saat ini memiliki gejala psikotik yang 
+bermakna secara klinis, agitasi, atau agresi sampai 
+gejala-gejala ini stabil kecuali gejala- gejala ini 
+tampaknya telah diperburuk oleh inisiasi AChEI 
+atau peningkatan
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 137]
+i memiliki gejala psikotik yang 
+bermakna secara klinis, agitasi, atau agresi sampai 
+gejala-gejala ini stabil kecuali gejala- gejala ini 
+tampaknya telah diperburuk oleh inisiasi AChEI 
+atau peningkatan dosis AChEI (Grade B, Level 2).  
+(4) Memantine 
+Salah satu RCT terbaru terkait pemberian 
+monoterapi memantine menunjukkan manfaat 
+signifikan pada fungsi kognitif dengan 
+menggunakan SIB jika dibandingkan dengan 
+pemberian placebo. Hasil dari studi terbaru dari  
+Assesment Group  menunjukkan tidak adanya 
+manfaat signifikan setelah pengukuran 
+menggunakan ADCS-ADL dengan monoterapi 
+memantine dibandingkan dengan pemberian 
+placebo 12 minggu atau setelah pengukuran 
+dengan menggunakan instrumen Functional 
+Assessment Staging  (FAST). Studi menunjukkan 
+hanya signifikan pada pemberian 24-48 minggu 
+(mean berubah dari baseline vs pasebo 0.877 
+(p=0.075) dan 1.408 (p=0.044) pada 12 dan 24028 
+minggu dengan menggunakan skor ADCS-ADL dan 
+-0.341 (p=0.002) pada 24-28 minggu dibandingkan 
+dengan penggunaan skor FAS
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 137]
+bah dari baseline vs pasebo 0.877 
+(p=0.075) dan 1.408 (p=0.044) pada 12 dan 24028 
+minggu dengan menggunakan skor ADCS-ADL dan 
+-0.341 (p=0.002) pada 24-28 minggu dibandingkan 
+dengan penggunaan skor FAST). 
+Sebuah Cochrane review , menunjukkan bahwa 
+terapi dengan memantine  (20 mg/hari) pada 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 137 - 
+ 
+ 
+ 
+pasien dengan AD sedang – berat memberikan 
+sedikit manfaat pada 2 dari 3 studi dengan durasi 
+6 bulan. Manfaat terlihat pada fungsi kognisi 
+dengan menggunakan SIB (2.9 poin, 95%CI 1.7 
+hingga 4.3, p < 0.00001), ADL (ADCS-ADLsev) (1.3 
+poin, 95% CI 0.4 hingga 2.1, p=0.003), mood dan 
+perilaku (NPI)(2.8 poin, 95%CI 0.9 - 4.6, p=0.004), 
+dan CIBIC-Plus (0.28 poin, 95%CI 0.2 - 0.4, p< 
+0.0001) (Grade C, Level 1). 
+Apabila memantine diberikan selain untuk 
+indikasi AD, PDD, DLB, atau VaD (misalnya, 
+demensia frontotemporal, kondisi neurodegeneratif 
+lainnya), maka memantine tidak 
+direkomendasikan (Grade C, Level 1).  
+Rekomendasi 
+Donepezil, galantamin, dan rivastigm
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 138]
+, PDD, DLB, atau VaD (misalnya, 
+demensia frontotemporal, kondisi neurodegeneratif 
+lainnya), maka memantine tidak 
+direkomendasikan (Grade C, Level 1).  
+Rekomendasi 
+Donepezil, galantamin, dan rivastigmin efektif 
+diberikan pada pasien AD ringan-sedang. 
+(Grade A, Level 1++) 
+Donepezil dan memantine serta kombinasinya 
+efektif memperbaiki fungsi kognisi pasien dengan 
+AD sedang – berat.   
+(Grade A, Level 1++) 
+Galantamine dan rivastigmin merupakan 
+alternatif pada AD berat.  
+(Grade B, Level 2++) 
+Pasien dalam terapi penguat kognisi harus dinilai 
+sedikitnya 1 kali dalam 6 bulan dengan 
+menggunakan ukuran pemeriksaan kognitif 
+neurobehavior.                                                                                                    
+(Grade C, Level 2+) 
+ 
+(5) Disease-modifying treatment (DMT) 
+Beberapa pilihan terapi obat yang telah disetujui 
+sebelumnya hanya bermanfaat memberikan 
+perbaikan gejala, tetapi tidak mengubah 
+perkembangan penyakit. Saat ini telah terdapat 
+KEMENTERIAN KESEHATAN
+jdih.ke
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 138]
+apa pilihan terapi obat yang telah disetujui 
+sebelumnya hanya bermanfaat memberikan 
+perbaikan gejala, tetapi tidak mengubah 
+perkembangan penyakit. Saat ini telah terdapat 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 138 - 
+ 
+ 
+beberapa obat yang berpotensi menjadi Hingga 
+tahun 2023, DMT pada penyakit Alzheimer yang 
+telah mendapat persetujuan dari United States 
+Food and Drug Association (US FDA), yaitu 
+aducanumab dan lecanemab. Aducanumab adalah 
+antibodi terhadap beta amiloid yang diindikasikan 
+untuk mengobati MCI dan penyakit Alzheimer 
+ringan, yang disetujui oleh FDA 7 Juni 2021. Obat 
+tersebut mengikat secara khusus untuk bentuk 
+agregat beta-amiloid dan mengenali plak amiloid di 
+jaringan otak. Sementara itu, lecanemab 
+merupakan antibodi monoklonal terhadap beta 
+amiloid, yang diuji pada pasien dengan penyakit 
+Alzheimer tahap awal yang terkonfirmasi positif 
+amiloid beta. Obat ini mendapatkan persetujuan 
+FDA pada Januari 2023. (GPP) 
+Dibutuhkan sumber daya dan fasilitas yang 
+memadai untuk dapat m
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 139]
+an penyakit 
+Alzheimer tahap awal yang terkonfirmasi positif 
+amiloid beta. Obat ini mendapatkan persetujuan 
+FDA pada Januari 2023. (GPP) 
+Dibutuhkan sumber daya dan fasilitas yang 
+memadai untuk dapat memberikan DMT penyakit 
+Alzheimer secara aman dan efektif. Sebagai 
+contoh, pedoman Appropriate Use 
+Recommendations untuk penggunaan lecanemab 
+mewajibkan adanya fasilitas MRI, PET atau pungsi 
+lumbal amiloid, fasilitasi genotyping apolipoprotein 
+E, fasilitas intensive care unit , dan ahli di bidang 
+radiologi, neurologi, atau lainnya yang dapat 
+mengidentifikasi dan memantau efek samping 
+penggunaan obat tersebut (contoh: amyloid-related 
+imaging abnormalities dan lesi serebrovaskular) 
+juga menginterpretasikan dan memantau hasil 
+pencitraan amiloid dengan tepat. 
+(6) Agitasi pada demensia Alzheimer 
+Brexipiprazole merupakan salah satu antipsikotik 
+generasi kedua yang mendapat rekomendasi 
+sebagai pilihan terapi untuk mengatasi agitasi 
+pada pasien dengan demensia Alzheimer, terutama 
+pada kasus dengan ge
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 139]
+piprazole merupakan salah satu antipsikotik 
+generasi kedua yang mendapat rekomendasi 
+sebagai pilihan terapi untuk mengatasi agitasi 
+pada pasien dengan demensia Alzheimer, terutama 
+pada kasus dengan gejala perilaku yang signifikan 
+dan tidak responsif terhadap intervensi non-
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 139 - 
+ 
+ 
+farmakologis. Brexipiprazole bekerja sebagai 
+partial agonist pada reseptor serotonin 5-HT1A dan 
+dopamin D2, serta antagonis pada reseptor 5-
+HT2A, yang berkontribusi pada efek stabilisasi 
+mood dan pengurangan agitasi tanpa 
+menimbulkan efek ekstrapiramidal yang berat. 
+Beberapa uji klinis fase III menunjukkan bahwa 
+brexipiprazole dengan dosis 1-2 mg/hari efektif 
+menurunkan skor Cohen-Mansfield Agitation 
+Inventory (CMAI) dibandingkan plasebo, dengan 
+profil keamanan yang relatif baik. Rekomendasi 
+penggunaan brexipiprazole sebaiknya dilakukan 
+mulai dari dosis kecil, yaitu 0,25-0,5 mg/hari dan 
+dapat ditingkatkan sampai dosis 1- 2 mg/hari 
+dengan mempertimbangkan risiko efek sam
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 140]
+baik. Rekomendasi 
+penggunaan brexipiprazole sebaiknya dilakukan 
+mulai dari dosis kecil, yaitu 0,25-0,5 mg/hari dan 
+dapat ditingkatkan sampai dosis 1- 2 mg/hari 
+dengan mempertimbangkan risiko efek samping, 
+seperti sedasi, peningkatan berat badan, atau 
+hipotensi ortostatik, serta hanya diberikan ketika 
+terapi non-farmakologis tidak memadai. Titrasi 
+dosis secara bertahap disarankan untuk 
+meminimalkan efek samping dan memantau 
+respons pasien. Brexpiprazole hanya 
+direkomendasikan untuk agitasi pada demensia 
+tipe Alzheimer, dan tidak untuk digunakan rutin 
+pada FTD, VaD, maupun LBD karena keterbatasan 
+bukti serta potensi risiko efek samping yang lebih 
+besar.  
+Rekomendasi 
+Pemberian lecanemab sebagai disease modifying therapy 
+aman dan efektif untuk penyakit Alzheimer dini, meliputi 
+Mild Cognitive Impairment  dan demensia ringan dengan 
+penanda biomarka amiloid pada PET Scan otak atau 
+cairan serebrospinal yang nyata serta pemeriksaan 
+genotip apolipoprotein E untuk meningkatkan keamanan 
+pemberiann
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 140]
+mpairment  dan demensia ringan dengan 
+penanda biomarka amiloid pada PET Scan otak atau 
+cairan serebrospinal yang nyata serta pemeriksaan 
+genotip apolipoprotein E untuk meningkatkan keamanan 
+pemberiannya. 
+(Grade B) 
+ 
+ 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 140 - 
+ 
+ 
+2) Demensia vaskular 
+Terdapat defisit kolinergik pada demensia vaskular. Iskemia 
+menimbulkan stimulasi glutamat yang berlebihan pada 
+reseptor NMDA. Hal ini akan menimbulkan eksitotoksisitas 
+dan kematian sel neuron. Donepezil disetujui untuk terapi 
+VaD di New Zealand, India, Romania, South Korea dan 
+Thailand, sementara memantine disetujui di Argentina, 
+Brazil dan Mexico. 
+Semua pasien dengan gejala atau gangguan kognitif harus 
+menerima pedoman perawatan yang direkomendasikan 
+untuk mencegah stroke pertama atau berulang, yang sesuai.  
+a) Penguat kognisi 
+Kolinesterase Inhibitor (AChEIs) dan memantine sering 
+diberikan pada demensia selain AD, sebagai bagian dari 
+percobaan klinis atau pada terapi klinis meski tidak 
+masuk dalam ind
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 141]
+.  
+a) Penguat kognisi 
+Kolinesterase Inhibitor (AChEIs) dan memantine sering 
+diberikan pada demensia selain AD, sebagai bagian dari 
+percobaan klinis atau pada terapi klinis meski tidak 
+masuk dalam indikasi (Grade A, Level 1). 
+Efikasi dan efek samping pada VaD dilaporkan pada 
+meta analisis dari beberapa RCT (n=5183, durasi 24-28 
+minggu), yaitu 3 percobaan dengan donepezil, 2 dengan 
+galantamine, 1 dengan rivastigmine dan 2 dengan 
+memantine. 
+Semua obat memiliki efek kognitif yang signifikan 
+dengan ADAS-cog (-1.1 poin, 95%CI, -2.2 hingga -0.1 
+untuk rivastigmine 12 mg per hari), (-1.6 poin, 95%CI -
+2.4 hingga -0.8 untuk galantamine 24 mg), (-2.2 poin, 
+95%CI -3.0 hingga -1.4 untuk donepezil 10 mg per hari), 
+dan (95%CI -2.8 hingga -0.9 untuk memantine 20 mg). 
+Dalam Clinical Global Impressions Scale (CGI scale), 
+hanya donepezil 5 mg per hari yang memiliki efek positif 
+(OR 1.5, 95%CI 1.1-2.1). Donepezil 10 mg juga 
+menunjukkan efek yang menguntungkan pada 
+Alzheimer Disease Functional Assessment and C
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 141]
+GI scale), 
+hanya donepezil 5 mg per hari yang memiliki efek positif 
+(OR 1.5, 95%CI 1.1-2.1). Donepezil 10 mg juga 
+menunjukkan efek yang menguntungkan pada 
+Alzheimer Disease Functional Assessment and Change 
+Scale (ADCS-CGIC) (-1.0 poin, 95%CI, -1.7 hingga -0.2).  
+Ada banyak kasus menghentikan pengobatan serta 
+muncul efek samping (terutama gejala gastrointestinal) 
+dengan AChEIs, tapi tidak dengan memantine (Grade A, 
+Level 1+). 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 141 - 
+ 
+ 
+Canadian Best Practice 2019, merekomendasikan 
+bahwa inhibitor cholinesterase (donepezil, galantamine, 
+rivastigmine) dan N-metil-D-aspartat (NMDA) reseptor 
+antagonis (memantine) dapat dipertimbangkan untuk 
+individu dengan demensia vaskular atau demensia 
+campuran (Grade A, Level 1).  
+Rekomendasi 
+Inhibitor kolinesterase dan memantine dapat diberikan 
+pada pasien demensia vaskular dan demensia campuran.   
+(Grade A, Level 1) 
+ 
+b) Pencegahan demensia 
+Untuk pasien dengan VaD, hingga saat ini belum 
+terbukti bahwa obat-obat u
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 142]
+memantine dapat diberikan 
+pada pasien demensia vaskular dan demensia campuran.   
+(Grade A, Level 1) 
+ 
+b) Pencegahan demensia 
+Untuk pasien dengan VaD, hingga saat ini belum 
+terbukti bahwa obat-obat untuk mengontrol faktor 
+risiko vaskular seperti antihipertensi, aspirin, statin 
+dan antidiabetik memiliki efek terhadap gejala kognisi  
+(Grade B, Level 1). 
+Untuk pasien dengan gangguan kognitif di mana 
+kontribusi vaskular diketahui atau diduga, terapi 
+antihipertensi harus sangat dipertimbangkan untuk 
+tekanan darah sistolik rata-rata ≥140 mmHg dan 
+diastolik rata-rata ≥ 90 mmHg (Grade B, Level 1). 
+Pada orang paruh baya dan lebih tua yang dirawat 
+karena hipertensi serta memiliki faktor risiko vaskular 
+terkait penurunan risiko terjadinya MCI harus 
+dipertimbangkan ketika memutuskan intensitas 
+terapinya (Grade C, Level 2). 
+Penggunaan aspirin tidak dianjurkan untuk pasien 
+dengan MCI atau demensia yang memiliki bukti 
+pencitraan otak lesi materi putih terselubung yang 
+diduga berasal dari vaskular tanpa
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 142]
+(Grade C, Level 2). 
+Penggunaan aspirin tidak dianjurkan untuk pasien 
+dengan MCI atau demensia yang memiliki bukti 
+pencitraan otak lesi materi putih terselubung yang 
+diduga berasal dari vaskular tanpa riwayat stroke atau 
+infark otak (Grade C, Level 2). 
+Efek aspirin pada penurunan kognitif pada pasien 
+dengan MCI atau demensia yang terdapat infark otak 
+terdeteksi pada neuroimaging tanpa riwayat stroke 
+belum didefinisikan. Penggunaan aspirin dalam 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 142 - 
+ 
+ 
+pengaturan ini masuk akal, tapi manfaatnya tidak jelas 
+(Grade C, Level 2). 
+ 
+REKOMENDASI 
+Pasien dengan demensia vaskular serta faktor risiko 
+vaskular harus diterapi dengan obat- obat yang 
+direkomendasikan untuk mengobati kelainan-kelainan 
+tersebut.   
+(Grade B, Level 2++) 
+ 
+3) Penyakit Lewy Body (demensia Lewy Body/DPP) 
+Antara PDD dan DLB saling tumpang tindih. Kedua kondisi 
+tersebut memiliki presentasi serupa, mengenai area otak 
+yang sama, dan keduanya terkait dengan defisit baik 
+asetilkolin maup
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 143]
+nsia Lewy Body/DPP) 
+Antara PDD dan DLB saling tumpang tindih. Kedua kondisi 
+tersebut memiliki presentasi serupa, mengenai area otak 
+yang sama, dan keduanya terkait dengan defisit baik 
+asetilkolin maupun dopamin. Hingga saat ini tidak ada agen 
+yang memperlambat progresi menjadi PDD. 
+Kelompok kelainan degeneratif ini terkait dengan Behavioral 
+And Psychological Symptom of Dementia (BPSD) yang nyata, 
+namun penggunaan neuroleptik menyebabkan peningkatan 
+2 sampai 3 kali lipat dari mortalitas akibat reaksi sensitivitas 
+akibat neuroleptik. 
+Meta analisis uji klinis menyebutkan rivastigmine dan 
+donepezil mendukung penggunaan inhibitor kolinesterasi 
+(ChEIs) pada DLB untuk meningkatkan kognisi, fungsi 
+global dan aktivitas hidup, dengan bukti bila pasien tidak 
+membaik dengan ChEIs maka kecil kemungkinan pasien 
+akan memburuk dengan ChEIs. Efektivitas memantine 
+dalam DLB kurang jelas, tetapi ditoleransi dengan baik dan 
+mungkin memiliki manfaat baik sebagai monoterapi atau 
+tambahan untuk ChEIs (Grade A, Le
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 143]
+ien 
+akan memburuk dengan ChEIs. Efektivitas memantine 
+dalam DLB kurang jelas, tetapi ditoleransi dengan baik dan 
+mungkin memiliki manfaat baik sebagai monoterapi atau 
+tambahan untuk ChEIs (Grade A, Level 1). 
+Hingga saat ini hanya sedikit studi yang fokus pada 
+penggunaan AChEIs untuk terapi penyakit ini. Rivastigmine 
+memiliki lisensi untuk terapi simtomatik demensia ringan – 
+sedang pada pasien dengan Parkinson idiopatik dan DLB 
+(Grade A, Level 1). Sebuah review sistematik menemukan 
+bukti dari sebuah RCT  (n=541) bahwa rivastigmine memiliki 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 143 - 
+ 
+ 
+efek terhadap kognisi dan sedikit efek terhadap ADL pada 
+pasien dengan PDD (Grade A, Level 1). 
+Masalah tolerabilitas seperti mual dan muntah merupakan 
+efek samping yang signifikan dan perlu penanganan yang 
+hati-hati. Pasien dengan rivastigmine lebih banyak 
+mengalami mual, muntah, tremor, dan dizziness 
+dibandingkan plasebo. 
+Sebuah Cochrane review pada DLB, menunjukkan tidak ada 
+perbedaan bermakna secara st
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 144]
+ti-hati. Pasien dengan rivastigmine lebih banyak 
+mengalami mual, muntah, tremor, dan dizziness 
+dibandingkan plasebo. 
+Sebuah Cochrane review pada DLB, menunjukkan tidak ada 
+perbedaan bermakna secara statistik antara rivistigmine dan 
+plasebo setelah 20 minggu. 
+Donepezil atau rivastigmine dipertimbangkan diberikan 
+kepada pasien dengan DLB ringan hingga sedang. 
+Pertimbangkan galantamine untuk DLB ringan hingga 
+sedang jika donepezil dan rivastigmine tidak dapat 
+ditoleransi. Pertimbangkan donepezil atau rivastigmine  
+untuk penderita DLB berat. Pertimbangkan memantine 
+untuk pasien DLB jika inhibitor AChE tidak ditoleransi atau 
+dikontraindikasikan.  
+REKOMENDASI 
+Rivastigmine dapat dipertimbangkan dalam memperbaiki 
+gejala psikotik pada Demensia Lewy Body  
+(Grade B, Level 2++) 
+Rivastigmine dapat digunakan dalam terapi Demensia 
+Sedang-Berat pada pasien dengan Parkinson Disease  
+(Grade B, Level 2++)
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 144]
+kan dalam terapi Demensia 
+Sedang-Berat pada pasien dengan Parkinson Disease  
+(Grade B, Level 2++)  
+                                                                                                                                                                                           
+4) Demensia frontotemporal 
+Berbeda dengan AD, neuron kolinergik relatif dipertahankan 
+pada FTD, dan studi dengan AChEIs pada FTD memberikan 
+hasil meragukan. Beberapa laporan menunjukkan bahwa 
+AChEIs menimbulkan gangguan perilaku yang lebih berat. 
+Sejumlah medikasi yang mempengaruhi fungsi 
+neurotransmiter spesifik (contoh SSRI terhadap neuron 
+serotonergik, memantine terhadap neurotransmisi glutamat 
+yang berlebih) telah dipelajari dan dapat memberikan 
+keuntungan untuk gejala kognitif dan perilaku dari FTD. 
+KEMENTERIAN KESEHATAN
+jdih.kemkes.go.id- 144 - 
+ 
+ 
+Namun hingga saat ini belum ada terapi yang disetujui 
+untuk sindroma FTD.  
+a) Inhibitor kolinesterase 
+Belum banyak percobaan tentang AChEIs pada FTLD, 
+karena
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 144]
+N KESEHATAN
+jdih.kemkes.go.id- 144 - 
+ 
+ 
+Namun hingga saat ini belum ada terapi yang disetujui 
+untuk sindroma FTD.  
+a) Inhibitor kolinesterase 
+Belum banyak percobaan tentang AChEIs pada FTLD, 
+karena tidak ada rasionalisasi menggunakan medikasi 
+yang meningkatkan asetilkolin otak pada pasien FTD. 
+Pada sebuah studi pasien FTD (n=24) yang diterapi 
+dengan donepezil (10 mg, 6 bulan) dibanding yang tidak 
+diterapi, terjadi peningkatan tingkah laku kompulsif 
+dan secara keseluruhan, kelompok yang diterapi 
+dengan donepezil memiliki perburukan skor FTD 
+inventory. Pemberhentian terapi donepezil ditandai 
+dengan perbaikan gangguan perilaku (Grade B, Level 2). 
+Sebuah RCT dengan galantamine dibandingkan plasebo 
+(16–24 mg) tidak menunjukkan perbedaan signifikan 
+pada Clinical Global Impression of Improvement  (CGI-I) 
+dan Clinical Global Impression of Severity (CGI-S). Tidak 
+ada perbedaan bermakna terhadap perilaku dengan 
+Frontal Battery Inventory. Galantamine tidak efektif 
+dalam kaitannya dengan berbagai per
+<<<CHUNK>>>
+[PNPK Demensia, Halaman 145]
+GI-I) 
+dan Clinical Global Impression of Severity (CGI-S). Tidak 
+ada perbedaan bermakna terhadap perilaku dengan 
+Frontal Battery Inventory. Galantamine tidak efektif 
+dalam kaitannya dengan berbagai perilaku pada FTD, 
+tapi kecenderungan manfaat ditunjukkan pada 
+subkelompok afasia yang mungkin dapat signifikan 
+secara klinis. Galantamine tampak aman di FTD/PPA. 
+Dari studi RCT yang dilakukan pada 36 pasien FTD dan 
+Primary Progressive Aphasia (PPA), semua pasien 
+diberikan galantamine selama 18 minggu. Tidak 
+ditemukan adanya perbedaan signifikan pada kelompok 
+FTD setelah perbandingan multipel, sementara fungsi 
+bahasa stabil pada pasien dengan PPA dibandingkan 
+dengan kelompok placebo (Grade C, Level 1). 
+b) Memantine 
+Sebuah studi kecil open-label menunjukkan tidak 
+adanya manfaat dari memantine pada pasien FTD, 
+sementara kasus serial kecil yang lain dan fase 4 open-
+label dari studi memantine menunjukkan perbaikan 
+pada gejala tingkah laku yang diukur dengan skor NPI. 
+Efikasi memantine telah diuji co

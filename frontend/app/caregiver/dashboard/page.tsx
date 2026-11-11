@@ -541,13 +541,6 @@ function CaregiverDashboardContent() {
                   exit={{ opacity: 0, y: -12 }}
                   className="space-y-8"
                 >
-                  {/* Simulated data banner */}
-                  {isSimulated && (
-                    <div className="bg-warning/15 text-amber-700 text-xs font-semibold rounded-xl px-4 py-2.5">
-                      Mode demo. Tren 30 hari dan peringatan di halaman ini memuat data simulasi. Skor belum divalidasi klinis.
-                    </div>
-                  )}
-
                   {/* Stats Overview */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="bg-card border border-border/70 rounded-2xl p-5 shadow-sm">
@@ -575,7 +568,7 @@ function CaregiverDashboardContent() {
                     {/* Line Chart */}
                     <div className="lg:col-span-2 bg-card border border-border/70 rounded-[24px] p-6 shadow-sm">
                       <h2 className="text-lg font-bold font-serif-editorial text-foreground mb-1">Skor Risiko Kognitif (30 Hari)</h2>
-                      <p className="text-xs text-muted-foreground mb-5">Indikator informatif, bukan diagnosis.</p>
+                      <p className="text-xs text-muted-foreground mb-5">Indikator informatif, bukan diagnosis.{isSimulated && <span className="ml-2 text-amber-600 font-semibold">Riwayat dan peringatan memuat data simulasi.</span>}</p>
                       <div className="h-64">
                         {mounted && trendData.length > 0 ? (
                           <ResponsiveContainer width="100%" height="100%">

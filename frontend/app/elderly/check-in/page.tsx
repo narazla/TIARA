@@ -21,10 +21,10 @@ import { ProtectedRoute } from "@/components/shared/ProtectedRoute";
 import { voiceCheckinApi, moodApi } from "@/lib/api";
 
 const QUESTIONS = [
-  { id: "q1", category: "Orientasi", text: "Hari apa sekarang, Bapak/Ibu?", step: 1 },
-  { id: "q2", category: "Daya Ingat", text: "Tadi pagi Bapak/Ibu makan apa?", step: 2 },
-  { id: "q3", category: "Memori Jangka Panjang", text: "Ceritakan satu kenangan masa kecil yang Bapak/Ibu sukai.", step: 3 },
-  { id: "q4", category: "Kesejahteraan Emosional", text: "Bagaimana perasaan Bapak/Ibu hari ini?", step: 4 },
+  { id: "q1", category: "Hari ini", text: "Hari apa sekarang, Bapak/Ibu?", step: 1 },
+  { id: "q2", category: "Sarapan", text: "Tadi pagi Bapak/Ibu makan apa?", step: 2 },
+  { id: "q3", category: "Kenangan", text: "Ceritakan satu kenangan masa kecil yang Bapak/Ibu sukai.", step: 3 },
+  { id: "q4", category: "Perasaan", text: "Bagaimana perasaan Bapak/Ibu hari ini?", step: 4 },
 ];
 
 // order_index pertanyaan di tabel checkin_questions untuk 4 pertanyaan di atas
@@ -374,7 +374,7 @@ function CheckInContent() {
               </div>
               <h2 className="text-2xl font-bold font-serif-editorial text-foreground mb-3">Siap memulai?</h2>
               <p className="text-base text-muted-foreground leading-relaxed max-w-sm mx-auto mb-8 font-medium">
-                TIARA akan mengajukan 4 pertanyaan ringan tentang hari ini, daya ingat, dan perasaan Bapak/Ibu. Tidak perlu terburu-buru.
+                TIARA akan mengajukan 4 pertanyaan ringan tentang hari ini, sarapan, kenangan, dan perasaan Bapak/Ibu. Tidak perlu terburu-buru.
               </p>
               <p className="text-sm text-muted-foreground max-w-sm mx-auto mb-6">
                 Dengan menekan Mulai Check-In, Bapak/Ibu setuju jawaban suara direkam untuk check-in hari ini.

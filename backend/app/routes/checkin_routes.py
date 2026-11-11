@@ -358,12 +358,13 @@ async def selesai(
 
         perlu_perhatian = False
         if penilaian["tingkat"] == "high":
-            alasan = "; ".join(penilaian["indikator"]) or "pola bicara menyimpang dari pembanding"
+            alasan = "; ".join(penilaian["indikator"]) or "pola bicara berbeda dari pembanding"
             perlu_perhatian = await _tambah_peringatan(
                 db, patient_user_id, session_id, AlertSeverity.WARNING,
-                "Pola bicara hari ini menyimpang dari biasanya",
+                "Pola bicara hari ini berbeda dari biasanya",
                 f"Skor risiko hari ini {penilaian['skor']} (Tinggi), dibandingkan dengan {asal}. "
-                f"Penyebab utama: {alasan}. Ini indikator informatif, bukan diagnosis.",
+                f"Penyebab utama: {alasan}. Ini indikator informatif, bukan diagnosis. "
+                "Satu hari belum cukup untuk menyimpulkan; perhatikan pola beberapa hari, dan konsultasikan ke tenaga kesehatan bila perubahan berlanjut.",
                 "Tanyakan kabar lansia, perhatikan tidur, kelelahan dan perubahan obat, lalu catat untuk "
                 "dibahas dengan tenaga kesehatan. Jika perubahan terasa cepat, segera konsultasikan.",
             )

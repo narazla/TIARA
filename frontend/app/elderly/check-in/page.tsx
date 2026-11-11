@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { ProtectedRoute } from "@/components/shared/ProtectedRoute";
-import { voiceCheckinApi } from "@/lib/api";
+import { voiceCheckinApi, moodApi } from "@/lib/api";
 
 const QUESTIONS = [
   { id: "q1", category: "Orientasi", text: "Hari apa sekarang, Bapak/Ibu?", step: 1 },
@@ -40,6 +40,7 @@ function CheckInContent() {
   const [micActive, setMicActive] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [kondisi, setKondisi] = useState<string | null>(null);
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -188,6 +189,13 @@ function CheckInContent() {
     try {
       const mulai = await voiceCheckinApi.start();
       sessionIdRef.current = mulai.session_id;
+      if (kondisi !== null) {
+        try {
+          await moodApi.save(kondisi);
+        } catch (err) {
+          console.warn("Gagal menyimpan kondisi sebelum check-in:", err);
+        }
+      }
       setStarted(true);
       setCurrentIdx(0);
       speakQuestion(QUESTIONS[0].text);
@@ -371,6 +379,34 @@ function CheckInContent() {
               <p className="text-sm text-muted-foreground max-w-sm mx-auto mb-6">
                 Dengan menekan Mulai Check-In, Bapak/Ibu setuju jawaban suara direkam untuk check-in hari ini.
               </p>
+
+              {/* Pilihan kondisi sebelum check-in (opsional) */}
+              <div className="max-w-sm mx-auto mb-6 text-left">
+                <p className="text-sm font-semibold text-muted-foreground mb-3 text-center">
+                  Bagaimana kondisi Bapak/Ibu sebelum mulai? <span className="font-normal">(boleh dilewati)</span>
+                </p>
+                <div className="grid grid-cols-2 gap-3">
+                  {([
+                    { value: "baik", label: "Baik-baik saja" },
+                    { value: "kurang_tidur", label: "Kurang tidur" },
+                    { value: "lelah", label: "Lelah" },
+                    { value: "kurang_sehat", label: "Kurang sehat" },
+                  ] as const).map(({ value, label }) => (
+                    <button
+                      key={value}
+                      onClick={() => setKondisi(kondisi === value ? null : value)}
+                      className={`min-h-[48px] rounded-2xl border-2 font-semibold text-sm transition-all cursor-pointer px-3 py-3 ${
+                        kondisi === value
+                          ? "border-primary bg-primary text-white shadow-md"
+                          : "border-border bg-secondary/50 text-foreground hover:border-primary/60 hover:bg-primary/5"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               {errorMsg && (
                 <p className="text-sm font-bold text-red-600 max-w-sm mx-auto mb-4">{errorMsg}</p>
               )}

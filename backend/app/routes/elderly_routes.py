@@ -95,7 +95,7 @@ async def get_elderly_profile(
 
 
 class MoodRequest(BaseModel):
-    mood: Literal["tenang_bahagia", "biasa", "sedikit_kesepian"]
+    mood: Literal["tenang_bahagia", "biasa", "sedikit_kesepian", "baik", "kurang_tidur", "lelah", "kurang_sehat"]
 
 
 @router.post("/mood", status_code=201)

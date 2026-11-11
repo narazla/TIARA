@@ -169,7 +169,7 @@ export default function LandingPage() {
                 step: "01",
                 icon: Video,
                 title: "Check-In Harian",
-                desc: "TIARA mengajukan pertanyaan lisan yang ramah dan merekam jawaban lansia lewat kamera dan mikrofon perangkat.",
+                desc: "TIARA mengajukan pertanyaan lisan yang ramah dan merekam suara jawaban lansia lewat mikrofon perangkat. Kamera hanya untuk pratinjau lokal dan tidak direkam.",
               },
               {
                 step: "02",
@@ -314,7 +314,7 @@ export default function LandingPage() {
                 {[
                   {
                     title: "Perekaman berbasis persetujuan",
-                    desc: "Akses kamera dan mikrofon memerlukan persetujuan eksplisit di setiap sesi.",
+                    desc: "Akses mikrofon dan kamera (pratinjau lokal, tidak direkam) memerlukan persetujuan eksplisit di setiap sesi.",
                   },
                   {
                     title: "Hanya indikator tren kognitif",
